@@ -10,11 +10,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="user-registration" target="11" />
       <module name="user-registration-service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="user-registration" options="-parameters" />
       <module name="user-registration-service" options="-parameters" />
     </option>
   </component>
