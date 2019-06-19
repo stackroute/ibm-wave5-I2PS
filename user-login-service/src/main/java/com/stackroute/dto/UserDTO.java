@@ -1,14 +1,6 @@
-package com.stackroute.domain;
+package com.stackroute.dto;
 
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
-
-public class User {
-
-    @Id
+public class UserDTO {
     private String userName;
     private String password;
     private String about;
@@ -21,9 +13,7 @@ public class User {
     private String preferredLocation;
     private String experience;
 
-    public User( String userName, String password, String about, String[] skills, String domain, String country, String state, String city, String ratePerHour, String preferredLocation, String experience) {
-
-
+    public UserDTO(String userName, String password, String about, String[] skills, String domain, String country, String state, String city, String ratePerHour, String preferredLocation, String experience) {
         this.userName = userName;
         this.password = password;
         this.about = about;
@@ -37,120 +27,94 @@ public class User {
         this.experience = experience;
     }
 
-    public User() {
+    public UserDTO() {
     }
 
-
-    public String getUserName()
-    {
+    public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName)
-    {
+    public void setUserName(String userName) {
         this.userName = userName;
     }
 
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password)
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getAbout()
-    {
+    public String getAbout() {
         return about;
     }
 
-    public void setAbout(String about)
-    {
+    public void setAbout(String about) {
         this.about = about;
     }
 
-    public String[] getSkills()
-    {
+    public String[] getSkills() {
         return skills;
     }
 
-    public void setSkills(String[] skills)
-
-    {
+    public void setSkills(String[] skills) {
         this.skills = skills;
     }
 
-    public String getDomain()
-    {
+    public String getDomain() {
         return domain;
     }
 
-    public void setDomain(String domain)
-    {
+    public void setDomain(String domain) {
         this.domain = domain;
     }
 
-    public String getCountry()
-    {
+    public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country)
-    {
+    public void setCountry(String country) {
         this.country = country;
     }
 
-    public String getState()
-    {
+    public String getState() {
         return state;
     }
 
-    public void setState(String state)
-    {
+    public void setState(String state) {
         this.state = state;
     }
 
-    public String getCity()
-    {
+    public String getCity() {
         return city;
     }
 
-    public void setCity(String city)
-    {
+    public void setCity(String city) {
         this.city = city;
     }
 
-    public String getRatePerHour()
-    {
+    public String getRatePerHour() {
         return ratePerHour;
     }
 
-    public void setRatePerHour(String ratePerHour)
-    {
+    public void setRatePerHour(String ratePerHour) {
         this.ratePerHour = ratePerHour;
     }
 
-    public String getPreferredLocation()
-    {
+    public String getPreferredLocation() {
         return preferredLocation;
     }
 
-    public void setPreferredLocation(String preferredLocation)
-    {
+    public void setPreferredLocation(String preferredLocation) {
         this.preferredLocation = preferredLocation;
     }
 
-    public String getExperience()
-    {
+    public String getExperience() {
         return experience;
     }
 
-    public void setExperience(String experience)
-    {
+    public void setExperience(String experience) {
         this.experience = experience;
     }
-
-
 }
