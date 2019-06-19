@@ -10,6 +10,7 @@
       <span class="example-spacer"></span>
       <button mat-button>Home</button>
       <button mat-button>How It Works</button>
+      <button mat-button routerLink='/register' routerLinkActive="active">Sign Up!</button>
       <button mat-icon-button [matMenuTriggerFor]="menu"> <mat-icon>more_vert</mat-icon></button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>
@@ -48,6 +49,7 @@
             <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
           </mat-form-field></td>
         </tr></table>
+        <a routerLink='/register' routerLinkActive="active">Not Registered yet? Click here!</a>
       </form>
       <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>

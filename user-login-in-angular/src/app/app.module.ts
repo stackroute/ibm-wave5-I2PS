@@ -14,6 +14,7 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { LoginService } from './login.service';
 import { RegistrationService } from './registration.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { RegistrationService } from './registration.service';
     MatInputModule, 
     MatButtonModule,
     FormsModule,
+    
     ReactiveFormsModule
   ],
   providers: [LoginService,RegistrationService],

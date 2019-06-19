@@ -5,17 +5,22 @@ import javax.persistence.Id;
 
 @Entity
 
-public class User {
-    public User() {
-    }
 
-    public User(int userId, String password) {
-        this.userId = userId;
-        this.password = password;
-    }
+public class User {
 
     @Id
     private int userId;
+    private String name;
+    private String password;
+
+    public User() {
+    }
+
+    public User(int userId, String name, String password) {
+        this.userId=userId;
+        this.name = name;
+        this.password = password;
+    }
 
     public int getUserId() {
         return userId;
@@ -25,6 +30,14 @@ public class User {
         this.userId = userId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -32,8 +45,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    private String password;
-
-
 }

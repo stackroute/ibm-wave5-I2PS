@@ -7,7 +7,8 @@
      <form [formGroup] = "firstFormGroup">
         <ng-template matStepLabel>Enter your name</ng-template>
         <mat-form-field>
-           <input matInput placeholder = "Last name, First name" formControlName = "firstCtrl" required>
+           <input matInput placeholder = "Your Name" formControlName = "firstCtrl" required>
+           <input matInput placeholder = "Phone Number" required>
         </mat-form-field>
         <div>
           <button mat-button matStepperNext>Next</button>
@@ -27,7 +28,7 @@
      </form>
   </mat-step>
   <mat-step>
-     <ng-template matStepLabel>Done</ng-template>
+     <ng-template matStepLabel>third</ng-template>
         Details taken.
      <div>
         <button mat-button matStepperPrevious>Back</button>
