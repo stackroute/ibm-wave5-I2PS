@@ -1,4 +1,4 @@
-package com.stackroute.exception;
+package com.stackroute.userloginservice.exception;
 
 public class UserNameOrPasswordEmptyException extends Exception {
 

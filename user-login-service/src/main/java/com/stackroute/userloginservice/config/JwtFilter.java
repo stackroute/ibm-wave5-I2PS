@@ -1,4 +1,4 @@
-package com.stackroute.config;
+package com.stackroute.userloginservice.config;
 
 import javax.servlet.GenericFilter;
 

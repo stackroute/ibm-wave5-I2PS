@@ -1,16 +1,19 @@
-package com.stackroute.controller;
+package com.stackroute.userloginservice.controller;
 
-import com.stackroute.domain.User;
-import com.stackroute.exception.PasswordNotMatchException;
-import com.stackroute.exception.UserNameNotFoundException;
-import com.stackroute.exception.UserNameOrPasswordEmptyException;
-import com.stackroute.jwt.SecurityTokenGenrator;
-import com.stackroute.service.UserService;
+
+import com.stackroute.userloginservice.domain.User;
+import com.stackroute.userloginservice.exception.PasswordNotMatchException;
+import com.stackroute.userloginservice.exception.UserNameNotFoundException;
+import com.stackroute.userloginservice.exception.UserNameOrPasswordEmptyException;
+import com.stackroute.userloginservice.jwt.SecurityTokenGenrator;
+
 
 import com.stackroute.service.UserServiceImpl;
+import com.stackroute.userloginservice.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,17 +26,17 @@ import java.util.*;
 @RequestMapping("api/v1")
 @RestController
 public class UserController {
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @Autowired
-    public UserController(UserServiceImpl userService) {
+    public UserController(UserService userService) {
 
         this.userService = userService;
     }
 
 //    @ApiOperation(value = "Accept user into repository and generating token")
     @PostMapping("/user")
-    public ResponseEntity<?>  login(@RequestBody User loginDetails) throws UserNameOrPasswordEmptyException, UserNameNotFoundException, PasswordNotMatchException {
+    public ResponseEntity<?> login(@RequestBody User loginDetails) throws UserNameOrPasswordEmptyException, UserNameNotFoundException, PasswordNotMatchException {
 
         String userName = loginDetails.getUserName();
         String password = loginDetails.getPassword();

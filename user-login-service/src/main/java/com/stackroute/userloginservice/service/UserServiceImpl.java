@@ -1,7 +1,7 @@
-package com.stackroute.service;
+package com.stackroute.userloginservice.service;
 
-import com.stackroute.domain.User;
-import com.stackroute.repository.UserRepository;
+import com.stackroute.userloginservice.domain.User;
+import com.stackroute.userloginservice.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

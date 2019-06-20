@@ -1,4 +1,4 @@
-package com.stackroute.domain;
+package com.stackroute.userloginservice.domain;
 
 
 import javax.persistence.Entity;

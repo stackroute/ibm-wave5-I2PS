@@ -1,6 +1,7 @@
-package com.stackroute.jwt;
+package com.stackroute.userloginservice.jwt;
 
-import com.stackroute.domain.User;
+
+import com.stackroute.userloginservice.domain.User;
 
 import java.util.Map;
 

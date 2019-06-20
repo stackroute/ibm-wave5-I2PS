@@ -1,4 +1,4 @@
-package com.stackroute.config;
+package com.stackroute.userloginservice.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;

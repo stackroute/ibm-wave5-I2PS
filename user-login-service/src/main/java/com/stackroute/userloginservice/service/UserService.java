@@ -1,6 +1,6 @@
-package com.stackroute.service;
+package com.stackroute.userloginservice.service;
 
-import com.stackroute.domain.User;
+import com.stackroute.userloginservice.domain.User;
 
 public interface UserService {
 
