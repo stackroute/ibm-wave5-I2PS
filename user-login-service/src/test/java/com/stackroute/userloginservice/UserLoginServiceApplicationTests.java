@@ -1,4 +1,4 @@
-package com.stackroute;
+package com.stackroute.userloginservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserserviceApplicationTests {
+public class UserLoginServiceApplicationTests {
 
 	@Test
 	public void contextLoads() {
