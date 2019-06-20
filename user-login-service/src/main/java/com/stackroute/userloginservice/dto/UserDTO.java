@@ -1,4 +1,4 @@
-package com.stackroute.userloginservice.dto;
+package com.stackroute.dto;
 
 public class UserDTO {
     private String userName;
