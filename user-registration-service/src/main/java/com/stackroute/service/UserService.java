@@ -1,9 +1,6 @@
-package com.stackroute.userservice;
+package com.stackroute.service;
 
 import com.stackroute.domain.User;
-
-
-import java.util.Optional;
 
 public interface UserService {
 

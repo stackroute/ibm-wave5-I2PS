@@ -5,8 +5,9 @@ import com.stackroute.exception.PasswordNotMatchException;
 import com.stackroute.exception.UserNameNotFoundException;
 import com.stackroute.exception.UserNameOrPasswordEmptyException;
 import com.stackroute.jwt.SecurityTokenGenrator;
-import com.stackroute.userservice.UserService;
+import com.stackroute.service.UserService;
 
+import com.stackroute.service.UserServiceImpl;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,10 @@ import java.util.*;
 @RequestMapping("api/v1")
 @RestController
 public class UserController {
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
 
         this.userService = userService;
     }
@@ -34,15 +35,15 @@ public class UserController {
     @PostMapping("/user")
     public ResponseEntity<?>  login(@RequestBody User loginDetails) throws UserNameOrPasswordEmptyException, UserNameNotFoundException, PasswordNotMatchException {
 
-        String name = loginDetails.getName();
+        String userName = loginDetails.getUserName();
         String password = loginDetails.getPassword();
 
-        if (name == null || password == null) {
+        if (userName == null || password == null) {
 
             throw new UserNameOrPasswordEmptyException();
         }
 
-        User user = userService.findByNameAndPassword(name,password);
+        User user = userService.findByNameAndPassword(userName,password);
 
         if (user == null) {
             throw new UserNameNotFoundException();
@@ -59,7 +60,7 @@ public class UserController {
         SecurityTokenGenrator securityTokenGenrator = (User userDetails) -> {
             String jwtToken = "";
 
-            jwtToken = Jwts.builder().setId(""+user.getUserId()).setAudience(user.getName()).setIssuedAt(new Date())
+            jwtToken = Jwts.builder().setId(""+user.getUserName()).setIssuedAt(new Date())
 
                     .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 

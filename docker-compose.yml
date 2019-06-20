@@ -30,3 +30,55 @@ services:
     hostname: localhost
     ports:
       - 8080:8080
+
+  user-registration-service:
+    build: user-registration-service/
+    depends_on:
+      - eureka-server
+      - mongo
+    restart: always
+    network_mode: "host"
+    image: user-registration-service
+    hostname: localhost
+    ports:
+      - 8099:8099
+
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+    container_name: mongo-service
+    network_mode: "host"
+    hostname: localhost
+    volumes:
+      - /data/mongo:/data/
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql
+    network_mode: "host"
+    hostname: localhost
+    environment:
+      MYSQL_DATABASE: "userDB"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "Root@123"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - /data/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  user-login-service:
+    build: user-login-service/
+    depends_on:
+     - eureka-server
+     - mysql
+    restart: always
+    network_mode: "host"
+    image: user-login-service
+    hostname: localhost
+    ports:
+    - 8088:8088

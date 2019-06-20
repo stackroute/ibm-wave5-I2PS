@@ -2,14 +2,15 @@ package com.stackroute.controller;
 
 
 import com.stackroute.domain.User;
-import com.stackroute.userservice.UserService;
 
+
+import com.stackroute.service.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+
 
 
 
@@ -19,20 +20,35 @@ import java.util.Optional;
 
 @RequestMapping (value = "api/v1")
 public class UserController {
-    UserService userService;
 
-    public UserController(UserService userService)
+    UserServiceImpl userServiceImpl;
+
+
+    @Autowired
+    public UserController(UserServiceImpl userServiceImpl)
     {
-        this.userService = userService;
+        this.userServiceImpl=userServiceImpl;
     }
 
 
+
+    @GetMapping(value = "/producer")
+    public String producer(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+
+        User user=new User();
+//        user.setUserName("khushbu");
+//        user.setPassword("kk");
+        userServiceImpl.send(user);
+
+        return "Message sent to the hiiiiiiii RabbitMQ Successfully";
+    }
 
 
 
     @PostMapping ("/user")
     public ResponseEntity<?> saveUser(@RequestBody User user) {
-        return new ResponseEntity<User>(userService.saveUser(user),HttpStatus.CREATED);
+        userServiceImpl.send(user);
+        return new ResponseEntity<User>(userServiceImpl.saveUser(user),HttpStatus.CREATED);
     }
 
 }
