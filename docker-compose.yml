@@ -36,6 +36,7 @@ services:
     depends_on:
       - eureka-server
       - mongo
+      - rabbitmq
     restart: always
     network_mode: "host"
     image: user-registration-service
@@ -62,23 +63,38 @@ services:
     network_mode: "host"
     hostname: localhost
     environment:
-      MYSQL_DATABASE: "userDB"
-      MYSQL_USER: "root"
-      MYSQL_PASSWORD: "Root@123"
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: Root@123
+      MYSQL_DATABASE: userDB
+      MYSQL_PASSWORD: Root@123
     volumes:
       - /data/mysql:/var/lib/mysql
     ports:
       - "3306:3306"
+
 
   user-login-service:
     build: user-login-service/
     depends_on:
      - eureka-server
      - mysql
+     - rabbitmq
     restart: always
     network_mode: "host"
     image: user-login-service
     hostname: localhost
     ports:
     - 8088:8088
+
+  rabbitmq:
+    image: rabbitmq:3.7.5-management
+    hostname: localhost
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./data/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@app-rabbitmq:cached
+    environment:
+      RABBITMQ_ERLANG_COOKIE: 6085e2412b6fa88647466c6a81c0cea0
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_VHOST: /
