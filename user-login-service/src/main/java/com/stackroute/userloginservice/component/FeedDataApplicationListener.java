@@ -1,8 +1,8 @@
 /*
 package com.stackroute.component;
 
-import User;
-import UserRepository;
+import com.stackroute.domain.User;
+import com.stackroute.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;

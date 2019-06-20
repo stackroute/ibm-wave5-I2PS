@@ -1,4 +1,4 @@
-package com.stackroute;
+package com.stackroute.userloginservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
