@@ -5,7 +5,6 @@ import com.stackroute.exception.PasswordNotMatchException;
 import com.stackroute.exception.UserNameNotFoundException;
 import com.stackroute.exception.UserNameOrPasswordEmptyException;
 import com.stackroute.jwt.SecurityTokenGenrator;
-import com.stackroute.service.UserService;
 
 import com.stackroute.service.UserServiceImpl;
 import io.jsonwebtoken.Jwts;
