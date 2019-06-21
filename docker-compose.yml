@@ -54,7 +54,7 @@ services:
     network_mode: "host"
     hostname: localhost
     volumes:
-      - /data/mongo:/data/
+      - ./data/db:/data/db
 
 #  mysql:
 #    image: mysql:5.7

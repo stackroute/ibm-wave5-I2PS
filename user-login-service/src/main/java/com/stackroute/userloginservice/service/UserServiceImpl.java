@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    UserRepository userRepository ;
+    UserRepository userRepository;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository) {
@@ -20,12 +20,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByNameAndPassword(String userName, String password) {
-        return userRepository.findByUserNameAndPassword(userName,password);
+        return userRepository.findByUserNameAndPassword(userName, password);
     }
+
     @RabbitListener(queues = "${javainuse.rabbitmq.queue}")
     public void recievedMessage(User user) {
         userRepository.save(user);
         System.out.println("Recieved Message From RabbitMQ:" + user.toString());
 
     }
+
 }
