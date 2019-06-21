@@ -2,6 +2,7 @@
   user-registration works!
 </p> -->
 
+
 <mat-horizontal-stepper [linear] = "isLinear" #stepper>
   <mat-step [stepControl] = "firstFormGroup">
      <form [formGroup] = "firstFormGroup">
@@ -42,10 +43,14 @@
      <form [formGroup] = "secondFormGroup">
         <ng-template matStepLabel>Skills</ng-template>
 
-         <mat-form-field>
+           <mat-form-field>
+               <input matInput placeholder = "Your Skills" formControlName = "secondCtrl" required>
+          </mat-form-field>
+           <br>
+           <!-- <mat-form-field>
                <input matInput placeholder = "Your Skills" formControlName = "secondCtrl" required>
            </mat-form-field>
-           <br>
+           <br> -->
            <mat-form-field>
                <input matInput placeholder = "Your Experiance" formControlName = "secondCtrl" required>
            </mat-form-field>
@@ -85,18 +90,14 @@
   <mat-step>
      <ng-template matStepLabel>Last Step:</ng-template>
      <h3>Choose your type:</h3>
-     <input type="radio" name="type" value=" I want to Work on an Idea "> I want to Work on an Idea<br>
-     <!-- <input type="radio" name="type" value=" I want to Post an Idea "> I want to Post an Idea<br> -->
+          
 
-     <!-- <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br />
-     <div class="check-element funky-show-hide" ng-show="checked">
-        I show up when your checkbox is checked.
-     </div> -->
+     <input name="type"  [(ngModel)]="options" type="radio" [value]="true" [checked]="options"/>I want to Work on an Idea<br> 
 
-     
-     <input type="radio" ng-model="checked" aria-label="Toggle ngShow" name="type" value=" I want to Work on an Idea "> I want to Work on an Idea<br />
-     <div class="check-element animate-show-hide" ng-show="checked">
-        
+     <input name="options"[(ngModel)]="options" type="radio" [value]="false" [checked]="!options"/>I want to Post an Idea<br>
+
+   
+      <div *ngIf="options">
         <div class="roles">
            <h3>Select Some Roles: </h3>
            <p>Select Atleast 3 roles:</p>
@@ -454,15 +455,13 @@
                  <option value="Language transalator">Language transalator</option>
               </select> 
            </div> <!--end of roles-->
-       </div>  <!--hide thing end-->
-
-
+         </div>
      <div>
         <button mat-raised-button matStepperPrevious color="primary">Back</button>
         
         <button mat-raised-button color="primary" (click) = "stepper.reset()">Reset</button>
         
-        <button mat-raised-button color="primary">Done!</button>
+        <button mat-raised-button color="primary" (click)="toLogin()">Done!</button>
      </div>
   </mat-step>
 </mat-horizontal-stepper>

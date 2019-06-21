@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
+import { LoginService } from '../login.service';
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -7,9 +8,17 @@ import {Router} from '@angular/router';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+constructor(private loginService:LoginService, private route: ActivatedRoute,private router:Router) { }
+  arrayOfUser:any=[];
+
 
   ngOnInit() {
+
+    // this.subscribe(data=>
+    //   {
+    //    console.log(data)
+    //    this.arrayOfMusic=data;
+    // });
   }
 
   username: string;
@@ -18,7 +27,7 @@ export class UserLoginComponent implements OnInit {
   login() : void {
     if(this.username == 'admin' && this.password == 'admin'){
      this.router.navigate(["register"]);
-    }else {
+    }else { 
       alert("Invalid credentials");
     }
   }
