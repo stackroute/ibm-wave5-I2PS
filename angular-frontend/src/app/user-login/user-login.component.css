@@ -1,3 +1,11 @@
-.card{
-  align-content: center;  
+/* .fixed-header
+{
+  color: rgb(26, 163, 255);
+} */
+
+
+.example-card
+{
+  width: 500px;
+  display: inline-block;
 }
