@@ -1,11 +1,12 @@
 package com.stackroute.userloginservice.controller;
 
+import com.stackroute.userloginservice.exception.RoleNotFoundException;
 import com.stackroute.userloginservice.service.UserServiceImpl;
 import com.stackroute.userloginservice.domain.User;
 
 import com.stackroute.userloginservice.exception.PasswordNotMatchException;
 import com.stackroute.userloginservice.exception.UserNameNotFoundException;
-import com.stackroute.userloginservice.exception.UserNameOrPasswordEmptyException;
+import com.stackroute.userloginservice.exception.UserNameOrPasswordOrRoleEmptyException;
 import com.stackroute.userloginservice.jwt.SecurityTokenGenrator;
 
 import io.jsonwebtoken.Jwts;
@@ -33,20 +34,26 @@ public class UserController {
 
 //    @ApiOperation(value = "Accept user into repository and generating token")
     @PostMapping("/user")
-    public ResponseEntity<?>  login(@RequestBody User loginDetails) throws UserNameOrPasswordEmptyException, UserNameNotFoundException, PasswordNotMatchException {
+    public ResponseEntity<?>  login(@RequestBody User loginDetails) throws UserNameOrPasswordOrRoleEmptyException, UserNameNotFoundException, PasswordNotMatchException, RoleNotFoundException {
 
         String userName = loginDetails.getUserName();
         String password = loginDetails.getPassword();
+        String role=loginDetails.getRole();
 
-        if (userName == null || password == null) {
+        if (userName == null || password == null ||role==null) {
 
-            throw new UserNameOrPasswordEmptyException();
+            throw new UserNameOrPasswordOrRoleEmptyException();
         }
 
         User user = userService.findByNameAndPassword(userName,password);
 
         if (user == null) {
             throw new UserNameNotFoundException();
+        }
+
+        if(role==null)
+        {
+            throw new RoleNotFoundException();
         }
 
         String fetchedPassword = user.getPassword();
@@ -60,7 +67,7 @@ public class UserController {
         SecurityTokenGenrator securityTokenGenrator = (User userDetails) -> {
             String jwtToken = "";
 
-            jwtToken = Jwts.builder().setId(""+user.getUserName()).setIssuedAt(new Date())
+            jwtToken = Jwts.builder().setId(""+user.getUserName()).setSubject(user.getRole()).setIssuedAt(new Date())
 
                     .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 
