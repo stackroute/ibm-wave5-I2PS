@@ -4,8 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.stackroute</groupId>
-		<artifactId>your-product-name</artifactId>
+		<artifactId>ibm-wave5-I2PS</artifactId>
 		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+
 	</parent>
 	<groupId>com.stackroute</groupId>
 	<artifactId>zuul-api</artifactId>
@@ -28,6 +30,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>2.1.1.RELEASE</version>
 		</dependency>
 	</dependencies>
 

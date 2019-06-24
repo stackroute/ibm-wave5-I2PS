@@ -5,7 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute</groupId>
-	<artifactId>your-product-name</artifactId>
+	<artifactId>ibm-wave5-I2PS</artifactId>
+	<name>ibm-wave5-I2PS</name>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
@@ -29,6 +30,8 @@
 		<module>config-server</module>
 		<module>eureka-server</module>
 		<module>zuul-api</module>
+		<module>user-login-service</module>
+
 	</modules>
 
 	<dependencies>

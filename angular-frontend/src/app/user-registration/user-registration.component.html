@@ -1,0 +1,467 @@
+<!-- <p>
+  user-registration works!
+</p> -->
+
+
+<mat-horizontal-stepper [linear] = "isLinear" #stepper>
+  <mat-step [stepControl] = "firstFormGroup">
+     <form [formGroup] = "firstFormGroup">
+        <ng-template matStepLabel>Enter your details:</ng-template>
+         <mat-form-field>
+            <input matInput placeholder = "First Name" formControlName = "firstCtrl" required>
+         </mat-form-field>
+         <br>
+         <mat-form-field>
+               <input matInput placeholder = "Last Name" formControlName = "firstCtrl" required>
+         </mat-form-field>
+            <br>
+         <mat-form-field>
+               <input matInput placeholder = "Email-Id" formControlName = "firstCtrl" required>
+         </mat-form-field>
+            <br>
+         <mat-form-field>
+               <input matInput placeholder = "Phone Number" formControlName = "firstCtrl" required>
+         </mat-form-field>
+            <br>
+         <mat-form-field>
+               <input matInput placeholder = "User Name" formControlName = "firstCtrl" required>
+         </mat-form-field>
+            <br>
+         <mat-form-field>
+               <input matInput placeholder = "Password" formControlName = "firstCtrl" required>
+         </mat-form-field>
+            <br>
+         <mat-form-field>
+               <input matInput placeholder = "Confirm Password" formControlName = "firstCtrl" required>
+         </mat-form-field>
+         <div>
+          <button mat-raised-button matStepperNext color="primary">Next</button>
+        </div>
+     </form>
+  </mat-step>
+  <mat-step [stepControl] = "secondFormGroup">
+     <form [formGroup] = "secondFormGroup">
+        <ng-template matStepLabel>Skills</ng-template>
+
+           <mat-form-field>
+               <input matInput placeholder = "Your Skills" formControlName = "secondCtrl" required>
+          </mat-form-field>
+           <br>
+           <!-- <mat-form-field>
+               <input matInput placeholder = "Your Skills" formControlName = "secondCtrl" required>
+           </mat-form-field>
+           <br> -->
+           <mat-form-field>
+               <input matInput placeholder = "Your Experiance" formControlName = "secondCtrl" required>
+           </mat-form-field>
+           <br>
+           <mat-form-field>
+               <input matInput placeholder = "Your Country" formControlName = "secondCtrl" required>
+           </mat-form-field>
+           <br>
+           <mat-form-field>
+               <input matInput placeholder = "Your State" formControlName = "secondCtrl" required>
+           </mat-form-field>
+           <br>
+           <mat-form-field>
+               <input matInput placeholder = "Your City" formControlName = "secondCtrl" >
+           </mat-form-field>
+           <br>
+           <mat-form-field>
+               <input matInput placeholder = "Preferred Loaction" formControlName = "secondCtrl">
+           </mat-form-field>
+           <br>
+           <mat-form-field>
+               <input matInput placeholder = "Certifications" formControlName = "secondCtrl">
+           </mat-form-field>
+           <br>
+           <mat-form-field>
+               <input matInput placeholder = "Charges Per Hour" formControlName = "secondCtrl" required>
+           </mat-form-field>
+           <br>
+ 
+        <div>
+          <button mat-raised-button matStepperPrevious color="primary">Back</button>
+          <button mat-raised-button matStepperNext color="primary">Next</button>
+        </div>
+        
+     </form>
+  </mat-step>
+  <mat-step>
+     <ng-template matStepLabel>Last Step:</ng-template>
+     <h3>Choose your type:</h3>
+          
+
+     <input name="type"  [(ngModel)]="options" type="radio" [value]="true" [checked]="options"/>I want to Work on an Idea<br> 
+
+     <input name="options"[(ngModel)]="options" type="radio" [value]="false" [checked]="!options"/>I want to Post an Idea<br>
+
+   
+      <div *ngIf="options">
+        <div class="roles">
+           <h3>Select Some Roles: </h3>
+           <p>Select Atleast 3 roles:</p>
+           <p>Role 1</p>
+              <select required>
+                 <option value="Select">Select</option>
+                 <option value="Full Stack Developer">Full Stack Developer</option>
+                 <option value="Android Developer">Android Developer</option>
+                 <option value="Java Developer">Java Developer</option>
+                 <option value="MEAN Stack Developer">MEAN Stack Developer</option>
+                 <option value=".Net Developer">.Net Developer</option>
+                 <option value="IOS Developer">IOS Developer</option>
+                 <option value="Hardware Developer">Hardware Developer</option>
+                 <option value="Hardware Design Engineer">Hardware Design Engineer</option>
+
+                 <option value="Hardware Requirements System Engineer">Hardware Requirements System Engineer</option>
+                 <option value="Manual Tester">Manual Tester</option>
+                 <option value="Automation Tester"> Automation Tester</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 
+                 <option value="Sports Guide">Sports Guide</option>
+                 <option value="Coastal Trainer">Coastal Trainer</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 <option value="Sports Guide">Sports Guide</option>
+
+                 <option value="Investor/Financier">Investor/Financier</option>
+                 <option value="Government Liasioning Officer">Government Liasioning Officer</option>
+                 <option value="Sales Executive">Sales Executive</option>
+                 <option value="Marketing Specialist">Marketing Specialist</option>
+
+                 <option value="Medical Records Transfer Agent">Medical Records Transfer Agent</option>
+                 <option value="Specially trained physicians">Specially trained physicians</option>
+                 <option value="Patient care coordinator">Patient care coordinator</option>
+                 <option value="Specially trained nurse">Specially trained nurse</option>
+                 <option value="Trainer">Trainer</option>
+                 <option value="Sports Education Manager">Sports Education Manager</option>
+                 <option value="Business Appointment Scheduler">Business Appointment Scheduler</option>
+                 <option value="Wildlife Guide">Wildlife guide</option>
+                 <option value="Outdoor Activity Manager">Outdoor Activity Manager</option>
+                 <option value="Scuba diver">Scuba diver</option>
+                 <option value="Lifeguard">Lifeguard</option>
+
+                 <option value="Travel guide">Travel guide</option>
+                 <option value="Travel agent">Travel agent</option>
+                 <option value="Photographer">Photographer</option>
+                 <option value="Wildlife photographer">Wildlife photographer</option>
+                 <option value="Destination photographer">Destination photographer</option>
+                 <option value="Tour manager">Tour manager</option>
+                 <option value="Travel consultant">Travel consultant</option>
+                 <option value="Language transalator">Language transalator</option>
+              </select> 
+              
+              <p>Role 2</p>
+              <select required>
+                 <option value="Select">Select</option>
+                 <option value="Full Stack Developer">Full Stack Developer</option>
+                 <option value="Android Developer">Android Developer</option>
+                 <option value="Java Developer">Java Developer</option>
+                 <option value="MEAN Stack Developer">MEAN Stack Developer</option>
+                 <option value=".Net Developer">.Net Developer</option>
+                 <option value="IOS Developer">IOS Developer</option>
+                 <option value="Hardware Developer">Hardware Developer</option>
+                 <option value="Hardware Design Engineer">Hardware Design Engineer</option>
+
+                 <option value="Hardware Requirements System Engineer">Hardware Requirements System Engineer</option>
+                 <option value="Manual Tester">Manual Tester</option>
+                 <option value="Automation Tester"> Automation Tester</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 
+                 <option value="Sports Guide">Sports Guide</option>
+                 <option value="Coastal Trainer">Coastal Trainer</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 <option value="Sports Guide">Sports Guide</option>
+
+                 <option value="Investor/Financier">Investor/Financier</option>
+                 <option value="Government Liasioning Officer">Government Liasioning Officer</option>
+                 <option value="Sales Executive">Sales Executive</option>
+                 <option value="Marketing Specialist">Marketing Specialist</option>
+
+                 <option value="Medical Records Transfer Agent">Medical Records Transfer Agent</option>
+                 <option value="Specially trained physicians">Specially trained physicians</option>
+                 <option value="Patient care coordinator">Patient care coordinator</option>
+                 <option value="Specially trained nurse">Specially trained nurse</option>
+                 <option value="Trainer">Trainer</option>
+                 <option value="Sports Education Manager">Sports Education Manager</option>
+                 <option value="Business Appointment Scheduler">Business Appointment Scheduler</option>
+                 <option value="Wildlife Guide">Wildlife guide</option>
+                 <option value="Outdoor Activity Manager">Outdoor Activity Manager</option>
+                 <option value="Scuba diver">Scuba diver</option>
+                 <option value="Lifeguard">Lifeguard</option>
+
+                 <option value="Travel guide">Travel guide</option>
+                 <option value="Travel agent">Travel agent</option>
+                 <option value="Photographer">Photographer</option>
+                 <option value="Wildlife photographer">Wildlife photographer</option>
+                 <option value="Destination photographer">Destination photographer</option>
+                 <option value="Tour manager">Tour manager</option>
+                 <option value="Travel consultant">Travel consultant</option>
+                 <option value="Language transalator">Language transalator</option>
+              </select> 
+
+              <p>Role 3</p>
+              <select required>
+                 <option value="Select">Select</option>
+                 <option value="Full Stack Developer">Full Stack Developer</option>
+                 <option value="Android Developer">Android Developer</option>
+                 <option value="Java Developer">Java Developer</option>
+                 <option value="MEAN Stack Developer">MEAN Stack Developer</option>
+                 <option value=".Net Developer">.Net Developer</option>
+                 <option value="IOS Developer">IOS Developer</option>
+                 <option value="Hardware Developer">Hardware Developer</option>
+                 <option value="Hardware Design Engineer">Hardware Design Engineer</option>
+
+                 <option value="Hardware Requirements System Engineer">Hardware Requirements System Engineer</option>
+                 <option value="Manual Tester">Manual Tester</option>
+                 <option value="Automation Tester"> Automation Tester</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 
+                 <option value="Sports Guide">Sports Guide</option>
+                 <option value="Coastal Trainer">Coastal Trainer</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 <option value="Sports Guide">Sports Guide</option>
+
+                 <option value="Investor/Financier">Investor/Financier</option>
+                 <option value="Government Liasioning Officer">Government Liasioning Officer</option>
+                 <option value="Sales Executive">Sales Executive</option>
+                 <option value="Marketing Specialist">Marketing Specialist</option>
+
+                 <option value="Medical Records Transfer Agent">Medical Records Transfer Agent</option>
+                 <option value="Specially trained physicians">Specially trained physicians</option>
+                 <option value="Patient care coordinator">Patient care coordinator</option>
+                 <option value="Specially trained nurse">Specially trained nurse</option>
+                 <option value="Trainer">Trainer</option>
+                 <option value="Sports Education Manager">Sports Education Manager</option>
+                 <option value="Business Appointment Scheduler">Business Appointment Scheduler</option>
+                 <option value="Wildlife Guide">Wildlife guide</option>
+                 <option value="Outdoor Activity Manager">Outdoor Activity Manager</option>
+                 <option value="Scuba diver">Scuba diver</option>
+                 <option value="Lifeguard">Lifeguard</option>
+
+                 <option value="Travel guide">Travel guide</option>
+                 <option value="Travel agent">Travel agent</option>
+                 <option value="Photographer">Photographer</option>
+                 <option value="Wildlife photographer">Wildlife photographer</option>
+                 <option value="Destination photographer">Destination photographer</option>
+                 <option value="Tour manager">Tour manager</option>
+                 <option value="Travel consultant">Travel consultant</option>
+                 <option value="Language transalator">Language transalator</option>
+              </select> 
+
+              <p>Role 4</p>
+              <select>
+                 <option value="Select">Select</option>
+                 <option value="Full Stack Developer">Full Stack Developer</option>
+                 <option value="Android Developer">Android Developer</option>
+                 <option value="Java Developer">Java Developer</option>
+                 <option value="MEAN Stack Developer">MEAN Stack Developer</option>
+                 <option value=".Net Developer">.Net Developer</option>
+                 <option value="IOS Developer">IOS Developer</option>
+                 <option value="Hardware Developer">Hardware Developer</option>
+                 <option value="Hardware Design Engineer">Hardware Design Engineer</option>
+
+                 <option value="Hardware Requirements System Engineer">Hardware Requirements System Engineer</option>
+                 <option value="Manual Tester">Manual Tester</option>
+                 <option value="Automation Tester"> Automation Tester</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 
+                 <option value="Sports Guide">Sports Guide</option>
+                 <option value="Coastal Trainer">Coastal Trainer</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 <option value="Sports Guide">Sports Guide</option>
+
+                 <option value="Investor/Financier">Investor/Financier</option>
+                 <option value="Government Liasioning Officer">Government Liasioning Officer</option>
+                 <option value="Sales Executive">Sales Executive</option>
+                 <option value="Marketing Specialist">Marketing Specialist</option>
+
+                 <option value="Medical Records Transfer Agent">Medical Records Transfer Agent</option>
+                 <option value="Specially trained physicians">Specially trained physicians</option>
+                 <option value="Patient care coordinator">Patient care coordinator</option>
+                 <option value="Specially trained nurse">Specially trained nurse</option>
+                 <option value="Trainer">Trainer</option>
+                 <option value="Sports Education Manager">Sports Education Manager</option>
+                 <option value="Business Appointment Scheduler">Business Appointment Scheduler</option>
+                 <option value="Wildlife Guide">Wildlife guide</option>
+                 <option value="Outdoor Activity Manager">Outdoor Activity Manager</option>
+                 <option value="Scuba diver">Scuba diver</option>
+                 <option value="Lifeguard">Lifeguard</option>
+
+                 <option value="Travel guide">Travel guide</option>
+                 <option value="Travel agent">Travel agent</option>
+                 <option value="Photographer">Photographer</option>
+                 <option value="Wildlife photographer">Wildlife photographer</option>
+                 <option value="Destination photographer">Destination photographer</option>
+                 <option value="Tour manager">Tour manager</option>
+                 <option value="Travel consultant">Travel consultant</option>
+                 <option value="Language transalator">Language transalator</option>
+              </select> 
+
+              <p>Role 5</p>
+              <select>
+                 <option value="Select">Select</option>
+                 <option value="Full Stack Developer">Full Stack Developer</option>
+                 <option value="Android Developer">Android Developer</option>
+                 <option value="Java Developer">Java Developer</option>
+                 <option value="MEAN Stack Developer">MEAN Stack Developer</option>
+                 <option value=".Net Developer">.Net Developer</option>
+                 <option value="IOS Developer">IOS Developer</option>
+                 <option value="Hardware Developer">Hardware Developer</option>
+                 <option value="Hardware Design Engineer">Hardware Design Engineer</option>
+
+                 <option value="Hardware Requirements System Engineer">Hardware Requirements System Engineer</option>
+                 <option value="Manual Tester">Manual Tester</option>
+                 <option value="Automation Tester"> Automation Tester</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 
+                 <option value="Sports Guide">Sports Guide</option>
+                 <option value="Coastal Trainer">Coastal Trainer</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 <option value="Sports Guide">Sports Guide</option>
+
+                 <option value="Investor/Financier">Investor/Financier</option>
+                 <option value="Government Liasioning Officer">Government Liasioning Officer</option>
+                 <option value="Sales Executive">Sales Executive</option>
+                 <option value="Marketing Specialist">Marketing Specialist</option>
+
+                 <option value="Medical Records Transfer Agent">Medical Records Transfer Agent</option>
+                 <option value="Specially trained physicians">Specially trained physicians</option>
+                 <option value="Patient care coordinator">Patient care coordinator</option>
+                 <option value="Specially trained nurse">Specially trained nurse</option>
+                 <option value="Trainer">Trainer</option>
+                 <option value="Sports Education Manager">Sports Education Manager</option>
+                 <option value="Business Appointment Scheduler">Business Appointment Scheduler</option>
+                 <option value="Wildlife Guide">Wildlife guide</option>
+                 <option value="Outdoor Activity Manager">Outdoor Activity Manager</option>
+                 <option value="Scuba diver">Scuba diver</option>
+                 <option value="Lifeguard">Lifeguard</option>
+
+                 <option value="Travel guide">Travel guide</option>
+                 <option value="Travel agent">Travel agent</option>
+                 <option value="Photographer">Photographer</option>
+                 <option value="Wildlife photographer">Wildlife photographer</option>
+                 <option value="Destination photographer">Destination photographer</option>
+                 <option value="Tour manager">Tour manager</option>
+                 <option value="Travel consultant">Travel consultant</option>
+                 <option value="Language transalator">Language transalator</option>
+              </select> 
+
+              <p>Role 6</p>
+              <select>
+                 <option value="Select">Select</option>
+                 <option value="Full Stack Developer">Full Stack Developer</option>
+                 <option value="Android Developer">Android Developer</option>
+                 <option value="Java Developer">Java Developer</option>
+                 <option value="MEAN Stack Developer">MEAN Stack Developer</option>
+                 <option value=".Net Developer">.Net Developer</option>
+                 <option value="IOS Developer">IOS Developer</option>
+                 <option value="Hardware Developer">Hardware Developer</option>
+                 <option value="Hardware Design Engineer">Hardware Design Engineer</option>
+
+                 <option value="Hardware Requirements System Engineer">Hardware Requirements System Engineer</option>
+                 <option value="Manual Tester">Manual Tester</option>
+                 <option value="Automation Tester"> Automation Tester</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 
+                 <option value="Sports Guide">Sports Guide</option>
+                 <option value="Coastal Trainer">Coastal Trainer</option>
+                 <option value="API Tester">API Tester</option>
+                 <option value="QA Tester">QA Tester</option>
+                 <option value="Business Analyst">Business Analyst</option>
+                 <option value="Ticketing Agent">Ticketing Agent</option>
+                 <option value="Accountant">Accountant</option>
+                 <option value="Advisor">Advisor</option>
+                 <option value="Sports Guide">Sports Guide</option>
+
+                 <option value="Investor/Financier">Investor/Financier</option>
+                 <option value="Government Liasioning Officer">Government Liasioning Officer</option>
+                 <option value="Sales Executive">Sales Executive</option>
+                 <option value="Marketing Specialist">Marketing Specialist</option>
+
+                 <option value="Medical Records Transfer Agent">Medical Records Transfer Agent</option>
+                 <option value="Specially trained physicians">Specially trained physicians</option>
+                 <option value="Patient care coordinator">Patient care coordinator</option>
+                 <option value="Specially trained nurse">Specially trained nurse</option>
+                 <option value="Trainer">Trainer</option>
+                 <option value="Sports Education Manager">Sports Education Manager</option>
+                 <option value="Business Appointment Scheduler">Business Appointment Scheduler</option>
+                 <option value="Wildlife Guide">Wildlife guide</option>
+                 <option value="Outdoor Activity Manager">Outdoor Activity Manager</option>
+                 <option value="Scuba diver">Scuba diver</option>
+                 <option value="Lifeguard">Lifeguard</option>
+
+                 <option value="Travel guide">Travel guide</option>
+                 <option value="Travel agent">Travel agent</option>
+                 <option value="Photographer">Photographer</option>
+                 <option value="Wildlife photographer">Wildlife photographer</option>
+                 <option value="Destination photographer">Destination photographer</option>
+                 <option value="Tour manager">Tour manager</option>
+                 <option value="Travel consultant">Travel consultant</option>
+                 <option value="Language transalator">Language transalator</option>
+              </select> 
+           </div> <!--end of roles-->
+         </div>
+     <div>
+        <button mat-raised-button matStepperPrevious color="primary">Back</button>
+        
+        <button mat-raised-button color="primary" (click) = "stepper.reset()">Reset</button>
+        
+        <button mat-raised-button color="primary" (click)="toLogin()">Done!</button>
+     </div>
+  </mat-step>
+</mat-horizontal-stepper>
