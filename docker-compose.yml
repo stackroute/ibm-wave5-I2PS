@@ -93,9 +93,7 @@ services:
         - 3306:3306
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: LoginDb
-      MYSQL_PASSWORD: root
       MYSQL_USER: root
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
