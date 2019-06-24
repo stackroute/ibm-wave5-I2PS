@@ -31,7 +31,7 @@
 		<module>eureka-server</module>
 		<module>zuul-api</module>
 		<module>user-login-service</module>
-		<module>user-registration-service</module>
+
 	</modules>
 
 	<dependencies>
