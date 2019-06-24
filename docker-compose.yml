@@ -31,18 +31,18 @@ services:
     ports:
       - 8080:8080
 
-  user-registration-service:
-    build: user-registration-service/
-    depends_on:
-      - eureka-server
-      - mongo
-      - rabbitmq
-    restart: always
-    network_mode: "host"
-    image: user-registration-service
-    hostname: localhost
-    ports:
-      - 8099:8099
+  # user-registration-service:
+  #   build: user-registration-service/
+  #   depends_on:
+  #     - eureka-server
+  #     - mongo
+  #     - rabbitmq
+  #   restart: always
+  #   network_mode: "host"
+  #   image: user-registration-service
+  #   hostname: localhost
+  #   ports:
+  #     - 8099:8099
 
   mongo:
     image: mongo
