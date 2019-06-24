@@ -13,6 +13,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { LoginService } from './login.service';
 import { RegistrationService } from './registration.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { RegistrationService } from './registration.service';
     MatInputModule, 
     MatButtonModule,
     FormsModule,
-    
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [LoginService,RegistrationService],

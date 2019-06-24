@@ -8,7 +8,7 @@ import { LoginService } from '../login.service';
 })
 export class UserLoginComponent implements OnInit {
 
-constructor(private loginService:LoginService, private route: ActivatedRoute,private router:Router) { }
+constructor(private loginService:LoginService, private route: ActivatedRoute, private router:Router) { }
   arrayOfUser:any=[];
 
 
@@ -17,17 +17,28 @@ constructor(private loginService:LoginService, private route: ActivatedRoute,pri
     // this.subscribe(data=>
     //   {
     //    console.log(data)
-    //    this.arrayOfMusic=data;
+    //    this.arrayOfUser=data;
     // });
   }
 
-  username: string;
+  // authenticateUser(value) {
+  //   console.log("in addtowish" + value.artist.name);
+  //   let myMusic = {
+  //     trackId:  value.listeners,
+  //     trackName: value.name,
+  //     comments:value.artist.name
+  //   }
+  //   this.musixService.addToWishList(myMusic);
+  // }
+
+  userName: string;
   password: string;
+  role:string;
   
   login() : void {
-    if(this.username == 'admin' && this.password == 'admin'){
-     this.router.navigate(["register"]);
-    }else { 
+    if(this.userName =="" || this.password == ""|| this.role==""){
+    //  this.router.navigate(["register"]);
+    // }else { 
       alert("Invalid credentials");
     }
   }
