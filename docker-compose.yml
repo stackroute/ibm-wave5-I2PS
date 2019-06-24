@@ -95,7 +95,7 @@ services:
     environment:
       MYSQL_DATABASE: LoginDb
       MYSQL_USER: root
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
     volumes:
         - $HOME/data/datasql:/var/lib/mysql
     network_mode: "host"
