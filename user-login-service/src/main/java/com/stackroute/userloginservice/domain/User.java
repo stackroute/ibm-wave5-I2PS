@@ -16,7 +16,8 @@ public class User {
 
     @Id
     private String userName;
-    private String password;
     private String role;
+    private String password;
+
 
 }

@@ -36,25 +36,24 @@
             <tr>
               <td>
                 <mat-form-field class="example-full-width">
-                <input matInput placeholder="Username" [(ngModel)]=userName name="userName" required>
-                
+                  <input matInput #userName placeholder="Username" name="userName" required>             
                 </mat-form-field>
               </td>
             </tr>
             <tr>
               <td>
                 <mat-form-field class="example-full-width">
-                <input matInput placeholder="Role" [(ngModel)]=role name="role" required>
-                
+                  <input matInput #role placeholder="Role" name="role" required>
                 </mat-form-field>
               </td>
             </tr>
             <tr>
-            <td><mat-form-field class="example-full-width">
-              <input matInput placeholder="Password" [(ngModel)]=password type="password" name="password" required>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput #password placeholder="Password" type="password" name="password" required>
               
               <!-- <mat-icon class="visibility">visibility</mat-icon> -->
-            </mat-form-field></td>
+              </mat-form-field></td>
             </tr>
           </table>
           <a routerLink='/register' routerLinkActive="active">Not Registered yet? Click here!</a>
@@ -62,7 +61,7 @@
         <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
       </mat-card-content>
       <mat-card-actions>
-        <button class="login-button" mat-raised-button (click)="login(user)" color="primary">Login</button>
+        <button class="login-button" mat-raised-button (click)="authenticateUser(userName.value, role.value, password.value)" color="primary">Login</button>
       </mat-card-actions>
     <!-- </div>   -->
   </div>

@@ -13,33 +13,31 @@ constructor(private loginService:LoginService, private route: ActivatedRoute, pr
 
 
   ngOnInit() {
-
-    // this.subscribe(data=>
-    //   {
-    //    console.log(data)
-    //    this.arrayOfUser=data;
-    // });
+    console.log("in ngoninit")
   }
 
-  // authenticateUser(value) {
-  //   console.log("in addtowish" + value.artist.name);
-  //   let myMusic = {
-  //     trackId:  value.listeners,
-  //     trackName: value.name,
-  //     comments:value.artist.name
-  //   }
-  //   this.musixService.addToWishList(myMusic);
-  // }
+  
+
+  authenticateUser(userName, role, password) {
+    console.log("in authenticateUser " + userName + role +password);
+    let userdata = {
+      userName:userName,
+      role: role,
+      password: password
+    }
+    this.loginService.authenticateUser(userdata);
+  }
 
   userName: string;
   password: string;
   role:string;
   
   login() : void {
+
     if(this.userName =="" || this.password == ""|| this.role==""){
     //  this.router.navigate(["register"]);
     // }else { 
-      alert("Invalid credentials");
+      alert("Null Credentials");
     }
   }
 }

@@ -37,8 +37,9 @@ public class UserController {
     public ResponseEntity<?>  login(@RequestBody User loginDetails) throws UserNameOrPasswordOrRoleEmptyException, UserNameNotFoundException, PasswordNotMatchException, RoleNotFoundException {
 
         String userName = loginDetails.getUserName();
-        String password = loginDetails.getPassword();
         String role=loginDetails.getRole();
+        String password = loginDetails.getPassword();
+
 
         if (userName == null || password == null ||role==null) {
 

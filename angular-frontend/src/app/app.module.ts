@@ -10,17 +10,15 @@ import {MatStepperModule, MatInputModule, MatButtonModule} from '@angular/materi
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
+
 import { LoginService } from './login.service';
-import { RegistrationService } from './registration.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserLoginComponent,
-    UserRegistrationComponent
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [LoginService,RegistrationService],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
