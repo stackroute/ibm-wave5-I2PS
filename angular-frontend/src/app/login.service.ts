@@ -12,7 +12,12 @@ export class LoginService {
   authenticateUser(user):any
   {
     console.log(user);
-    this.http.post("http://localhost:8102/api/v1/user",user).subscribe();
+    this.http.post("http://localhost:8088/api/v1/user",user).subscribe((user:any) => 
+      {
+      console.log(user);
+         }
+                                                                                                                                                                                                                                                                                                                       );
     console.log(user);
+
   }
 }
