@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import { LoginService } from '../login.service';
-
-import  { JwtHelperService } from '@auth0/angular-jwt';
-
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -11,48 +8,38 @@ import  { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class UserLoginComponent implements OnInit {
 
-  loggedIn:any = null;
-
-  constructor(private loginService:LoginService, private route: ActivatedRoute, private router:Router) { }
+constructor(private loginService:LoginService, private route: ActivatedRoute, private router:Router) { }
   arrayOfUser:any=[];
 
-  helper = new JwtHelperService();
 
   ngOnInit() {
     console.log("in ngoninit")
   }
 
-  authenticateUser(userName, password) {
-    console.log("in authenticateUser " + userName  +password);
+  
+
+  authenticateUser(userName, role, password) {
+    console.log("in authenticateUser " + userName + role +password);
     let userdata = {
       userName:userName,
+      role: role,
       password: password
     }
     this.loginService.authenticateUser(userdata);
+  }
+
+  userName: string;
+  password: string;
+  role:string;
   
-   
-    this.loginService.authenticateUser(userdata).subscribe(data => {
-    console.log(data)
-    if (data.token) {
+  login() : void {
 
-     let role =  this.helper.decodeToken(data.token).aud;
-     console.log(data.token);
-     if (role === 'Innovator') {
-      this.router.navigateByUrl('/innovator-profile')
-     }
-     if(role === '!Innovator') {
-      this.router.navigateByUrl('/service-provider')
-     }
+    if(this.userName =="" || this.password == ""|| this.role==""){
+    //  this.router.navigate(["register"]);
+    // }else { 
+      alert("Null Credentials");
     }
-    else{
-      this.loggedIn = true;
-    }
-
-  }, err  => {
-    this.loggedIn = true;
-  })
-}
-
+  }
 }
 
 

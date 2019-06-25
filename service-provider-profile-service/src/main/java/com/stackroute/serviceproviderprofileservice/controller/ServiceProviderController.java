@@ -6,13 +6,12 @@ import com.stackroute.serviceproviderprofileservice.service.ServiceProviderServi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-
+@CrossOrigin("*")
 @RequestMapping(value = "api/v1")
 public class ServiceProviderController
 {
@@ -29,4 +28,10 @@ public class ServiceProviderController
         serviceProviderServiceimpl.send(serviceProvider);
         return new ResponseEntity<ServiceProvider>(serviceProviderServiceimpl.saveServiceProvider(serviceProvider), HttpStatus.CREATED);
     }
-}
+    @GetMapping("/serviceproviders")
+       public ResponseEntity<?> getserviceProviders()
+        {
+           return  new ResponseEntity<List<ServiceProvider>>(serviceProviderServiceimpl.getServiceProvider(),HttpStatus.OK);
+        }
+    }
+

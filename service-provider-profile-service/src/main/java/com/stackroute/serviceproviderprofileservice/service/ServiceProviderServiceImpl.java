@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ServiceProviderServiceImpl implements ServiceProviderService
 {
@@ -30,9 +32,10 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
         return serviceProviderRepository.save(serviceProvider);
     }
 
-
-
-
+    @Override
+    public List<ServiceProvider> getServiceProvider() {
+        return serviceProviderRepository.findAll();
+    }
 
 
     public void send(ServiceProvider serviceProvider) {

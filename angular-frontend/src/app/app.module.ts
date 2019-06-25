@@ -13,14 +13,17 @@ import { UserLoginComponent } from './user-login/user-login.component';
 
 import { LoginService } from './login.service';
 import { HttpClientModule } from '@angular/common/http';
-import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import {SericeProviderComponent} from './service-provider-registration/serice-provider.component';
+import { RegistrationService } from './registration.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
-    InnovatorProfileComponent
+    LandingPageComponent,
+    SericeProviderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +36,12 @@ import { InnovatorProfileComponent } from './innovator-profile-registration/inno
     MatButtonModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // SericeProviderComponent
   ],
-  providers: [LoginService],
-  bootstrap: [AppComponent]
+  providers: [LoginService,RegistrationService],
+  bootstrap: [AppComponent],
+ 
+
 })
 export class AppModule { }
