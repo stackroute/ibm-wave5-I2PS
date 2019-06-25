@@ -1,8 +1,8 @@
 package com.stackroute.userloginservice.exception;
 
-public class UserNameOrPasswordOrRoleEmptyException extends Exception {
+public class UserNameOrPasswordEmptyException extends Exception {
 
-    public UserNameOrPasswordOrRoleEmptyException() {
+    public UserNameOrPasswordEmptyException() {
         super();
     }
 }

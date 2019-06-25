@@ -18,14 +18,10 @@ public class GloballyExceptionHandler {
         return new ResponseEntity<String>("User Name Not Found !", HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(UserNameOrPasswordOrRoleEmptyException.class)
-    public ResponseEntity<?> handleUserNameOrPasswordEmptyException(UserNameOrPasswordOrRoleEmptyException e){
-        return new ResponseEntity<String>("User Name/Role/Password is Empty !", HttpStatus.NOT_FOUND);
+    @ExceptionHandler(UserNameOrPasswordEmptyException.class)
+    public ResponseEntity<?> handleUserNameOrPasswordEmptyException(UserNameOrPasswordEmptyException e){
+        return new ResponseEntity<String>("User Name/Password is Empty !", HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(RoleNotFoundException.class)
-    public ResponseEntity<?> handleRoleNotFoundException(RoleNotFoundException e){
-        return new ResponseEntity<String>("User Role is Empty !", HttpStatus.NOT_FOUND);
-    }
 
 }

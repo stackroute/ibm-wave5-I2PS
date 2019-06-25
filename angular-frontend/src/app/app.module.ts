@@ -13,12 +13,14 @@ import { UserLoginComponent } from './user-login/user-login.component';
 
 import { LoginService } from './login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    InnovatorProfileComponent
   ],
   imports: [
     BrowserModule,

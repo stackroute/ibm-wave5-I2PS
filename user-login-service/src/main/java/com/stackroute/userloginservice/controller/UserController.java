@@ -1,12 +1,11 @@
 package com.stackroute.userloginservice.controller;
 
-import com.stackroute.userloginservice.exception.RoleNotFoundException;
 import com.stackroute.userloginservice.service.UserServiceImpl;
 import com.stackroute.userloginservice.domain.User;
 
 import com.stackroute.userloginservice.exception.PasswordNotMatchException;
 import com.stackroute.userloginservice.exception.UserNameNotFoundException;
-import com.stackroute.userloginservice.exception.UserNameOrPasswordOrRoleEmptyException;
+import com.stackroute.userloginservice.exception.UserNameOrPasswordEmptyException;
 import com.stackroute.userloginservice.jwt.SecurityTokenGenrator;
 
 import io.jsonwebtoken.Jwts;
@@ -32,18 +31,17 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @ApiOperation(value = "Accept user into repository and generating token")
     @PostMapping("/user")
-    public ResponseEntity<?>  login(@RequestBody User loginDetails) throws UserNameOrPasswordOrRoleEmptyException, UserNameNotFoundException, PasswordNotMatchException, RoleNotFoundException {
+    public ResponseEntity<?>  login(@RequestBody User loginDetails) throws UserNameOrPasswordEmptyException, UserNameNotFoundException, PasswordNotMatchException{
 
         String userName = loginDetails.getUserName();
-        String role=loginDetails.getRole();
+//        String role=loginDetails.getRole();
         String password = loginDetails.getPassword();
 
 
-        if (userName == null || password == null ||role==null) {
+        if (userName == null || password == null) {
 
-            throw new UserNameOrPasswordOrRoleEmptyException();
+            throw new UserNameOrPasswordEmptyException();
         }
 
         User user = userService.findByNameAndPassword(userName,password);
@@ -52,10 +50,10 @@ public class UserController {
             throw new UserNameNotFoundException();
         }
 
-        if(role==null)
-        {
-            throw new RoleNotFoundException();
-        }
+//        if(role==null)
+//        {
+//            throw new RoleNotFoundException();
+//        }
 
         String fetchedPassword = user.getPassword();
 
@@ -68,7 +66,7 @@ public class UserController {
         SecurityTokenGenrator securityTokenGenrator = (User userDetails) -> {
             String jwtToken = "";
 
-            jwtToken = Jwts.builder().setId(""+user.getUserName()).setSubject(user.getRole()).setIssuedAt(new Date())
+            jwtToken = Jwts.builder().setId(""+user.getUserName()).setIssuedAt(new Date()) //.setSubject(user.getRole())
 
                     .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 
