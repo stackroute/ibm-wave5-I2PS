@@ -17,7 +17,11 @@ export class LandingPageComponent implements OnInit {
   signUp()
   {
     this.router.navigateByUrl("/serviceprovider");
+    //this.router.navigateByUrl("/innovatorprofile");
     
   }
-
+signUpInnovator()
+{
+  this.router.navigateByUrl("/innovatorprofile");
+}
 }

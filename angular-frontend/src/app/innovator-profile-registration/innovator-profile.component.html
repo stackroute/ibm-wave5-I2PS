@@ -17,54 +17,57 @@
     
     
     <form>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+         </div>
+            <input #emailId name="" class="form-control" placeholder="Email address" type="email">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+              <input #password class="form-control" placeholder="Create password" type="password">
+          </div> <!-- form-group// -->
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+     </div>
+        <input #name name="" class="form-control" placeholder="Full name" type="text">
+    </div> <!-- form-group// -->
+
     <div class="form-group input-group">
-      <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-       </div>
-          <input name="" class="form-control" placeholder="Full name" type="text">
-      </div> <!-- form-group// -->
-      <div class="form-group input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-       </div>
-          <input name="" class="form-control" placeholder="Email address" type="email">
-      </div> 
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-      </div>
-          <input class="form-control" placeholder="Password" type="password">
-      </div>
-          <div class="form-group input-group">
-              <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
-               </div>
-                  <input name="" class="form-control" placeholder="Domain" type="text">
-              </div> <!-- form-group// -->
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-wrench"></i>  </span>
-      </div>
-      <select class="form-control">
-        <option selected=""> Select subdomain</option>
-        <option>Medical Tourism</option>
-        <option>Application development</option>
-        <option>Accaunting</option>
-        <option>Networking</option>
-      </select>
-    </div> <!-- form-group end.// -->                                
+            <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+         </div>
+            <input #domain name="" class="form-control" placeholder="Domain" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">  </span>
+          </div>
+          
+            <input #subDomains name="" class="form-control" placeholder="Subdomain" type="text">
+            <button (click) = "addsubDomain(subDomains.value)">Subdomain</button>
+          </div>                             
+                                                                       
+  
       <div class="form-grouping">
-          <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
-      </div> <!-- form-group// -->      
-      <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
-  </form>
-  </article>
-  </div> <!-- card.// -->
-  <div class="footer">
+        <!-- <button type="submit" class="btn btn-primary btn-block"> Create Account  </button> -->
+        <button class="btn btn-outline-primary mx-2" (click)="registartion(emailId.value, password.value,name.value,domain.value,subDomains.value)">Create Account</button>
+    </div> <!-- form-group// -->      
+    <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
+</form>
+</article>
+</div> <!-- card.// -->
+
+
+
+<div class="footer">
 <p>Footer</p>
 </div>
 
-  
-  <!--container end.//-->
-  
-  <br><br>
+
+<!--container end.//-->
+
+<br><br>

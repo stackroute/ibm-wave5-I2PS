@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {SericeProviderComponent} from './service-provider-registration/serice-provider.component';
 import { RegistrationService } from './registration.service';
+import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { RegistrationService } from './registration.service';
     AppComponent,
     UserLoginComponent,
     LandingPageComponent,
-    SericeProviderComponent
+    SericeProviderComponent,
+    InnovatorProfileComponent
   ],
   imports: [
     BrowserModule,

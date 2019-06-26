@@ -19,4 +19,14 @@ addServiceProvider(value):any{
 
 }
 
+getInnovatorProfile():any{
+  console.log("gettinginnovatorprofile")
+  return this.http.get("http://localhost:8094/api/v1/innovatorprofiles");
+
+}
+addInnovatorProfile(value):any{
+  this.http.post("http://localhost:8094/api/v1/innovatorprofile",value).subscribe();
+  console.log("came");
+
+}
 }
