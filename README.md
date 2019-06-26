@@ -5,7 +5,7 @@
 ![](https://img.shields.io/github/issues/stackroute/ibm-wave5-I2PS.svg?style=popout)
 
 ![](https://img.shields.io/github/contributors/stackroute/ibm-wave5-I2PS.svg?style=popout)
-![](https://img.shields.io/github/last-commit/stackroute/ibm-wave5-I2PS/master.svg?style=popout)
+![](https://img.shields.io/github/last-commit/stackroute/ibm-wave5-I2PS/v1.0.1.svg?style=popout)
 
 ![](https://img.shields.io/github/repo-size/stackroute/ibm-wave5-I2PS.svg?style=popout)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
