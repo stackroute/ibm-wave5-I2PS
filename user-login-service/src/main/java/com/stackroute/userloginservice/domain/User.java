@@ -15,7 +15,7 @@ public class User {
 
 
     @Id
-    private String userName;
+    private String emailId;
     private String role;
     private String password;
 

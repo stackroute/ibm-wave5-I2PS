@@ -13,14 +13,14 @@ public class GloballyExceptionHandler {
         return new ResponseEntity<String>("Password Doesn't Match !", HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(UserNameNotFoundException.class)
-    public ResponseEntity<?> handleUserNameNotFoundException(UserNameNotFoundException e){
-        return new ResponseEntity<String>("User Name Not Found !", HttpStatus.NOT_FOUND);
+    @ExceptionHandler(EmailIdNotFoundException.class)
+    public ResponseEntity<?> handleUserNameNotFoundException(EmailIdNotFoundException e){
+        return new ResponseEntity<String>("Email Id Not Found !", HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(UserNameOrPasswordEmptyException.class)
-    public ResponseEntity<?> handleUserNameOrPasswordEmptyException(UserNameOrPasswordEmptyException e){
-        return new ResponseEntity<String>("User Name/Password is Empty !", HttpStatus.NOT_FOUND);
+    @ExceptionHandler(EmailIdOrPasswordEmptyException.class)
+    public ResponseEntity<?> handleUserNameOrPasswordEmptyException(EmailIdOrPasswordEmptyException e){
+        return new ResponseEntity<String>("User Email Id/Password is Empty !", HttpStatus.NOT_FOUND);
     }
 
 

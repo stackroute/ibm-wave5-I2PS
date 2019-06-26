@@ -9,7 +9,7 @@
       <button mat-button>Home</button>
       <button mat-button>How It Works</button>
       <button mat-button routerLink='/register' routerLinkActive="active">Sign Up!</button>
-      <button mat-icon-button [matMenuTriggerFor]="menu"> <mat-icon>more_vert</mat-icon></button>
+      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
       <mat-menu class="menu" #menu="matMenu">
         <button mat-menu-item>
           <mat-icon>account_circle</mat-icon>
@@ -29,7 +29,6 @@
     <mat-card-header>
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
-    <!-- <div *ngFor="let user of arrayOfUser"> -->
       <mat-card-content>
         <form class="example-form">
           <table class="example-full-width" cellspacing="0">
@@ -37,13 +36,6 @@
               <td>
                 <mat-form-field class="example-full-width">
                   <input matInput #userName placeholder="Username" name="userName" required>             
-                </mat-form-field>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <mat-form-field class="example-full-width">
-                  <input matInput #role placeholder="Role" name="role" required>
                 </mat-form-field>
               </td>
             </tr>
@@ -58,12 +50,11 @@
           </table>
           <a routerLink='/register' routerLinkActive="active">Not Registered yet? Click here!</a>
         </form>
-        <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
       </mat-card-content>
+      <div *ngIf = "loggedIn"> ***You Are the invalid User ***</div>
       <mat-card-actions>
-        <button class="login-button" mat-raised-button (click)="authenticateUser(userName.value, role.value, password.value)" color="primary">Login</button>
+        <button class="login-button" mat-raised-button (click)="authenticateUser(userName.value, password.value)" color="primary">Login</button>
       </mat-card-actions>
-    <!-- </div>   -->
   </div>
 </mat-card> 
 

@@ -19,8 +19,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User findByNameAndPassword(String userName, String password) {
-        return userRepository.findByUserNameAndPassword(userName, password);
+    public User findByEmailIdAndPassword(String emailId, String password) {
+        return userRepository.findByEmailIdAndPassword(emailId, password);
     }
 
     @RabbitListener(queues = "${javainuse.rabbitmq.queue}")
@@ -29,5 +29,6 @@ public class UserServiceImpl implements UserService {
         System.out.println("Recieved Message From RabbitMQ:" + user.toString());
 
     }
+
 
 }
