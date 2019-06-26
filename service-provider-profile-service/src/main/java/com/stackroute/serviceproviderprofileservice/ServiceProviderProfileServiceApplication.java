@@ -17,25 +17,5 @@ public class ServiceProviderProfileServiceApplication {
 		SpringApplication.run(ServiceProviderProfileServiceApplication.class, args);
 	}
 
-	@Bean
-	ConnectionFactory connectionFactory(){
-		//we want connection to be stable,so that we needn't close or open connection
-		CachingConnectionFactory cachingConnectionFactory =new CachingConnectionFactory("localhost");
-		cachingConnectionFactory.setUsername("guest");
-		cachingConnectionFactory.setPassword("guest");
-		return cachingConnectionFactory;
-	}
-
-	@Bean
-	public MessageConverter jsonMessageConverter() {
-		return new Jackson2JsonMessageConverter();
-	}
-
-	@Bean
-	public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
-		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-		rabbitTemplate.setMessageConverter(jsonMessageConverter());
-		return rabbitTemplate;
-	}
 
 }

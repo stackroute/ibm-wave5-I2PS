@@ -9,6 +9,7 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class RabbitMQConfig {
@@ -20,6 +21,37 @@ public class RabbitMQConfig {
 
     @Value("${javainuse.rabbitmq.routingkey}")
     private String routingkey;
+
+
+    @Value("${java.rabbitmq.queue}")
+    String queuename;
+
+    @Value("${java.rabbitmq.exchange}")
+    String exchangeKey;
+
+    @Value("${java.rabbitmq.routingkey}")
+    private String routing;
+
+
+    @Primary
+    @Bean
+    Queue javaQueue()
+    {
+        return new Queue(queuename, true);
+    }
+
+    @Primary
+    @Bean
+    DirectExchange exchangeKey() {
+        return new DirectExchange(exchangeKey);
+    }
+
+
+    @Primary
+    @Bean
+    Binding bindingBoth(Queue queue, DirectExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with(routing);
+    }
 
     @Bean
     Queue javaInUseQueue() {

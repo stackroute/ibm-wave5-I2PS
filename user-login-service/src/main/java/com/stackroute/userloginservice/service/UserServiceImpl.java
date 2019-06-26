@@ -23,12 +23,19 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmailIdAndPassword(emailId, password);
     }
 
-    @RabbitListener(queues = "${javainuse.rabbitmq.queue}")
+    @RabbitListener(queues = "${java.rabbitmq.queue}")
     public void recievedMessage(User user) {
         userRepository.save(user);
-        System.out.println("Recieved Message From RabbitMQ:" + user.toString());
+        System.out.println("Recieved Message From innovator:" + user.toString());
 
     }
 
+    //For service provider producer
+    @RabbitListener(queues = "${javainuse.rabbitmq.queue}")
+    public void recieveMessage(User user) {
+        userRepository.save(user);
+        System.out.println("Recieved Message From service-provider:" + user.toString());
+
+    }
 
 }

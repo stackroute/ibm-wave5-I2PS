@@ -15,10 +15,10 @@ public class InnovatorProfileServiceImpl implements InnovatorProfileService
     InnovatorProfileRespository innovatorProfileRespository;
     @Autowired
    private RabbitTemplate rabbitTemplate;
-  @Value("${javainuse.rabbitmq.exchange}")
+  @Value("${java.rabbitmq.exchange}")
   String exchange;
 
-    @Value("${javainuse.rabbitmq.routingkey}")
+    @Value("${java.rabbitmq.routingkey}")
    private String routingkey;
 
 
