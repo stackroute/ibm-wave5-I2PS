@@ -1,3 +1,209 @@
-<button class="btn btn-outline-primary mx-2" (click)="signUp()">SignUp</button>
+<!-- NAVIGATION BAR BEGINS HERE -->
+<nav class="navbar navbar-expand-sm">
+    <img class="logo" src="https://files.slack.com/files-pri/THV9MPU6R-FKKRPGP8R/252a397a-5d18-41f8-b1c1-af2a14ffde26_200x200.png">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="navbar-collapse collapse" id="navbar" style="">
+      <ul class="navbar-nav my-0 ml-md-auto">
+        <li class="nav-item active">
+          <button mat-button><h5>HOME</h5><span class="sr-only">(current)</span></button>
+        </li>
+        
+        <li class="nav-item">
+          <button mat-button><h5>ABOUT</h5></button>
+        </li>
+        
+        <li class="nav-item">
+         <button mat-button><h5>HOW IT WORKS</h5></button>
+        </li>
+        
+        <li class="nav-item">
+          <button mat-button><h5>LOG IN</h5></button>
+          </li>
 
-<button class="btn btn-outline-primary mx-2" (click)="signUpInnovator()">signUpInnovator</button>
+        
+        <li class="nav-item">
+          <button mat-button onclick="document.getElementById('signUp').style.display='block'"><h5>SIGN UP</h5></button>
+          <div id="signUp" class="modal">
+            <form class="modal-content animate" action="/action_page.php">
+              <div class="imgcontainer">
+              <span onclick="document.getElementById('signUp').style.display='none'"></span>
+              </div>
+
+   
+              <div class="container">
+                <div class="radio">
+            
+                <label class="radioButton"><input  #service ng-model="result" ng-value="serviceProvider" (click)="onSubmitServiceProvider(service.value)" type="radio" name="optradio">I want to work on an idea</label>
+                </div>
+    
+                <div class="radio">
+                <label class="radioButton"><input #innovator ng-model="result" ng-value="innovator" (click)="onSubmitInnovator(innovator.value)" type="radio" name="optradio">I want to post an idea</label>
+                </div>
+              </div>
+            </form>
+          </div>
+   
+        <script>
+        var modal = document.getElementById('signUp');
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            }
+        }
+        </script>
+
+        </li>
+       
+      </ul>
+   
+    </div>
+
+</nav>
+<!-- NAVIGATION BAR ENDS HERE -->
+
+
+
+
+<!-- JUMBOTRON BEGINS HERE -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+    </div>
+  </div>
+<!-- JUMBOTRON ENDS HERE -->
+
+<!-- RECENT IDEAS IN CARDS-->
+<div class="card-deck">
+
+    <div class="card" *ngFor="let data of arrayOfIdeas">
+        <div class="card-body">
+          <h5 class="card-title">{{data.ideaTitle}}</h5>
+          <p class="card-text">{{data.ideaDescription}}</p>
+          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+          </button> -->
+        <a (click)="routeDetils(data)" data-toggle="modal" class="btn btn-success mt auto">Show more</a>
+           
+          </div>
+
+          </div>
+        
+
+  <div class="card">
+    <div class="card-body">
+    <h5 class="card-title">POST AN IDEA</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    <a href="#" class="btn btn-success">POST</a>
+  </div>
+</div>
+</div>
+ <!-- RECENT IDEAS IN CARDS ENDS -->
+
+
+  
+
+
+<!-- SUCCESS STORIES CAROUSEL -->
+  <div class="card1 card col-md-6 mt-5 mb-5">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
+        <div class="w-100 carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <div class="carousel-caption">
+              <div class="row">
+                <div class="col-sm-3">
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="rounded-circle img-fluid"/>
+                </div>
+                <div class="col-sm-9">
+                  <h3>SUCCESS STORY 1</h3>
+                  <small>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</small>
+                  <small class="smallest mute">- Yayo Dudemous</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="" class="rounded-circle img-fluid">
+                </div>
+                <div class="col-sm-9">
+                  <h3>SUCCESS STORY 2</h3>
+                  <small>odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</small>
+                  <small class="smallest mute">- Yayo Dudemous</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" class="rounded-circle img-fluid">
+                </div>
+                <div class="col-sm-9">
+                  <h3>SUCCESS STORY 3</h3>
+                  <small>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</small>
+                  <small class="smallest mute">- Yayo Dudemous</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="float-right navi">
+                <a class="" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon ico" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon ico" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                </div>
+      </div>
+    </div>
+<!-- SUCCESS STORY CAROUSEL ENDS -->
+
+<!-- FOOTER BEGINS -->
+    <footer class="footer pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img class="mb-2" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+            <small class="d-block mb-3 text-muted">© Collab-Junction | 2019</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Cool stuff</a></li>
+              <li><a class="text-muted" href="#">Random feature</a></li>
+              <li><a class="text-muted" href="#">Team feature</a></li>
+              <li><a class="text-muted" href="#">Stuff for developers</a></li>
+              <li><a class="text-muted" href="#">Another one</a></li>
+              <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Resource</a></li>
+              <li><a class="text-muted" href="#">Resource name</a></li>
+              <li><a class="text-muted" href="#">Another resource</a></li>
+              <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <!-- FOOTER ENDS HERE -->
+
+      <button class="btn btn-outline-primary mx-2" (click)="signUp()">SignUp</button>

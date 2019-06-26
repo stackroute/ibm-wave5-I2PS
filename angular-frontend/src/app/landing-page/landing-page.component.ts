@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CardServiceService } from '../card-service.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,20 +9,36 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(private router:Router) { }
-
+  constructor(private cardService: CardServiceService,private router: Router) { }
+  arrayOfIdeas:any=[];
+id;
   ngOnInit() {
-    // this.signUp();
+    this.cardService.getRecentIdeas().subscribe(data=>
+    {
+      console.log(data);
+      this.arrayOfIdeas=data;
+
+    })
+
+    // onClick(){
+
+    // }
   }
 
-  signUp()
-  {
+  onSubmitServiceProvider(serviceprovider) {
+      this.router.navigateByUrl("/serviceprovider");
+    }
+
+    onSubmitInnovator(innovator) {
+      this.router.navigateByUrl("/innovatorprofile");
+    }
+
+  signUp() {
     this.router.navigateByUrl("/serviceprovider");
     //this.router.navigateByUrl("/innovatorprofile");
-    
+
   }
-signUpInnovator()
-{
-  this.router.navigateByUrl("/innovatorprofile");
-}
+  signUpInnovator() {
+    this.router.navigateByUrl("/innovatorprofile");
+  }
 }
