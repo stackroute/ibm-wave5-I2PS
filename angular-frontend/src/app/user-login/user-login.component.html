@@ -1,61 +1,51 @@
-<mat-toolbar color="primary"  class="fixed-header">
-  <mat-toolbar-row>
-  <span>CollabJunction</span>
-    <div class="header">
-      <span class="example-fill-remaining-space"></span>
-      <span class="align-auto"></span>
-      <span class="example-spacer"></span>
-      
-      <button mat-button>Home</button>
-      <button mat-button>How It Works</button>
-      <button mat-button routerLink='/register' routerLinkActive="active">Sign Up!</button>
-      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
-      <mat-menu class="menu" #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>account_circle</mat-icon>
-          <span>Profile</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span>Account settings</span>
-        </button>
-      </mat-menu>
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
-
-<mat-card class="example-card">
-  <div class="card">
-    <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
-      <mat-card-content>
-        <form class="example-form">
-          <table class="example-full-width" cellspacing="0">
-            <tr>
-              <td>
-                <mat-form-field class="example-full-width">
-                  <input matInput #userName placeholder="Username" name="userName" required>             
-                </mat-form-field>
-              </td>
-            </tr>
-            <tr>
-            <td>
-              <mat-form-field class="example-full-width">
-                <input matInput #password placeholder="Password" type="password" name="password" required>
-              
-              <!-- <mat-icon class="visibility">visibility</mat-icon> -->
-              </mat-form-field></td>
-            </tr>
-          </table>
-          <a routerLink='/register' routerLinkActive="active">Not Registered yet? Click here!</a>
-        </form>
-      </mat-card-content>
-      <div *ngIf = "loggedIn"> ***You Are the invalid User ***</div>
-      <mat-card-actions>
-        <button class="login-button" mat-raised-button (click)="authenticateUser(userName.value, password.value)" color="primary">Login</button>
-      </mat-card-actions>
+<div class="header">
+<a href="#default" class="logo">CollabJunction</a>
+  <div class="header-right">
+    <a class="active" href="#home">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
   </div>
-</mat-card> 
+</div>
 
-  
+<div style="padding-left:20px">
+</div>
+
+
+
+<div class="card bg-light">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center">Log In</h4>   
+    
+    <form>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+              <input #emailId name="" class="form-control" placeholder="Enter Email Id" type="email">
+          </div> <!-- form-group// -->
+          <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+                <input #password class="form-control" placeholder="Enter password" type="password">
+            </div> <!-- form-group// -->
+
+      <div class="form-grouping">
+          <button class="btn btn-outline-primary mx-2" (click)="authenticateUser(userName.value, password.value)">Login!</button>
+      </div> <!-- form-group// -->      
+                                                                      
+  </form>
+  </article>
+</div> <!-- card.// -->
+    
+
+
+<div class="footer">
+  <p>Footer</p>
+</div>
+
+<!--container end.//-->
+    
+
+   
+
