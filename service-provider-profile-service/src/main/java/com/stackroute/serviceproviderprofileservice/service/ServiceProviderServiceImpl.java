@@ -13,8 +13,10 @@ import java.util.List;
 public class ServiceProviderServiceImpl implements ServiceProviderService
 {
     ServiceProviderRepository serviceProviderRepository;
+
     @Autowired
     private RabbitTemplate rabbitTemplate;
+
     @Value("${serviceProvider.exchange}")
     String servicePExchange;
 
