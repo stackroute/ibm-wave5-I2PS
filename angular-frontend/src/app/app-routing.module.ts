@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'serviceprovider',component:SericeProviderComponent},
   { path: 'landingpage',component:LandingPageComponent},
   {path: 'innovatorprofile',component:InnovatorProfileComponent},
-
+  
 ];
 
 @NgModule({
