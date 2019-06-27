@@ -15,7 +15,6 @@ import { LoginService } from './login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {SericeProviderComponent} from './service-provider-registration/serice-provider.component';
-import { RegistrationService } from './registration.service';
 import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
 
 
@@ -41,7 +40,7 @@ import { InnovatorProfileComponent } from './innovator-profile-registration/inno
     ReactiveFormsModule,
     // SericeProviderComponent
   ],
-  providers: [LoginService,RegistrationService],
+  providers: [LoginService],
   bootstrap: [AppComponent],
  
 
