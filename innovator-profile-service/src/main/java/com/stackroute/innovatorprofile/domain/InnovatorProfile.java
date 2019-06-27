@@ -70,4 +70,14 @@ public class InnovatorProfile {
           this.subDomain = subDomain;
      }
 
+     @Override
+     public String toString() {
+          return "InnovatorProfile{" +
+                  "emailId='" + emailId + '\'' +
+                  ", password='" + password + '\'' +
+                  ", name='" + name + '\'' +
+                  ", domain='" + domain + '\'' +
+                  ", subDomain=" + subDomain +
+                  '}';
+     }
 }

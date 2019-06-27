@@ -14,13 +14,12 @@ public class InnovatorProfileServiceImpl implements InnovatorProfileService
 {
     InnovatorProfileRespository innovatorProfileRespository;
     @Autowired
-   private RabbitTemplate rabbitTemplate;
-  @Value("${java.rabbitmq.exchange}")
-  String exchange;
+    private RabbitTemplate rabbitTemplate;
+    @Value("${innovator.exchange}")
+    String innovatorExchange;
 
-    @Value("${java.rabbitmq.routingkey}")
-   private String routingkey;
-
+    @Value("${innovator.routingkey}")
+    private String innovatorRoutingKey;
 
     @Autowired
     public InnovatorProfileServiceImpl(InnovatorProfileRespository innovatorProfileRespository) {
@@ -39,7 +38,7 @@ public class InnovatorProfileServiceImpl implements InnovatorProfileService
 
 
     public void send(InnovatorProfile innovatorProfile) {
-        rabbitTemplate.convertAndSend(exchange, routingkey, innovatorProfile);
+        rabbitTemplate.convertAndSend(innovatorExchange, innovatorRoutingKey, innovatorProfile);
         System.out.println("Send msg = " + innovatorProfile);
     }
 }

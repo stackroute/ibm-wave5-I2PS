@@ -127,5 +127,23 @@ public class ServiceProvider {
 
      public void setCertifications(List<String> certifications) {
           this.certifications = certifications;
+
+     }
+
+     @Override
+     public String toString() {
+          return "ServiceProvider{" +
+                  "emailId='" + emailId + '\'' +
+                  ", password='" + password + '\'' +
+                  ", name='" + name + '\'' +
+                  ", domain='" + domain + '\'' +
+                  ", subDomain=" + subDomain +
+                  ", role='" + role + '\'' +
+                  ", skills=" + skills +
+                  ", about='" + about + '\'' +
+                  ", experience='" + experience + '\'' +
+                  ", chargePerHour=" + chargePerHour +
+                  ", certifications=" + certifications +
+                  '}';
      }
 }

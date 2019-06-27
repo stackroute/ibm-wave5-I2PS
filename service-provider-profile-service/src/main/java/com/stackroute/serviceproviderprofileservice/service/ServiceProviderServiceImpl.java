@@ -15,11 +15,11 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
     ServiceProviderRepository serviceProviderRepository;
     @Autowired
     private RabbitTemplate rabbitTemplate;
-    @Value("${javainuse.rabbitmq.exchange}")
-    String exchange;
+    @Value("${serviceProvider.exchange}")
+    String servicePExchange;
 
-    @Value("${javainuse.rabbitmq.routingkey}")
-    private String routingkey;
+    @Value("${serviceProvider.routingkey}")
+    String servicePRoutingkey;
 
 
     @Autowired
@@ -39,7 +39,7 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
 
 
     public void send(ServiceProvider serviceProvider) {
-        rabbitTemplate.convertAndSend(exchange, routingkey, serviceProvider);
+        rabbitTemplate.convertAndSend(servicePExchange, servicePRoutingkey, serviceProvider);
         System.out.println("Send msg = " + serviceProvider);
     }
 }
