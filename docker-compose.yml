@@ -1,36 +1,36 @@
 version: '2'
 
 services:
-#  eureka-server:
-#    build: eureka-server/
-#    restart: always
-#    network_mode: "host"
-#    hostname: localhost
-#    image: eureka-server
-#    ports:
-#      - 8085:8085
-#
-#  config-service:
-#    build: config-server/
-#    restart: always
-#    network_mode: "host"
-#    image: config-service
-#    hostname: localhost
-#    ports:
-#      - 8888:8888
-#
-#  zuul-api:
-#    build: zuul-api/
-#    depends_on:
-#      - config-service
-#      - eureka-server
-#    restart: always
-#    network_mode: "host"
-#    image: zuul-api
-#    hostname: localhost
-#    ports:
-#      - 8080:8080
-#
+  eureka-server:
+    build: eureka-server/
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    image: eureka-server
+    ports:
+      - 8085:8085
+
+  config-service:
+    build: config-server/
+    restart: always
+    network_mode: "host"
+    image: config-service
+    hostname: localhost
+    ports:
+      - 8888:8888
+
+  zuul-api:
+    build: zuul-api/
+    depends_on:
+      - config-service
+      - eureka-server
+    restart: always
+    network_mode: "host"
+    image: zuul-api
+    hostname: localhost
+    ports:
+      - 8080:8080
+
 
   mongo:
     image: mongo
@@ -44,18 +44,18 @@ services:
     volumes:
       - ./data/db:/data/db
 
-#  user-login-service:
-#    build: user-login-service/
-#    depends_on:
-#     - eureka-server
-#     - rabbitmq
-#     - mysql
-#    restart: always
-#    network_mode: "host"
-#    image: user-login-service
-#    hostname: localhost
-#    ports:
-#    - 8088:8088
+  user-login-service:
+    build: user-login-service/
+    depends_on:
+     - eureka-server
+     - rabbitmq
+     - mysql
+    restart: always
+    network_mode: "host"
+    image: user-login-service
+    hostname: localhost
+    ports:
+    - 8088:8088
 
 
   mysql:
