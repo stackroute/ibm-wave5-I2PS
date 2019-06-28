@@ -38,7 +38,7 @@ public class InnovatorProfileRepositoryTest {
         innovatorProfileRespository.save(innovatorProfile);
         List<InnovatorProfile> list = innovatorProfileRespository.findAll();
         System.out.println(list.get(0));
-        Assert.assertEquals("monisha2701@gmail.com",list.get(0).getEmailId());
+        Assert.assertEquals("laxman567@gmail.com",list.get(0).getEmailId());
 
     }
 }

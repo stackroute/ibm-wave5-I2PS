@@ -46,11 +46,9 @@ public class InnovatorProfileServiceTest {
     }
     @Test
     public void saveInnovatorProfile() throws EmailIdAlreadyExistsException {
-//        when(restaurantLogRepository.save((RestaurantLog) any())).thenReturn(restaurantLog);
         when(innovatorProfileRespository.save((InnovatorProfile) any())).thenReturn(innovatorProfile);
         InnovatorProfile savedinnovatorprofile = innovatorProfileServiceimpl.saveInnovatorProfile(innovatorProfile);
         Assert.assertEquals(innovatorProfile,savedinnovatorprofile);
-//        System.out.println(savedinnovatorprofile);
         //verify here verifies that userRepository save method is only called once
         verify(innovatorProfileRespository,times(1)).save(innovatorProfile);
     }
@@ -65,10 +63,7 @@ public class InnovatorProfileServiceTest {
         Assert.assertEquals(innovatorProfile,savedInnovatorProfile);
     }
 
-//     restaurantLogRepository.save(restaurantLog);
-//    //stubbing the mock to return specific data
-//    when(restaurantLogRepository.findAll()).thenReturn(list);
-//    List<RestaurantLog> userlist = restaurantLogServiceImpl.getAllRestaurantLog();
+
 
 
     @Test
