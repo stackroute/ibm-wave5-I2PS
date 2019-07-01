@@ -10,8 +10,12 @@ import {MatStepperModule, MatInputModule, MatButtonModule} from '@angular/materi
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
+
 import { LoginService } from './login.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import {SericeProviderComponent} from './service-provider-registration/serice-provider.component';
+import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
 import { RegistrationService } from './registration.service';
 
 
@@ -19,7 +23,9 @@ import { RegistrationService } from './registration.service';
   declarations: [
     AppComponent,
     UserLoginComponent,
-    UserRegistrationComponent
+    LandingPageComponent,
+    SericeProviderComponent,
+    InnovatorProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +37,13 @@ import { RegistrationService } from './registration.service';
     MatInputModule, 
     MatButtonModule,
     FormsModule,
-    
-    ReactiveFormsModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    // SericeProviderComponent
   ],
   providers: [LoginService,RegistrationService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+ 
+
 })
 export class AppModule { }

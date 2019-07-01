@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import { LoginService } from '../login.service';
+
+import  { JwtHelperService } from '@auth0/angular-jwt';
+
+
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -8,29 +12,63 @@ import { LoginService } from '../login.service';
 })
 export class UserLoginComponent implements OnInit {
 
-constructor(private loginService:LoginService, private route: ActivatedRoute,private router:Router) { }
+  loggedIn:any = null;
+
+  constructor(private loginService:LoginService, private route: ActivatedRoute, private router:Router) { }
   arrayOfUser:any=[];
 
+  helper = new JwtHelperService();
 
   ngOnInit() {
-
-    // this.subscribe(data=>
-    //   {
-    //    console.log(data)
-    //    this.arrayOfMusic=data;
-    // });
+    console.log("in ngoninit")
   }
 
-  username: string;
-  password: string;
-  
-  login() : void {
-    if(this.username == 'admin' && this.password == 'admin'){
-     this.router.navigate(["register"]);
-    }else { 
-      alert("Invalid credentials");
+  authenticateUser(emailId, password) {
+    console.log("in authenticateUser " + emailId  +password);
+    var userdata = {
+      emailId:emailId,
+      password: password
     }
+    console.log("in authenticateUser1 " + emailId  +password);
+    this.loginService.authenticateUser(userdata);
+    console.log("in authenticateUser0 "+ userdata);
+    console.log("in authenticateUser1 " + emailId  +password);
+    
+
+    this.loginService.authenticateUser(userdata).subscribe(userdata => {
+      console.log("in authenticateUser2");
+      console.log(userdata)
+    if (userdata.token) {
+      console.log("in if");
+
+     let role =  this.helper.decodeToken(userdata.token).sub;
+     console.log("we are having this......",userdata.token);
+
+     console.log("in if print email   "+ emailId);
+     console.log("in if print password   "+ password);
+     console.log("in if print role   ", role);
+
+     if (role==null) {
+       console.log(role);
+      console.log("in if1");
+      this.router.navigateByUrl('/innovatorprofile');
+     }
+      if(role!=null)
+      {
+      console.log("in else");
+      this.router.navigateByUrl('/serviceprovider');
+      
+     }
+    }
+    else{
+      this.loggedIn = true;
+    }
+
+    }, err  => {
+      this.loggedIn = true;
+    })
   }
+
 }
 
 

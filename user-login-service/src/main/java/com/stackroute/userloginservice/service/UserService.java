@@ -4,6 +4,6 @@ import com.stackroute.userloginservice.domain.User;
 
 public interface UserService {
 
-    User findByNameAndPassword(String userName,String password);
+    User findByEmailIdAndPassword(String emailId,String password);
 
 }

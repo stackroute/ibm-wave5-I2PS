@@ -4,8 +4,8 @@ import com.stackroute.userloginservice.service.UserServiceImpl;
 import com.stackroute.userloginservice.domain.User;
 
 import com.stackroute.userloginservice.exception.PasswordNotMatchException;
-import com.stackroute.userloginservice.exception.UserNameNotFoundException;
-import com.stackroute.userloginservice.exception.UserNameOrPasswordEmptyException;
+import com.stackroute.userloginservice.exception.EmailIdNotFoundException;
+import com.stackroute.userloginservice.exception.EmailIdOrPasswordEmptyException;
 import com.stackroute.userloginservice.jwt.SecurityTokenGenrator;
 
 import io.jsonwebtoken.Jwts;
@@ -31,23 +31,29 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @ApiOperation(value = "Accept user into repository and generating token")
     @PostMapping("/user")
-    public ResponseEntity<?>  login(@RequestBody User loginDetails) throws UserNameOrPasswordEmptyException, UserNameNotFoundException, PasswordNotMatchException {
+    public ResponseEntity<?>  login(@RequestBody User loginDetails) throws EmailIdOrPasswordEmptyException, EmailIdNotFoundException, PasswordNotMatchException{
 
-        String userName = loginDetails.getUserName();
+        String emailId = loginDetails.getEmailId();
+//        String role=loginDetails.getRole();
         String password = loginDetails.getPassword();
 
-        if (userName == null || password == null) {
 
-            throw new UserNameOrPasswordEmptyException();
+        if (emailId == null || password == null) {
+
+            throw new EmailIdOrPasswordEmptyException();
         }
 
-        User user = userService.findByNameAndPassword(userName,password);
+        User user = userService.findByEmailIdAndPassword(emailId,password);
 
         if (user == null) {
-            throw new UserNameNotFoundException();
+            throw new EmailIdNotFoundException();
         }
+
+//        if(role==null)
+//        {
+//            throw new RoleNotFoundException();
+//        }
 
         String fetchedPassword = user.getPassword();
 
@@ -60,7 +66,7 @@ public class UserController {
         SecurityTokenGenrator securityTokenGenrator = (User userDetails) -> {
             String jwtToken = "";
 
-            jwtToken = Jwts.builder().setId(""+user.getUserName()).setIssuedAt(new Date())
+            jwtToken = Jwts.builder().setId(""+user.getEmailId()).setIssuedAt(new Date()).setSubject(user.getRole())
 
                     .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 

@@ -1,17 +1,32 @@
 import { Injectable } from '@angular/core';
-// import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationService {
 
-  // constructor(private http:HttpClient) { }
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  // registerUser(user) : any {
-  //   this.http.post("http://localhost:8073/api/v1/user",user).subscribe();
-  //   console.log(user);
-  //  }
+getServiceProvider():any{
+  console.log("getting")
+  return this.http.get("http://localhost:8077/api/v1/serviceproviders");
+}
 
+addServiceProvider(value):any{
+  this.http.post("http://localhost:8077/api/v1/serviceprovider",value).subscribe();
+  console.log("came");
+
+}
+
+getInnovatorProfile():any{
+  console.log("gettinginnovatorprofile")
+  return this.http.get("http://localhost:8094/api/v1/innovatorprofiles");
+
+}
+addInnovatorProfile(value):any{
+  this.http.post("http://localhost:8094/api/v1/innovatorprofile",value).subscribe();
+  console.log("came");
+
+}
 }

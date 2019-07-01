@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
-// import { HttpClient} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  // constructor(private http:HttpClient) { }
-  constructor() { }
+  constructor(private http:HttpClient) { }
+  
 
-  // getUserAuthenticate(user):any
-  // {
-  //   // return this.http.get("http://localhost:8073/api/v1/user");
-  //   this.http.post("http://localhost:8102/api/v1/music",user).subscribe();
-  //   console.log(user);
-  // }
+  authenticateUser(user):any
+  {
+    console.log("in service");
+    console.log("in authenticateUserser " +user);
+    return this.http.post("http://localhost:8088/api/v1/user",user); //.subscribe((user:any) => 
+                                                                  //   {
+                                                                  //   console.log(user);
+                                                                  //     }                                                                                                                                                                                                                                                                                                                     );
+                                                                  // console.log(user);
+
+  }
 }

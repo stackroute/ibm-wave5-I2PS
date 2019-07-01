@@ -9,32 +9,73 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class RabbitMQConfig {
-    @Value("${javainuse.rabbitmq.queue}")
-    String queueName;
+    @Value("${serviceProvider.queue}")
+    String serviceProviderQueueName;
 
-    @Value("${javainuse.rabbitmq.exchange}")
-    String exchange;
+    @Value("${serviceProvider.exchange}")
+    String serviceProviderExchange;
 
-    @Value("${javainuse.rabbitmq.routingkey}")
-    private String routingkey;
+    @Value("${serviceProvider.routingkey}")
+    private String serviceProviderRoutingKey;
+
+
+    @Value("${innovator.queue}")
+    String innovatorQueueName;
+
+    @Value("${innovator.exchange}")
+    String innovatorExchange;
+
+    @Value("${innovator.routingkey}")
+    private String innovatorRoutingKey;
+
 
     @Bean
-    Queue javaInUseQueue() {
-        return new Queue(queueName, true);
+    Queue servicePQueue()
+    {
+        return new Queue(serviceProviderQueueName,true);
+    }
+    @Bean
+    Exchange servicePExchange(){
+        return ExchangeBuilder.topicExchange(serviceProviderExchange).durable(true).build();
+    }
+    @Bean
+    Binding servicePBinding(){
+        //this is the traditional way of binding
+//        return new Binding(MY_QUEUE, Binding.DestinationType.QUEUE,"myTopicExchange","topic",null);
+        //more declarative way of binding
+        return BindingBuilder
+                .bind(servicePQueue())
+                .to(servicePExchange())
+                .with(serviceProviderRoutingKey)
+                .noargs();
     }
 
     @Bean
-    DirectExchange exchange() {
-        return new DirectExchange(exchange);
+    Queue innovatorQueue()
+    {
+        return new Queue(innovatorQueueName,true);
+    }
+    @Bean
+    Exchange innovatorExchange(){
+        return ExchangeBuilder.topicExchange(innovatorExchange).durable(true).build();
+    }
+    @Bean
+    Binding innovatorBinding(){
+        //this is the traditional way of binding
+//        return new Binding(MY_QUEUE, Binding.DestinationType.QUEUE,"myTopicExchange","topic",null);
+        //more declarative way of binding
+        return BindingBuilder
+                .bind(innovatorQueue())
+                .to(innovatorExchange())
+                .with(innovatorRoutingKey)
+                .noargs();
     }
 
-    @Bean
-    Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(routingkey);
-    }
+
     @Bean
     ConnectionFactory connectionFactory(){
         //we want connection to be stable,so that we needn't close or open connection

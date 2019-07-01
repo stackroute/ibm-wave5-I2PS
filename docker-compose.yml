@@ -31,18 +31,6 @@ services:
     ports:
       - 8080:8080
 
-  # user-registration-service:
-  #   build: user-registration-service/
-  #   depends_on:
-  #     - eureka-server
-  #     - mongo
-  #     - rabbitmq
-  #   restart: always
-  #   network_mode: "host"
-  #   image: user-registration-service
-  #   hostname: localhost
-  #   ports:
-  #     - 8099:8099
 
   mongo:
     image: mongo
@@ -56,24 +44,6 @@ services:
     volumes:
       - ./data/db:/data/db
 
-#  mysql:
-#    image: mysql:5.7
-#    restart: always
-#    container_name: mysql
-#    network_mode: "host"
-#    hostname: localhost
-#    environment:
-#      MYSQL_ROOT_PASSWORD: root123
-#      MYSQL_DATABASE: LoginDb
-#      MYSQL_PASSWORD: root123
-#      MYSQL_USER: root
-#      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-#    volumes:
-#      - /data/mysql:/var/lib/mysql
-#    ports:
-#      - "3306:3306"
-
-
   user-login-service:
     build: user-login-service/
     depends_on:
@@ -86,6 +56,34 @@ services:
     hostname: localhost
     ports:
     - 8088:8088
+
+  service-provider-profile-service:
+    build: service-provider-profile-service/
+    depends_on:
+      - config-service
+      - eureka-server
+      - rabbitmq
+      - mongo
+    restart: always
+    network_mode: "host"
+    image: service-provider-profile-service
+    hostname: localhost
+    ports:
+      - 8077:8077
+
+  innovator-profile-service:
+      build: innovator-profile-service/
+      depends_on:
+        - config-service
+        - eureka-server
+        - rabbitmq
+        - mongo
+      restart: always
+      network_mode: "host"
+      image: innovator-profile-service
+      hostname: localhost
+      ports:
+        - 8094:8094
 
   mysql:
     image: mysql:5.7

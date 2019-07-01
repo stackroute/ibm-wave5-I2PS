@@ -31,7 +31,8 @@
 		<module>eureka-server</module>
 		<module>zuul-api</module>
 		<module>user-login-service</module>
-
+        <module>innovator-profile-service</module>
+		<module>service-provider-profile-service</module>
 	</modules>
 
 	<dependencies>
