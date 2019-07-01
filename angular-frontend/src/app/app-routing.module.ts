@@ -7,6 +7,7 @@ import { InnovatorProfileComponent } from './innovator-profile-registration/inno
 import { SignupmodalComponent } from './signupmodal/signupmodal.component';
 import { SericeProviderComponent } from './service-provider-registration/serice-provider.component';
 import { IntelligentServiceComponent } from './intelligent-service/intelligent-service.component';
+import { CardDetailsComponent } from './card-details/card-details.component';
 
 
 
@@ -15,8 +16,8 @@ const routes: Routes = [
   {path: 'serviceprovider',component:SericeProviderComponent},
   { path: 'landingpage',component:LandingPageComponent},
   {path: 'innovatorprofile',component:InnovatorProfileComponent},
-  {path: 'signupmodal',component:SignupmodalComponent},
-  {path: 'intelligent-service',component:IntelligentServiceComponent}
+  {path: 'intelligent-service',component:IntelligentServiceComponent},
+  {path: 'cardDetail/:id',component:CardDetailsComponent}
 
 ];
 

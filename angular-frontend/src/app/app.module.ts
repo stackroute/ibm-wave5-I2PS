@@ -17,8 +17,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import {SericeProviderComponent} from './service-provider-registration/serice-provider.component';
 import { RegistrationService } from './registration.service';
 import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
-import { SignupmodalComponent } from './signupmodal/signupmodal.component';
 import { IntelligentServiceComponent } from './intelligent-service/intelligent-service.component';
+import { CardDetailsComponent } from './card-details/card-details.component';
+
 
 
 @NgModule({
@@ -28,8 +29,8 @@ import { IntelligentServiceComponent } from './intelligent-service/intelligent-s
     LandingPageComponent,
     SericeProviderComponent,
     InnovatorProfileComponent,
-    SignupmodalComponent,
     IntelligentServiceComponent,
+    CardDetailsComponent
     
   ],
   imports: [

@@ -9,7 +9,7 @@
     <div class="navbar-collapse collapse" id="navbar" style="">
       <ul class="navbar-nav my-0 ml-md-auto">
         <li class="nav-item active">
-          <button mat-button><h5>HOME</h5><span class="sr-only">(current)</span></button>
+          <button mat-button class="btn-active"><h5>HOME</h5><span class="sr-only">(current)</span></button>
         </li>
         
         <li class="nav-item">
@@ -28,6 +28,7 @@
         <li class="nav-item">
           <button mat-button onclick="document.getElementById('signUp').style.display='block'"><h5>SIGN UP</h5></button>
           <div id="signUp" class="modal">
+            
             <form class="modal-content animate" action="/action_page.php">
               <div class="imgcontainer">
               <span onclick="document.getElementById('signUp').style.display='none'"></span>
@@ -47,15 +48,17 @@
             </form>
           </div>
    
-        <script>
-        var modal = document.getElementById('signUp');
-        window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+          <script>
+            // Get the modal
+            var modal = document.getElementById('signUp');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
             }
-        }
-        </script>
-
+            </script>
         </li>
        
       </ul>
