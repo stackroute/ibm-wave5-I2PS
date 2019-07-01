@@ -13,4 +13,8 @@ public class ServiceProviderProfileServiceApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void name() throws Exception {
+
+	}
 }
