@@ -66,7 +66,7 @@ public class UserController {
         SecurityTokenGenrator securityTokenGenrator = (User userDetails) -> {
             String jwtToken = "";
 
-            jwtToken = Jwts.builder().setId(""+user.getEmailId()).setIssuedAt(new Date()).setSubject(user.getRole())
+            jwtToken = Jwts.builder().setId(""+user.getEmailId()).setIssuedAt(new Date()) //.setSubject(user.getRole())
 
                     .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
 

@@ -57,33 +57,6 @@ services:
     ports:
     - 8088:8088
 
-  service-provider-profile-service:
-    build: service-provider-profile-service/
-    depends_on:
-      - config-service
-      - eureka-server
-      - rabbitmq
-      - mongo
-    restart: always
-    network_mode: "host"
-    image: service-provider-profile-service
-    hostname: localhost
-    ports:
-      - 8077:8077
-
-  innovator-profile-service:
-      build: innovator-profile-service/
-      depends_on:
-        - config-service
-        - eureka-server
-        - rabbitmq
-        - mongo
-      restart: always
-      network_mode: "host"
-      image: innovator-profile-service
-      hostname: localhost
-      ports:
-        - 8094:8094
 
   mysql:
     image: mysql:5.7
