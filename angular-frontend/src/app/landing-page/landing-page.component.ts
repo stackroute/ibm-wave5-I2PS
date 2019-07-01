@@ -25,11 +25,19 @@ id;
     // }
   }
 
-  
-    signUp()
-    {
-      this.router.navigateByUrl("/signupmodal")
+  onSubmitServiceProvider(serviceprovider) {
+      this.router.navigateByUrl("/serviceprovider");
     }
 
-  
+    onSubmitInnovator(innovator) {
+      this.router.navigateByUrl("/innovatorprofile");
+    }
+
+    routeDetails(data)  {
+      console.log(data);
+      this.id=data.id;
+      console.log(this.id);
+      this.router.navigateByUrl(`/cardDetail/`+data.id);
+    }
+
 }

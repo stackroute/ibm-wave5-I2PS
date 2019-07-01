@@ -1,6 +1,6 @@
 .navbar
 {
-  background-color:#c1d0e0; 
+  background-color: #dedfe0; 
   height: 90px;
 }
 
@@ -29,17 +29,16 @@ h5	{
 .logo	{
 	height: 110px;
 	width: 110px;
-
 }
 
 
 
   .jumbotron	{
-	height: 700px;
+	height: 500px;
 	text-align: center;
 	margin-top: 20px;
 	width: 100%;
-	background-image: url('src/assets/img/pexels-photo-1068523 (2).jpg'); 
+	background-image: url('https://i.ebayimg.com/images/g/FxkAAOSwe4xctvi4/s-l800.jpg'); 
 	color: lightblue;
 
 }
@@ -71,8 +70,7 @@ body {
   }
  
   /* Remove extra left and right margins, due to padding in columns */
-  .row {
-	  margin: 0 -5px;}
+  .row {margin: 0 -5px;}
  
   /* Clear floats after the columns */
   .row:after {
@@ -86,7 +84,7 @@ body {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
 	padding: 16px;
 	text-align: center;
-	background-color: #c1d0e0;
+	background-color: #dedfe0;
   }
 
   .card-text	{
@@ -124,11 +122,14 @@ body {
 	/* width: 100%; */
   }
 
+  .footer	{
+	  background-color: black;
+	  text-decoration-color: white;
+
+  }
  
   button:hover {
 	opacity: 0.8;
-	background-color: black;
-	color:white;
   }
  
 
@@ -150,7 +151,19 @@ body {
   }
  
   /* The Modal (background) */
-  
+  .modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	padding-top: 60px;
+  }
  
   /* Modal Content/Box */
   .modal-content {
@@ -189,7 +202,7 @@ body {
 
   .card1 {
 	margin: 0 auto;
-	background-color: #a7bbd1;
+	background-color: #dedfe0;
 
 
   }
@@ -218,16 +231,14 @@ body {
   .navi a {
 	  text-decoration:none;
   }
- .btn-active{
-	 background-color: black;
-	 color:white;
- }
- .fullbody{
-	 background-image: url("https://1800cabinetwholesalers.com/wp-content/uploads/2014/12/wood-background.jpg")
- }
- footer{
-    background-color: black;
-}
+  /* a > .ico {
+	  background-color: grey;
+	  padding: 10px;
+	  
+  } */
+  /* a:hover > .ico {
+	  background-color: #666;
+  } */
  
 
  
