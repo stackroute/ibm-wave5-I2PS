@@ -15,8 +15,10 @@ import { LoginService } from './login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {SericeProviderComponent} from './service-provider-registration/serice-provider.component';
-import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
 import { RegistrationService } from './registration.service';
+import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
+import { SignupmodalComponent } from './signupmodal/signupmodal.component';
+import { IntelligentServiceComponent } from './intelligent-service/intelligent-service.component';
 
 
 @NgModule({
@@ -25,7 +27,10 @@ import { RegistrationService } from './registration.service';
     UserLoginComponent,
     LandingPageComponent,
     SericeProviderComponent,
-    InnovatorProfileComponent
+    InnovatorProfileComponent,
+    SignupmodalComponent,
+    IntelligentServiceComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,7 @@
-<!-- NAVIGATION BAR BEGINS HERE -->
+
+<div class="fullbody">
+  <!-- NAVIGATION BAR BEGINS HERE -->
+
 <nav class="navbar navbar-expand-sm">
     <img class="logo" src="https://files.slack.com/files-pri/THV9MPU6R-FKKRPGP8R/252a397a-5d18-41f8-b1c1-af2a14ffde26_200x200.png">
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +11,7 @@
     <div class="navbar-collapse collapse" id="navbar" style="">
       <ul class="navbar-nav my-0 ml-md-auto">
         <li class="nav-item active">
-          <button mat-button><h5>HOME</h5><span class="sr-only">(current)</span></button>
+          <button mat-button class="btn-active"><h5>HOME</h5><span class="sr-only">(current)</span></button>
         </li>
         
         <li class="nav-item">
@@ -25,38 +28,8 @@
 
         
         <li class="nav-item">
-          <button mat-button onclick="document.getElementById('signUp').style.display='block'"><h5>SIGN UP</h5></button>
-          <div id="signUp" class="modal">
-            <form class="modal-content animate" action="/action_page.php">
-              <div class="imgcontainer">
-              <span onclick="document.getElementById('signUp').style.display='none'"></span>
-              </div>
-
-   
-              <div class="container">
-                <div class="radio">
-            
-                <label class="radioButton"><input  #service ng-model="result" ng-value="serviceProvider" (click)="onSubmitServiceProvider(service.value)" type="radio" name="optradio">I want to work on an idea</label>
-                </div>
-    
-                <div class="radio">
-                <label class="radioButton"><input #innovator ng-model="result" ng-value="innovator" (click)="onSubmitInnovator(innovator.value)" type="radio" name="optradio">I want to post an idea</label>
-                </div>
-              </div>
-            </form>
-          </div>
-   
-        <script>
-        var modal = document.getElementById('signUp');
-        window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            }
-        }
-        </script>
-
-        </li>
-       
+         <button mat-button><a (click)="signUp()" data-toggle="modal" data-target="#signUp"><h5>SIGNUP</h5></a></button>
+       <li>
       </ul>
    
     </div>
@@ -205,5 +178,5 @@
         </div>
       </footer>
       <!-- FOOTER ENDS HERE -->
+      </div>
 
-      <button class="btn btn-outline-primary mx-2" (click)="signUp()">SignUp</button>
