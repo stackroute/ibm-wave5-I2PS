@@ -1,6 +1,7 @@
 package com.stackroute.innovatorprofile.service;
 
 import com.stackroute.innovatorprofile.domain.InnovatorProfile;
+import com.stackroute.innovatorprofile.exception.EmailIdAlreadyExistsException;
 import com.stackroute.innovatorprofile.repository.InnovatorProfileRespository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,19 @@ public class InnovatorProfileServiceImpl implements InnovatorProfileService
     }
 
     @Override
-    public InnovatorProfile saveInnovatorProfile(InnovatorProfile innovatorProfile) {
-        return innovatorProfileRespository.save(innovatorProfile);
+    public InnovatorProfile saveInnovatorProfile(InnovatorProfile innovatorProfile) throws EmailIdAlreadyExistsException {
+        if(innovatorProfileRespository.existsById(innovatorProfile.getEmailId()))
+        {
+            throw new EmailIdAlreadyExistsException("EmailId Already Exists");
+        }
+        InnovatorProfile savedInnovatorProfile=innovatorProfileRespository.save(innovatorProfile);
+        if(savedInnovatorProfile == null)
+        {
+            throw new EmailIdAlreadyExistsException("EmailId Already Exists");
+        }
+
+        return savedInnovatorProfile;
+        //return innovatorProfileRespository.save(innovatorProfile);
     }
 
     @Override
