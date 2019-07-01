@@ -33,6 +33,7 @@
 		<module>user-login-service</module>
         <module>innovator-profile-service</module>
 		<module>service-provider-profile-service</module>
+		<module>intelligent-service</module>
 	</modules>
 
 	<dependencies>
