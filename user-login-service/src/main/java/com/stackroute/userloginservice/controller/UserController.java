@@ -35,7 +35,7 @@ public class UserController {
     public ResponseEntity<?>  login(@RequestBody User loginDetails) throws EmailIdOrPasswordEmptyException, EmailIdNotFoundException, PasswordNotMatchException{
 
         String emailId = loginDetails.getEmailId();
-//        String role=loginDetails.getRole();
+
         String password = loginDetails.getPassword();
 
 
@@ -50,10 +50,7 @@ public class UserController {
             throw new EmailIdNotFoundException();
         }
 
-//        if(role==null)
-//        {
-//            throw new RoleNotFoundException();
-//        }
+
 
         String fetchedPassword = user.getPassword();
 
