@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from  '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserLoginComponent } from './user-login/user-login.component';
 // import { ServiceProviderComponent } from './service-provider-registration/serice-provider.component';
@@ -8,6 +8,7 @@ import { SericeProviderComponent } from './service-provider-registration/serice-
 import { IntelligentServiceComponent } from './intelligent-service/intelligent-service.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { ServiceProviderProfileDashbaordComponent } from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component';
+import { InnovatorProfileDashboardComponent} from './innovator-profile-dashboard/innovator-profile-dashboard.component'
 
 
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'innovatorprofile',component:InnovatorProfileComponent},
   {path: 'intelligent-service',component:IntelligentServiceComponent},
   {path: 'cardDetail/:id',component:CardDetailsComponent},
-  {path: 'serviceProviderdashboard',component:ServiceProviderProfileDashbaordComponent}
+  {path: 'serviceProviderdashboard',component:ServiceProviderProfileDashbaordComponent},
+  { path: 'innovatorprofiledashboard',component:InnovatorProfileDashboardComponent}
 
 ];
 
