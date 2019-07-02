@@ -1,13 +1,25 @@
 language: java
 jdk: openjdk11
-cache:
-  directories:
-    - "$HOME/.m2/repository"
+
 services:
   - docker
 
 before_script:
   - docker-compose up --build -d config-service mongo mysql
   - docker ps -a
+
+addons:
+  sonarcloud:
+    organization: "sonarcloud"
+    token:
+      secure: 449f3c9088892b547b71ceb441d88435e955dbb3
+  # JaCoCo is used to have code coverage, "-Pcoverage" activates the maven profile in the pom.xml
+  - mvn clean verify sonar:sonar -Pcoverage 
+  
+cache:
+  directories:
+    - "$HOME/.m2/repository"
+    - '$HOME/.sonar/cache'
+    
 after_success:
   - bash <(curl -s https://codecov.io/bash)
