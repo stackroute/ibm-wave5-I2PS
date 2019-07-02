@@ -7,8 +7,7 @@ import { InnovatorProfileComponent } from './innovator-profile-registration/inno
 import { SericeProviderComponent } from './service-provider-registration/serice-provider.component';
 import { IntelligentServiceComponent } from './intelligent-service/intelligent-service.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
-
-
+import { ServiceProviderProfileDashbaordComponent } from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component';
 
 const routes: Routes = [  
   { path: 'login', component:UserLoginComponent },
@@ -16,7 +15,8 @@ const routes: Routes = [
   { path: 'landingpage',component:LandingPageComponent},
   {path: 'innovatorprofile',component:InnovatorProfileComponent},
   {path: 'intelligent-service',component:IntelligentServiceComponent},
-  {path: 'cardDetail/:id',component:CardDetailsComponent}
+  {path: 'cardDetail/:id',component:CardDetailsComponent},
+  {path: 'service-provider-profile-dashboard',component:ServiceProviderProfileDashbaordComponent}
 
 ];
 

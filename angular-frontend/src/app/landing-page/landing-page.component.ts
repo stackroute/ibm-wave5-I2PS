@@ -33,6 +33,12 @@ id;
       this.router.navigateByUrl("/innovatorprofile");
     }
 
+
+    login()
+
+    {
+      this.router.navigateByUrl('/login')
+    }
     routeDetails(data)  {
       console.log(data);
       this.id=data.id;
