@@ -30,18 +30,11 @@ public class IntelligentServiceImpl implements IntelligentSeviceInterface {
         return intelligentServiceRepository.getByRole(role);
     }
 
-    @RabbitListener(queues = "${recommendationService.queue}")
-    public void recievedMessageFromRecommendationService(IntelligentService intelligentService) {
+    @RabbitListener(queues = "${serviceProvider.queue}")
+    public void recievedMessageFromServiceProvider(IntelligentService intelligentService) {
         intelligentServiceRepository.save(intelligentService);
-        System.out.println("Recieved Message From Recommendation-Service:" + intelligentService.toString());
+        System.out.println("Recieved Message From serviceProvider:" + intelligentService.toString());
 
     }
 
-    //For service provider producer
-    @RabbitListener(queues = "${ideaHubService.queue}")
-    public void recievedMessageFromIdeaHubService(IntelligentService intelligentService) {
-        intelligentServiceRepository.save(intelligentService);
-        System.out.println("Recieved Message From Idea-Hub-Service:" + intelligentService.toString());
-
-    }
 }

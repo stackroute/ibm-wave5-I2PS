@@ -14,61 +14,32 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfig {
-    @Value("${recommendationService.queue}")
-    String recommendationQueueName;
+    @Value("${serviceProvider.queue}")
+    String serviceProviderQueueName;
 
-    @Value("${recommendationService.exchange}")
-    String recommendationServiceExchange;
+    @Value("${serviceProvider.exchange}")
+    String serviceProviderExchange;
 
-    @Value("${recommendationService.routingkey}")
-    private String recommendationServiceRoutingKey;
-
-
-    @Value("${ideaHubService.queue}")
-    String ideaHubServiceQueueName;
-
-    @Value("${ideaHubService.exchange}")
-    String ideaHubServiceExchange;
-
-    @Value("${ideaHubService.routingkey}")
-    private String ideaHubServiceRoutingKey;
-
-    @Bean
-     Queue recommendationServiceQueue()
-    {
-        return new Queue(recommendationQueueName,true);
-
-    }
-    @Bean
-    Exchange recommendationServiceExchange(){
-        return ExchangeBuilder.topicExchange(recommendationServiceExchange).durable(true).build();
-    }
-    @Bean
-    Binding recomendationServiceBinding(){
-        return BindingBuilder
-                .bind(recommendationServiceQueue())
-                .to(recommendationServiceExchange())
-                .with("recommendationServiceRoutingKey")
-                .noargs();
-    }
+    @Value("${serviceProvider.routingkey}")
+    private String serviceProviderRoutingKey;
 
 
     @Bean
-    Queue ideaHubServiceQueue()
+    Queue serviceProviderQueue()
     {
 
-        return new Queue(ideaHubServiceQueueName,true);
+        return new Queue(serviceProviderQueueName,true);
     }
     @Bean
-    Exchange ideaHubServiceExchange(){
-        return ExchangeBuilder.topicExchange(ideaHubServiceExchange).durable(true).build();
+    Exchange serviceProviderExchange(){
+        return ExchangeBuilder.topicExchange(serviceProviderExchange).durable(true).build();
     }
     @Bean
-    Binding ideaHubServiceBinding(){
+    Binding serviceProviderBinding(){
         return BindingBuilder
-                .bind(ideaHubServiceQueue())
-                .to(ideaHubServiceExchange())
-                .with(ideaHubServiceRoutingKey)
+                .bind(serviceProviderQueue())
+                .to(serviceProviderExchange())
+                .with(serviceProviderRoutingKey)
                 .noargs();
     }
 
