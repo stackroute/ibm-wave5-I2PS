@@ -1,0 +1,257 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="bg-image">
+<br>
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                         <img src="https://cdn4.iconfinder.com/data/icons/school-education-5/256/Teacher-512.png" alt=""/> 
+                        
+                            <div class="file btn btn-lg btn-primary">
+                                 Change Photo
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        Name:{{serviceProviderData[1].name}}
+                                    </h5>
+                                    <h6>
+                                       {{serviceProviderData[1].role}}
+                                    </h6>
+                                   
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+   <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"> <img src="https://img.icons8.com/ios-glyphs/30/000000/edit.png"> Edit</button>
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <p>Please fill in this form to Edit.</p>
+      <hr>
+      <label for="Name"><b>Name </b></label>
+      <input type="text" placeholder="Edit Name" name="Name" required>
+     
+      <label for="Profession"><b>Role</b></label>
+      <input type="text" placeholder="Edit Profession" name="Profession" required>
+
+      <label for="Email"><b>Email</b></label>
+      <input type="text" placeholder="Edit Email" name="Email" required>
+      
+      <label for="Email"><b>Charge-Per-Hour</b></label>
+      <input type="text" placeholder="Edit Charge-Per-Hour" name="Charge-Per-Hour" required>
+
+ <a href="#" style="color:dodgerblue">Terms & Privacy</a>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>Contact</p>
+                            <a href=""><img src="https://img.icons8.com/color/48/000000/whatsapp.png"></a>
+                            <a href=""></a>
+                            <a href=""><img src="https://img.icons8.com/color/48/000000/twitter-squared.png"></a>
+                     <a href=" " ><img src="https://img.icons8.com/color/48/000000/facebook-new.png"></a>
+                     <a href=" "><img src="https://img.icons8.com/color/48/000000/linkedin-circled.png"></a>
+                            <p>SKILLS</p>
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                  <div class="flip-box-front">
+                                    <h2><img src="https://img.icons8.com/ios/50/000000/visualization-skill-filled.png"></h2>
+                                  </div>
+                                  <div class="flip-box-back">
+                                     <div class="w3-container w3-left"> 
+                                      <label>Web Developer:2 years</label>
+                                      <br>
+                                      <label>: 4 Year</label>
+                                      <label>Networking:  3 Year</label>
+                                            </div>
+                                            </div>
+                                  
+                                </div>
+                               
+                      
+                   </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+        
+                                        </div>
+                                        <div class="content">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><img src="https://img.icons8.com/material-rounded/24/000000/employee-card.png">Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{serviceProviderData[1].name}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><img src="https://img.icons8.com/metro/26/000000/new-post.png">  Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{serviceProviderData[1].emailId}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><img src="https://img.icons8.com/ios-glyphs/30/000000/phone.png"> Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>123 456 7890</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>
+                                                    <img src="https://img.icons8.com/ios-glyphs/30/000000/identification-documents.png">
+                                                                                                                    Role</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                        <p>{{serviceProviderData[1].role}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><img src="https://img.icons8.com/material-rounded/24/000000/money.png">ChargePerHour</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{serviceProviderData[1].chargePerHour}}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label><img src="https://img.icons8.com/ios-glyphs/30/000000/for-experienced.png">Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{serviceProviderData[1].skillsAndExperiences}}</p>
+                                            </div>
+                                        </div>
+                                    
+                                        <br>
+                                        <br>
+                                   
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Your Bio</label><br/>
+                                                <p>{{serviceProviderData[1].skillsAndExperiences}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                
+                              <div class="row">
+                              <div class="column">
+                               <div class="card">
+                                <h3>Idea1</h3>
+                                <p>Some text</p>
+                                 </div>
+                                 </div>
+                                
+                                 <div class="column">
+                                    <div class="card">
+                                     <h3>Idea2</h3>
+                                     <p>Some text</p>
+                                      </div>
+                                      </div>
+
+                                      <div class="column">
+                                        <div class="card">
+                                         <h3>Idea3</h3>
+                                         <p>Some text</p>
+                                          </div>
+                                          </div>
+
+                                          <div class="column">
+                                            <div class="card">
+                                             <h3>Idea4</h3>
+                                             <p>Some text</p>
+                                              </div>
+                                              </div>
+                                 </div>
+                                
+                                
+                                
+                                
+                                
+                                <!-- <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Charge-Per-Hour</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>10$/hr</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Total Projects</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>230</p>
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Your Bio</label><br/>
+                                        <p>Your detail description</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+
+    </div>

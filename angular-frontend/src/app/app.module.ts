@@ -19,7 +19,7 @@ import { RegistrationService } from './registration.service';
 import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
 import { IntelligentServiceComponent } from './intelligent-service/intelligent-service.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
-import { ServiceProviderProfileDashbaordComponent } from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component';
+import {ServiceProviderProfileDashbaordComponent} from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component'
 
 
 
@@ -32,7 +32,7 @@ import { ServiceProviderProfileDashbaordComponent } from './service-provider-pro
     InnovatorProfileComponent,
     IntelligentServiceComponent,
     CardDetailsComponent,
-    ServiceProviderProfileDashbaordComponent
+   ServiceProviderProfileDashbaordComponent
     
   ],
   imports: [

@@ -9,6 +9,9 @@ import { IntelligentServiceComponent } from './intelligent-service/intelligent-s
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { ServiceProviderProfileDashbaordComponent } from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component';
 
+
+
+
 const routes: Routes = [  
   { path: 'login', component:UserLoginComponent },
   {path: 'serviceprovider',component:SericeProviderComponent},
@@ -16,7 +19,7 @@ const routes: Routes = [
   {path: 'innovatorprofile',component:InnovatorProfileComponent},
   {path: 'intelligent-service',component:IntelligentServiceComponent},
   {path: 'cardDetail/:id',component:CardDetailsComponent},
-  {path: 'service-provider-profile-dashboard',component:ServiceProviderProfileDashbaordComponent}
+  {path: 'serviceProviderdashboard',component:ServiceProviderProfileDashbaordComponent}
 
 ];
 

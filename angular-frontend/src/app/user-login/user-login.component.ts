@@ -56,7 +56,7 @@ export class UserLoginComponent implements OnInit {
       if(role!=null)
       {
       console.log("in else");
-      this.router.navigateByUrl('/service-provider-profile-dashboard');
+      this.router.navigateByUrl('/serviceprovider');
       
      }
     }
