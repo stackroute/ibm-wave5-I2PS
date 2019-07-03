@@ -40,11 +40,13 @@ export class SericeProviderComponent implements OnInit {
        experience:experience,
        chargePerHour:chargePerHour,
        certifications:this.certifications
+       
      
   }
   console.log("hiiiiiii",providerdata);
    this.registrationService.addServiceProvider(providerdata);
   //  console.log("hi");
+  this.router.navigateByUrl("/landingpage");
 }
 
 addSkill(skill) {

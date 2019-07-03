@@ -39,6 +39,8 @@ export class InnovatorProfileComponent implements OnInit {
   console.log("hiiiiiii",providerdata);
    this.registrationService.addInnovatorProfile(providerdata);
   //  console.log("hi");
+
+  this.router.navigateByUrl("/landingpage");
 }
 
 

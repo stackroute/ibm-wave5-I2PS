@@ -51,12 +51,12 @@ export class UserLoginComponent implements OnInit {
      if (role==null) {
        console.log(role);
       console.log("in if1");
-      this.router.navigateByUrl('/innovatorprofile');
+      this.router.navigateByUrl('/innovatorprofiledashboard');
      }
       if(role!=null)
       {
       console.log("in else");
-      this.router.navigateByUrl('/serviceprovider');
+      this.router.navigateByUrl('/serviceProviderdashboard');
       
      }
     }

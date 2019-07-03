@@ -26,7 +26,7 @@ id;
   }
 
   login(){
-    this.router.navigateByUrl('/serviceProviderdashboard')
+    this.router.navigateByUrl('/login')
   }
 
   onSubmitServiceProvider(serviceprovider) {
