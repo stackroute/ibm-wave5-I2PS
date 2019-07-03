@@ -5,10 +5,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-import javax.persistence.Entity;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Document (collection = "intelligentService")
 @Setter
@@ -19,7 +18,7 @@ import java.util.List;
 public class IntelligentService {
 
     @Id
-    private String roleId;
+    private int roleId= ThreadLocalRandom.current().nextInt();
     private String role;
     private List<ServiceProvider> serviceProviders = new ArrayList<>();
     private List<SkillsAndExperience> skillsAndExperiences=new ArrayList<>();
@@ -30,6 +29,7 @@ public class IntelligentService {
                 "roleId=" + roleId +
                 ", role='" + role + '\'' +
                 ", serviceProviders=" + serviceProviders +
+                ", skillsAndExperiences=" + skillsAndExperiences +
                 '}';
     }
 }

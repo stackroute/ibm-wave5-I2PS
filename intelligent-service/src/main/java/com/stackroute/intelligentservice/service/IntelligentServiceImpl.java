@@ -6,8 +6,6 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-
 @Service
 public class IntelligentServiceImpl implements IntelligentSeviceInterface {
 
@@ -15,26 +13,54 @@ public class IntelligentServiceImpl implements IntelligentSeviceInterface {
     @Autowired
     IntelligentServiceRepository intelligentServiceRepository;
 
-    @Override
-    public IntelligentService create(IntelligentService intelligentService) {
-       return intelligentServiceRepository.save(intelligentService);
-    }
 
-    @Override
-    public IntelligentService update(String role) {
-        return null;
-    }
-
-    @Override
-    public Collection<IntelligentService> getByRole(String role) {
-        return intelligentServiceRepository.getByRole(role);
-    }
 
     @RabbitListener(queues = "${serviceProvider.queue}")
-    public void recievedMessageFromServiceProvider(IntelligentService intelligentService) {
-        intelligentServiceRepository.save(intelligentService);
+    public IntelligentService recievedMessageFromServiceProvider(IntelligentService intelligentService) {
+//        intelligentServiceRepository.save(intelligentService);
+        if (intelligentServiceRepository.existsById(intelligentService.getRoleId()))
+        {
+            update(intelligentService);
+
+        }
+        else
+        {
+            return intelligentServiceRepository.save(intelligentService);
+        }
         System.out.println("Recieved Message From serviceProvider:" + intelligentService.toString());
+        return null;
 
     }
 
+//    @Override
+//    public IntelligentService createOrUpdate(IntelligentService intelligentService) {
+//        if (intelligentServiceRepository.existsById(intelligentService.getRoleId()))
+//        {
+//            update(intelligentService);
+//
+//        }
+//        else
+//        {
+//            return intelligentServiceRepository.save(intelligentService);
+//        }
+//    }
+//
+    private IntelligentService update(IntelligentService intelligentService) {
+
+        IntelligentService intelligentServiceInUpdate= new IntelligentService();
+        if (intelligentServiceRepository.existsById(intelligentService.getRoleId())) {
+
+            System.out.println("role exists");
+            intelligentServiceInUpdate=intelligentServiceRepository.save(intelligentService);
+
+        }
+
+        return intelligentServiceInUpdate;
+
+    }
+
+//    @Override
+//    public Iterable<IntelligentService> getByRole(int roleId) {
+//        return intelligentServiceRepository.findAllById(roleId);
+//    }
 }

@@ -26,9 +26,5 @@ public class ServiceProvider {
      ArrayList<SkillsAndExperience> skillsAndExperiences;
      String about;
      Double chargePerHour;
-     List<String> certifications;
-
-
-
 
 }
