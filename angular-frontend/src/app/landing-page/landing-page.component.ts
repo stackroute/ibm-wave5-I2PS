@@ -26,11 +26,11 @@ id;
   }
 
   login(){
-    this.router.navigateByUrl('/serviceProviderdashboard')
+    this.router.navigateByUrl('/login')
   }
 
   onSubmitServiceProvider(serviceprovider) {
-      this.router.navigateByUrl("/serviceprovider");
+      this.router.navigateByUrl("/serviceProviderdashboard");
     }
 
     onSubmitInnovator(innovator) {

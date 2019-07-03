@@ -25,7 +25,9 @@ public class InnovatorProfileController {
         public ResponseEntity<?>saveInnovatorProfile(@RequestBody InnovatorProfile innovatorProfile) throws EmailIdAlreadyExistsException{
             ResponseEntity responseEntity;
             try{
+
                 innovatorProfileSeviceimpl.saveInnovatorProfile(innovatorProfile);
+                innovatorProfileSeviceimpl.send(innovatorProfile);
                 responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
 
             }catch (Exception ex){
