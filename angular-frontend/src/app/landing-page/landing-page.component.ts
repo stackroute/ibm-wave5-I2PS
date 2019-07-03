@@ -30,7 +30,7 @@ id;
   }
 
   onSubmitServiceProvider(serviceprovider) {
-      this.router.navigateByUrl("/serviceProviderdashboard");
+      this.router.navigateByUrl("/serviceprovider");
     }
 
     onSubmitInnovator(innovator) {
