@@ -22,12 +22,12 @@ public class IntelligentServiceController {
         this.intelligentSeviceInterface = intelligentSeviceInterface;
     }
 
-    @PostMapping("/createOrUpdate")
-    public ResponseEntity<?> createOrUpdate(@RequestBody IntelligentService intelligentService)
-    {
-        return new ResponseEntity<IntelligentService>(intelligentSeviceInterface.createOrUpdate(intelligentService),HttpStatus.CREATED);
-
-    }
+//    @PostMapping("/createOrUpdate")
+//    public ResponseEntity<?> createOrUpdate(@RequestBody IntelligentService intelligentService)
+//    {
+//        return new ResponseEntity<IntelligentService>(intelligentSeviceInterface.createOrUpdate(intelligentService),HttpStatus.CREATED);
+//
+//    }
 
 
 }

@@ -34,7 +34,7 @@ public class ServiceProviderControllerTest {
 
     serviceProvider.getDomain();
     serviceProvider.getSubDomain();
-    serviceProvider.getCertifications();
+
   }
 
   @After

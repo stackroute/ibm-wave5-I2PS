@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Entity;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Document
@@ -22,8 +23,10 @@ public class ServiceProvider {
     String domain;
     List<String> subDomain;
     String role;
+    ArrayList<SkillsAndExperience> skillsAndExperiences;
     String about;
     BigDecimal chargePerHour;
+
 
     @Override
     public String toString() {
@@ -34,6 +37,7 @@ public class ServiceProvider {
                 ", domain='" + domain + '\'' +
                 ", subDomain=" + subDomain +
                 ", role='" + role + '\'' +
+                ", skillsAndExperiences=" + skillsAndExperiences +
                 ", about='" + about + '\'' +
                 ", chargePerHour=" + chargePerHour +
                 '}';

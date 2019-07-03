@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfig {
-    @Value("${serviceProvider.queue}")
-    String serviceProviderQueueName;
+    @Value("${intelligent.queue}")
+    String intelligentQueue;
 
     @Value("${serviceProvider.exchange}")
     String serviceProviderExchange;
@@ -25,10 +25,10 @@ public class RabbitMQConfig {
 
 
     @Bean
-    Queue serviceProviderQueue()
+    Queue intelligentQueueQueue()
     {
 
-        return new Queue(serviceProviderQueueName,true);
+        return new Queue(intelligentQueue,true);
     }
     @Bean
     Exchange serviceProviderExchange(){
@@ -37,7 +37,7 @@ public class RabbitMQConfig {
     @Bean
     Binding serviceProviderBinding(){
         return BindingBuilder
-                .bind(serviceProviderQueue())
+                .bind(intelligentQueueQueue())
                 .to(serviceProviderExchange())
                 .with(serviceProviderRoutingKey)
                 .noargs();

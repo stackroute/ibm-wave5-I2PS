@@ -1,10 +1,14 @@
 package com.stackroute.intelligentservice.service;
 
 import com.stackroute.intelligentservice.domain.IntelligentService;
+import com.stackroute.intelligentservice.domain.ServiceProvider;
 import com.stackroute.intelligentservice.repository.IntelligentServiceRepository;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class IntelligentServiceImpl implements IntelligentSeviceInterface {
@@ -14,48 +18,28 @@ public class IntelligentServiceImpl implements IntelligentSeviceInterface {
     IntelligentServiceRepository intelligentServiceRepository;
 
 
-
-    @RabbitListener(queues = "${serviceProvider.queue}")
-    public IntelligentService recievedMessageFromServiceProvider(IntelligentService intelligentService) {
-//        intelligentServiceRepository.save(intelligentService);
-        if (intelligentServiceRepository.existsById(intelligentService.getRoleId()))
+    @RabbitListener(queues = "${intelligent.queue}")
+    public IntelligentService recievedMessageFromServiceProvider(ServiceProvider serviceProvider) {
+        System.out.println(serviceProvider.toString());
+            IntelligentService intelligentService = intelligentServiceRepository.findByRole(serviceProvider.getRole());
+        if (intelligentService!=null)
         {
-            update(intelligentService);
+            List<ServiceProvider> serviceProviderList=intelligentService.getServiceProvider();
+            serviceProviderList.add(serviceProvider);
+            intelligentServiceRepository.save(intelligentService);
 
         }
         else
         {
-            return intelligentServiceRepository.save(intelligentService);
+            intelligentService.setRole(serviceProvider.getRole());
+            List<ServiceProvider> serviceProviders = new ArrayList<>();
+            serviceProviders.add(serviceProvider);
+            intelligentService.setServiceProvider(serviceProviders);
+            intelligentServiceRepository.save(intelligentService);
+
         }
         System.out.println("Recieved Message From serviceProvider:" + intelligentService.toString());
         return null;
-
-    }
-
-//    @Override
-//    public IntelligentService createOrUpdate(IntelligentService intelligentService) {
-//        if (intelligentServiceRepository.existsById(intelligentService.getRoleId()))
-//        {
-//            update(intelligentService);
-//
-//        }
-//        else
-//        {
-//            return intelligentServiceRepository.save(intelligentService);
-//        }
-//    }
-//
-    private IntelligentService update(IntelligentService intelligentService) {
-
-        IntelligentService intelligentServiceInUpdate= new IntelligentService();
-        if (intelligentServiceRepository.existsById(intelligentService.getRoleId())) {
-
-            System.out.println("role exists");
-            intelligentServiceInUpdate=intelligentServiceRepository.save(intelligentService);
-
-        }
-
-        return intelligentServiceInUpdate;
 
     }
 

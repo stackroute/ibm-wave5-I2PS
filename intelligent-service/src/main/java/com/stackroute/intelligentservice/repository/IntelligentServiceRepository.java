@@ -9,10 +9,11 @@ import java.util.Collection;
 
 
 @Repository
-public interface IntelligentServiceRepository extends MongoRepository<IntelligentService,Integer> {
+public interface IntelligentServiceRepository extends MongoRepository<IntelligentService,String> {
 
 //    @Query
     Collection<IntelligentService> getByRole(int role);
 
+    IntelligentService findByRole(String role);
 
 }

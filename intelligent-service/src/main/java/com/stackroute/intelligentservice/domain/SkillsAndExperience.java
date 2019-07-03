@@ -10,14 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Builder
 public class SkillsAndExperience {
+    private String skills;
     private int experience;
-    private String skill;
 
     @Override
     public String toString() {
         return "SkillsAndExperience{" +
-                "experience='" + experience+ '\'' +
-                ", skill='" + skill + '\'' +
+                "skills='" + skills + '\'' +
+                ", experience=" + experience +
                 '}';
     }
 }
