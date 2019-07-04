@@ -28,10 +28,14 @@ public class ServiceProviderController
         serviceProviderServiceimpl.send(serviceProvider);
         return new ResponseEntity<ServiceProvider>(serviceProviderServiceimpl.saveServiceProvider(serviceProvider), HttpStatus.CREATED);
     }
+
     @GetMapping("/serviceproviders")
-       public ResponseEntity<?> getserviceProviders()
-        {
-           return  new ResponseEntity<List<ServiceProvider>>(serviceProviderServiceimpl.getServiceProvider(),HttpStatus.OK);
-        }
+    public ResponseEntity<?> getserviceProviders()
+    {
+       return  new ResponseEntity<List<ServiceProvider>>(serviceProviderServiceimpl.getServiceProvider(),HttpStatus.OK);
     }
+
+//    @GetMapping("/serviceProviderGetByEmail/{emailId}")
+//    public
+}
 

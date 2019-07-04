@@ -19,7 +19,7 @@ import java.util.List;
 @Component
 public class IntelligentService {
     @Id
-    private  String roleId;
+    private String roleId;
     private String role;
     private List<ServiceProvider> serviceProvider = new ArrayList<>();
 

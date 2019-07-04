@@ -146,10 +146,10 @@ services:
       RABBITMQ_DEFAULT_VHOST: /
 
 
-#  sonarqube:
-#    image: sonarqube
-#    ports:
-#      - 9000:9000
-#    container_name: sonarqube
-#    network_mode: "host"
-#    hostname: localhost
+  sonarqube:
+    image: sonarqube
+    ports:
+      - 9000:9000
+    container_name: sonarqube
+    network_mode: "host"
+    hostname: localhost

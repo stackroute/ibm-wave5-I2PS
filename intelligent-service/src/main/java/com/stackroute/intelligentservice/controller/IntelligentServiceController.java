@@ -23,7 +23,7 @@ public class IntelligentServiceController {
     }
 
 
-    @GetMapping("/getByRole/{role}")
+    @GetMapping("/intelligentService/{role}")
     public ResponseEntity<?> getByRole(@PathVariable String role)
     {
         return new ResponseEntity<IntelligentService>(intelligentSeviceInterface.getByRole(role),HttpStatus.OK);

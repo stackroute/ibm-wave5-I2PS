@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ServiceProviderRepository extends MongoRepository<ServiceProvider,String> {
+    public ServiceProvider findByEmailId(String emailId);
 }

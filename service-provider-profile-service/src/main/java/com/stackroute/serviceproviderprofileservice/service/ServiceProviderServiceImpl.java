@@ -39,6 +39,11 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
         return serviceProviderRepository.findAll();
     }
 
+    @Override
+    public ServiceProvider getByEmailId(String emailId) {
+        return serviceProviderRepository.findByEmailId(emailId);
+    }
+
 
     public void send(ServiceProvider serviceProvider) {
         rabbitTemplate.convertAndSend(servicePExchange, servicePRoutingkey, serviceProvider);
