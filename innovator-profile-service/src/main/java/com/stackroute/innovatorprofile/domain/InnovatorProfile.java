@@ -15,20 +15,21 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class InnovatorProfile {
-     @Id
-     private String emailId;
-     private String password;
-     String name;
-     String domain;
-     List<String> subDomain;
-     @Override
-     public String toString() {
-          return "InnovatorProfile{" +
-                  "emailId='" + emailId + '\'' +
-                  ", password='" + password + '\'' +
-                  ", name='" + name + '\'' +
-                  ", domain='" + domain + '\'' +
-                  ", subDomain=" + subDomain +
-                  '}';
-     }
+    @Id
+    private String emailId;
+    private String password;
+    String name;
+    String domain;
+    List<String> subDomain;
+
+    @Override
+    public String toString() {
+        return "InnovatorProfile{" +
+                "emailId='" + emailId + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", domain='" + domain + '\'' +
+                ", subDomain=" + subDomain +
+                '}';
+    }
 }

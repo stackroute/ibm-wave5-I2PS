@@ -15,13 +15,13 @@ import java.util.List;
 @RequestMapping(value = "api/v1")
 public class ServiceProviderController
 {
-    ServiceProviderServiceImpl serviceProviderServiceimpl;
+    private ServiceProviderServiceImpl serviceProviderServiceimpl;
 
     @Autowired
     public ServiceProviderController(ServiceProviderServiceImpl serviceProviderServiceimpl) {
         this.serviceProviderServiceimpl = serviceProviderServiceimpl;
     }
-
+//method to save a service provider profile
     @PostMapping("/serviceprovider")
     public ResponseEntity<?> saveServiceProvider(@RequestBody ServiceProvider serviceProvider)
     {
@@ -29,6 +29,8 @@ public class ServiceProviderController
         return new ResponseEntity<ServiceProvider>(serviceProviderServiceimpl.saveServiceProvider(serviceProvider), HttpStatus.CREATED);
     }
 
+
+    //method to get all service provider profiles
     @GetMapping("/serviceproviders")
     public ResponseEntity<?> getserviceProviders()
     {
