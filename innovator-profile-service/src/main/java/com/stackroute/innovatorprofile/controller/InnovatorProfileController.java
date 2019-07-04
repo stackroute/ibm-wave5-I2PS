@@ -2,6 +2,7 @@ package com.stackroute.innovatorprofile.controller;
 
 import com.stackroute.innovatorprofile.domain.InnovatorProfile;
 import com.stackroute.innovatorprofile.exception.EmailIdAlreadyExistsException;
+import com.stackroute.innovatorprofile.service.InnovatorProfileService;
 import com.stackroute.innovatorprofile.service.InnovatorProfileServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,6 +48,11 @@ public class InnovatorProfileController {
         return new ResponseEntity<List<InnovatorProfile>>(innovatorProfileSeviceimpl.getInnovatorProfile(), HttpStatus.OK);
     }
 
+    @GetMapping("/getByEmailId/{emailId}")
+    public ResponseEntity<?> getByEmailId(@PathVariable String emailId)
+    {
+        return new ResponseEntity<InnovatorProfile>(innovatorProfileSeviceimpl.getByEmailId(emailId),HttpStatus.OK);
+    }
 }
 
 

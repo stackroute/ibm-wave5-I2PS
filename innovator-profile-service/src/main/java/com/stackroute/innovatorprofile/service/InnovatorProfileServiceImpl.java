@@ -47,10 +47,14 @@ public class InnovatorProfileServiceImpl implements InnovatorProfileService {
         return innovatorProfileRespository.findAll();
     }
 
-
+    @Override
+    public InnovatorProfile getByEmailId(String emailId) {
+        return innovatorProfileRespository.findByEmailId(emailId);
+    }
 
     public void send(InnovatorProfile innovatorProfile) {
         rabbitTemplate.convertAndSend(innovatorExchange, innovatorRoutingKey, innovatorProfile);
         System.out.println("Send msg = " + innovatorProfile);
     }
+
 }

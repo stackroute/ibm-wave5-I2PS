@@ -10,4 +10,5 @@ public interface InnovatorProfileService {
     public InnovatorProfile saveInnovatorProfile(InnovatorProfile innovatorProfile) throws EmailIdAlreadyExistsException;
 
     public List<InnovatorProfile> getInnovatorProfile();
+    public InnovatorProfile getByEmailId(String emailId);
 }

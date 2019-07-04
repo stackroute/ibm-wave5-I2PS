@@ -37,7 +37,11 @@ public class ServiceProviderController
        return  new ResponseEntity<List<ServiceProvider>>(serviceProviderServiceimpl.getServiceProvider(),HttpStatus.OK);
     }
 
-//    @GetMapping("/serviceProviderGetByEmail/{emailId}")
-//    public
+    @GetMapping("/getByEmailId/{emailId}")
+    public ResponseEntity<?> getByEmailId(@PathVariable String emailId)
+    {
+        return new ResponseEntity<ServiceProvider>(serviceProviderServiceimpl.getByEmailId(emailId),HttpStatus.OK);
+    }
+
 }
 

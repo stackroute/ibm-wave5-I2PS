@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InnovatorProfileRespository extends MongoRepository<InnovatorProfile,String> {
+    public InnovatorProfile findByEmailId(String emailId);
 }
