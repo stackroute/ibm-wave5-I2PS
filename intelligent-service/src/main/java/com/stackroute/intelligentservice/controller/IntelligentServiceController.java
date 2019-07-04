@@ -22,12 +22,11 @@ public class IntelligentServiceController {
         this.intelligentSeviceInterface = intelligentSeviceInterface;
     }
 
-//    @PostMapping("/createOrUpdate")
-//    public ResponseEntity<?> createOrUpdate(@RequestBody IntelligentService intelligentService)
-//    {
-//        return new ResponseEntity<IntelligentService>(intelligentSeviceInterface.createOrUpdate(intelligentService),HttpStatus.CREATED);
-//
-//    }
 
+    @GetMapping("/getByRole/{role}")
+    public ResponseEntity<?> getByRole(@PathVariable String role)
+    {
+        return new ResponseEntity<IntelligentService>(intelligentSeviceInterface.getByRole(role),HttpStatus.OK);
+    }
 
 }

@@ -1,9 +1,7 @@
 package com.stackroute.intelligentservice.domain;
 
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
 @Setter
 @Getter
 @NoArgsConstructor

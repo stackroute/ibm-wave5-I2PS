@@ -13,38 +13,47 @@ import java.util.List;
 @Service
 public class IntelligentServiceImpl implements IntelligentSeviceInterface {
 
+    private IntelligentServiceRepository intelligentServiceRepository;
+    private IntelligentService intelligentService;
 
     @Autowired
-    IntelligentServiceRepository intelligentServiceRepository;
-
+    public IntelligentServiceImpl(IntelligentServiceRepository intelligentServiceRepository, IntelligentService intelligentService) {
+        this.intelligentServiceRepository = intelligentServiceRepository;
+        this.intelligentService = intelligentService;
+    }
 
     @RabbitListener(queues = "${intelligent.queue}")
     public IntelligentService recievedMessageFromServiceProvider(ServiceProvider serviceProvider) {
         System.out.println(serviceProvider.toString());
-            IntelligentService intelligentService = intelligentServiceRepository.findByRole(serviceProvider.getRole());
-        if (intelligentService!=null)
+            String role1= serviceProvider.getRole();
+        System.out.println(role1);
+            IntelligentService retrievedIntelligentService = intelligentServiceRepository.findByRole(role1);
+        System.out.println(retrievedIntelligentService);
+
+        if (retrievedIntelligentService!=null)
         {
-            List<ServiceProvider> serviceProviderList=intelligentService.getServiceProvider();
+            List<ServiceProvider> serviceProviderList=retrievedIntelligentService.getServiceProvider();
             serviceProviderList.add(serviceProvider);
-            intelligentServiceRepository.save(intelligentService);
+            intelligentServiceRepository.save(retrievedIntelligentService);
 
         }
         else
         {
-            intelligentService.setRole(serviceProvider.getRole());
+            String role = serviceProvider.getRole();
+            intelligentService.setRole(role);
             List<ServiceProvider> serviceProviders = new ArrayList<>();
             serviceProviders.add(serviceProvider);
             intelligentService.setServiceProvider(serviceProviders);
             intelligentServiceRepository.save(intelligentService);
 
         }
-        System.out.println("Recieved Message From serviceProvider:" + intelligentService.toString());
+        System.out.println("Recieved Message From serviceProvider:" + serviceProvider.toString());
         return null;
 
     }
 
-//    @Override
-//    public Iterable<IntelligentService> getByRole(int roleId) {
-//        return intelligentServiceRepository.findAllById(roleId);
-//    }
+    @Override
+    public IntelligentService getByRole(String role) {
+        return intelligentServiceRepository.findByRole(role);
+    }
 }

@@ -25,7 +25,7 @@ public class RabbitMQConfig {
 
 
     @Bean
-    Queue intelligentQueueQueue()
+    Queue intelligentQueue()
     {
 
         return new Queue(intelligentQueue,true);
@@ -37,7 +37,7 @@ public class RabbitMQConfig {
     @Bean
     Binding serviceProviderBinding(){
         return BindingBuilder
-                .bind(intelligentQueueQueue())
+                .bind(intelligentQueue())
                 .to(serviceProviderExchange())
                 .with(serviceProviderRoutingKey)
                 .noargs();

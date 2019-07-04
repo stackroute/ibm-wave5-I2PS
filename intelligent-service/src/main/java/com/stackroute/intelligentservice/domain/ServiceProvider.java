@@ -1,15 +1,10 @@
 package com.stackroute.intelligentservice.domain;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.persistence.Entity;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document
 @Setter
 @Getter
 @NoArgsConstructor
