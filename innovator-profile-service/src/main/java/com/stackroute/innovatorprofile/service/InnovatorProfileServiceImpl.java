@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class InnovatorProfileServiceImpl implements InnovatorProfileService
-{
+public class InnovatorProfileServiceImpl implements InnovatorProfileService {
     InnovatorProfileRespository innovatorProfileRespository;
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -27,26 +26,27 @@ public class InnovatorProfileServiceImpl implements InnovatorProfileService
         this.innovatorProfileRespository = innovatorProfileRespository;
     }
 
+    //service implementation to save an innovator profile
     @Override
     public InnovatorProfile saveInnovatorProfile(InnovatorProfile innovatorProfile) throws EmailIdAlreadyExistsException {
-        if(innovatorProfileRespository.existsById(innovatorProfile.getEmailId()))
-        {
+        if (innovatorProfileRespository.existsById(innovatorProfile.getEmailId())) {
             throw new EmailIdAlreadyExistsException("EmailId Already Exists");
         }
-        InnovatorProfile savedInnovatorProfile=innovatorProfileRespository.save(innovatorProfile);
-        if(savedInnovatorProfile == null)
-        {
+        InnovatorProfile savedInnovatorProfile = innovatorProfileRespository.save(innovatorProfile);
+        if (savedInnovatorProfile == null) {
             throw new EmailIdAlreadyExistsException("EmailId Already Exists");
         }
 
-        return savedInnovatorProfile;
+       else return savedInnovatorProfile;
         //return innovatorProfileRespository.save(innovatorProfile);
     }
 
+    //service implementation to get all innovator profiles
     @Override
     public List<InnovatorProfile> getInnovatorProfile() {
         return innovatorProfileRespository.findAll();
     }
+
 
 
     public void send(InnovatorProfile innovatorProfile) {

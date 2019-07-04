@@ -12,7 +12,8 @@ import java.util.List;
 @Service
 public class ServiceProviderServiceImpl implements ServiceProviderService
 {
-    ServiceProviderRepository serviceProviderRepository;
+    @Autowired
+    private ServiceProviderRepository serviceProviderRepository;
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -29,11 +30,13 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
         this.serviceProviderRepository = serviceProviderRepository;
     }
 
+    //service implementation to save service provider profile
     @Override
     public ServiceProvider saveServiceProvider(ServiceProvider serviceProvider) {
         return serviceProviderRepository.save(serviceProvider);
     }
 
+    //service implemetation to get all service provider profiles
     @Override
     public List<ServiceProvider> getServiceProvider() {
         return serviceProviderRepository.findAll();
