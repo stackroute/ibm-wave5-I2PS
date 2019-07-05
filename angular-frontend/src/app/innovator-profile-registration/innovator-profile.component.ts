@@ -14,7 +14,7 @@ export class InnovatorProfileComponent implements OnInit {
   innovatorProfileData:any=[];
   
   subDomains=[];
-
+subDomainList=['jsdkj','JHSDd','ghdsd'];
   ngOnInit() {
 
     this.registrationService.getInnovatorProfile().subscribe(data=>
@@ -24,7 +24,11 @@ export class InnovatorProfileComponent implements OnInit {
       });
   }
 
-  registartion(emailId,password,name,domain,subDomains)
+  onClick(value){
+    console.log(value);
+    this.subDomains=value;
+  }
+  register(emailId,password,name,domain,subDomains)
   {
     console.log(emailId, password,name,domain,subDomains);
      let providerdata={  

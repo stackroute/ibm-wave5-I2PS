@@ -5,7 +5,7 @@ import { CustomMaterialModule } from './core/material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatStepperModule, MatInputModule, MatButtonModule} from '@angular/material'
+import {MatStepperModule, MatInputModule, MatButtonModule,MatSelectModule} from '@angular/material'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,10 +19,11 @@ import { RegistrationService } from './registration.service';
 import { InnovatorProfileComponent } from './innovator-profile-registration/innovator-profile.component';
 import { IntelligentServiceComponent } from './intelligent-service/intelligent-service.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
-import {ServiceProviderProfileDashbaordComponent} from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component';
-import {InnovatorProfileDashboardComponent }from './innovator-profile-dashboard/innovator-profile-dashboard.component'
-
-
+import { PostIdeaComponent } from './post-idea/post-idea.component';
+import { MatAutocomplete } from '@angular/material';
+import { NewIdeaProfileComponent } from './innovator-dashboard/new-idea-profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,15 +34,20 @@ import {InnovatorProfileDashboardComponent }from './innovator-profile-dashboard/
     InnovatorProfileComponent,
     IntelligentServiceComponent,
     CardDetailsComponent,
-   ServiceProviderProfileDashbaordComponent,
-   InnovatorProfileDashboardComponent
+    PostIdeaComponent,
+    NewIdeaProfileComponent,
+    NavbarComponent,
+    FooterComponent
+
     
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CustomMaterialModule,
+    
     BrowserAnimationsModule,
     MatStepperModule, 
     MatInputModule, 
@@ -49,6 +55,8 @@ import {InnovatorProfileDashboardComponent }from './innovator-profile-dashboard/
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatSelectModule
+    // MatAutocomplete
     // SericeProviderComponent
   ],
   providers: [LoginService,RegistrationService],

@@ -1,0 +1,290 @@
+[
+                           {
+                             "id" : 1,
+                             "domain" : "IT",
+                             "skills": "Spring"
+                           },
+
+                           {
+                            "id" : 2,
+                            "domain" : "IT",
+                            "skills" : "Angular JS"
+                           },
+                        
+                           {
+                            "id" : 3,
+                            "domain" : "IT",
+                            "skills" : "Core Java"
+                           },
+
+                           {
+                            "id" : 4,
+                            "domain" : "IT",
+                            "skills" : "Linux"
+                           },
+
+                          {
+                            "id" : 5,
+                            "domain" : "IT",
+                            "skills" : "Windows"
+                          },
+                        
+                          { 
+                            "id" : 6,
+                            "domain" : "IT",
+                            "skills" : "Hardware Embedded"
+                          },
+
+                          {
+                            "id" : 7,
+                            "domain" : "IT",
+                            "skills" : "HTML"
+                          },
+
+                          {
+                            "id" : 8,
+                            "domain" : "IT",
+                            "skills" : "Bootstrap"
+                          },
+
+                          {
+                            "id" : 9,
+                            "domain" : "IT",
+                            "skills" : "PHP"
+                          },
+
+                          {
+                            "id" :10,
+                            "domain" : "IT",
+                             "skills" : "Ubuntu"
+                          },
+                         
+                          {
+                            "id" : 11,
+                            "domain" : "IT",
+                            "skills" : "Android"
+                          },
+
+                          {
+                            "id" : 12,
+                            "domain" : "IT",
+                            "skills" : "UI/UX"
+                          },
+
+                          {
+                            "id" : 13,
+                            "domain" : "IT",
+                            "skills" : "3D Design"
+                          },
+
+                          {
+                            "id" :14,
+                            "domain" : "IT",
+                            "skills" : "Javascript"
+                          },
+
+                          {
+                            "id" : 15,
+                            "domain" : "IT",
+                            "skills" : "CSS"
+                          },
+
+                          {
+                            "id" : 16,
+                            "domain" : "IT",
+                            "skills" : "Advanced Java"
+                          },
+
+                          {
+                            "id" : 17,
+                            "domain" : "IT",
+                            "skills" : "Unix"
+                          },
+
+                          {
+                            "id" : 18,
+                            "domain" : "IT",
+                            "skills" : "Python"
+                          },
+
+                          {
+                            "id" : 19,
+                            "domain" : "IT",
+                            "skills" : "C++"
+                          },
+
+                          {
+                            "id" : 20,
+                            "domain" : "IT",
+                            "skills" : ".Net"
+                          },
+
+                          {
+                            "id" : 21,
+                            "domain" : "IT",
+                            "skills" : "C#"
+                          },
+
+                          {
+                            "id" : 22,
+                            "domain" : "IT",
+                            "skills" : "Machine Learning"
+                          },
+
+                          {
+                            "id" : 23,
+                            "domain" : "IT",
+                            "skills" : "Data Mining"
+                          },
+
+                          {
+                            "id" : 24,
+                            "domain" : "IT",
+                            "skills" : "SQL"
+                          },
+
+                          {
+                            "id" : 25,
+                            "domain" : "IT",
+                            "skills" : "Spring boot"
+                          }, 
+
+                          {
+                            "id" : 26,
+                            "domain" : "IT",
+                            "skills" : "Spring MVC"
+                          },
+
+                          {
+                            "id" : 27,
+                            "domain" : "IT",
+                            "skills" : "Game developement"
+                          },
+
+                          {
+                            "id" : 28,
+                            "domain" : "IT",
+                            "skills" : "Perl"
+                          },
+
+                          {
+                            "id" : 29,
+                            "domain" : "Tourism",
+                            "skills" : "Travel Guide"
+                          },
+
+                          {
+                            "id" : 30,
+                            "domain" : "Tourism",
+                            "skills" : "Wildlife Conservationalist"
+                          },
+
+                          {
+                            "id" : 31,
+                            "domain" : "Tourism",
+                            "skills" : "Professional Photographer"
+                          },
+
+                          {
+                            "id" : 32,
+                            "domain" : "Tourism",
+                            "skills" : "Tour Guide"
+                          },
+                         
+                          {
+                            "id" : 33,
+                            "domain" : "Tourism",
+                            "skills" : "Certified Nurse"
+                          },
+
+                          {
+                            "id" : 34,
+                            "domain" : "Tourism",
+                            "skills" : "Care taker"
+                           },
+
+                          {
+                            "id" : 35,
+                            "domain" : "Tourism",
+                            "skills" : "Cultural Trip conservationalist"
+                          },
+
+                          {
+                             "id" : 36,
+                             "domain" : "Tourism",
+                             "skills" : "Financing"
+                          },
+
+                          {
+                              "id" : 37,
+                              "domain" : "Tourism",
+                              "skills" : "Business Analysis"
+                          },
+
+                          {
+                              "id" : 38,
+                              "domain" : "Tourism",
+                              "skills" : "Hospital Management"
+                          },
+
+                          {
+                              "id" : 39,
+                              "domain" : "Tourism",
+                              "skills" : "Human Resources Management"
+                          },
+
+                          {
+                              "id" : 40,
+                              "domain" : "IT",
+                              "skills" : "Accountancy"
+
+                          },
+
+                          {
+                              "id" : 41,
+                              "domain" : "IT",
+                              "skills" : "CCNA Certification"
+                          }, 
+                          
+                          {
+                              "id" : 42,
+                              "domain" : "IT",
+                              "skills" : "CCNP Certification"
+                          },
+
+                          {
+                              "id" : 43,
+                              "domain" : "IT",
+                              "skills" : "AWS Certification"
+                          },
+
+                          {
+                              "id" : 44,
+                              "domain" : "IT",
+                              "skills" : "Data Warehousing"
+                          },
+
+                          {
+                              "id" : 45,
+                              "domain" : "IT",
+                              "skills" : "Data Structures"
+                          },
+
+                          {
+                              "id" : 46,
+                              "domain" : "IT",
+                              "skills" : "Manual Testing"
+                          },
+
+                          {
+                              "id" : 47,
+                              "domain" : "IT",
+                              "skills" : "Selenium Testing"
+                          }
+                     ]
+
+
+
+
+
+
