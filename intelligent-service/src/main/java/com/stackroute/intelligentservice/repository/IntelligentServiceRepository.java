@@ -14,6 +14,7 @@ public interface IntelligentServiceRepository extends MongoRepository<Intelligen
 
 
     public IntelligentService findByRole(String role);  //repo method to find data by role
+//    public IntelligentService exitsByRole(String role);
 
 
 

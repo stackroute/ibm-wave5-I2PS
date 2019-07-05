@@ -2,6 +2,7 @@ package com.stackroute.intelligentservice.service;
 
 import com.stackroute.intelligentservice.domain.IntelligentService;
 import com.stackroute.intelligentservice.domain.ServiceProvider;
+import com.stackroute.intelligentservice.exception.RoleNotFoundException;
 import com.stackroute.intelligentservice.repository.IntelligentServiceRepository;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class IntelligentServiceImpl implements IntelligentSeviceInterface {
+public class IntelligentServiceImpl implements IntelligentServiceInterface {
 
     private IntelligentServiceRepository intelligentServiceRepository;
     private IntelligentService intelligentService;
@@ -46,8 +47,10 @@ public class IntelligentServiceImpl implements IntelligentSeviceInterface {
         {
             String role = serviceProvider.getRole();
             intelligentService.setRole(role);
+
             List<ServiceProvider> serviceProviders = new ArrayList<>();
             serviceProviders.add(serviceProvider);
+
             intelligentService.setServiceProvider(serviceProviders);
             intelligentServiceRepository.save(intelligentService);
 
@@ -58,8 +61,16 @@ public class IntelligentServiceImpl implements IntelligentSeviceInterface {
     }
 
     @Override
-    public IntelligentService getByRole(String role) {  //method to find data by role
+    public IntelligentService getByRole(String role) throws RoleNotFoundException {  //method to find data by role
 
+
+        IntelligentService retrievedIntelligentService = intelligentServiceRepository.findByRole(role);
+
+        if(retrievedIntelligentService==null)
+        {
+            throw new RoleNotFoundException("document not found by this role!!! ");
+        }
+        else
         return intelligentServiceRepository.findByRole(role);
     }
 }
