@@ -2,6 +2,7 @@ package com.stackroute.innovatorprofile.service;
 
 import com.stackroute.innovatorprofile.domain.InnovatorProfile;
 import com.stackroute.innovatorprofile.exception.EmailIdAlreadyExistsException;
+import com.stackroute.innovatorprofile.exception.EmailIdNotFoundException;
 import com.stackroute.innovatorprofile.repository.InnovatorProfileRespository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +49,14 @@ public class InnovatorProfileServiceImpl implements InnovatorProfileService {
     }
 
     @Override
-    public InnovatorProfile getByEmailId(String emailId) {
-        return innovatorProfileRespository.findByEmailId(emailId);
+    public InnovatorProfile getByEmailId(String emailId) throws EmailIdNotFoundException {
+        InnovatorProfile innovatorProfile= innovatorProfileRespository.findByEmailId(emailId);
+        if(innovatorProfile==null)
+        {
+            throw new EmailIdNotFoundException("document not found by this emailId!!!");
+        }
+        else
+            return innovatorProfile;
     }
 
     public void send(InnovatorProfile innovatorProfile) {
