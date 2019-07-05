@@ -3,7 +3,6 @@ package com.stackroute.innovatorprofile.controller;
 import com.stackroute.innovatorprofile.domain.InnovatorProfile;
 import com.stackroute.innovatorprofile.exception.EmailIdAlreadyExistsException;
 import com.stackroute.innovatorprofile.exception.EmailIdNotFoundException;
-import com.stackroute.innovatorprofile.service.InnovatorProfileService;
 import com.stackroute.innovatorprofile.service.InnovatorProfileServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

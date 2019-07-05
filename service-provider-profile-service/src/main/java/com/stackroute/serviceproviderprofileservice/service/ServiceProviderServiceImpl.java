@@ -1,6 +1,8 @@
 package com.stackroute.serviceproviderprofileservice.service;
 
 import com.stackroute.serviceproviderprofileservice.domain.ServiceProvider;
+import com.stackroute.serviceproviderprofileservice.exceptions.EmailIdAlreadyExistsException;
+import com.stackroute.serviceproviderprofileservice.exceptions.EmailIdNotFoundException;
 import com.stackroute.serviceproviderprofileservice.repository.ServiceProviderRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +34,19 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
 
     //service implementation to save service provider profile
     @Override
-    public ServiceProvider saveServiceProvider(ServiceProvider serviceProvider) {
-        return serviceProviderRepository.save(serviceProvider);
+    public ServiceProvider saveServiceProvider(ServiceProvider serviceProvider) throws EmailIdAlreadyExistsException {
+//        return serviceProviderRepository.save(serviceProvider);
+        if(serviceProviderRepository.existsById(serviceProvider.getEmailId()))
+        {
+            throw new EmailIdAlreadyExistsException("This Email ID already exists!!!");
+        }
+        ServiceProvider savedServiceProvider= serviceProviderRepository.save(serviceProvider);
+        if(savedServiceProvider==null)
+        {
+            throw new EmailIdAlreadyExistsException("This Email ID already exists!!!");
+        }
+        else
+            return savedServiceProvider;
     }
 
     //service implemetation to get all service provider profiles
@@ -43,8 +56,16 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
     }
 
     @Override
-    public ServiceProvider getByEmailId(String emailId) {
-        return serviceProviderRepository.findByEmailId(emailId);
+    public ServiceProvider getByEmailId(String emailId) throws EmailIdNotFoundException {
+//        return serviceProviderRepository.findByEmailId(emailId);
+        ServiceProvider serviceProvider= serviceProviderRepository.findByEmailId(emailId);
+        if(serviceProvider==null)
+        {
+            throw new EmailIdNotFoundException("document not found by this emailId!!!");
+        }
+        else
+            return serviceProvider;
+
     }
 
 
@@ -53,3 +74,4 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
         System.out.println("Send msg = " + serviceProvider);
     }
 }
+
