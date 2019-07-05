@@ -17,16 +17,21 @@ public class SubDomainServiceImpl implements SubDomainService {
     }
 
     @Override
-    public SubDomain saveSubDomain(Long id, String subDomainName,String[] ideas) {
+    public SubDomain saveSubDomain(Long id, String subDomainName) {
         SubDomain savedSubDomain=null;
 
-        savedSubDomain=subDomainRepository.createNode(id,subDomainName,ideas);
+        savedSubDomain=subDomainRepository.createNode(id,subDomainName);
         return savedSubDomain;
     }
 
     @Override
     public SubDomain ideaRecommend(String name) {
         return subDomainRepository.ideaRecommend(name);
+    }
+
+    @Override
+    public SubDomain saved(SubDomain subDomain) {
+        return subDomainRepository.save(subDomain);
     }
 
     @Override

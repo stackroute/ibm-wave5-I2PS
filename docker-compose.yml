@@ -98,6 +98,21 @@ services:
     hostname: localhost
     ports:
       - 8089:8089
+      
+      
+  idea-hub-service:
+   build: idea-hub-service/
+   depends_on:
+     - config-service
+     - eureka-server
+     - rabbitmq
+     - mongo
+   restart: always
+   network_mode: "host"
+   image:  idea-hub-service
+   hostname: localhost
+   ports:
+     - 8063:8063
 
 #  mysql:
 #    image: mysql:5.7

@@ -17,7 +17,9 @@ public interface SubDomainService {
 
     SubDomain updateUser(SubDomain subDomain);
 
-    SubDomain saveSubDomain(Long id, String subDomainName, String[] idea);
+    SubDomain saveSubDomain(Long id, String subDomainName);
 
     SubDomain ideaRecommend(String name);
+
+    SubDomain saved(SubDomain subDomain);
 }

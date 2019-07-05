@@ -1,42 +1,36 @@
 package com.stackroute.springneo4jexample.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.*;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @NodeEntity
 
 public class SubDomain {
-   @Id
-   private Long id;
+    @Id
+    private Long id;
     private String subDomainName;
-   private String[] idea= new String[10];
 
-//    public Collection<User> getUser() {
-//        return user;
-//    }
-//
-//
-//    public Collection<User> user = new ArrayList<>();
+
     public SubDomain() {
     }
 
-    public String[] getIdea() {
-        return idea;
-    }
-
-    public SubDomain(Long id, String subDomainName, String[] idea) {
+    public SubDomain(Long id, String subDomainName) {
+        this.id = id;
         this.subDomainName = subDomainName;
-        this.id=id;
-        this.idea = idea;
-
-    }
-
-
-
-    public String getSubDomainName() {
-        return subDomainName;
     }
 
     public Long getId() {
         return id;
     }
+
+    public String getSubDomainName() {
+        return subDomainName;
+    }
 }
+
+
+

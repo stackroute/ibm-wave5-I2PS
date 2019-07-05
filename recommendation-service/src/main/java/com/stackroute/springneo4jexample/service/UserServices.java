@@ -23,7 +23,7 @@ public interface UserServices {
 
     public User updateUser(User user);
 
-   public User getByName(String name);
+   public String getByName(String name);
 
     User createRelations(String idea,String ideaName);
 
@@ -36,6 +36,9 @@ public interface UserServices {
     public List<User> getAllUsers(String ideaName);
 
     User saved(User user);
+
+    User matchUserSubDomain(String subDomainName, String name);
+
 
 //    public void recivedMessage(User user);
 ////

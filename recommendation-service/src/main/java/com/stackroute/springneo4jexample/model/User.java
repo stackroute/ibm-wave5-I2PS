@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -26,7 +27,9 @@ public class User {
 
     private List<String> subDomain;
     private String role;
-   // private  List<String> skills;
+
+    @Relationship(type = "work_on", direction = Relationship.OUTGOING)
+    private SubDomain subDomainRel;
 
 
     @Override
@@ -37,6 +40,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", subDomain=" + subDomain +
                 ", role='" + role + '\'' +
+                ", subDomainRel=" + subDomainRel +
                 '}';
     }
 }

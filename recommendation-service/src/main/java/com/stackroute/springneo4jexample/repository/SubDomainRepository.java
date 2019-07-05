@@ -13,8 +13,8 @@ public interface SubDomainRepository extends Neo4jRepository<SubDomain,Long> {
     @Query("MATCH (u:SubDomain) RETURN u")
     Collection<SubDomain> getAllNode();
 
-    @Query("CREATE (u:SubDomain) SET u.id={id},u.subDomainName={subDomainName},u.ideas={ideas} RETURN u")
-    SubDomain createNode(Long id, String subDomainName, String[] ideas);
+    @Query("CREATE (u:SubDomain) SET u.id={id},u.subDomainName={subDomainName} RETURN u")
+    SubDomain createNode(Long id, String subDomainName);
 
     @Query("MATCH (a:User),(b:SubDomain) WHERE a.subDomain = {subDomain} AND b.subDomainName = {subDomainName} CREATE (a)-[r:WORK]->(b) RETURN r")
     SubDomain relation(String subDomain, String subDomainName);

@@ -3,6 +3,8 @@ package com.stackroute.springneo4jexample.controller;
 import com.stackroute.springneo4jexample.model.SubDomain;
 import com.stackroute.springneo4jexample.service.SubDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -23,7 +25,7 @@ public class SubDomainController {
     @PostMapping("/save")
     public SubDomain saveSubDomain(@RequestBody SubDomain subDomain) {
 
-        return subDomainService.saveSubDomain(subDomain.getId(),subDomain.getSubDomainName(),subDomain.getIdea());
+        return subDomainService.saveSubDomain(subDomain.getId(),subDomain.getSubDomainName());
     }
     @PostMapping("/newRelationship/{subDomain}/{subDomainName}")
     public SubDomain relationship(@PathVariable String subDomain, @PathVariable String subDomainName) {
@@ -46,6 +48,16 @@ public class SubDomainController {
         SubDomain subDomain3= subDomainService.ideaRecommend(name);
         return subDomain3;
     }
+
+    @PostMapping("/saved")
+    public ResponseEntity<?> savedSubDomain(@RequestBody SubDomain subDomain)
+    {
+        subDomainService.saved(subDomain);
+        return new ResponseEntity<SubDomain>(subDomainService.saved(subDomain), HttpStatus.CREATED);
+    }
+
+
+
 
 
 

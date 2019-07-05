@@ -24,8 +24,8 @@ public interface UserRepository extends Neo4jRepository<User,Long> {
     @Query("MATCH (n:User) WHERE n.name={userName} DETACH DELETE n RETURN 'node deleted' ")
     User deleteNode(@Param("userName") String UserName);
 
-    @Query("MATCH (u:User) WHERE u.name={userName} RETURN u")
-    public User getNode(@Param("userName") String userName);
+    @Query("MATCH (u:User) WHERE u.name={userName} RETURN u.role")
+    public String getNode(@Param("userName") String userName);
 
     @Query("MATCH (u:User),(i:Idea)  WHERE u.idea=({idea}) AND i.ideaName={ideaName} CREATE(u)-[:WORKED_UPON]->(i);")
     public User createRelations( String idea,String ideaName);
@@ -42,15 +42,10 @@ public interface UserRepository extends Neo4jRepository<User,Long> {
     @Query("MATCH (u:User),(i:Idea) where i.ideaName=({ideaName}) match(u)<-[:hasIdea]-(i) RETURN u LIMIT 1000")
 
     List<User> findByIdea(String ideaName);
-//
-//    @Query("MATCH(u:User)-[r:LIKES]->(s:SubDomain) RETURN r")
-//    public User createRelations(@Param("subDomainName") String subDomainName);
 
-//    @Query("MATCH (n:User) WHERE n.id={userId} SET n.userName={userName},n.age={age} RETURN n")
-//    User updateNode(@Param("userId") Long userId, @Param("userName") String userName, @Param("age") int age);
-//
-//
-//    @Query("MATCH (a:User),(b:Movie) WHERE a.id > 0 CREATE (a)-[r:LIKES]->(b) RETURN r")
-//    User createRelation();
-//
+    //method to create relationship between user and subDomain
+    @Query("MATCH (n:User),(s:SubDomain) WHERE s.subDomainName={subDomainName}  AND n.name={name} CREATE (n)-[r:work_on]->(s)RETURN r")
+    User matchUserSubDomain(@Param("subDomainName") String subDomainName,@Param("name") String name);
+
+
 }

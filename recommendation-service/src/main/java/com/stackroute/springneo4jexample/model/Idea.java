@@ -1,39 +1,39 @@
 package com.stackroute.springneo4jexample.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @NodeEntity
+@Component
 public class Idea {
     @GraphId
     private Long id;
     private String ideaName;
-    private String role;
+    private List<String> role;
     private String subDomain;
+    @Relationship(type = "is_of", direction = Relationship.OUTGOING)
+    private SubDomain subDomainRel;
 
-    public Idea(Long id, String ideaName , String role,String subDomain) {
-        this.id = id;
-        this.ideaName = ideaName;
-        this.role = role;
-        this.subDomain=subDomain;
-    }
-
-    public Idea() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getSubDomain() {
-        return subDomain;
-    }
-
-    public String getIdeaName() {
-        return ideaName;
-    }
-
-    public String getRole() {
-        return role;
+    @Override
+    public String toString() {
+        return "Idea{" +
+                "id=" + id +
+                ", ideaName='" + ideaName + '\'' +
+                ", role=" + role +
+                ", subDomain='" + subDomain + '\'' +
+                ", subDomainRel=" + subDomainRel +
+                '}';
     }
 }

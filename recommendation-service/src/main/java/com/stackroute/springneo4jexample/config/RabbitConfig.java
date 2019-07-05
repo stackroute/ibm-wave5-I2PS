@@ -23,6 +23,15 @@ public class RabbitConfig {
     @Value("${serviceProvider.routingkey}")
     String servicePRoutingkey;
 
+    @Value("${javainuse.idea.queue}")
+    String ideaQueue;
+
+    @Value("${javainuse.idea.exchange}")
+    String ideaexchange;
+
+    @Value("${javainuse.idea.routingkey}")
+    String idearoutingkey;
+
     @Bean
     Queue serviceNeo4jQueue() {
         return new Queue(serviceNeo4j,true);
@@ -38,6 +47,20 @@ public class RabbitConfig {
 //        return new Binding(MY_QUEUE, Binding.DestinationType.QUEUE,"myTopicExchange","topic",null);
         //more declarative way of binding
         return BindingBuilder.bind(serviceNeo4jQueue()).to(servicePExchange()).with(servicePRoutingkey).noargs();
+    }
+    @Bean
+    Exchange ideaexchange(){
+        return ExchangeBuilder.topicExchange(ideaexchange).durable(true).build();
+    }
+
+    @Bean
+    Binding ideaBinding(){
+        return BindingBuilder.bind(ideaQueue()).to(ideaexchange()).with(idearoutingkey).noargs();
+    }
+
+    @Bean
+    Queue ideaQueue(){
+        return  new Queue(ideaQueue,true);
     }
 
     @Bean

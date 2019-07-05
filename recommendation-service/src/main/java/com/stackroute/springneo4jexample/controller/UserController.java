@@ -42,8 +42,9 @@ public class UserController {
 
 
     @GetMapping("{name}")
-    public  User getUser(@PathVariable String name){
-        return userServices.getByName(name);
+    public  String getUser(@PathVariable String name){
+        String output=userServices.getByName(name);
+        return output;
     }
 
     @DeleteMapping("{name}")
@@ -87,6 +88,14 @@ public class UserController {
             userServices.saved(user);
             return new ResponseEntity<User>(userServices.saved(user), HttpStatus.CREATED);
         }
+
+
+    @PostMapping("/{subDomainName}/{name}")
+    public  User getUserSubDomain(@PathVariable String subDomainName,@PathVariable String name){
+
+        return userServices.matchUserSubDomain(subDomainName,name);
+    }
+
 
 
 
