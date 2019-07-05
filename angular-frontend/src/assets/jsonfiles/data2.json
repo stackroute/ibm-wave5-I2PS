@@ -1,0 +1,105 @@
+[
+
+                       {
+                          "id" : 1,
+                          "domain" : "IT",
+                          "subdomain" : "Software Development"
+                       },
+
+                       {
+                          "id" : 2,
+                          "domain" : "IT",
+                          "subdomain" : "Hardware Development"
+                       },
+
+                       {
+                          "id" : 3,
+                          "domain" : "IT",
+                          "subdomain" : "Networking"
+                       },
+
+                       {
+                          "id" : 4,
+                          "domain" : "IT",
+                          "subdomain" : "Robotics"
+                       },
+
+                       {
+                          "id" : 5,
+                          "domain" : "IT",
+                          "subdomain" : "Mobile App Developement"
+                       },
+
+                       {
+                          "id" : 6,
+                          "domain" : "IT",
+                          "subdomain" : "Virtual Reality"
+                       },
+
+                       {
+                          "id" : 7,
+                          "domain" : "IT",
+                          "subdomain" : "Web Developement"
+                       },
+
+                       {
+                          "id" : 8,
+                          "domain" : "IT",
+                          "subdomain" : "Back End Developement"
+                       },
+
+                       {
+                          "id" : 9,
+                          "domain" : "IT",
+                          "subdomain" : "Artificial Intelligence"
+                       },
+
+                       {
+                          "id" : 10,
+                          "domain" : "IT",
+                          "subdomain" : "Big Data"
+                       },
+
+                       {
+                          "id" : 11,
+                          "domain" : "IT",
+                          "subdomain" : "Data Mining"
+                       },
+
+                       {
+                          "id" : 12,
+                          "domain" : "Tourism",
+                          "subdomain" : "Cultural Tourism"
+                       },
+
+                       {
+                          "id" : 13,
+                          "domain" : "Tourism",
+                          "subdomain" : "Business Tourism"
+                       },
+
+                       {
+                          "id" : 14,
+                          "domain" : "Tourism",
+                          "subdomain" : "WildLife Tourism"
+                       },
+
+                       {
+                          "id" : 15,
+                          "domain" : "Tourism",
+                          "subdomain" : "Photography"
+                       },
+
+                       {
+                          "id" : 16,
+                          "domain" : "Tourism",
+                          "subdomain" : "Medical Tourism"
+                       },
+
+                       {
+                          "id" : 17,
+                          "domain" : "IT",
+                          "subdomain" : "AWS"
+                       }
+
+                  ]

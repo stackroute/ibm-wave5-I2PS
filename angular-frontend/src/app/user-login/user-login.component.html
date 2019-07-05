@@ -1,48 +1,42 @@
-<div class="header">
-  <a href="#default" class="logo">CollabJunction</a>
-  <div class="header-right">
-    <a class="active" href="#home">Home</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-  </div>
-</div>
-
-<div style="padding-left:20px">
-</div>
+<app-navbar></app-navbar>
 
 
-
-<div class="card bg-light">
-  <article class="card-body mx-auto" style="max-width: 400px;">
-    <h4 class="card-title mt-3 text-center">Log In</h4>
-
-    <form>
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-        </div>
-        <input #emailId name="" class="form-control" placeholder="Enter Email Id" type="email">
-      </div> <!-- form-group// -->
-      <div class="form-group input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-        </div>
-        <input #password class="form-control" placeholder="Enter password" type="password">
-      </div> <!-- form-group// -->
-      <div *ngIf = "loggedIn"> You Are the invalid User</div>
-      <div class="form-grouping">
-        <button class="btn btn-outline-primary mx-2"
-          (click)="authenticateUser(emailId.value, password.value)">Login!</button>
-      </div> <!-- form-group// -->
-
-    </form>
-  </article>
-</div> <!-- card.// -->
+<body>
+  
+    <div class="cardBody card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px; height: 800px;">
+          <h4 class="card-title mt-3 text-center">LOG IN</h4>
+      
+          <form>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+              </div>
+              <input #emailId name="" class="form-control" placeholder="Enter Email Id" type="email">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+              </div>
+              <input #password class="form-control" placeholder="Enter password" type="password">
+            </div> <!-- form-group// -->
+            <div *ngIf = "loggedIn"> You Are the invalid User</div>
+            <div class="form-grouping">
+            <button><a (click)="authenticateUser(emailId.value, password.value)" data-toggle="modal" data-target="#cardDetail" class="btn btn-outline-dark mt auto">LOG IN</a>
+            </button>
+              <!-- <button class="btn btn-outline-primary mx-2"
+                (click)="authenticateUser(emailId.value, password.value)">Login!</button> -->
+            </div> <!-- form-group// -->
+      
+          </form>
+        </article>
+      </div> <!-- card.// -->
+</body>
 
 
 
-<div class="footer">
-  <p>Footer</p>
-</div>
+
+
+<app-footer></app-footer>
 
 <!--container end.//-->

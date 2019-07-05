@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
+import subdomain from 'src/assets/jsonfiles/data2.json';
+import skills from 'src/assets/jsonfiles/data4.json';
+
 
 @Component({
   selector: 'app-serice-provider',
@@ -9,14 +12,20 @@ import { Router } from '@angular/router';
 })
 export class SericeProviderComponent implements OnInit {
 
-  constructor(private registrationService:RegistrationService,private router:Router) { }
+  constructor(private registrationService:RegistrationService,private router:Router) {
+    // console.log("coming");
+    // console.log(subdomain.id,subdomain.domain,subdomain.subDomain)
+
+   }
  
   serviceProviderData:any=[];
   skills = [];
   certifications=[];
   subDomains=[];
-
+  subDomainList:any=subdomain;
+  skillsList:any=skills;
   ngOnInit() {
+
 
     this.registrationService.getServiceProvider().subscribe(data=>
       {
@@ -25,9 +34,23 @@ export class SericeProviderComponent implements OnInit {
       });
   }
 
-  register(emailId,password,name,domain,subDomains,role,skills,about,experience,chargePerHour,certifications)
+  onClick(value)
   {
-    console.log(emailId, password,name,domain,subDomains,role,skills,about,experience,chargePerHour,certifications);
+    console.log(value);
+    this.subDomains=value;
+  }
+
+  onClickSkills(value)
+  {
+    console.log(value);
+    this.skills=value;
+  }
+  
+
+  register(emailId,password,name,domain,subDomains,role,skills,about,chargePerHour)
+  {
+    
+    console.log(emailId, password,name,domain,subDomains,role,skills,about,chargePerHour);
      let providerdata={  
       emailId:emailId,
        password:password,
@@ -37,9 +60,8 @@ export class SericeProviderComponent implements OnInit {
        role:role,
        skills:this.skills,
        about:about,
-       experience:experience,
-       chargePerHour:chargePerHour,
-       certifications:this.certifications
+       chargePerHour:chargePerHour
+       
        
      
   }

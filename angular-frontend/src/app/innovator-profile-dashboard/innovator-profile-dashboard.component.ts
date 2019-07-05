@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { PostIdeaComponent } from '../post-idea/post-idea.component';
 
 @Component({
   selector: 'app-innovator-profile-dashboard',
@@ -9,9 +11,18 @@ import { Router } from '@angular/router';
 })
 export class InnovatorProfileDashboardComponent implements OnInit {
 
-  constructor(private registrationService:RegistrationService,private router:Router) { }
+  constructor(private registrationService:RegistrationService,private router:Router, public dialog: MatDialog) { }
   innovatorprofiledashboarddata =[];
+  openDialog(): void {
+    const dialogRef = this.dialog.open(PostIdeaComponent, {
+      width: '800px',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      
+      console.log('The dialog was closed');
+    });
+  }
   ngOnInit() {
     this.registrationService.getInnovatorProfile().subscribe(data=>
       {
