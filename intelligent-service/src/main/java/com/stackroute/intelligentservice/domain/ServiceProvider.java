@@ -18,7 +18,7 @@ public class ServiceProvider {
     String domain;
     List<String> subDomain;
     String role;
-    ArrayList<SkillsAndExperience> skillsAndExperiences;
+    ArrayList<SkillsAndExperience> skillsAndExperiences;      //array list reference of SKillsAndExperiance
     String about;
     BigDecimal chargePerHour;
 

@@ -14,13 +14,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfig {
-    @Value("${intelligent.queue}")
+    @Value("${intelligent.queue}")    //taking intelligent.queue name from application.properties file
     String intelligentQueue;
 
-    @Value("${serviceProvider.exchange}")
+    @Value("${serviceProvider.exchange}")    //taking serviceProvider.exchange name from application.properties file
     String serviceProviderExchange;
 
-    @Value("${serviceProvider.routingkey}")
+    @Value("${serviceProvider.routingkey}")    //taking serviceProvider.routingkey name from application.properties file
     private String serviceProviderRoutingKey;
 
 
@@ -32,10 +32,10 @@ public class RabbitMQConfig {
     }
     @Bean
     Exchange serviceProviderExchange(){
-        return ExchangeBuilder.topicExchange(serviceProviderExchange).durable(true).build();
+        return ExchangeBuilder.topicExchange(serviceProviderExchange).durable(true).build();   //to enable exchange
     }
     @Bean
-    Binding serviceProviderBinding(){
+    Binding serviceProviderBinding(){     //method to bind intelligent queue to service provider exchange with serviceProvider exchange key
         return BindingBuilder
                 .bind(intelligentQueue())
                 .to(serviceProviderExchange())
@@ -48,8 +48,8 @@ public class RabbitMQConfig {
     ConnectionFactory connectionFactory(){    //we want connection to be stable,so that we needn't close or open connection
 
         CachingConnectionFactory cachingConnectionFactory =new CachingConnectionFactory("localhost");
-        cachingConnectionFactory.setUsername("guest");
-        cachingConnectionFactory.setPassword("guest");
+        cachingConnectionFactory.setUsername("guest");      //username to login to rabbitmq
+        cachingConnectionFactory.setPassword("guest");      //password to login to rabbitmq
         return cachingConnectionFactory;
     }
 
@@ -59,7 +59,7 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {     //to recive message from consumer
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
         return rabbitTemplate;

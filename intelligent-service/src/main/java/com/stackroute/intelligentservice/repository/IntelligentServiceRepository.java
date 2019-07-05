@@ -13,7 +13,7 @@ import java.util.List;
 public interface IntelligentServiceRepository extends MongoRepository<IntelligentService,String> {
 
 
-    public IntelligentService findByRole(String role);
+    public IntelligentService findByRole(String role);  //repo method to find data by role
 
 
 

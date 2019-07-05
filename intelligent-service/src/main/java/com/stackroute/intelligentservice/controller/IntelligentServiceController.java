@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")   //to connect backaend with front-end
 @RequestMapping("/api/v1")
 public class IntelligentServiceController {
     @Autowired
@@ -23,7 +23,7 @@ public class IntelligentServiceController {
     }
 
 
-    @GetMapping("/intelligentService/{role}")
+    @GetMapping("/intelligentService/{role}")    //getMapping to retrive whole document with specific role
     public ResponseEntity<?> getByRole(@PathVariable String role)
     {
         return new ResponseEntity<IntelligentService>(intelligentSeviceInterface.getByRole(role),HttpStatus.OK);

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Document (collection = "intelligentService")
+@Document (collection = "intelligentService")       //collection name in mongo
 @Setter
 @Getter
 @NoArgsConstructor
@@ -19,9 +19,9 @@ import java.util.List;
 @Component
 public class IntelligentService {
     @Id
-    private String roleId;
+    private String roleId;      //unique id
     private String role;
-    private List<ServiceProvider> serviceProvider = new ArrayList<>();
+    private List<ServiceProvider> serviceProvider = new ArrayList<>();      //object of serviceProvider
 
     @Override
     public String toString() {

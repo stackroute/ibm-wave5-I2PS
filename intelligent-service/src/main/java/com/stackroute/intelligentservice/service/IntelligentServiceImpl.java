@@ -22,22 +22,27 @@ public class IntelligentServiceImpl implements IntelligentSeviceInterface {
         this.intelligentService = intelligentService;
     }
 
-    @RabbitListener(queues = "${intelligent.queue}")
+    @RabbitListener(queues = "${intelligent.queue}")        //rabbitListener to get data from producer->service-Provider
     public IntelligentService recievedMessageFromServiceProvider(ServiceProvider serviceProvider) {
+
         System.out.println(serviceProvider.toString());
-            String role1= serviceProvider.getRole();
+
+        String role1= serviceProvider.getRole();    //extracting role from producers message
+
         System.out.println(role1);
-            IntelligentService retrievedIntelligentService = intelligentServiceRepository.findByRole(role1);
+
+        IntelligentService retrievedIntelligentService = intelligentServiceRepository.findByRole(role1);  //calling findByRole() in repository to find data acxcording to role
+
         System.out.println(retrievedIntelligentService);
 
-        if (retrievedIntelligentService!=null)
+        if (retrievedIntelligentService!=null)  //if role exists already in database updating it
         {
             List<ServiceProvider> serviceProviderList=retrievedIntelligentService.getServiceProvider();
             serviceProviderList.add(serviceProvider);
             intelligentServiceRepository.save(retrievedIntelligentService);
 
         }
-        else
+        else                                    //if role does not exists in database save it
         {
             String role = serviceProvider.getRole();
             intelligentService.setRole(role);
@@ -53,7 +58,8 @@ public class IntelligentServiceImpl implements IntelligentSeviceInterface {
     }
 
     @Override
-    public IntelligentService getByRole(String role) {
+    public IntelligentService getByRole(String role) {  //method to find data by role
+
         return intelligentServiceRepository.findByRole(role);
     }
 }

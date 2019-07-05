@@ -5,6 +5,6 @@ import com.stackroute.intelligentservice.domain.IntelligentService;
 
 public interface IntelligentSeviceInterface {
 
-    public IntelligentService getByRole(String role);
+    public IntelligentService getByRole(String role);   //method to be used in IntelligentServiceImpl
 
 }
