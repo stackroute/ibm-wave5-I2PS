@@ -22,7 +22,7 @@
             </div> <!-- form-group// -->
             <div *ngIf = "loggedIn"> You Are the invalid User</div>
             <div class="form-grouping">
-            <button><a (click)="authenticateUser(emailId.value, password.value)" data-toggle="modal" data-target="#cardDetail" class="btn btn-outline-dark mt auto">LOG IN</a>
+            <button (click)="authenticateUser(emailId.value, password.value)" data-toggle="modal" data-target="#cardDetail" class="btn btn-outline-dark mt auto">LOG IN
             </button>
               <!-- <button class="btn btn-outline-primary mx-2"
                 (click)="authenticateUser(emailId.value, password.value)">Login!</button> -->

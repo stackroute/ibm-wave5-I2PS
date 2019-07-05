@@ -24,6 +24,7 @@ import { MatAutocomplete } from '@angular/material';
 import { NewIdeaProfileComponent } from './innovator-dashboard/new-idea-profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ServiceProviderProfileDashbaordComponent } from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FooterComponent } from './footer/footer.component';
     PostIdeaComponent,
     NewIdeaProfileComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ServiceProviderProfileDashbaordComponent
 
     
   ],
