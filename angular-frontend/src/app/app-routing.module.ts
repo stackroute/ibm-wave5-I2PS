@@ -21,8 +21,8 @@ const routes: Routes = [
   {path: 'cardDetail/:id',component:CardDetailsComponent},
   { path: 'post', component:PostIdeaComponent},
   {path: 'serviceProviderdashboard',component:ServiceProviderProfileDashbaordComponent},
-  {path: 'innovatorprofiledashboard',component:NewIdeaProfileComponent}
-  
+  {path: 'innovatorprofiledashboard',component:NewIdeaProfileComponent},
+    {path:'result/:role',component:IntelligentServiceComponent}
 
 ];
 

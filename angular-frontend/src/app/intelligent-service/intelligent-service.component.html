@@ -2,9 +2,7 @@
   <hr>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Suggestions for you</h1>
-    <!-- <p class="lead">Listen to your favourite Music and Enjoy .... -->
-    <!-- </p> -->
+    <h1 id="heading" class="display-4">Suggestions for you</h1>
      </div>
 
      
@@ -13,64 +11,57 @@
 <div class="container-fluid">
 <h2>Your Group</h2>
 <div class="container-fluid d-flex flex-wrap my-2">
-  <!-- <div class="card col-sm-12 col-md-4 col-lg-3" style="width: 18rem;" *ngFor="let music of arrayOfMusic"> -->
-    
-    <div class="card-body" >
-      <!-- <ul class="list-group list-group-flush">
-        <li class="list-group-item">Album : {{music.name}}</li>
-        <li class="list-group-item">Artist : {{music.artist.name}}</li>
-      </ul> -->
-      <img src="data:image/png;base64,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" alt="roles image">
-    
-   
-    <div class="card-body">
-       <button class="btn btn-outline-primary mx-2" (click)="accept()">Accept</button> 
-       <button class="btn btn-outline-primary mx-2" (click)="decline()">Decline</button> 
-    </div>
-    </div>
-
 
     <div class="card-body" >
-      <!-- <ul class="list-group list-group-flush">
-        <li class="list-group-item">Album : {{music.name}}</li>
-        <li class="list-group-item">Artist : {{music.artist.name}}</li>
-      </ul> -->
-      <img src="data:image/png;base64,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" alt="roles image">
-    
-   
-    <div class="card-body">
-       <button class="btn btn-outline-primary mx-2" (click)="accept()">Accept</button> 
-       <button class="btn btn-outline-primary mx-2" (click)="decline()">Decline</button> 
-    </div>
-    </div>
 
-    <div class="card-body" >
-      <!-- <ul class="list-group list-group-flush">
-        <li class="list-group-item">Album : {{music.name}}</li>
-        <li class="list-group-item">Artist : {{music.artist.name}}</li>
-      </ul> -->
-      <img src="data:image/png;base64,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" alt="roles image">
-    
-   
-    <div class="card-body">
-       <button class="btn btn-outline-primary mx-2" (click)="accept()">Accept</button> 
-       <button class="btn btn-outline-primary mx-2" (click)="decline()">Decline</button> 
-    </div>
-    </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="data:image/png;base64,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" alt="Avatar">
+            </div>
+            <div class="flip-card-back">
+              <h1>{{servProvider.name}}</h1> 
+              <p>{{servProvider.role}}</p> 
+              <p>{{servProvider.domain}}</p>
+              <p>{{servProvider.subDomain}}</p>
+              <p>{{servProvider.chargePerHour}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+            <button type="button" (click)="accept()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Accept
+              </button>
+              <button type="button" (click)="reject()" class="btn btn-primary">Reject</button>
 
-    <div class="card-body" >
-      <!-- <ul class="list-group list-group-flush">
-        <li class="list-group-item">Album : {{music.name}}</li>
-        <li class="list-group-item">Artist : {{music.artist.name}}</li>
-      </ul> -->
-      <img src="data:image/png;base64,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" alt="roles image">
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Do you need more people</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <!-- <button type="button" id="yes"  click()="accept()" class="btn btn-primary">Yes</button> -->
     
+                    </div>
+                  </div>
+                </div>
+              </div>
+       </div>
+        </div>
    
-    <div class="card-body">
-       <button class="btn btn-outline-primary mx-2" (click)="accept()">Accept</button> 
-       <button class="btn btn-outline-primary mx-2" (click)="decline()">Decline</button> 
-    </div>
-    </div>
+
+
+    
   </div>
 </div>
 </div>
