@@ -16,14 +16,31 @@ export class IntelligentServiceComponent implements OnInit {
   acceptedServiceProvoders: any = [];
   rejectedServiceProviders: any = [];
   length: any;
+  roles: string[] = [];
 
   ngOnInit() {
     this.getServiceProviders();
   }
+
+
+
+
   getServiceProviders() {
-    const sp = this.route.snapshot.paramMap.get('role');
-    // console.log("we are getting roles",sp)
-    this.intelligentService.getServiceProviders(sp).subscribe(data => {
+    const sp= this.route.snapshot.paramMap.get('roles');
+    
+
+     
+     console.log("we are getting roles",sp);
+
+     var arrayOfroles = sp.split(',');
+
+     console.log("hi",arrayOfroles)
+
+     
+     arrayOfroles.forEach(element => {
+      
+   
+    this.intelligentService.getServiceProviders(element).subscribe(data => {
 
       this.arrayOfServiceProviders = data.serviceProvider;
       length = this.arrayOfServiceProviders.length;
@@ -31,6 +48,7 @@ export class IntelligentServiceComponent implements OnInit {
       this.servProvider = this.arrayOfServiceProviders[length - 1];
     
     });
+  });
   }
 
 
