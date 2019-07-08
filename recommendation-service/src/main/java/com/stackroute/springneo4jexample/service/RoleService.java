@@ -17,4 +17,6 @@ public interface RoleService {
     Collection<Role> getAll();
 
     void deleteRole(String roleName);
+
+    Role saved(Role role);
 }

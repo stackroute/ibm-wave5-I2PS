@@ -9,17 +9,5 @@ import java.util.Collection;
 public interface SubDomainService {
     Collection<SubDomain> getAll();
 
-  
-
-    SubDomain createRelationship(String subDomain, String subDomainName);
-
-    SubDomain ideaRelationship(String subDomain, String subDomainName);
-
-    SubDomain updateUser(SubDomain subDomain);
-
-    SubDomain saveSubDomain(Long id, String subDomainName);
-
-    SubDomain ideaRecommend(String name);
-
     SubDomain saved(SubDomain subDomain);
 }

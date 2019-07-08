@@ -4,6 +4,8 @@ import com.stackroute.springneo4jexample.model.Role;
 import com.stackroute.springneo4jexample.model.User;
 import com.stackroute.springneo4jexample.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -41,6 +43,13 @@ public class RoleController {
     public String deleteRole(@PathVariable String roleName) {
         roleService.deleteRole(roleName);
         return "Deleted Role";
+    }
+
+    @PostMapping("/saved")
+    public ResponseEntity<?> savedUser(@RequestBody Role role)
+    {
+        roleService.saved(role);
+        return new ResponseEntity<Role>(roleService.saved(role), HttpStatus.CREATED);
     }
 
 

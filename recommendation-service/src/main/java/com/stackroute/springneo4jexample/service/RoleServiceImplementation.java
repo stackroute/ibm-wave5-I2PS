@@ -38,4 +38,9 @@ public class RoleServiceImplementation implements RoleService {
     public void deleteRole(String roleName) {
         roleRepository.delete(roleName);
     }
+
+    @Override
+    public Role saved(Role role) {
+        return roleRepository.save(role);
+    }
 }

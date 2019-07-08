@@ -27,6 +27,9 @@ public interface UserRepository extends Neo4jRepository<User,Long> {
     @Query("MATCH (u:User) WHERE u.name={userName} RETURN u.role")
     public String getNode(@Param("userName") String userName);
 
+    @Query("MATCH (u:User) WHERE u.emailId={emailId} RETURN u.role")
+    public String getRoleForUser(@Param("emailId") String emailId);
+
     @Query("MATCH (u:User),(i:Idea)  WHERE u.idea=({idea}) AND i.ideaName={ideaName} CREATE(u)-[:WORKED_UPON]->(i);")
     public User createRelations( String idea,String ideaName);
 
@@ -46,6 +49,11 @@ public interface UserRepository extends Neo4jRepository<User,Long> {
     //method to create relationship between user and subDomain
     @Query("MATCH (n:User),(s:SubDomain) WHERE s.subDomainName={subDomainName}  AND n.name={name} CREATE (n)-[r:work_on]->(s)RETURN r")
     User matchUserSubDomain(@Param("subDomainName") String subDomainName,@Param("name") String name);
+
+    @Query("MATCH (n:User),(u:Role) WHERE u.roleName={roleName} AND n.name={name} CREATE (n)-[r:is_a]->(u)RETURN r")
+    User matchRole(String roleName, String name);
+
+    //@Query("MATCH (r:Role)<-[:is_a]-(u:User)-[:work_on]->(s:SubDomain)AND (i:Idea)-[:has_a]->(r:Role) RETURN i")
 
 
 }

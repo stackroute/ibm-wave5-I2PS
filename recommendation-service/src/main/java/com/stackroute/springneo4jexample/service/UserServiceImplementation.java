@@ -33,6 +33,7 @@ public class UserServiceImplementation implements UserServices {
     private  User user;
 
 
+
     public UserServiceImplementation(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -106,6 +107,11 @@ public class UserServiceImplementation implements UserServices {
         return userRepository.matchUserSubDomain(subDomainName,name);
     }
 
+    @Override
+    public User matchRole(String roleName, String name) {
+        return userRepository.matchRole(roleName,name);
+    }
+
 
     @RabbitListener(queues = "${serviceNeo4j.queue}")
     public void recievedMessage(UserDTO userDTO) {
@@ -130,6 +136,9 @@ public class UserServiceImplementation implements UserServices {
         for(int i=0;i<domainList.size();i++) {
             userRepository.matchUserSubDomain(domainList.get(i), userDTO.getName());
         }
+        log.info("relationship created");
+
+        userRepository.matchRole(userDTO.getRole(),userDTO.getName());
         log.info("relationship created");
     }
 

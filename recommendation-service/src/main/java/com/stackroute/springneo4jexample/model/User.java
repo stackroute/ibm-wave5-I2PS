@@ -22,7 +22,6 @@ public class User {
     @GraphId
     private Long id;
     private String emailId;
-//    private String password;
     private String name;
 
     private List<String> subDomain;
@@ -30,6 +29,8 @@ public class User {
 
     @Relationship(type = "work_on", direction = Relationship.OUTGOING)
     private SubDomain subDomainRel;
+
+
 
 
     @Override

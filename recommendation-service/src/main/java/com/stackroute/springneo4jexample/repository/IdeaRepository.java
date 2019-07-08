@@ -11,16 +11,15 @@ public interface IdeaRepository extends Neo4jRepository<Idea,Long> {
     @Query("MATCH (u:Idea) RETURN u")
     Collection<Idea> getAllIdeas();
 
-    @Query("CREATE (u:Idea) SET u.id={id},u.ideaName={ideaName},u.role={role},u.subDomain={subDomain} RETURN u")
-    Idea createNode(Long id, String ideaName, List<String> role, String subDomain);
-
-    @Query("MATCH (u:Idea) WHERE u.ideaName={ideaName} RETURN u")
-    Idea getNode(@Param("ideaName") String ideaName);
-
-    @Query("MATCH (n:Idea) WHERE n.ideaName={ideaName} DETACH DELETE n RETURN 'node deleted' ")
-    void deleteNode(@Param("ideaName") String ideaName);
-
-    //method to create relationship between idea and subDomain
+    //Query to create relationship between idea and subDomain
     @Query("MATCH (n:Idea),(s:SubDomain) WHERE s.subDomainName={subDomainName}  AND n.ideaName={ideaName} CREATE (n)-[r:is_of]->(s)RETURN r")
     Idea matchSubDomain(@Param("subDomainName") String subDomainName,@Param("ideaName") String ideaName);
+
+
+    //Query to retrieve ideas having specific role
+    @Query("MATCH (n:Idea) \n" +
+            "WHERE any(x IN n.role WHERE x ={role})\n" +
+            "RETURN n")
+    List<Idea> ideaRoleRelationship(@Param("role")String role);
+
 }

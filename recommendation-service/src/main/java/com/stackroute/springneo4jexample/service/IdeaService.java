@@ -1,6 +1,7 @@
 package com.stackroute.springneo4jexample.service;
 
 import com.stackroute.springneo4jexample.model.Idea;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -8,17 +9,14 @@ import java.util.List;
 
 @Service
 public interface IdeaService {
-    public Collection<Idea> getAll();
 
-   public Idea saveIdea(Long id, String ideaName, List<String> role, String subDomain);
+     Collection<Idea> getAll();
 
-    Idea getByName(String ideaName);
+     Idea saved(Idea idea);
 
-    void deleteUser(String ideaName);
+     Idea matchSubDomain(String subDomainName,String ideaName);
 
-    Idea updateUser(Idea idea);
+     List<Idea> getIdea(String role);
 
-    Idea saved(Idea idea);
-
-    Idea matchSubDomain(String subDomainName,String ideaName);
+     List<Idea> getRecommendedIdeas(String emailId);
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public interface UserServices {
 
-    // User createRelation(Long id, String subDomain);
+
 
     public User saveUser(String userName, List<String> subDomain,String userRole  );
 
@@ -27,7 +27,6 @@ public interface UserServices {
 
     User createRelations(String idea,String ideaName);
 
-   // public Collection<User> getAllUsers();
 
     Collection<User> getAllUsersBy(String subDomainName);
 
@@ -38,6 +37,8 @@ public interface UserServices {
     User saved(User user);
 
     User matchUserSubDomain(String subDomainName, String name);
+
+    User matchRole(String roleName, String name);
 
 
 //    public void recivedMessage(User user);

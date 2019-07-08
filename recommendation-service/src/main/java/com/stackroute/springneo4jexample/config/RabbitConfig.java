@@ -33,10 +33,8 @@ public class RabbitConfig {
     String idearoutingkey;
 
     @Bean
-    Queue serviceNeo4jQueue() {
-        return new Queue(serviceNeo4j,true);
-
-    }
+    Queue serviceNeo4jQueue() { return new Queue(serviceNeo4j,true);
+                  }
     @Bean
     Exchange servicePExchange(){
         return ExchangeBuilder.topicExchange(servicePExchange).durable(true).build();
@@ -44,8 +42,6 @@ public class RabbitConfig {
     @Bean
     Binding innovatorBinding(){
         //this is the traditional way of binding
-//        return new Binding(MY_QUEUE, Binding.DestinationType.QUEUE,"myTopicExchange","topic",null);
-        //more declarative way of binding
         return BindingBuilder.bind(serviceNeo4jQueue()).to(servicePExchange()).with(servicePRoutingkey).noargs();
     }
     @Bean

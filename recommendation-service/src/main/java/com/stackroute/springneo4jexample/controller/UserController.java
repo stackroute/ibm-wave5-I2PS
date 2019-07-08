@@ -96,6 +96,12 @@ public class UserController {
         return userServices.matchUserSubDomain(subDomainName,name);
     }
 
+    @PostMapping("/{roleName}/{name}")
+    public  User getIdeaRole(@PathVariable String roleName,@PathVariable String name){
+
+        return userServices.matchRole(roleName,name);
+    }
+
 
 
 

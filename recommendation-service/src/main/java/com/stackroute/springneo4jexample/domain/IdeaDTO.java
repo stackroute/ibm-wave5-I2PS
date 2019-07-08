@@ -21,5 +21,5 @@ public class IdeaDTO {
     private double budget;
     private Date timestamp;
     private List<String> roles;
-//   private ArrayList<ServiceProvider> serviceProviders;
+
 }
