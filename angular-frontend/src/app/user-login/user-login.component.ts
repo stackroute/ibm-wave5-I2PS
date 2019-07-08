@@ -44,19 +44,23 @@ export class UserLoginComponent implements OnInit {
      let role =  this.helper.decodeToken(userdata.token).sub;
      console.log("we are having this......",userdata.token);
 
-     console.log("in if print email   "+ emailId);
-     console.log("in if print password   "+ password);
-     console.log("in if print role   ", role);
+    //  console.log("in if print email   "+ emailId);
+    //  console.log("in if print password   "+ password);
+    //  console.log("in if print role   ", role);
+
+    // let sendEmailId=userdata.emailId;
+    console.log("the email id to be sent "+emailId);
 
      if (role==null) {
-       console.log(role);
-      console.log("in if1");
-      this.router.navigateByUrl('/innovatorprofiledashboard');
+      console.log(role);
+      console.log("in if1 user login");
+      
+      this.router.navigateByUrl('/innovatorprofiledashboard/'+emailId);
      }
       if(role!=null)
       {
-      console.log("in else");
-      this.router.navigateByUrl('/serviceProviderdashboard');
+      console.log("in else user login");
+      this.router.navigateByUrl('/serviceProviderdashboard/'+emailId);
       
      }
     }

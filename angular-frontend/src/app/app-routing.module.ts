@@ -20,8 +20,8 @@ const routes: Routes = [
   {path: 'intelligent-service',component:IntelligentServiceComponent},
   {path: 'cardDetail/:id',component:CardDetailsComponent},
   { path: 'post', component:PostIdeaComponent},
-  {path: 'serviceProviderdashboard',component:ServiceProviderProfileDashbaordComponent},
-  {path: 'innovatorprofiledashboard',component:NewIdeaProfileComponent},
+  {path: 'serviceProviderdashboard/:sendEmailId',component:ServiceProviderProfileDashbaordComponent},
+  {path: 'innovatorprofiledashboard/:sendEmailId',component:NewIdeaProfileComponent},
     {path:'result/:role',component:IntelligentServiceComponent}
 
 ];
