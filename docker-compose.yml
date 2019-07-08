@@ -101,19 +101,34 @@ services:
       
       
   idea-hub-service:
-   build: idea-hub-service/
-   depends_on:
-     - config-service
-     - eureka-server
-     - rabbitmq
-     - mongo
-   restart: always
-   network_mode: "host"
-   image:  idea-hub-service
-   hostname: localhost
-   ports:
-     - 8063:8063
+    build: idea-hub-service/
+    depends_on:
+      - config-service
+      - eureka-server
+      - rabbitmq
+      - mongo
+    restart: always
+    network_mode: "host"
+    image:  idea-hub-service
+    hostname: localhost
+    ports:
+      - 8063:8063
 
+
+
+  recommendation-service:
+    build: recommendation-service/
+    depends_on:
+        - config-service
+        - eureka-server
+        - rabbitmq
+        - neo4j
+    restart: always
+    network_mode: "host"
+    image:  recommendation-service
+    hostname: localhost
+    ports:
+        - 8082:8082
 #  mysql:
 #    image: mysql:5.7
 #    ports:
@@ -161,10 +176,27 @@ services:
       RABBITMQ_DEFAULT_VHOST: /
 
 
-  sonarqube:
-    image: sonarqube
+
+  neo4j:
+    image: neo4j:3.5.3
     ports:
-      - 9000:9000
-    container_name: sonarqube
+      - 7474:7474
+      - 7687:7687
+
+    container_name: neo4j_docker
     network_mode: "host"
     hostname: localhost
+    restart: always
+    volumes:
+      - /data/neo4j/data:/data
+      - /data/neo4j/import:/import
+    environment:
+      - NEO4J_AUTH=none
+
+#  sonarqube:
+#    image: sonarqube
+#    ports:
+#      - 9000:9000
+#    container_name: sonarqube
+#    network_mode: "host"
+#    hostname: localhost
