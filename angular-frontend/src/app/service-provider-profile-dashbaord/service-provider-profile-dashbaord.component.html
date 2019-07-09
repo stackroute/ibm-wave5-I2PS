@@ -165,8 +165,9 @@ window.onclick = function(event) {
                                             <div class="col-md-6">
                                                 <label><img src="https://img.icons8.com/ios-glyphs/30/000000/for-experienced.png">Experience</label>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p>{{serviceProviderData.skillsAndExperiences}}</p>
+                                            <div  *ngFor="let skillsAndExperience of serviceProviderData.skillsAndExperiences">
+                                                <p>{{skillsAndExperience.skills}}: {{skillsAndExperience.experience}}, <br></p>                                              
+                                        
                                             </div>
                                         </div>
                                     

@@ -37,7 +37,7 @@ export class ServiceProviderProfileDashbaordComponent implements OnInit {
     this.registrationService.getByEmailIdForServiceProvider(emailId).subscribe((data:any)=>{
       console.log("data fetched.."+ data);
       this.serviceProviderData=data;
-      console.log("after getting back from service",this.serviceProviderData.emailId)
+      console.log("after getting back from service",this.serviceProviderData.emailId);
     });
   }
   
