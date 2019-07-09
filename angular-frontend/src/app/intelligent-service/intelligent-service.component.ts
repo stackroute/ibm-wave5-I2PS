@@ -19,19 +19,15 @@ export class IntelligentServiceComponent implements OnInit {
   roles: string[] = [];
 
   ngOnInit() {
-    this.getServiceProviders();
+    this.getAllServiceProviders();
   }
 
 
 
 
-  getServiceProviders() {
+  getAllServiceProviders() {
     const sp= this.route.snapshot.paramMap.get('roles');
-    
-
-     
-     console.log("we are getting roles",sp);
-
+  
      var arrayOfroles = sp.split(',');
 
      console.log("hi",arrayOfroles)
@@ -39,10 +35,14 @@ export class IntelligentServiceComponent implements OnInit {
      
      arrayOfroles.forEach(element => {
       
-   
+   console.log("elements are",element)
     this.intelligentService.getServiceProviders(element).subscribe(data => {
 
+      console.log("all service providers are",data)
+
       this.arrayOfServiceProviders = data.serviceProvider;
+
+     
       length = this.arrayOfServiceProviders.length;
     
       this.servProvider = this.arrayOfServiceProviders[length - 1];
@@ -56,7 +56,7 @@ export class IntelligentServiceComponent implements OnInit {
   public accept() {
     length = this.arrayOfServiceProviders.length;
 
-    this.servProvider = this.arrayOfServiceProviders[length - 2];
+    this.servProvider = this.arrayOfServiceProviders[length - 1];
     this.acceptedServiceProvoders.push(this.servProvider);
     this.arrayOfServiceProviders.pop(this.servProvider);
     console.log("arrayofserviceproviders", this.arrayOfServiceProviders, "acceptedprovoders", this.acceptedServiceProvoders)
@@ -67,8 +67,11 @@ export class IntelligentServiceComponent implements OnInit {
   }
 
   public reject() {
+    length = this.arrayOfServiceProviders.length;
+
+    this.servProvider = this.arrayOfServiceProviders[length - 1];
     this.arrayOfServiceProviders.pop(this.servProvider)
-    // console.log("remaining service providers are",this.arrayOfServiceProviders);
+    console.log("remaining service providers are",this.arrayOfServiceProviders);
   }
 }
 

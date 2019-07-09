@@ -10,6 +10,7 @@ import { CardDetailsComponent } from './card-details/card-details.component';
 import { PostIdeaComponent } from './post-idea/post-idea.component';
 import { NewIdeaProfileComponent } from './innovator-dashboard/new-idea-profile.component';
 import { ServiceProviderProfileDashbaordComponent } from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component';
+import {InnovatorProfileDashboardComponent} from './innovator-profile-dashboard/innovator-profile-dashboard.component'
 
 
 const routes: Routes = [  
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'post', component:PostIdeaComponent},
   {path: 'serviceProviderdashboard/:sendEmailId',component:ServiceProviderProfileDashbaordComponent},
   {path: 'innovatorprofiledashboard/:sendEmailId',component:NewIdeaProfileComponent},
-    {path:'result/:role',component:IntelligentServiceComponent}
+    {path:'result/:roles',component:IntelligentServiceComponent},
+    {path: 'innovatorprofiledashboard',component:InnovatorProfileDashboardComponent}
 
 ];
 

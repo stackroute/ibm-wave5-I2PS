@@ -25,6 +25,7 @@ import { NewIdeaProfileComponent } from './innovator-dashboard/new-idea-profile.
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServiceProviderProfileDashbaordComponent } from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component';
+import {InnovatorProfileDashboardComponent} from './innovator-profile-dashboard/innovator-profile-dashboard.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ServiceProviderProfileDashbaordComponent } from './service-provider-pro
     NewIdeaProfileComponent,
     NavbarComponent,
     FooterComponent,
-    ServiceProviderProfileDashbaordComponent
+    ServiceProviderProfileDashbaordComponent,
+    InnovatorProfileDashboardComponent
 
     
   ],

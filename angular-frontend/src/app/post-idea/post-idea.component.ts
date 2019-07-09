@@ -103,7 +103,7 @@ export class PostIdeaComponent implements OnInit {
 
   }
 
-  postIdea(ideaTitle, ideaDomain, ideaSubDomain, ideaBio, ideaBudget, ideaRoles): any {
+  postIdea(ideaTitle,ideaDomain,ideaSubDomain,ideaBio, ideaBudget, ideaRoles){
 
     console.log(ideaTitle, ideaDomain, ideaSubDomain, ideaBio, ideaBudget);
     // console.log(this.domains)
@@ -115,9 +115,10 @@ export class PostIdeaComponent implements OnInit {
       budget: ideaBudget,
       roles: this.domains
     }
-    console.log("roles selected",this.domains);
+    console.log("**********roles selected",this.domains);
   
     this.postIdeaService.postIdea(Idea);
+
     
     this.router.navigateByUrl(`result/`+this.domains);
    
