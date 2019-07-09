@@ -25,9 +25,17 @@ public class ServiceProviderController
     }
 //method to save a service provider profile
     @PostMapping("/serviceprovider")
-    public ResponseEntity<?> saveServiceProvider(@RequestBody ServiceProvider serviceProvider) throws EmailIdAlreadyExistsException
+    public ResponseEntity<?> saveServiceProvider(@RequestBody ServiceProvider serviceProvider) throws EmailIdAlreadyExistsException, Exception
     {
         ResponseEntity responseEntity=null;
+        String emailID= serviceProvider.getEmailId();
+
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+
+        if (!emailID.matches(regex) || emailID == null)
+        {
+            throw new Exception(("EmailId entered by you is not proper or empty!!!"));
+        }
         try {
             serviceProviderServiceimpl.send(serviceProvider);
             return new ResponseEntity<ServiceProvider>(serviceProviderServiceimpl.saveServiceProvider(serviceProvider), HttpStatus.CREATED);

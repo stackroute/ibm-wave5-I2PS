@@ -25,8 +25,16 @@ public class InnovatorProfileController {
 
     //method to save an innovator profile
     @PostMapping("/innovatorprofile")
-    public ResponseEntity<?> saveInnovatorProfile(@RequestBody InnovatorProfile innovatorProfile) throws EmailIdAlreadyExistsException {
+    public ResponseEntity<?> saveInnovatorProfile(@RequestBody InnovatorProfile innovatorProfile) throws EmailIdAlreadyExistsException, Exception {
         ResponseEntity responseEntity;
+        String emailID= innovatorProfile.getEmailId();
+
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+
+        if (!emailID.matches(regex) || emailID == null)
+        {
+            throw new Exception(("EmailId entered by you is not proper or empty!!!"));
+        }
         try {
 
             innovatorProfileSeviceimpl.saveInnovatorProfile(innovatorProfile);

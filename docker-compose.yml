@@ -42,7 +42,7 @@ services:
     network_mode: "host"
     hostname: localhost
     volumes:
-      - ./data/db:/data/db
+      - $HOME/data/db:/data/db
 
   user-login-service:
     build: user-login-service/
@@ -168,7 +168,7 @@ services:
       - 5672:5672
       - 15672:15672
     volumes:
-      - ./data/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@app-rabbitmq:cached
+      - $HOME/data/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@app-rabbitmq:cached
     environment:
       RABBITMQ_ERLANG_COOKIE: 6085e2412b6fa88647466c6a81c0cea0
       RABBITMQ_DEFAULT_USER: guest

@@ -32,11 +32,20 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public ResponseEntity<?>  login(@RequestBody User loginDetails) throws EmailIdOrPasswordEmptyException, EmailIdNotFoundException, PasswordNotMatchException{
+    public ResponseEntity<?>  login(@RequestBody User loginDetails) throws EmailIdOrPasswordEmptyException, EmailIdNotFoundException, PasswordNotMatchException,Exception{
 
         String emailId = loginDetails.getEmailId();
 
         String password = loginDetails.getPassword();
+
+        String emailID= loginDetails.getEmailId();
+
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+
+        if (!emailID.matches(regex))
+        {
+            throw new Exception(("EmailId entered by you is not proper!!!"));
+        }
 
 
         if (emailId == null || password == null) {
