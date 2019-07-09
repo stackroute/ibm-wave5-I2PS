@@ -24,6 +24,7 @@ public class SubDomainController {
     }
 
 
+    //To save subDomain
     @PostMapping("/saved")
     public ResponseEntity<?> savedSubDomain(@RequestBody SubDomain subDomain)
     {

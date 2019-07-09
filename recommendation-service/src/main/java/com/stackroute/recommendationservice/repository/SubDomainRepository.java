@@ -10,6 +10,7 @@ import java.util.Collection;
 @Repository
 public interface SubDomainRepository extends Neo4jRepository<SubDomain,Long> {
 
+    //To get list of subDomain
     @Query("MATCH (u:SubDomain) RETURN u")
     Collection<SubDomain> getAllNode();
 

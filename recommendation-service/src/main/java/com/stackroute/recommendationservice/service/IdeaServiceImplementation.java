@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -33,7 +34,12 @@ public class IdeaServiceImplementation implements IdeaService {
 
     @Override
     public Idea saved(Idea idea) {
-        return ideaRepository.save(idea);
+        Idea savedIdea = ideaRepository.save(idea);
+        System.out.println("idea node "+savedIdea);
+
+        ideaRepository.matchSubDomain(savedIdea.getSubDomain(),savedIdea.getIdeaName());
+        return  savedIdea;
+
     }
 
     @Override

@@ -3,6 +3,8 @@ package com.stackroute.recommendationservice.service;
 import com.stackroute.recommendationservice.model.SubDomain;
 import com.stackroute.recommendationservice.repository.SubDomainRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

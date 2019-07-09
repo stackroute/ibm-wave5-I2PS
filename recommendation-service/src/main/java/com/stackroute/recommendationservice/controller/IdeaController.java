@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rest/neo4j/idea")
+
 public class IdeaController {
 
     @Autowired
@@ -28,7 +29,6 @@ public class IdeaController {
     @PostMapping("/saved")
     public ResponseEntity<?> savedIdea(@RequestBody Idea idea)
     {
-        ideaService.saved(idea);
         return new ResponseEntity<Idea>(ideaService.saved(idea), HttpStatus.CREATED);
     }
 
@@ -40,13 +40,15 @@ public class IdeaController {
     }
 
 
-
+    //To get Ideas related to specific role
     @GetMapping("getIdea/{role}")
     public List<Idea> getIdea(@PathVariable String role) {
         return ideaService.getIdea(role);
 
 
     }
+
+    //recommending ideas to users by retrieving their role
     @GetMapping("ideas/{emailId}")
     public List<Idea> getRecommendedIdeas(@PathVariable String emailId){
         return ideaService.getRecommendedIdeas(emailId);

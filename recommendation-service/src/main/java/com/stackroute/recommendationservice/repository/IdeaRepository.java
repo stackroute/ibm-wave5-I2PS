@@ -8,6 +8,8 @@ import java.util.Collection;
 import java.util.List;
 
 public interface IdeaRepository extends Neo4jRepository<Idea,Long> {
+
+    //query to get all ideas
     @Query("MATCH (u:Idea) RETURN u")
     Collection<Idea> getAllIdeas();
 
