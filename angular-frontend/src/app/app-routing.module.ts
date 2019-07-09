@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'post', component:PostIdeaComponent},
   {path: 'serviceProviderdashboard/:sendEmailId',component:ServiceProviderProfileDashbaordComponent},
   {path: 'innovatorprofiledashboard/:sendEmailId',component:InnovatorProfileDashboardComponent},
+
     {path:'result/:roles',component:IntelligentServiceComponent},
     {path: 'innovatorprofiledashboard',component:InnovatorProfileDashboardComponent}
 
