@@ -14,6 +14,7 @@ export class InnovatorProfileDashboardComponent implements OnInit {
   constructor(private registrationService:RegistrationService,private router:Router,private route:ActivatedRoute, public dialog: MatDialog) { }
   
   innovatorprofiledashboarddata:any =[];
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(PostIdeaComponent, {
       width: '800px',

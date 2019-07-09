@@ -21,7 +21,6 @@ import { IntelligentServiceComponent } from './intelligent-service/intelligent-s
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { PostIdeaComponent } from './post-idea/post-idea.component';
 import { MatAutocomplete } from '@angular/material';
-import { NewIdeaProfileComponent } from './innovator-dashboard/new-idea-profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServiceProviderProfileDashbaordComponent } from './service-provider-profile-dashbaord/service-provider-profile-dashbaord.component';
@@ -37,7 +36,6 @@ import {InnovatorProfileDashboardComponent} from './innovator-profile-dashboard/
     IntelligentServiceComponent,
     CardDetailsComponent,
     PostIdeaComponent,
-    NewIdeaProfileComponent,
     NavbarComponent,
     FooterComponent,
     ServiceProviderProfileDashbaordComponent,
