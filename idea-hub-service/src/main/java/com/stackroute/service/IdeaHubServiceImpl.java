@@ -101,4 +101,9 @@ private RabbitTemplate rabbitTemplate;
         System.out.println("Send msg = " + idea);
     }
 
+    @Override
+    public Idea getByEmailId(String emailId) {
+        return ideaHubRepository.findByEmailId(emailId);
+    }
+
 }

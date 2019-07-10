@@ -8,5 +8,6 @@ public interface IdeaHubService
         Idea updateIdea(Idea idea);
         List<Idea> displayIdea();
         public void send(Idea idea);
+        public Idea getByEmailId(String emailId);
     }
 

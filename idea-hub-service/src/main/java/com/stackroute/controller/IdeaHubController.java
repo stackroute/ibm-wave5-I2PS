@@ -61,5 +61,12 @@ public class IdeaHubController {
         return new ResponseEntity<Idea>( ideaHubService.updateIdea(idea),HttpStatus.ACCEPTED);
     }
 
+    @GetMapping("/getIdeaByEmailId/{emailId}")
+    public ResponseEntity<?> getByEmailId(@PathVariable String emailId)
+    {
+        return new ResponseEntity<>(ideaHubService.getByEmailId(emailId), HttpStatus.OK);
+
+
+    }
 
 }

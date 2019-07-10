@@ -17,6 +17,7 @@ import java.util.List;
 public class Idea {
   @Id
   private String ideaId;
+  private String emailId;
   private String title;
   private String description;
   private String domain;
@@ -26,18 +27,19 @@ public class Idea {
   private List<String> roles;
   private ArrayList<ServiceProvider> serviceProviders;
 
-    @Override
-    public String toString() {
-        return "Idea{" +
-                "ideaId=" + ideaId +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", domain='" + domain + '\'' +
-                ", subDomain='" + subDomain + '\'' +
-                ", budget=" + budget +
-                ", timestamp=" + timestamp +
-                ", roles=" + roles +
-                ", serviceProviders=" + serviceProviders +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Idea{" +
+            "ideaId='" + ideaId + '\'' +
+            ", emailId='" + emailId + '\'' +
+            ", title='" + title + '\'' +
+            ", description='" + description + '\'' +
+            ", domain='" + domain + '\'' +
+            ", subDomain='" + subDomain + '\'' +
+            ", budget=" + budget +
+            ", timestamp=" + timestamp +
+            ", roles=" + roles +
+            ", serviceProviders=" + serviceProviders +
+            '}';
+  }
 }
