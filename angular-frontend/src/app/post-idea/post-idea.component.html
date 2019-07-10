@@ -59,7 +59,7 @@
 
     <div class="form-group">
       <label>Description of your idea:</label>
-      <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="6"
+      <textarea #ideaBio class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="6"
         placeholder="Describe what you want...."></textarea>
     </div>
 
@@ -83,8 +83,27 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="inputGroupSelect01">Select yours</label>
         </div>
+
         <select #ideaSubDomain class="custom-select" id="inputGroupSelect01">
-          <option selected *ngFor="let subDomain of subDomainList" [value]="subDomain">{{subDomain.subdomain}}</option>
+          <option selected></option>
+          <option value="Application Development">Application Development</option>
+          <option value="Software Development">Software Development</option>
+          <option value="Website Development">Website Development</option>
+          <option value="Hardware Development">Hardware Development</option>
+          <option value="Automation Development">Automation Development</option>
+          <option value="Robotics">Robotics</option>
+          <option value="Mobile Development">Mobile Development</option>
+          <option value="Cloud Configuration">Cloud Configuration</option>
+          <option value="Website Development">Website Development</option>
+          <option value="Cultural Tourism">Cultural Tourism</option>
+          <option value="Medical Tourism">Medical Tourism</option>
+          <option value="Wildlife Tourism">Wildlife Tourism</option>
+         
+
+
+        </select>
+        <!-- <select #ideaSubDomain class="custom-select" id="inputGroupSelect01"> -->
+          <!-- <option selected *ngFor="let subDomain of subDomainList" [value]="subDomain">{{subDomain.subdomain}}</option> -->
           <!-- <option value="Application Development">Application Development</option>
           <option value="Software Development">Software Development</option>
           <option value="Website Development">Website Development</option>
@@ -100,7 +119,7 @@
 
 
 
-        </select>
+        <!-- </select> -->
       </div>
     </div>
 
@@ -134,8 +153,7 @@
     <div class="butt">
       <button mdBtn color="black" (click)="closeDialog()" data-toggle="modal" data-target="#cardDetail"
         class="btn btn-outline-dark mt auto">CLOSE</button>
-      <button mdBtn color="white"
-        (click)="postIdea(ideaTitle.value,ideaDomain.value,ideaSubDomain.value,ideaBio.value,ideaBudget.value)"
+      <button mdBtn color="white" (click)="postIdea(ideaTitle.value,ideaBio.value,ideaDomain.value,ideaSubDomain.value,ideaBudget.value)"
         data-toggle="modal" data-target="#cardDetail" class="btn btn-outline-dark mt auto">POST</button>
     </div>
   </form>

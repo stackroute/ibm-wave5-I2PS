@@ -35,14 +35,14 @@
           <a href="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> HOME <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a href="/serviceDashboard" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="lightbulb"></mdb-icon> DASHBOARD </a>
+          <a (click)="goToDashboard()" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="lightbulb"></mdb-icon> DASHBOARD </a>
         </li>
 
         <li class="nav-item">
             <a href="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon> LOG OUT </a>
           </li>
   
-       
+       <!-- {{serviceProviderData.emailId}} -->
   
       </ul>
       <!-- Links -->
@@ -77,19 +77,17 @@
                             
 
                             <div class="card-title">
-                                    {{innovatorprofiledashboarddata.name}}
-
+                                {{serviceProviderData.name}}
                             </div>
                         </a>
                     <div class="colored-shadow" style="background-image: url('https://i.ytimg.com/vi/7xWxpunlZ2w/maxresdefault.jpg');opacity: 1;"></div></div>
                     <div class="card-body ">
-                        <h6 class="card-category text-info">Web Designer</h6>
+                        <h6 class="card-category text-info">{{serviceProviderData.role}}</h6>
 
                         <p class="card-description">
                            Bio
-                           <p>Domain:  {{innovatorprofiledashboarddata.domain}}</p>
-                        <p> SubDomain: {{innovatorprofiledashboarddata.subDomain}}
-                            </p>  
+                           <p>Domain:  {{serviceProviderData.domain}}</p>
+                        <p> SubDomain: {{serviceProviderData.subDomain}}</p>  
                         
 
                         

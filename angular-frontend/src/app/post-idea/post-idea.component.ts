@@ -97,7 +97,7 @@ export class PostIdeaComponent implements OnInit {
     console.log(this.matAutocomplete)
   }
 
-  postIdea(ideaTitle,ideaDomain,ideaSubDomain,ideaBio,ideaBudget,ideaRoles): any{
+  postIdea(ideaTitle,ideaBio,ideaDomain,ideaSubDomain,ideaBudget): any{
    
     console.log("hiiiiiiiiiii",ideaTitle,ideaDomain,ideaSubDomain,ideaBio,ideaBudget);
     console.log(this.domains)
@@ -112,7 +112,7 @@ roles : this.domains
     console.log("hellooooooooooooooooooooo");
     console.log(Idea);
     this.postIdeaService.postIdea(Idea);
-    this.router.navigateByUrl('/xyz');
+    this.router.navigateByUrl('/intelligent');
   }
 
 
