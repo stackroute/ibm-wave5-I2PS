@@ -1,73 +1,81 @@
 <div class="fullbody">
-        <hr>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 id="heading" class="display-4">Suggestions for you</h1>
-           </div>
+  <hr>
+  <header> <button class="btn btn-primary" (click)="home()">Go To Home</button></header>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 id="heading" class="display-4">Suggestions for you</h1>
+     </div>
+
+     
+</div>
+
+<div class="container-fluid">
+<h2>Your Group</h2>
+<div class="container-fluid d-flex flex-wrap my-2" >
+
+    
+
+    <div class="card-body" *ngFor="let serviceProvider of arrayOfServiceProviders" > 
+
+       <div class="flip-card" >
+          <div class="flip-card-inner" >
+            <div class="flip-card-front">
+              <img src="/assets/img/apartment.jpg" alt="Avatar">
+            </div>
+            <div class="flip-card-back" >
+              <h4>
+                <b>
+              <p>{{serviceProvider.emailId}}</p> 
+              <p>{{serviceProvider.role}}</p> 
+              <p>{{serviceProvider.domain}}</p>
+              <p>{{serviceProvider.subDomain}}</p>
+              <p>{{serviceProvider.chargePerHour}}</p>
+                </b>
+              </h4>
+            </div>
+          </div>
+        </div>
       
-           
-      </div>
-      
-      <div class="container-fluid">
-      <h2>Your Group</h2>
-      <div class="container-fluid d-flex flex-wrap my-2" >
-      
-          
-      
-          <div class="card-body" *ngFor="let serviceProvider of arrayOfServiceProviders" > 
-      
-             <div class="flip-card" >
-                <div class="flip-card-inner" >
-                  <div class="flip-card-front">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_t8NB-XLLeXXeai8oqiYoPscO5_B5lrnmgJaddPULdeyvyy5l" alt="Avatar">
-                  </div>
-                  <div class="flip-card-back" >
-                    <h4>{{serviceProvider.emailId}}</h4> 
-                    <p>{{serviceProvider.role}}</p> 
-                    <p>{{serviceProvider.domain}}</p>
-                    <p>{{serviceProvider.subDomain}}</p>
-                    <p>{{serviceProvider.chargePerHour}}</p>
+ 
+ 
+      <div class="card-body">
+        <div class="card-body">
+            <button type="button" (click)="accept()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Accept
+              </button>
+              <button type="button" (click)="reject()" class="btn btn-primary">Reject</button>
+
+              
+              <!-- Modal -->
+               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Do you need more people</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       <!-- <button type="button" id="yes"  click()="accept()" class="btn btn-primary">Yes</button>  -->
+     
+                     </div>
                   </div>
                 </div>
               </div>
-            
-       
-       
-            <div class="card-body">
-              <div class="card-body">
-                  <button type="button" (click)="accept()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                      Accept
-                    </button>
-                    <button type="button" (click)="reject()" class="btn btn-primary">Reject</button>
-      
-                    
-                    <!-- Modal -->
-                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Do you need more people</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            ...
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                             <!-- <button type="button" id="yes"  click()="accept()" class="btn btn-primary">Yes</button>  -->
-           
-                           </div>
-                        </div>
-                      </div>
-                    </div>
-             </div>
-              </div>
-         
-      
-      
-          
+       </div>
         </div>
-      </div>
-      </div>
+   
+
+
+    
+  </div>
+</div>
+</div>
+   
+
+   

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { IntelligentserviceService } from '../intelligentservice.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-intelligent-service',
   templateUrl: './intelligent-service.component.html',
-  styleUrls: ['./intelligent-service.component.scss']
+  styleUrls: ['./intelligent-service.component.css']
 })
 export class IntelligentServiceComponent implements OnInit {
 
@@ -22,7 +22,10 @@ export class IntelligentServiceComponent implements OnInit {
     this.getAllServiceProviders();
   }
 
-
+home()
+{
+  this.router.navigateByUrl('/home')
+}
 
 
   getAllServiceProviders() {
@@ -60,12 +63,12 @@ export class IntelligentServiceComponent implements OnInit {
 
 
   public accept() {
-    length = this.arrayOfServiceProviders.length;
+    // length = this.arrayOfServiceProviders.length;
 
-    this.servProvider = this.arrayOfServiceProviders[length - 1];
+    // this.servProvider = this.arrayOfServiceProviders[length - 1];
     this.acceptedServiceProvoders.push(this.servProvider);
-    this.arrayOfServiceProviders.pop(this.servProvider);
-    console.log("arrayofserviceproviders", this.arrayOfServiceProviders, "acceptedprovoders", this.acceptedServiceProvoders)
+    // this.arrayOfServiceProviders.pop(this.servProvider);
+    console.log( "acceptedprovoders", this.acceptedServiceProvoders)
 
 
 
@@ -81,6 +84,13 @@ export class IntelligentServiceComponent implements OnInit {
   }
 
 
-
-
 }
+
+
+
+
+
+
+
+
+

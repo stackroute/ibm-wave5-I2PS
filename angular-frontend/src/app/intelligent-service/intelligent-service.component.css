@@ -1,3 +1,4 @@
+
 .btn {
     width: 3.3cm;
     height: 1cm;
@@ -66,9 +67,10 @@ img{
   
   /* Style the back side */
   .flip-card-back {
-    background-color: dodgerblue;
-    color: white;
+    background-color: teal;
+    color: black;
     transform: rotateY(180deg);
+    
   }
 
   @media (max-width: 300px) {
