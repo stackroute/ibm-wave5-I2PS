@@ -47,11 +47,11 @@ export class InnovatorDashboardComponent implements OnInit {
    });
  }
 
- routeDetail(){
+ routeDetail():any{
   const emailId=this.route.snapshot.paramMap.get('sendEmailId');
   console.log("in innovator dashboard routeDetails"+emailId);
 
-  this.router.navigateByUrl('/postIdea');
+  this.router.navigateByUrl('/postIdea/'+emailId);
  }
 
  goToProfile():void{

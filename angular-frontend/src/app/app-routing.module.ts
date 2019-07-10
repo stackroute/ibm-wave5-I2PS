@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:'serviceProfile/:sendEmailId',component:ServiceProviderProfileComponent},
   {path:'innovatorDashboard/:sendEmailId',component:InnovatorDashboardComponent},
   {path:'innovatorProfile/:sendEmailId',component:InnovatorProfileComponent},
-  {path:'postIdea',component:PostIdeaComponent},
+  {path:'postIdea/:emailId',component:PostIdeaComponent},
   {path:'nav',component:NavbarComponent},
   {path:'footer',component:FooterComponent},
   {path:'intelligent',component:IntelligentServiceComponent}

@@ -9,6 +9,8 @@ export class PostIdeaServiceService {
   constructor(private httpclient: HttpClient) { }
 
   postIdea(value): any{
-    return this.httpclient.post("http://localhost:8087/api/v1/addIdea",value).subscribe();
+    console.log("in service of post idea "+value);
+    return this.httpclient.post("http://localhost:8063/api/v1/addIdea",value).subscribe();
+    
   }
 }
