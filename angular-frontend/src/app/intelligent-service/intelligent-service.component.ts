@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { IntelligentserviceService } from '../intelligentservice.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-intelligent-service',
   templateUrl: './intelligent-service.component.html',
-  styleUrls: ['./intelligent-service.component.css']
+  styleUrls: ['./intelligent-service.component.scss']
 })
 export class IntelligentServiceComponent implements OnInit {
 
@@ -81,13 +81,6 @@ export class IntelligentServiceComponent implements OnInit {
   }
 
 
+
+
 }
-
-
-
-
-
-
-
-
-
