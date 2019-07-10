@@ -8,7 +8,7 @@ import { Router, ActivatedRoute} from '@angular/router';
   styleUrls: ['./card-details.component.css']
 })
 export class CardDetailsComponent implements OnInit {
-  arrayOfIdeas = [];
+  arrayOfIdeas: any ;
   data;
   constructor(private cardService: CardServiceService, private router: Router, private route:ActivatedRoute) { }
 
