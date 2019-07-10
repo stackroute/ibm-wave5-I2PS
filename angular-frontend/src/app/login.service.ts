@@ -20,4 +20,8 @@ export class LoginService {
                                                                   // console.log(user);
 
   }
+
+  getRecommendations(emailId):any{
+    return this.http.get(`http://localhost:8082/rest/neo4j/idea/ideas/${emailId}`);
+  }
 }

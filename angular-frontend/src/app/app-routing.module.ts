@@ -27,7 +27,7 @@ const routes: Routes = [
   {path:'serviceproviderregistration',component:ServiceProviderRegistrationComponent},
   {path:'innovatorregistration',component:InnovatorRegistrationComponent},
   {path:'login',component:UserLoginComponent},
-  {path:'serviceDashboard',component:ServiceProviderDashboardComponent},
+  {path:'serviceDashboard/:sendEmailId',component:ServiceProviderDashboardComponent},
   {path:'serviceProfile',component:ServiceProviderProfileComponent},
   {path:'innovatorDashboard',component:InnovatorDashboardComponent},
   {path:'innovatorProfile',component:InnovatorProfileComponent},

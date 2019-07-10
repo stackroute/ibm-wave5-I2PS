@@ -80,8 +80,8 @@
                         <script>
                         </script>
                     </div>
-                    <div class="card-desc">
-                        <h3>TITLE</h3>
+                    <div class="card-desc" *ngFor="let data of recommendedIdeas">
+                        <h3>{{data.ideaTitle}}</h3>
                         <p></p>
                             <!-- <a href="#" class="btn-card">Show More</a> -->
                             <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
@@ -94,7 +94,7 @@
                               <div class="modal-content">
                                 <!--Header-->
                                 <div class="modal-header">
-                                  <p class="heading lead">TITLE</p>
+                                  <p class="heading lead">{{data.ideaTitle}}</p>
                           
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
                                     <span aria-hidden="true" class="white-text">&times;</span>
@@ -105,10 +105,9 @@
                                 <div class="modal-body">
                                   <div class="text-center">
                                     <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
-                                    <p>DESCRIPTION</p>
-                                    <p>DOMAIN</p>
-                                    <p>SUBDOMAIN</p>
-                                    <p>CHARGE PER HOUR</p>
+                                    <p>{{data.ideaDescription}}</p>
+                                    <p>{{data.domain}}</p>
+                                    <p>{{data.subDomain}}</p>
                                   </div>
                                 </div>
                           
@@ -124,84 +123,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card-content">
-                    <div class="card-img">
-                        <img src="https://placeimg.com/380/230/tech" alt="">
-                        <span><h4>Idea</h4></span>
-                    </div>
-                    <div class="card-desc">
-                        <h3>Recommended Idea</h3>
-                        <p></p>
-                            <!-- <a href="#" class="btn-card">Show More</a>    -->
-
-                            <a (click)="routeDetails(data)" data-toggle="modal" data-target="#cardDetail" class="btn-card"><img src="https://img.icons8.com/material-rounded/24/000000/circled-chevron-down.png">Show more</a> 
-                            <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Show More</button> -->
-                            <div class="modal fade" id="cardDetail" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                <div class="modal-content" >
-                                  <div class="modal-header">
-                                    <h5 class="modal-title"></h5>
-                                    <button type="button" (click)="onClose()" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    <br>
-                                 Title: 
-                                    <br>
-                                   Description :
-                                    <br>
-                             
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">APPLY</button>
-                                  </div>
-                                </div>
-                              </div>
-                             </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-content">
-                    <div class="card-img">
-                        <img src="https://placeimg.com/380/230/tech" alt="">
-                        <span><h4>Idea</h4></span>
-                    </div>
-                    <div class="card-desc">
-                        <h3>Recommended Idea</h3>
-                        <p></p>
-                            <!-- <a href="#" class="btn-card">Show More</a>    -->
-                            <a (click)="routeDetails(data)" data-toggle="modal" data-target="#cardDetail" class="btn-card"><img src="https://img.icons8.com/material-rounded/24/000000/circled-chevron-down.png">Show more</a> 
-                            <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Show More</button> -->
-                            <div class="modal fade" id="cardDetail" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                <div class="modal-content" >
-                                  <div class="modal-header">
-                                    <h5 class="modal-title"></h5>
-                                    <button type="button" (click)="onClose()" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                  
-                                    <br>
-                                  Title: 
-                                    <br>
-                                   Description : 
-                                    <br>
-                             
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">APPLY</button>
-                                  </div>
-                                </div>
-                              </div>
-                             </div>
-                    </div>
-                </div>
-            </div>
+        
         </div>
     </div>
   
