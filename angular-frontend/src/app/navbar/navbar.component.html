@@ -1,123 +1,31 @@
+<!--Navbar-->
+<mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg" [containerInside]="false">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <!--Here below is the image of the website-->
-  <a class="navbar-brand" href="#">
-    <div class="w3-container">
-      <img alt="Logo" class="w3-circle" src="/assets/img/252a397a-5d18-41f8-b1c1-af2a14ffde26_200x200.png" style="width:40px">
-    </div>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/landingpage">HOME<span class="sr-only">(current)</span></a>
-      </li>
-   
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <ul class="navbar-nav mr-auto">
-
-
-        <li class="nav-item active" *ngIf="check1">
-
-          <div class="dropdown" >
-              <button   class="btn btn-dark dropdown-toggle" data-toggle="dropdown" (click)=myfunction()>
-                  <i class="far fa-bell" style="color: white;"></i>
-                  <span class="badge" style="color: white;">{{str}}</span>
-              </button>
-              <div class="dropdown-menu" >
-                <div id="myDropdown" class="dropdown-content">
-               
-                  </div>
-              </div>
-            
-            </div>
-         
-      </li>
-
-
-        <pre> </pre>
-        <li class="nav-item active" *ngIf="check1">
-          <a class="nav-link" routerLink="/myprofile">My Profile <span class="sr-only">(current)</span></a>
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="#">COLLAB-JUNCTION</a></mdb-navbar-brand>
+  
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a href="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> HOME <span class="sr-only">(current)</span></a>
         </li>
-        <pre> </pre>
-        <li>
-          <button type="button" class="btn btn-outline-light" *ngIf="check1" (click)="logout()">LogOut</button>
+        <li class="nav-item">
+          <a href="/innovatorDashboard" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="lightbulb"></mdb-icon> DASHBOARD </a>
         </li>
-        <li>
-          <button type="button" class="btn btn-outline-light" *ngIf="!check1" routerLink="/login">Login</button>
-        </li>
-        <pre> </pre>
-        <li>
-          <button *ngIf="!check1" class="btn btn-outline-light" onclick="document.getElementById('signUp').style.display='block'"  type="button">Sign Up</button>
 
-          <div id="signUp" class="modal">
-              
-            <form class="modal-content animate" action="/action_page.php">
-              <div class="imgcontainer">
-              <span onclick="document.getElementById('signUp').style.display='none'"></span>
-              </div>
-
-   
-              <div class="container">
-                <div class="radio">
-            
-                <label class="radioButton"><input  #service ng-model="result" ng-value="serviceProvider" (click)="onSubmitServiceProvider(service.value)" type="radio" name="optradio">I want to work on an idea</label>
-                </div>
-    <br>
-    
-                <div class="radio">
-                <label class="radioButton"><input #innovator ng-model="result" ng-value="innovator" (click)="onSubmitInnovator(innovator.value)" type="radio" name="optradio">I want to post an idea</label>
-                </div>
-              </div>
-            </form>
-          </div>
-   
-          <script>
-            // Get the modal
-            var modal = document.getElementById('signUp');
-            
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-              if (event.target == modal) {
-                modal.style.display = "none";
-              }
-            }
-            </script>
-
-        </li>
+        <li class="nav-item">
+            <a href="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon> LOG OUT </a>
+          </li>
+  
+       
+  
       </ul>
-    </form>
-  </div>
-</nav>
-<br>
-<br>
-
-<router-outlet></router-outlet>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <!--/.Navbar-->

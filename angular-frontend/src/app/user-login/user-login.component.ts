@@ -8,7 +8,7 @@ import  { JwtHelperService } from '@auth0/angular-jwt';
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css']
+  styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
 
@@ -44,23 +44,19 @@ export class UserLoginComponent implements OnInit {
      let role =  this.helper.decodeToken(userdata.token).sub;
      console.log("we are having this......",userdata.token);
 
-    //  console.log("in if print email   "+ emailId);
-    //  console.log("in if print password   "+ password);
-    //  console.log("in if print role   ", role);
-
-    // let sendEmailId=userdata.emailId;
-    console.log("the email id to be sent "+emailId);
+     console.log("in if print email   "+ emailId);
+     console.log("in if print password   "+ password);
+     console.log("in if print role   ", role);
 
      if (role==null) {
-      console.log(role);
-      console.log("in if1 user login");
-      
-      this.router.navigateByUrl('/innovatorprofiledashboard/'+emailId);
+       console.log(role);
+      console.log("in if1");
+      this.router.navigateByUrl('/innovatorDashboard');
      }
       if(role!=null)
       {
-      console.log("in else user login");
-      this.router.navigateByUrl('/serviceProviderdashboard/'+emailId);
+      console.log("in else");
+      this.router.navigateByUrl('/serviceDashboard');
       
      }
     }
@@ -74,5 +70,4 @@ export class UserLoginComponent implements OnInit {
   }
 
 }
-
 

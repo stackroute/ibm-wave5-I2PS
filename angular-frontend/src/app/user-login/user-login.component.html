@@ -1,11 +1,48 @@
-<app-navbar></app-navbar>
 
 
-<body>
+
+
+
+<body class="blue-gradient">
   
-    <div class="cardBody card bg-light">
+  <header>
+    <mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg" [containerInside]="false">
+
+      <!-- Navbar brand -->
+      <mdb-navbar-brand><a class="navbar-brand" href="#">COLLAB-JUNCTION</a></mdb-navbar-brand>
+    
+      <!-- Collapsible content -->
+      <links>
+    
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a href="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> HOME <span class="sr-only">(current)</span></a>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="/innovatorDashboard" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="lightbulb"></mdb-icon> DASHBOARD </a>
+          </li>
+  
+          <li class="nav-item">
+              <a href="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon> LOG OUT </a>
+            </li> -->
+    
+         
+    
+        </ul>
+        <!-- Links -->
+      </links>
+      <!-- Collapsible content -->
+    
+    </mdb-navbar>
+    <!--/.Navbar-->  
+  </header>
+
+
+    
+    <div class="blue-gradient cardBody card bg-light">
         <article class="card-body mx-auto" style="max-width: 400px; height: 800px;">
-          <h4 class="card-title mt-3 text-center">LOG IN</h4>
+                  <h1 class="h1-responsive text-center font-weight-bold mt-sm-5">LOG IN</h1>
       
           <form>
             <div class="form-group input-group">
@@ -22,7 +59,7 @@
             </div> <!-- form-group// -->
             <div *ngIf = "loggedIn"> You Are the invalid User</div>
             <div class="form-grouping">
-            <button (click)="authenticateUser(emailId.value, password.value)" data-toggle="modal" data-target="#cardDetail" class="btn btn-outline-dark mt auto">LOG IN
+            <button mdBtn color="white" (click)="authenticateUser(emailId.value, password.value)" data-toggle="modal" data-target="#cardDetail" class="btn btn-outline-light mt auto">LOG IN
             </button>
               <!-- <button class="btn btn-outline-primary mx-2"
                 (click)="authenticateUser(emailId.value, password.value)">Login!</button> -->
@@ -32,11 +69,3 @@
         </article>
       </div> <!-- card.// -->
 </body>
-
-
-
-
-
-<app-footer></app-footer>
-
-<!--container end.//-->

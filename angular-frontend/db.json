@@ -1,34 +1,19 @@
 {
-    "ideas": [
-      {
-          "ideaId":1,
-          "ideaTitle" : "Freelance photography",
-          "ideaDomain":"Tourism",
-          "ideaSubDomain" : "Photography",
-          "ideaDescription": "We are looking for someone to join the Production Team. Your mission will be to organize photoshoots for small and key customers, by contacting photographers and clients (all round the world, from our office in Bengaluru).You will therefore be in touch with Meero's, clients, and in charge of our most important processes' successfull conduct.",
-          "ideaBudget":"300$",
-          "ideaResources" :"Professional Photographer",
-          "ideaPostedBy": "Ashok Kumar"
-      },
-     {
-          "ideaId":2,
-          "ideaTitle" : "Room visualization Mobile Application",
-          "ideaDomain":"IT",
-          "ideaSubDomain" : "Mobile development",
-          "ideaDescription": "An android mobile application to visualize room located at a specific location using virtual reality.",
-          "ideaBudget":"2500$",
-          "ideaResources" :"Android Developer(2), Software Architect(1)",
-          "ideaPostedBy": "Selin"
-      },   
-   {
-          "ideaId":3,
-          "ideaTitle" : "Traffic Controller Bot",
-          "ideaDomain":"IT",
-          "ideaSubDomain" : "Robotics",
-          "ideaDescription": "A bot should be able to control the traffic efficiently. should stop the traffic depending on the number of vehicles.",
-          "ideaBudget":"3000$",
-          "ideaResources" :"Software Developer(3), Hardware Engineer(2), AWS Engineer(1)",
-          "ideaPostedBy": "Gargi"
-      }
-  ]
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
   }
+}
