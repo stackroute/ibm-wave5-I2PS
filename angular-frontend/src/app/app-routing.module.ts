@@ -28,13 +28,13 @@ const routes: Routes = [
   {path:'innovatorregistration',component:InnovatorRegistrationComponent},
   {path:'login',component:UserLoginComponent},
   {path:'serviceDashboard/:sendEmailId',component:ServiceProviderDashboardComponent},
-  {path:'serviceProfile',component:ServiceProviderProfileComponent},
-  {path:'innovatorDashboard',component:InnovatorDashboardComponent},
-  {path:'innovatorProfile',component:InnovatorProfileComponent},
+  {path:'serviceProfile/:sendEmailId',component:ServiceProviderProfileComponent},
+  {path:'innovatorDashboard/:sendEmailId',component:InnovatorDashboardComponent},
+  {path:'innovatorProfile/:sendEmailId',component:InnovatorProfileComponent},
   {path:'postIdea',component:PostIdeaComponent},
-{path:'nav',component:NavbarComponent},
-{path:'footer',component:FooterComponent},
-{path:'intelligent',component:IntelligentServiceComponent}
+  {path:'nav',component:NavbarComponent},
+  {path:'footer',component:FooterComponent},
+  {path:'intelligent',component:IntelligentServiceComponent}
 
 
 

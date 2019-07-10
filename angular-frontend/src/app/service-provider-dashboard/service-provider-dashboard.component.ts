@@ -29,4 +29,10 @@ export class ServiceProviderDashboardComponent implements OnInit {
       console.log("after getting back from service",this.recommendedIdeas);
     });
   }
+
+  goToProfile():void{
+    const emailId=this.route.snapshot.paramMap.get('sendEmailId');
+    console.log(emailId);
+    this.router.navigateByUrl('/serviceProfile/'+emailId);
+  }
 }

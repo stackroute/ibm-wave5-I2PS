@@ -70,7 +70,7 @@ export class ServiceProviderRegistrationComponent implements OnInit {
   console.log("hiiiiiii",providerdata);
    this.registrationService.addServiceProvider(providerdata);
   //  console.log("hi");
-  this.router.navigateByUrl("/landingpage");
+  this.router.navigateByUrl("/home");
 }
 
 addSkill(skill) {

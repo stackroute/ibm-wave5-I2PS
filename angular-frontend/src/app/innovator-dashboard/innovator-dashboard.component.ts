@@ -48,6 +48,16 @@ export class InnovatorDashboardComponent implements OnInit {
  }
 
  routeDetail(){
-   this.router.navigateByUrl('/postIdea');
+  const emailId=this.route.snapshot.paramMap.get('sendEmailId');
+  console.log("in innovator dashboard routeDetails"+emailId);
+
+  this.router.navigateByUrl('/postIdea');
+ }
+
+ goToProfile():void{
+  const emailId=this.route.snapshot.paramMap.get('sendEmailId');
+  this.router.navigateByUrl('/innovatorProfile/'+emailId);
+
+
  }
 }
