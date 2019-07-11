@@ -1,87 +1,21 @@
 [
 
-                       {
-                       
-                          "subdomain" : "Software Development"
-                       },
+   "Software Development",
+   "Hardware Development",
+   "Networking",
+   "Robotics",
+   "Mobile App Developement",
+   "Virtual Reality",
+   "Web Developement",
+   "Back End Developement",
+   "Artificial Intelligence",
+   "Big Data",
+   "Data Mining",
+   "Cultural Tourism",
+   "Business Tourism",
+   "WildLife Tourism",
+   "Photography",
+   "Medical Tourism"
 
-                       {
-                         
-                          "subdomain" : "Hardware Development"
-                       },
 
-                       {
-                          
-                          "subdomain" : "Networking"
-                       },
-
-                       {
-                          
-                          "subdomain" : "Robotics"
-                       },
-
-                       {
-                         
-                          "subdomain" : "Mobile App Developement"
-                       },
-
-                       {
-                         
-                          "subdomain" : "Virtual Reality"
-                       },
-
-                       {
-                          "subdomain" : "Web Developement"
-                       },
-
-                       {
-                        
-                          "subdomain" : "Back End Developement"
-                       },
-
-                       {
-                          
-                          "subdomain" : "Artificial Intelligence"
-                       },
-
-                       {
-                         
-                          "subdomain" : "Big Data"
-                       },
-
-                       {
-                        
-                          "subdomain" : "Data Mining"
-                       },
-
-                       {
-                          
-                          "subdomain" : "Cultural Tourism"
-                       },
-
-                       {
-                       
-                          "subdomain" : "Business Tourism"
-                       },
-
-                       {
-                        
-                          "subdomain" : "WildLife Tourism"
-                       },
-
-                       {
-                         
-                          "subdomain" : "Photography"
-                       },
-
-                       {
-                        
-                          "subdomain" : "Medical Tourism"
-                       },
-
-                       {
-                       
-                          "subdomain" : "AWS"
-                       }
-
-                  ]
+]

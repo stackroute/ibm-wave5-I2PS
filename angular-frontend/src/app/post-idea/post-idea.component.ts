@@ -33,6 +33,8 @@ export class PostIdeaComponent implements OnInit {
   domainCtrl = new FormControl();
   subDomainList:any=subdomain;
 
+  serviceProviders={}
+
   filteredDomains: Observable<string[]>;
   domains: string[] = [];
   allDomains: string[] = ['Software developer', 'Manual tester', 'Automation tester', 'Mobile developer',
@@ -114,12 +116,18 @@ subDomain : ideaSubDomain,
 description : ideaBio,
 budget : ideaBudget,
 roles : this.domains,
-emailId: emailId
+emailId: emailId,
+serviceProviders:this.serviceProviders
     }
+
+
+
+  this.postIdeaService.Idea=Idea;
 console.log("print email id" +emailId);
     console.log("hellooooooooooooooooooooo");
     console.log(Idea);
     this.postIdeaService.postIdea(Idea);
+   
     this.router.navigateByUrl(`result/`+this.domains);
   }
 

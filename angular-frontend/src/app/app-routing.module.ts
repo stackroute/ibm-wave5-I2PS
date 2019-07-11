@@ -34,7 +34,9 @@ const routes: Routes = [
   {path:'postIdea/:emailId',component:PostIdeaComponent},
   {path:'nav',component:NavbarComponent},
   {path:'footer',component:FooterComponent},
-  {path:'result/:roles',component:IntelligentServiceComponent}
+  {path:'result/:roles',component:IntelligentServiceComponent},
+  {path: 'acceptedSerProviders/:servProviders',component:PostIdeaComponent},
+
 
 
 

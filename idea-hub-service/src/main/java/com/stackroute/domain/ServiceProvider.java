@@ -22,24 +22,10 @@ public class ServiceProvider {
     String domain;
     List<String> subDomain;
     String role;
-    ArrayList<SkillsAndExperience> skillsAndExperiences;
+    ArrayList<String> skills;
     String about;
     String experience;
     Double chargePerHour;
 
-    @Override
-    public String toString() {
-        return "ServiceProvider{" +
-                "emailId='" + emailId + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", domain='" + domain + '\'' +
-                ", subDomain=" + subDomain +
-                ", role='" + role + '\'' +
-                ", skills and experience=" + skillsAndExperiences +
-                ", about='" + about + '\'' +
-                ", experience='" + experience + '\'' +
-                ", chargePerHour=" + chargePerHour +
-                '}';
-    }
+
 }

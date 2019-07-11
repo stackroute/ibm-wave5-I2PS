@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IntelligentserviceService } from '../intelligentservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PostIdeaServiceService } from '../post-idea-service.service';
 
 @Component({
   selector: 'app-intelligent-service',
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class IntelligentServiceComponent implements OnInit {
 
-  constructor(private intelligentService: IntelligentserviceService, private route: ActivatedRoute,
+  constructor(private intelligentService: IntelligentserviceService,private postIdeaService:PostIdeaServiceService, private route: ActivatedRoute,
     private router: Router) { }
   arrayOfServiceProviders: any = [];
   servProvider: any;
@@ -22,18 +23,25 @@ export class IntelligentServiceComponent implements OnInit {
     this.getAllServiceProviders();
   }
 
-home()
-{
-  this.router.navigateByUrl('/home')
-}
+
+  home()
+  {
+    this.router.navigateByUrl('/home');
+  }
+
 
 
   getAllServiceProviders() {
+
+    console.log("idea getting is",this.postIdeaService.Idea)
     const sp= this.route.snapshot.paramMap.get('roles');
+
+    console.log("we are getting",sp)
+
   
      var arrayOfroles = sp.split(',');
 
-    //  console.log("hi",arrayOfroles)
+     console.log("hi",arrayOfroles)
 
      
      arrayOfroles.forEach(element => {
@@ -46,16 +54,11 @@ home()
        data.serviceProvider.map(e => {
         this.arrayOfServiceProviders.push(e)
       });
-
-   
       length = this.arrayOfServiceProviders.length;
     
       this.servProvider = this.arrayOfServiceProviders[length - 1];
-    
-   
+     });
     });
-
-  });
 
   
   }
@@ -63,24 +66,31 @@ home()
 
 
   public accept() {
-    // length = this.arrayOfServiceProviders.length;
+    length = this.arrayOfServiceProviders.length;
 
-    // this.servProvider = this.arrayOfServiceProviders[length - 1];
+    this.servProvider = this.arrayOfServiceProviders[length - 1];
     this.acceptedServiceProvoders.push(this.servProvider);
-    // this.arrayOfServiceProviders.pop(this.servProvider);
+     this.arrayOfServiceProviders.pop(this.servProvider);
     console.log( "acceptedprovoders", this.acceptedServiceProvoders)
-
-
-
-
+     
+    this.postIdeaService.Idea.serviceProviders=this.acceptedServiceProvoders;
+    console.log("updated idea",this.postIdeaService.Idea)
+    
   }
+
+    done()
+    {
+      this.postIdeaService.updateIdea(this.postIdeaService.Idea)
+      this.router.navigateByUrl('/home')
+    }
+    
+  
 
   public reject() {
     length = this.arrayOfServiceProviders.length;
 
     this.servProvider = this.arrayOfServiceProviders[length - 1];
     this.arrayOfServiceProviders.pop(this.servProvider)
-    console.log("remaining service providers are",this.arrayOfServiceProviders);
   }
 
 

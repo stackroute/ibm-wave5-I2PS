@@ -23,9 +23,9 @@ public class ServiceProvider {
      private String password;
      String name;
      String domain;
-     Collection<Object> subDomain;
+     ArrayList<String> subDomain;
      String role;
-     Collection<Object> skills;
+     ArrayList<String> skills;
      String about;
      BigDecimal chargePerHour;
 
