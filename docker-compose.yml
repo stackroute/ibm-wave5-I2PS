@@ -144,17 +144,18 @@ services:
 #    hostname: localhost
 #    restart: always
 
-  mysql:
-    image: mysql:5.7
+  image: mysql:5.7
     ports:
-    -   3306:3306
+      - 3306:3306
     container_name: mysql
     environment:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: LoginDB
       MYSQL_PASSWORD: root
       MYSQL_USER: root
+#      MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
     volumes:
-    -   $HOME/data/datasql:/var/lib/mysql
+      - $HOME/data/datasql:/var/lib/mysql
     network_mode: "host"
     hostname: localhost
     restart: always
