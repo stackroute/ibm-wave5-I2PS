@@ -85,11 +85,11 @@ public class UserServiceImplementation implements UserServices {
         userRepository.save(user);
         System.out.println(userDTO.toString());
         log.info("userNode3 is created");
-        List<String> domainList= new ArrayList<>();
+        Collection<Object> domainList= new ArrayList<>();
         domainList = userDTO.getSubDomain();
 
         for(int i=0;i<domainList.size();i++) {
-            userRepository.matchUserSubDomain(domainList.get(i), userDTO.getName());
+            userRepository.matchUserSubDomain(domainList.toString(), userDTO.getName());
         }
         log.info("relationship created");
 

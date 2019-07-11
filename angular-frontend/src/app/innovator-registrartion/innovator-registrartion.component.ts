@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import { MatDialog } from '@angular/material';
+import subdomain from 'src/assets/jsonfiles/data2.json';
+
 
 @Component({
   selector: 'app-innovator-registrartion',
@@ -9,7 +11,7 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./innovator-registrartion.component.css']
 })
 export class InnovatorRegistrartionComponent implements OnInit {
-  Domain = new FormControl();
+  domain = new FormControl();
   domainList: string[] = ['IT', 'TOURISM'];
   subdomain = new FormControl();
  
@@ -19,7 +21,7 @@ export class InnovatorRegistrartionComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   isOptional = true;
-  subdomainList: string[] = [ 'developer', 'Testing',];
+  subDomainList: any=subdomain;
  skillList: string[] = [ 'c', 'java',];
 
  form: any = {};
@@ -55,23 +57,15 @@ conf:string;
       });
   
 
-    this.secondFormGroup = this._formBuilder.group({
-      NumberCtrl: ['', Validators.required],
-      domainCtrl: ['', Validators.required],
-        subdomainCtrl: ['', Validators.required],
-        SkillsCtrl: ['', Validators.required],
-       
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      AboutCtrl: ['', Validators.required],
-      secCtrl: ['', Validators.required],
 
-     });
+  
+    
   
   this.secondFormGroup = this._formBuilder.group({
     email:['',Validators.email],
     password:['',Validators.minLength(8)],
+
+    domainCtrl: ['', Validators.required]
    
      
     
@@ -93,6 +87,16 @@ conf:string;
  
  register():void {
    console.log(this.form);
+   let innovatorData={
+   
+      emailId:this.secondFormGroup.controls.email.value,
+       password:this.secondFormGroup.controls.password.value,
+       name:this.firstFormGroup.controls.FirstName.value,
+       domain:this.secondFormGroup.controls.domain.value,
+       subDomain:this.thirdFormGroup.controls.subdomain.value
+   }
+
+   console.log(innovatorData);
 
  
 }

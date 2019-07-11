@@ -13,32 +13,32 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMqConfig {
 
-//    @Value("${javainuse.idea.queue}")
-//    String ideaQueue;
-//
-//    @Value("${javainuse.idea.exchange}")
-//    String ideaExchange;
-//
-//    @Value("${javainuse.idea.routingkey}")
-//    String ideaRoutingkey;
-//
-//    @Bean
-//    Queue ideaQueue() {
-//        return new Queue(ideaQueue,true);
-//
-//    }
-//
-//    @Bean
-//    Exchange ideaExchange(){
-//        return ExchangeBuilder.topicExchange(ideaExchange).durable(true).build();
-//    }
-//    @Bean
-//    Binding innovatorBinding(){
-//        //this is the traditional way of binding
-//        //return new Binding(MY_QUEUE, Binding.DestinationType.QUEUE,"myTopicExchange","topic",null);
-//        //more declarative way of binding
-//        return BindingBuilder.bind(ideaQueue()).to(ideaExchange()).with(ideaRoutingkey).noargs();
-//    }
+    @Value("${javainuse.idea.queue}")
+    String ideaQueue;
+
+    @Value("${javainuse.idea.exchange}")
+    String ideaExchange;
+
+    @Value("${javainuse.idea.routingkey}")
+    String ideaRoutingkey;
+
+    @Bean
+    Queue ideaQueue() {
+        return new Queue(ideaQueue,true);
+
+    }
+
+    @Bean
+    Exchange ideaExchange(){
+        return ExchangeBuilder.topicExchange(ideaExchange).durable(true).build();
+    }
+    @Bean
+    Binding innovatorBinding(){
+        //this is the traditional way of binding
+        //return new Binding(MY_QUEUE, Binding.DestinationType.QUEUE,"myTopicExchange","topic",null);
+        //more declarative way of binding
+        return BindingBuilder.bind(ideaQueue()).to(ideaExchange()).with(ideaRoutingkey).noargs();
+    }
     @Bean
     ConnectionFactory connectionFactory(){
         //we want connection to be stable,so that we needn't close or open connection

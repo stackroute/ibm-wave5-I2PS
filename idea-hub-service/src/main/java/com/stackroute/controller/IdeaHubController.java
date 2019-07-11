@@ -2,6 +2,10 @@ package com.stackroute.controller;
 
 
 import com.stackroute.domain.Idea;
+import com.stackroute.domain.ServiceProvider;
+import com.stackroute.exceptions.EntityNotFoundException;
+import com.stackroute.exceptions.IdeaAlreadyExistsException;
+import com.stackroute.exceptions.NullIdeaException;
 import com.stackroute.service.IdeaHubService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,11 +14,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import java.util.Optional;
+@CrossOrigin(origins = "*")
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/api/v1")
 public class IdeaHubController {
 
@@ -29,6 +34,7 @@ public class IdeaHubController {
 
     @PostMapping("/addIdea")
     public ResponseEntity<Idea> addIdea(@RequestBody Idea idea) {
+        ResponseEntity responseEntity;
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dddd HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
@@ -36,30 +42,70 @@ public class IdeaHubController {
         idea.setTimestamp(date);
 
         ideaHubService.send(idea);
-        Idea addedIdea= ideaHubService.addIdea(idea);
+        Idea addedIdea = ideaHubService.addIdea(idea);
         ideaHubService.send(idea);
         return new ResponseEntity<Idea>(addedIdea, HttpStatus.CREATED);
-    }
+        }
+
 
     @GetMapping("/ideas")
-    public ResponseEntity<List<Idea>> getIdeas()
+    public ResponseEntity<List<Idea>> getIdeas(Idea idea)
     {
-        return new ResponseEntity<List<Idea>>(ideaHubService.displayIdea(), HttpStatus.OK);
+        ResponseEntity responseEntity;
+        try{
+        return new ResponseEntity<List<Idea>>(ideaHubService.displayIdea(idea), HttpStatus.OK);
+    }
+    catch (NullIdeaException e)
+    {
+            e.getMessage();
+           responseEntity=new ResponseEntity(e.getMessage(),HttpStatus.CONFLICT);
+        }
+        catch (Exception e)
+        {
+            e.getMessage();
+             responseEntity=new ResponseEntity("Something went wrong",HttpStatus.CONFLICT);
+
+        }
+        return responseEntity;
     }
 
+    @GetMapping("/idea{id}")
+    public ResponseEntity<Optional>getIdea(Idea idea) {
+        ResponseEntity responseEntity;
+        try {
+            return new ResponseEntity<>(ideaHubService.findIdeaById(idea), HttpStatus.FOUND);
+        }
+        catch (EntityNotFoundException e)
+        {
+            e.getMessage();
+            responseEntity=new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return responseEntity;
+    }
 
     @DeleteMapping("/deleted/{ideaId}")
-    public  ResponseEntity<String> deleteIdea(@PathVariable String ideaId)
-    {
-        ideaHubService.deleteIdea(ideaId);
-        return new ResponseEntity<String>("successfully deleted",HttpStatus.GONE);
+    public  ResponseEntity<String> deleteIdea(@PathVariable String ideaId) {
+        ResponseEntity responseEntity;
+        try {
+            ideaHubService.deleteIdea(ideaId);
+            return new ResponseEntity<String>("successfully deleted", HttpStatus.GONE);
+        }
+        catch (EntityNotFoundException e)
+        { responseEntity=new ResponseEntity(e.getMessage(),HttpStatus.CONFLICT);}
+        return responseEntity;
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<?> updateIdea(@RequestBody Idea idea){
-        System.out.println("idea updated");
+    @PutMapping("/idea")
+    public ResponseEntity<?> updateIdea(@RequestParam Idea idea) {
+        ResponseEntity responseEntity;
 
-        return new ResponseEntity<Idea>( ideaHubService.updateIdea(idea),HttpStatus.ACCEPTED);
+        try {
+            return new ResponseEntity<Idea>(ideaHubService.updateIdea(idea.getTitle(), idea.getServiceProviders()), HttpStatus.ACCEPTED);
+        }
+        catch (EntityNotFoundException e)
+        { responseEntity=new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return responseEntity;
     }
 
     @GetMapping("/getIdeaByEmailId/{emailId}")

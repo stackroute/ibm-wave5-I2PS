@@ -9,6 +9,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -24,13 +25,11 @@ public class User {
     private String emailId;
     private String name;
 
-    private List<String> subDomain;
+    private Collection<Object> subDomain;
     private String role;
 
     @Relationship(type = "work_on", direction = Relationship.OUTGOING)
     private SubDomain subDomainRel;
-
-
 
 
     @Override

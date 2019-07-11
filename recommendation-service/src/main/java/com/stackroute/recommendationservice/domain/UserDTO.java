@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -18,11 +19,10 @@ public class UserDTO {
     private String password;
     String name;
     String domain;
-    List<String> subDomain;
+    Collection<Object> subDomain;
     String role;
-    List<String> skills;
+    Collection<Object> skills;
     String about;
     String experience;
     Double chargePerHour;
-    List<String> certifications;
 }

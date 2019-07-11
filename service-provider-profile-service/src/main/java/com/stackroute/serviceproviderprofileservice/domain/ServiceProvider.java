@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.Email;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Document
@@ -22,9 +23,9 @@ public class ServiceProvider {
      private String password;
      String name;
      String domain;
-     List<String> subDomain;
+     Collection<Object> subDomain;
      String role;
-     ArrayList<SkillsAndExperience> skillsAndExperiences;
+     Collection<Object> skills;
      String about;
      BigDecimal chargePerHour;
 

@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { LoginService } from '../login.service';
 import subdomain from 'src/assets/jsonfiles/data2.json';
 import skills from 'src/assets/jsonfiles/data4.json';
+import { RegistrationServiceService } from '../registration-service.service';
 
 @Component({
   selector: 'app-service-provider-registration',
@@ -30,6 +31,7 @@ export class ServiceProviderRegistrationComponent implements OnInit {
 
 form: any = {};
 
+
 errorMessage = '';
 pass:string='';
 conf:string;
@@ -37,7 +39,7 @@ conf:string;
 
 
 
-  constructor(private _formBuilder: FormBuilder,private Userloginservice: LoginService,private dialog:MatDialog) { }
+  constructor(private _formBuilder: FormBuilder,private registrationService:RegistrationServiceService,private dialog:MatDialog) { }
   getErrorFnameMessage(){
     // return this.firstFormGroup.controls.FirstName.hasError('required') ? 'You must enter a value':'';
   }
@@ -71,7 +73,11 @@ conf:string;
     });
     this.thirdFormGroup = this._formBuilder.group({
       subdomain:[''],
-      skill:['']
+      skill:[''],
+      role: ['', Validators.required],
+      chargePerHour: ['', Validators.required]
+
+
     });
   }
   onSubmit(){
@@ -80,15 +86,22 @@ conf:string;
     this.conf= this.secondFormGroup.controls.confirm.value;
   }
  
-  register(name,emailId,password,domain,subDomain,skills,role,charge)
+  register():void
   {
-    
+    console.log(this.form);
+    let providerData ={
+      name:this.firstFormGroup.controls.FirstName.value,
+      emailId:this.secondFormGroup.controls.email.value,
+      password:this.secondFormGroup.controls.password.value,
+      domain:this.secondFormGroup.controls.domainCtrl.value,
+      subDomain:this.thirdFormGroup.controls.subdomain.value,
+      skills:this.thirdFormGroup.controls.skill.value,
+      role:this.thirdFormGroup.controls.role.value,
+      chargePerHour:this.thirdFormGroup.controls.chargePerHour.value
+
+    }
+    console.log(providerData);
+    this.registrationService.addServiceProvider(providerData);
+
   }
-  
-
-
-
 }
-
-
-

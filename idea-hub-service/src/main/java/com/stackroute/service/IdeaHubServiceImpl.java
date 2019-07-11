@@ -1,25 +1,30 @@
 package com.stackroute.service;
 
 import com.stackroute.domain.Idea;
+import com.stackroute.domain.ServiceProvider;
+import com.stackroute.exceptions.EntityNotFoundException;
+import com.stackroute.exceptions.IdeaAlreadyExistsException;
+import com.stackroute.exceptions.NullIdeaException;
 import com.stackroute.repository.IdeaHubRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class IdeaHubServiceImpl implements IdeaHubService {
-  IdeaHubRepository ideaHubRepository;
-  Idea ideaObject;
-//
+    IdeaHubRepository ideaHubRepository;
+    Idea ideaObject;
+    //
 //    @Override
 //    public Idea updateIdea(Idea idea, String ideaId) {
 //        return ideaRepository.findOne(ideaId);
 //    }
-@Autowired
-private RabbitTemplate rabbitTemplate;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     @Value("${javainuse.idea.exchange}")
     String ideaExchange;
@@ -27,83 +32,72 @@ private RabbitTemplate rabbitTemplate;
     @Value("${javainuse.idea.routingkey}")
     String ideaRoutingkey;
 
-    @Autowired
-  public IdeaHubServiceImpl(IdeaHubRepository ideaRepository)
-  {
-    this.ideaHubRepository=ideaRepository;
-  }
 
+    @Autowired
+    public IdeaHubServiceImpl(IdeaHubRepository ideaRepository)
+    {
+        this.ideaHubRepository = ideaRepository;
+    }
 
     //CODE FOR ADDING AN IDEA
-  @Override
-  public Idea addIdea(Idea idea)
-  {
-    Idea savedIdea;
-    savedIdea = ideaHubRepository.save(idea);
-    return savedIdea;
-//    if(ideaRepository.existsById(idea.getIdeaId(idea))){
-//      throw new IdeaAlreadyExistException("Idea already exist");
-//    }
-//
-//    else{
-//    savedIdea = ideaRepository.save(idea);
-//      if(savedIdea == null){
-//        throw new IdeaNull("Enter Idea");
-//      }
-//  }
-  }
+    @Override
+    public Idea addIdea(Idea idea) {
+        Idea savedIdea;
 
+            savedIdea = ideaHubRepository.save(idea);
+            return savedIdea;
+
+    }
 
     //CODE FOR DELETING AN IDEA
-  @Override
-  public void deleteIdea(String ideaId) {
-    ideaHubRepository.deleteById(ideaId);
-
-  }
-
-
+    @Override
+    public void deleteIdea(String ideaId) throws EntityNotFoundException{
+        if(ideaHubRepository.existsById(ideaId)) {
+            ideaHubRepository.deleteById(ideaId);
+        }
+        throw new EntityNotFoundException("Idea Not found");
+    }
 
 
     //CODE FOR UPDATING AN IDEA
-  @Override
-  public Idea updateIdea(Idea idea) {
-      Idea ideaNew = new Idea();
-      System.out.println("in update");
-      if (ideaHubRepository.existsById(idea.getIdeaId())) {
-//      if (Objects.isNull(idea)) {
+    @Override
+    public Idea updateIdea(String title, ArrayList<ServiceProvider> serviceproviders) throws EntityNotFoundException {
+        Idea ideaNew=ideaHubRepository.findByTitle(title);
+          if (ideaNew==null) {
+//                ideaHubRepository.save(ideaNew);
+                throw new EntityNotFoundException("Entry not found");
+            }
+        ideaNew.setServiceProviders(serviceproviders);
 
-          System.out.println("It exists");
-          ideaNew=ideaHubRepository.save(idea);
+           return ideaHubRepository.save(ideaNew);
+//        return ideaNew;
+    }
 
-//          handle this exception using {@link RestExceptionHandler}
-//          throw new EntityNotFoundException(Idea.class, ideaId);
-//      }
+    @Override
+    public Optional<Idea> findIdeaById(Idea idea) throws EntityNotFoundException {
+        if (ideaHubRepository.existsById(idea.getIdeaId())) {
+            return ideaHubRepository.findById(idea.getIdeaId());
+        } else throw new EntityNotFoundException("Entry not found");
+    }
 
+    //CODE FOR DISPLAYING IDEAs
+    @Override
+    public List<Idea> displayIdea(Idea idea) throws NullIdeaException {
+        if (Objects.isNull(idea))
+        { throw new NullIdeaException("No ideas found");}
+            return ideaHubRepository.findAll(Sort.by(Sort.Direction.ASC, "timestamp"));
+    }
 
-//          ideaNew= ideaRepository.save(idea);
-      }
-
-      return ideaNew;
-  }
-
-
-
-    //CODE FOR DISPLAYING AN IDEA
-  @Override
-  public List<Idea> displayIdea() {
-    return ideaHubRepository.findAll();
-  }
+    @Override
+    public List<Idea> getByEmailId(String emailId) {
+        return ideaHubRepository.findByEmailId(emailId);
+    }
 
 
 
     public void send(Idea idea) {
         rabbitTemplate.convertAndSend(ideaExchange, ideaRoutingkey, idea);
         System.out.println("Send msg = " + idea);
-    }
-
-    @Override
-    public Idea getByEmailId(String emailId) {
-        return ideaHubRepository.findByEmailId(emailId);
     }
 
 }
