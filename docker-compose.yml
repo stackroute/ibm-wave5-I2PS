@@ -150,11 +150,9 @@ services:
     -   3306:3306
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: register
+      MYSQL_DATABASE: LoginDB
       MYSQL_PASSWORD: root
       MYSQL_USER: root
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
     -   $HOME/data/datasql:/var/lib/mysql
     network_mode: "host"

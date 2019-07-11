@@ -1,86 +1,94 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { RegistrationServiceService } from '../registration-service.service';
+import {FormControl} from '@angular/forms';
+
+import { MatDialog } from '@angular/material';
+
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { LoginService } from '../login.service';
 import subdomain from 'src/assets/jsonfiles/data2.json';
 import skills from 'src/assets/jsonfiles/data4.json';
 
 @Component({
   selector: 'app-service-provider-registration',
   templateUrl: './service-provider-registration.component.html',
-  styleUrls: ['./service-provider-registration.component.scss']
+  styleUrls: ['./service-provider-registration.component.css']
 })
 export class ServiceProviderRegistrationComponent implements OnInit {
 
-  constructor(private registrationService:RegistrationServiceService,private router:Router) {
-    // console.log("coming");
-    // console.log(subdomain.id,subdomain.domain,subdomain.subDomain)
-
-   }
+  Domain = new FormControl();
+  domainList: string[] = ['IT', 'TOURISM'];
+  subdomain = new FormControl();
  
-  serviceProviderData:any=[];
-  skills = [];
-  certifications=[];
-  subDomains=[];
-  subDomainList:any=subdomain;
-  skillsList:any=skills;
+  skills = new FormControl();
+  skillsList: any=skills;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
+  isOptional = true;
+  subDomainList: any=subdomain;
 
-  
-  
+
+form: any = {};
+
+errorMessage = '';
+pass:string='';
+conf:string;
+  LoginService: any;
+
+
+
+  constructor(private _formBuilder: FormBuilder,private Userloginservice: LoginService,private dialog:MatDialog) { }
+  getErrorFnameMessage(){
+    // return this.firstFormGroup.controls.FirstName.hasError('required') ? 'You must enter a value':'';
+  }
+ 
+  getpassErrorMessage(){
+    //return this.password.hasError('required') ? 'You must enter a value': '';
+  }
+ 
+  getconfirmErrorMessage(){
+  //  if(this.password.value!=this.confirm.value) {
+  //  return "Password Not Matching";
+   // }
+  }
+
   ngOnInit() {
-
-
-    this.registrationService.getServiceProvider().subscribe(data=>
-      {
-        console.log(data);
-        this.serviceProviderData=data;
-      });
-  }
-
-  onClick(value)
-  {
-    console.log(value);
-    this.subDomains=value;
-  }
-
-  onClickSkills(value)
-  {
-    console.log(value);
-    this.skills=value;
-  }
+    this.firstFormGroup = this._formBuilder.group({
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required]
   
+  
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      email:['',Validators.email],
+      password:['',Validators.minLength(8)],
+      domainCtrl: ['', Validators.required]
+     
+       
+      
+       
+ 
+    });
+    this.thirdFormGroup = this._formBuilder.group({
+      subdomain:[''],
+      skill:['']
+    });
+  }
+  onSubmit(){
 
-  register(emailId,password,name,role,domain,subDomains,skills,about,chargePerHour)
+    this.pass= this.secondFormGroup.controls.password.value;
+    this.conf= this.secondFormGroup.controls.confirm.value;
+  }
+ 
+  register(name,emailId,password,domain,subDomain,skills,role,charge)
   {
     
-    console.log(emailId, password,name,domain,subDomains,role,skills,about,chargePerHour);
-     let providerdata={  
-      emailId:emailId,
-       password:password,
-       name:name,
-       domain:domain,
-       subDomain:this.subDomains,
-       role:role,
-       skills:this.skills,
-       about:about,
-       chargePerHour:chargePerHour
-       
-       
-     
   }
-  console.log("hiiiiiii",providerdata);
-   this.registrationService.addServiceProvider(providerdata);
-  //  console.log("hi");
-  this.router.navigateByUrl("/home");
-}
+  
 
-addSkill(skill) {
-  this.skills.push(skill)  
-}
-addCertificate(certificate) {
-  this.certifications.push(certificate);  
-}
-addsubDomain(subDomain) {
-  this.subDomains.push(subDomain)  
-}
+
 
 }
+
+
+

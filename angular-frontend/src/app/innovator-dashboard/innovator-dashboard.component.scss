@@ -11,6 +11,10 @@ a{
     color: white;
 }
 
+a:not([href]):not([tabindex])
+{
+    color:white;
+}
 
 #banner {
     background-image: linear-gradient(120deg, #91C4FF 0%, #F0F7FF 87%);
@@ -20,7 +24,7 @@ a{
   }
   
   #cloud-scroll {
-    background: url(https://1800cabinetwholesalers.com/wp-content/uploads/2014/12/wood-background.jpg) repeat-x;
+    background: url(https://images.unsplash.com/photo-1510519138101-570d1dca3d66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80) repeat-x;
     top: 0;
     left: 0;
     width: 100%;

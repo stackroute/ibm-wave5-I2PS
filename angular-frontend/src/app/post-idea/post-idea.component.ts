@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { PostIdeaServiceService } from '../post-idea-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import subdomain from 'src/assets/jsonfiles/data2.json';
 
@@ -42,7 +42,7 @@ export class PostIdeaComponent implements OnInit {
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
   
 
-  constructor(public dialogRef: MatDialogRef<PostIdeaComponent>, private postIdeaService : PostIdeaServiceService, private router: Router) {
+  constructor(public dialogRef: MatDialogRef<PostIdeaComponent>, private postIdeaService : PostIdeaServiceService, private router: Router, private route:ActivatedRoute) {
     // console.log(this.matAutocomplete )
     this.filteredDomains = this.domainCtrl.valueChanges.pipe(
         startWith(null),
@@ -94,25 +94,33 @@ export class PostIdeaComponent implements OnInit {
     this.dialogRef.close('Pizza!');
   }
   ngOnInit() {
+console.log("in ngOnInit...");
     console.log(this.matAutocomplete)
+const emailId=this.route.snapshot.paramMap.get('emailId');
+console.log("in post idea method"+emailId);
   }
 
   postIdea(ideaTitle,ideaBio,ideaDomain,ideaSubDomain,ideaBudget): any{
    
-    console.log("hiiiiiiiiiii",ideaTitle,ideaDomain,ideaSubDomain,ideaBio,ideaBudget);
+   const emailId=this.route.snapshot.paramMap.get('emailId');
+    console.log("in postIdea methoddddd"+emailId);   
+
+ console.log("hiiiiiiiiiii",ideaTitle,ideaDomain,ideaSubDomain,ideaBio,ideaBudget);
     console.log(this.domains)
-    let Idea = {  
+    var Idea = {  
 title : ideaTitle,
 domain : ideaDomain,
 subDomain : ideaSubDomain,
 description : ideaBio,
 budget : ideaBudget,
-roles : this.domains
+roles : this.domains,
+emailId: emailId
     }
+console.log("print email id" +emailId);
     console.log("hellooooooooooooooooooooo");
     console.log(Idea);
     this.postIdeaService.postIdea(Idea);
-    this.router.navigateByUrl('/intelligent');
+    this.router.navigateByUrl(`result/`+this.domains);
   }
 
 

@@ -1,5 +1,4 @@
-
-                             <body>
+                          <body>
                               <div class="height1" style="background-color: white;">
                                 <br>
                                    <p style="background-color: white;text-align: center;">Registration</p>
@@ -14,7 +13,7 @@
                                                   <br>
                                                   <mat-form-field labelPosition="top">
                                                      
-                                                    <input matInput #name placeholder="First Name" formControlName="FirstName" required>
+                                                    <input matInput placeholder="First Name" formControlName="FirstName" required>
                                                   </mat-form-field>
                                                   <br>
                                                   <mat-form-field>
@@ -33,21 +32,22 @@
                                        <mat-step [stepControl]="secondFormGroup"  >
                                          <form [formGroup]="secondFormGroup"  class="form" >
                                            <ng-template matStepLabel>Details</ng-template>
-                                        
+                                           <br>
+                                           <br>
                                            <mat-form-field>
-                                             <input matInput #emailId placeholder="Email" formControlName="email" required>
+                                             <input matInput placeholder="Email" formControlName="email" required>
                                            </mat-form-field>
                                            <br>
                                            <mat-form-field>
-                                              <input #password type="password" matInput placeholder="Password(Min lenght 8)" formControlName="password" minlength="8">
+                                              <input type="password" matInput placeholder="Password(Min lenght 8)" formControlName="password" minlength="8">
                                             </mat-form-field>
                                             <br>
                                             <mat-form-field>
                                                 <mat-label>Select your Domain (required)</mat-label>
-                                                <select #domain matNativeControl formControlName="domainCtrl" required>
+                                                <select matNativeControl>
                                                       <option label="--select something --"></option> 
-                                                      <option value="IT">IT</option>
-                                                      <option value="Tourism">TOURISM</option>
+                                                      <option value="Meeting Room">IT</option>
+                                                      <option value="Dedicated Desk">TOURISM</option>
                                                     </select>
                                                     
                                             </mat-form-field>
@@ -61,41 +61,32 @@
                                            </div>
                                          </form>
                                        </mat-step>
-                                 
                                        <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional" >
-                                             <form [formGroup]="thirdFormGroup" class="form">
-                                               <ng-template matStepLabel>Interest</ng-template>
+                                          <form [formGroup]="thirdFormGroup" class="form">
+                                            <ng-template matStepLabel>Interest</ng-template>
+                                           
+                                             <mat-form-field >
+                                                   <mat-select  placeholder="subdomain" formControlName="subdomain" multiple>
+                                                      <mat-option *ngFor="let subdomain of subdomainList" [value]="subdomain">{{subdomain}}</mat-option>
+                                                   </mat-select>
+                                                </mat-form-field>
+                                                <br>
                                               
-                                                <mat-form-field >
-                                                      <mat-select  #subDomain placeholder="subdomain" formControlName="subdomain" multiple>
-                                                         <mat-option *ngFor="let subDomain of subDomainList" [value]="subdomain">{{subDomain.subdomain}}</mat-option>
-                                                      </mat-select>
-                                                   </mat-form-field>
-                                                   <br>
-                                                 
-                                                   <mat-form-field >
-                                                      <mat-select #skills placeholder="skill" formControlName="skill" multiple>
-                                                         <mat-option *ngFor="let skills of skillsList" [value]="skill">{{skills.skills}}</mat-option>
-                                                      </mat-select>
-                                                   </mat-form-field>
-                                                   <br>
+                                              
+                                                <br>
 
-                                                      <mat-form-field>
-                          <input #role matInput placeholder="Role">
-                              </mat-form-field>
-      <br>
-      <ng-template matStepLabel>Fill out your Charge-per-Hour</ng-template>
-      <mat-form-field>
-          <input #charge matInput placeholder="Charge-Per-Hour">
-      </mat-form-field>
-   
-                                               <div>
-                                                 <button mat-button matStepperPrevious class="btn">Back</button>
-                                                 <button mat-button matStepperNext class="btn1">Next</button>
-                                               </div>
-                                             </form>
-                                           </mat-step>
-                                 
+                                                   <mat-form-field>
+       <input matInput placeholder="About">
+   </mat-form-field>
+   <br>
+  
+
+                                            <div>
+                                              <button mat-button matStepperPrevious class="btn">Back</button>
+                                              <button mat-button matStepperNext class="btn1">Next</button>
+                                            </div>
+                                          </form>
+                                        </mat-step>
                                            <mat-step  >
                                                 <ng-template matStepLabel>Final Step</ng-template>
                                                
@@ -109,8 +100,6 @@
                                                 <div>
                                                       <button mat-button matStepperPrevious class="btn2">Back</button>
                                                       <button mat-button class="btn3" (click)="stepper.reset()">Reset</button>
-                                                      <button mat-button class="btn3" (click)="register(name.value,emailId.value,password.value,domain.value,subDomain.value,skills.value,role.value,charge.value)">SUBMIT</button>
-
                                                 </div>
                                                 <br>
                                              

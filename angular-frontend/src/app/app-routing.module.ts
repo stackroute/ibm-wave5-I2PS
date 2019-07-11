@@ -5,7 +5,7 @@ import { ModalSuccessComponent } from './modal-success/modal-success.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ServiceProviderRegistrationComponent } from './service-provider-registration/service-provider-registration.component';
-import { InnovatorRegistrationComponent } from './innovator-registration/innovator-registration.component';
+import { InnovatorRegistrartionComponent } from './innovator-registrartion/innovator-registrartion.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ServiceProviderDashboardComponent } from './service-provider-dashboard/service-provider-dashboard.component';
 import { ServiceProviderProfileComponent } from './service-provider-profile/service-provider-profile.component';
@@ -25,16 +25,16 @@ const routes: Routes = [
   {path:'about',component:AboutComponent},
   {path:'home',component:HomeComponent},
   {path:'serviceproviderregistration',component:ServiceProviderRegistrationComponent},
-  {path:'innovatorregistration',component:InnovatorRegistrationComponent},
+  {path:'innovatorregistration',component:InnovatorRegistrartionComponent},
   {path:'login',component:UserLoginComponent},
   {path:'serviceDashboard/:sendEmailId',component:ServiceProviderDashboardComponent},
   {path:'serviceProfile/:sendEmailId',component:ServiceProviderProfileComponent},
   {path:'innovatorDashboard/:sendEmailId',component:InnovatorDashboardComponent},
   {path:'innovatorProfile/:sendEmailId',component:InnovatorProfileComponent},
-  {path:'postIdea',component:PostIdeaComponent},
+  {path:'postIdea/:emailId',component:PostIdeaComponent},
   {path:'nav',component:NavbarComponent},
   {path:'footer',component:FooterComponent},
-  {path:'intelligent',component:IntelligentServiceComponent}
+  {path:'result/:roles',component:IntelligentServiceComponent}
 
 
 

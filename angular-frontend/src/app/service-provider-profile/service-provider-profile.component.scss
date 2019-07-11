@@ -7,6 +7,11 @@ a{
   color: white;
 }
 
+a:not([href]):not([tabindex])
+{
+    color:white;
+}
+
 .btn-card{
   background-color: #1ABC9C;
   color: #fff;
