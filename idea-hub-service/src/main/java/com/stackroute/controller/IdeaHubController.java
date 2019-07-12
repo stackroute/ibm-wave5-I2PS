@@ -98,7 +98,7 @@ public class IdeaHubController {
     }
 
     @PutMapping("/idea")
-    public ResponseEntity<?> updateIdea(@RequestParam Idea idea) {
+    public ResponseEntity<?> updateIdea(@RequestBody Idea idea) {
         ResponseEntity responseEntity;
 
         try {
