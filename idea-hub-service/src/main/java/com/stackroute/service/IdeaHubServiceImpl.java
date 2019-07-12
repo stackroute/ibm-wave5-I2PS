@@ -93,6 +93,16 @@ public class IdeaHubServiceImpl implements IdeaHubService {
         return ideaHubRepository.findByEmailId(emailId);
     }
 
+    @Override
+    public Idea getByIdeaTitle(String title) throws EntityNotFoundException{
+        Idea recievedIdea = ideaHubRepository.findByTitle(title);
+        if(recievedIdea==null){
+            throw new EntityNotFoundException("Idea not found");
+        }
+        else{
+            return recievedIdea;
+        }
+    }
 
 
     public void send(Idea idea) {

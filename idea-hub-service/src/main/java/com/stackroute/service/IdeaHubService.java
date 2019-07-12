@@ -20,6 +20,7 @@ public interface IdeaHubService
         void send(Idea idea);
         Optional<Idea> findIdeaById(Idea idea) throws EntityNotFoundException;
         public List<Idea> getByEmailId(String emailId);
+        Idea getByIdeaTitle(String title)throws EntityNotFoundException;
 
 }
 

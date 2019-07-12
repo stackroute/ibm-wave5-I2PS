@@ -117,5 +117,17 @@ public class IdeaHubController {
 
 
     }
+    @GetMapping("/idea/{title}")
+    public ResponseEntity<?> getIdeaByTitle(@PathVariable String title)throws EntityNotFoundException{
+        try{
+            return new ResponseEntity<Idea>(ideaHubService.getByIdeaTitle(title),HttpStatus.OK);
+        }
+        catch (EntityNotFoundException e){
+            return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
+        }
+        catch (Exception ex){
+            return new ResponseEntity<String>(ex.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 }
