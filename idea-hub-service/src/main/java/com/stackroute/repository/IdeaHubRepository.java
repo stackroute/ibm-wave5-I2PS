@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
-public interface IdeaHubRepository extends MongoRepository<com.stackroute.domain.Idea,String> {
+
+public interface IdeaHubRepository extends MongoRepository<Idea,String> {
         @Override
         boolean existsById(String s);
         Idea findByTitle(String title);

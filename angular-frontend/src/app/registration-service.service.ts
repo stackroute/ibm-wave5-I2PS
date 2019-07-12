@@ -40,5 +40,10 @@ export class RegistrationServiceService {
   }
   
 
+  getIdeasPostedByInnovator(emailId):any{
+    console.log("in reg servive for getideas posted by innovator "+emailId);
+    return this.http.get(`http://localhost:8063/api/v1/getIdeaByEmailId/${emailId}`);
+  }
+
 }
 

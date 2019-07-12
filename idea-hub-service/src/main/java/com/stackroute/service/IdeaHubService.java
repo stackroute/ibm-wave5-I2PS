@@ -15,7 +15,7 @@ public interface IdeaHubService
 {
         Idea addIdea(Idea idea);
         void deleteIdea(String ideaId) throws  EntityNotFoundException;
-        public Idea updateIdea(String title, ArrayList<ServiceProvider> serviceproviders) throws EntityNotFoundException;
+        public Idea updateIdea(String title, List<ServiceProvider> serviceproviders) throws EntityNotFoundException;
         List<Idea> displayIdea(Idea idea)  throws NullIdeaException;
         void send(Idea idea);
         Optional<Idea> findIdeaById(Idea idea) throws EntityNotFoundException;

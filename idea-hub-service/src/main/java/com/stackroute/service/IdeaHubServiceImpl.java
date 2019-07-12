@@ -61,7 +61,7 @@ public class IdeaHubServiceImpl implements IdeaHubService {
 
     //CODE FOR UPDATING AN IDEA
     @Override
-    public Idea updateIdea(String title, ArrayList<ServiceProvider> serviceproviders) throws EntityNotFoundException {
+    public Idea updateIdea(String title, List<ServiceProvider> serviceproviders) throws EntityNotFoundException {
         Idea ideaNew=ideaHubRepository.findByTitle(title);
           if (ideaNew==null) {
 //                ideaHubRepository.save(ideaNew);

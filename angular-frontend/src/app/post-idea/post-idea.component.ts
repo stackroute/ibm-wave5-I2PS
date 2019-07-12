@@ -33,7 +33,7 @@ export class PostIdeaComponent implements OnInit {
   domainCtrl = new FormControl();
   subDomainList:any=subdomain;
 
-  serviceProviders={}
+  serviceProviders=[]
 
   filteredDomains: Observable<string[]>;
   domains: string[] = [];
@@ -44,7 +44,7 @@ export class PostIdeaComponent implements OnInit {
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
   
 
-  constructor(public dialogRef: MatDialogRef<PostIdeaComponent>, private postIdeaService : PostIdeaServiceService, private router: Router, private route:ActivatedRoute) {
+  constructor(public dialogRef: MatDialogRef<PostIdeaComponent>, private postIdeaService : PostIdeaServiceService, private router: Router,private route:ActivatedRoute) {
     // console.log(this.matAutocomplete )
     this.filteredDomains = this.domainCtrl.valueChanges.pipe(
         startWith(null),
@@ -96,38 +96,38 @@ export class PostIdeaComponent implements OnInit {
     this.dialogRef.close('Pizza!');
   }
   ngOnInit() {
-console.log("in ngOnInit...");
+    console.log("in ngOnInit.....");
     console.log(this.matAutocomplete)
-const emailId=this.route.snapshot.paramMap.get('emailId');
-console.log("in post idea method"+emailId);
+
+    const emailId=this.route.snapshot.paramMap.get('emailId');
+    console.log("in post Idea"+emailId);
   }
 
   postIdea(ideaTitle,ideaBio,ideaDomain,ideaSubDomain,ideaBudget): any{
-   
-   const emailId=this.route.snapshot.paramMap.get('emailId');
+
+    const emailId=this.route.snapshot.paramMap.get('emailId');
     console.log("in postIdea methoddddd"+emailId);   
 
- console.log("hiiiiiiiiiii",ideaTitle,ideaDomain,ideaSubDomain,ideaBio,ideaBudget);
+    console.log("hiiiiiiiiiii",ideaTitle,ideaDomain,ideaSubDomain,ideaBio,ideaBudget);
     console.log(this.domains)
     var Idea = {  
-title : ideaTitle,
-domain : ideaDomain,
-subDomain : ideaSubDomain,
-description : ideaBio,
-budget : ideaBudget,
-roles : this.domains,
-emailId: emailId,
-serviceProviders:this.serviceProviders
+        title : ideaTitle,
+        domain : ideaDomain,
+        subDomain : ideaSubDomain,
+        description : ideaBio,
+        budget : ideaBudget,
+        roles : this.domains,
+        emailId: emailId,
+        serviceProviders: this.serviceProviders
+
+        
     }
 
 
-
-  this.postIdeaService.Idea=Idea;
-console.log("print email id" +emailId);
-    console.log("hellooooooooooooooooooooo");
+    this.postIdeaService.Idea=Idea;
+    console.log("want to print mail id..."+emailId);
     console.log(Idea);
     this.postIdeaService.postIdea(Idea);
-   
     this.router.navigateByUrl(`result/`+this.domains);
   }
 
