@@ -21,7 +21,7 @@ export class InnovatorRegistrartionComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   isOptional = true;
-  subDomainList: any=subdomain;
+
  skillList: string[] = [ 'c', 'java',];
 
  form: any = {};
@@ -30,7 +30,8 @@ errorMessage = '';
 pass:string='';
 conf:string;
   LoginService: any;
-
+i:any;
+subDomainList:any=[];
 
 
   constructor(private _formBuilder: FormBuilder,private dialog:MatDialog) { }
@@ -48,7 +49,12 @@ conf:string;
    // }
   }
   ngOnInit() {
-  
+    for (this.i in subdomain) {
+      console.log(subdomain[this.i]);
+      this.subDomainList[this.i]= subdomain[this.i];
+      // console.log(this.subDomainList);
+    }
+    
       this.firstFormGroup = this._formBuilder.group({
         FirstName: ['', Validators.required],
         LastName: ['', Validators.required]
@@ -92,8 +98,8 @@ conf:string;
       emailId:this.secondFormGroup.controls.email.value,
        password:this.secondFormGroup.controls.password.value,
        name:this.firstFormGroup.controls.FirstName.value,
-       domain:this.secondFormGroup.controls.domain.value,
-       subDomain:this.thirdFormGroup.controls.subdomain.value
+       domain:this.secondFormGroup.controls.domainCtrl.value,
+       subDomain:this.thirdFormGroup.controls.subdomain.value,
    }
 
    console.log(innovatorData);

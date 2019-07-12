@@ -26,8 +26,9 @@ export class ServiceProviderRegistrationComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   isOptional = true;
-  subDomainList: any=subdomain;
-
+  subDomainList:any=[];
+skillSet:any=[];
+i:any;
 
 form: any = {};
 
@@ -55,6 +56,19 @@ conf:string;
   }
 
   ngOnInit() {
+
+    for (this.i in subdomain) {
+      console.log(subdomain[this.i]);
+      this.subDomainList[this.i]= subdomain[this.i];
+      // console.log(this.subDomainList);
+    }
+
+    for (this.i in skills) {
+      console.log(skills[this.i]);
+      this.skillSet[this.i]= skills[this.i];
+      // console.log(this.subDomainList);
+    }
+
     this.firstFormGroup = this._formBuilder.group({
       FirstName: ['', Validators.required],
       LastName: ['', Validators.required]

@@ -24,6 +24,12 @@ services:
     depends_on:
       - config-service
       - eureka-server
+      - innovator-profile-service
+      - intelligent-service
+      - idea-hub-service
+      - recommendation-service
+      - service-provider-profile-service
+      - user-login-service
     restart: always
     network_mode: "host"
     image: zuul-api
