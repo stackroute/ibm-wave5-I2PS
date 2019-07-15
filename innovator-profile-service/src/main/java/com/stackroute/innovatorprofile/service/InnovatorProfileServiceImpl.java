@@ -58,6 +58,7 @@ public class InnovatorProfileServiceImpl implements InnovatorProfileService {
         else
             return innovatorProfile;
     }
+    //service implementation to send all innovatorprofile through rabbitmq
 
     public void send(InnovatorProfile innovatorProfile) {
         rabbitTemplate.convertAndSend(innovatorExchange, innovatorRoutingKey, innovatorProfile);
