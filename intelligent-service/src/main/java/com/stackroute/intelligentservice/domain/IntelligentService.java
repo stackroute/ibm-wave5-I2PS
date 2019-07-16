@@ -31,4 +31,6 @@ public class IntelligentService {
                 ", serviceProvider=" + serviceProvider +
                 '}';
     }
+
+
 }
