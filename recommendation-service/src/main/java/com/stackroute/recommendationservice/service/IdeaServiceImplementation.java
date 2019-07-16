@@ -56,16 +56,16 @@ public class IdeaServiceImplementation implements IdeaService {
 
     @RabbitListener(queues = "${javainuse.idea.queue}")
     public void recievedMessage(IdeaDTO ideaDTO) {
-
+            Idea newIdea = new Idea();
         log.info("Received Message: " + ideaDTO);
 
         //this ideaDTO will have the properties need to set them and assign it to our domain objects to call the methods
 
-        idea.setIdeaName(ideaDTO.getTitle());
-        idea.setRole(ideaDTO.getRoles());
-        idea.setSubDomain(ideaDTO.getSubDomain());
+        newIdea.setIdeaName(ideaDTO.getTitle());
+        newIdea.setRole(ideaDTO.getRoles());
+        newIdea.setSubDomain(ideaDTO.getSubDomain());
         System.out.println(ideaDTO.toString());
-        ideaRepository.save(idea);
+        ideaRepository.save(newIdea);
         log.info("ideaNode3 is created");
 
         ideaRepository.matchSubDomain(ideaDTO.getSubDomain(),ideaDTO.getTitle());

@@ -23,18 +23,5 @@ public class ServiceProvider {
     String about;
     BigDecimal chargePerHour;
 
-    @Override
-    public String toString() {
-        return "ServiceProvider{" +
-                "emailId='" + emailId + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", domain='" + domain + '\'' +
-                ", subDomain=" + subDomain +
-                ", role='" + role + '\'' +
-                ", skills=" + skills +
-                ", about='" + about + '\'' +
-                ", chargePerHour=" + chargePerHour +
-                '}';
-    }
+
 }

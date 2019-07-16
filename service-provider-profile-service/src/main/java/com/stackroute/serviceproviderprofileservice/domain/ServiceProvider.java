@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Document
+@Document(collection = "service")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -23,9 +23,9 @@ public class ServiceProvider {
      private String password;
      String name;
      String domain;
-     ArrayList<String> subDomain;
+     List<String> subDomain;
      String role;
-     ArrayList<String> skills;
+     List<String> skills;
      String about;
      BigDecimal chargePerHour;
 

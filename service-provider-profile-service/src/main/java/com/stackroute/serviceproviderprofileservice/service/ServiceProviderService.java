@@ -11,4 +11,6 @@ public interface ServiceProviderService {
     public ServiceProvider saveServiceProvider(ServiceProvider serviceProvider) throws EmailIdAlreadyExistsException;
     public List<ServiceProvider> getServiceProvider();
     public ServiceProvider getByEmailId(String emailId) throws EmailIdNotFoundException;
+
+    public ServiceProvider  send(ServiceProvider service);
 }

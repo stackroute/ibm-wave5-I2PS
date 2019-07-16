@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")   //to connect backaend with front-end
 @RequestMapping("/api/v1")
 public class IntelligentServiceController {
-
-    public IntelligentServiceInterface intelligentSeviceInterface;
-
     @Autowired
-    public IntelligentServiceController(IntelligentServiceInterface intelligentSeviceInterface) {
+    IntelligentServiceInterface intelligentSeviceInterface;
+
+    public IntelligentServiceInterface getIntelligentSeviceInterface() {
+        return intelligentSeviceInterface;
+    }
+
+    public void setIntelligentSeviceInterface(IntelligentServiceInterface intelligentSeviceInterface) {
         this.intelligentSeviceInterface = intelligentSeviceInterface;
     }
+
 
     @GetMapping("/intelligentService/{role}")    //getMapping to retrive whole document with specific role
     public ResponseEntity<?> getByRole(@PathVariable String role) throws RoleNotFoundException
