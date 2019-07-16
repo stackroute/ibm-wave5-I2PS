@@ -56,7 +56,7 @@ public class InnovatorProfileController {
         return new ResponseEntity<List<InnovatorProfile>>(innovatorProfileSeviceimpl.getInnovatorProfile(), HttpStatus.OK);
     }
 
-    @GetMapping("/getByEmailId/{emailId}")
+    @GetMapping("/innovatorprofile/{emailId}")
     public ResponseEntity<?> getByEmailId(@PathVariable String emailId) throws EmailIdNotFoundException
     {
         ResponseEntity responseEntity=null;
