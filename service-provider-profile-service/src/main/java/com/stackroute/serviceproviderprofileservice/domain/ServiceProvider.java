@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 
-@Document
+@Document(collection = "service")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -20,9 +20,9 @@ public class ServiceProvider {
      private String password;
      String name;
      String domain;
-     ArrayList<String> subDomain;
+     List<String> subDomain;
      String role;
-     ArrayList<String> skills;
+     List<String> skills;
      String about;
      BigDecimal chargePerHour;
 

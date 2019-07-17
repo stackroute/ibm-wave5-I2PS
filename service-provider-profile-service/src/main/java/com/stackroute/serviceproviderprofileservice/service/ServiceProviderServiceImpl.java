@@ -67,9 +67,10 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
     }
 
 
-    public void send(ServiceProvider serviceProvider) {
+    public ServiceProvider send(ServiceProvider serviceProvider) {
         rabbitTemplate.convertAndSend(servicePExchange, servicePRoutingkey, serviceProvider);
         System.out.println("Send msg = " + serviceProvider);
+        return serviceProvider;
     }
 }
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 public class InnovatorProfileServiceImpl implements InnovatorProfileService {
-    InnovatorProfileRespository innovatorProfileRespository;
+   private  InnovatorProfileRespository innovatorProfileRespository;
     @Autowired
     private RabbitTemplate rabbitTemplate;
     @Value("${innovator.exchange}")
