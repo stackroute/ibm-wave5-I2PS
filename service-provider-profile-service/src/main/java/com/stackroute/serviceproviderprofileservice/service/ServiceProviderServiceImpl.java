@@ -35,7 +35,6 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
     //service implementation to save service provider profile
     @Override
     public ServiceProvider saveServiceProvider(ServiceProvider serviceProvider) throws EmailIdAlreadyExistsException {
-//        return serviceProviderRepository.save(serviceProvider);
         if(serviceProviderRepository.existsById(serviceProvider.getEmailId()))
         {
             throw new EmailIdAlreadyExistsException("This Email ID already exists!!!");
@@ -57,7 +56,6 @@ public class ServiceProviderServiceImpl implements ServiceProviderService
 
     @Override
     public ServiceProvider getByEmailId(String emailId) throws EmailIdNotFoundException {
-//        return serviceProviderRepository.findByEmailId(emailId);
         ServiceProvider serviceProvider= serviceProviderRepository.findByEmailId(emailId);
         if(serviceProvider==null)
         {

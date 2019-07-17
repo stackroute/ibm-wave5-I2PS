@@ -39,7 +39,6 @@ public class InnovatorProfileServiceImpl implements InnovatorProfileService {
         }
 
        else return savedInnovatorProfile;
-        //return innovatorProfileRespository.save(innovatorProfile);
     }
 
     //service implementation to get all innovator profiles

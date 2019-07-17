@@ -1,7 +1,6 @@
 package com.stackroute.recommendationservice.service;
 
 import com.stackroute.recommendationservice.model.Idea;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
