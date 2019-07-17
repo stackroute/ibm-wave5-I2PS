@@ -12,4 +12,6 @@ RUN npm run build
 
 WORKDIR /app/dist/angular-frontend
 
-ENTRYPOINT ["http-server","-p","8042"]
+RUN ls -la
+
+ENTRYPOINT ["http-server", "-c1", "-p", "8042"]

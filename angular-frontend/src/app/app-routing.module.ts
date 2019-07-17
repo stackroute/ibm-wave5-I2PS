@@ -22,39 +22,39 @@ import { IdeaDetailComponent } from './idea-detail/idea-detail.component';
 
 
 const routes: Routes = [
-  {path:'recentideas', component:RecentIdeasComponent},
-  {path:'modalsuccess', component:ModalSuccessComponent},
-  {path:'about',component:AboutComponent},
-  {path:'home',component:HomeComponent},
-  {path:'serviceproviderregistration',component:ServiceProviderRegistrationComponent},
-  {path:'innovatorregistration',component:InnovatorRegistrartionComponent},
-  {path:'login',component:UserLoginComponent},
-  {path:'serviceDashboard/:sendEmailId',component:ServiceProviderDashboardComponent},
-  {path:'serviceProfile/:sendEmailId',component:ServiceProviderProfileComponent},
-  {path:'innovatorDashboard/:sendEmailId',component:InnovatorDashboardComponent},
-  {path:'innovatorProfile/:sendEmailId',component:InnovatorProfileComponent},
-  {path:'postIdea/:emailId',component:PostIdeaComponent},
-  {path:'nav',component:NavbarComponent},
-  {path:'footer',component:FooterComponent},
-  {path:'result/:roles',component:IntelligentServiceComponent},
-  {path: 'acceptedSerProviders/:servProviders',component:PostIdeaComponent},
-{path:'allIdeas/:emailId',component:AllIdeasComponent},
-{path:'ideaDetail/:title',component:IdeaDetailComponent},
-{path:'allIdeas',component:AllIdeasComponent},
-
-
-{path:'serviceDashboard',component:ServiceProviderDashboardComponent},  //for trial, remove after use
+  { path: 'recentideas', component: RecentIdeasComponent },
+  { path: 'modalsuccess', component: ModalSuccessComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'serviceproviderregistration', component: ServiceProviderRegistrationComponent },
+  { path: 'innovatorregistration', component: InnovatorRegistrartionComponent },
+  { path: 'login', component: UserLoginComponent },
+  { path: 'serviceDashboard/:sendEmailId', component: ServiceProviderDashboardComponent },
+  { path: 'serviceProfile/:sendEmailId', component: ServiceProviderProfileComponent },
+  { path: 'innovatorDashboard/:sendEmailId', component: InnovatorDashboardComponent },
+  { path: 'innovatorProfile/:sendEmailId', component: InnovatorProfileComponent },
+  { path: 'postIdea/:emailId', component: PostIdeaComponent },
+  { path: 'nav', component: NavbarComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'result/:roles', component: IntelligentServiceComponent },
+  { path: 'acceptedSerProviders/:servProviders', component: PostIdeaComponent },
+  { path: 'allIdeas/:emailId', component: AllIdeasComponent },
+  { path: 'ideaDetail/:title', component: IdeaDetailComponent },
+  { path: 'allIdeas', component: AllIdeasComponent },
+  { path: 'serviceDashboard', component: ServiceProviderDashboardComponent },  //for trial, remove after use
 
 
 
-{path:'ideaDetail',component:IdeaDetailComponent},
+  { path: 'ideaDetail', component: IdeaDetailComponent },
+  { path: '', component: HomeComponent },
+  { path: '**', component: HomeComponent },
 
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
