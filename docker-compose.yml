@@ -136,6 +136,19 @@ services:
     ports:
         - 8082:8082
 
+  innovator-management-service:
+    build: innovator-management-service/
+    depends_on:
+      - rabbitmq
+      - mongo
+    restart: always
+    network_mode: "host"
+    image:  innovator-management-service
+    hostname: localhost
+    ports:
+      - 8060:8060
+
+
   mysql:
     image: mysql:5.7
     ports:
@@ -186,13 +199,13 @@ services:
       - NEO4J_AUTH=neo4j/root123
 
 
-  angular-frontend:
-    build: angular-frontend/
-    image: angular-frontend
-    ports:
-      - 8042:8042
-    restart: always
-    network_mode: "host"
-    hostname: localhost
+#  angular-frontend:
+#    build: angular-frontend/
+#    image: angular-frontend
+#    ports:
+#      - 8042:8042
+#    restart: always
+#    network_mode: "host"
+#    hostname: localhost
 
 

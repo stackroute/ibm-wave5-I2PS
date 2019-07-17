@@ -4,4 +4,4 @@ ADD  target/innovator-management-service-0.0.1-SNAPSHOT.jar i2ps/innovator-manag
 
 WORKDIR /i2ps/innovator-management
 
-ENTRYPOINT  ["java","-jar","innovator-profile-service-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT  ["java","-jar","innovator-management-service-0.0.1-SNAPSHOT.jar"]

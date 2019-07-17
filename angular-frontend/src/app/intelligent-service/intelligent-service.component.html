@@ -1,6 +1,5 @@
-
 <mat-tab-group (selectedTabChange) = "myClick($event)">
-  <mat-tab (selectedTabChange) = "myClick()" label="{{role}}" *ngFor="let role of roles">
+  <mat-tab (selectedTabChange) = "myClick($event)" label="{{role}}" *ngFor="let role of roles">
       <mat-card *ngFor = "let provider of filteredProviders" class="example-card">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>

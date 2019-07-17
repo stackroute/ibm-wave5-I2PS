@@ -42,7 +42,6 @@ public class IdeaHubController {
 
             ideaHubService.send(idea);
             Idea addedIdea = ideaHubService.addIdea(idea);
-            ideaHubService.send(idea);
             return new ResponseEntity<Idea>(addedIdea, HttpStatus.CREATED);
         }
         catch (Exception e)
