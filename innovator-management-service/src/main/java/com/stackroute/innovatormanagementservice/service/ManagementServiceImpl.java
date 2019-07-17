@@ -27,9 +27,6 @@ public class ManagementServiceImpl implements ManagementService {
     private List<ServiceProvider> serviceProviderDto = new ArrayList<>();
     @Value("${serviceProvider.url}")
     String url;
-    @Value("${idea.exchange}")
-    String ideaExchange;
-    @Value("${idea.routingkey}")
     String ideaRoutingKey;
     @Value("${idea.url}")
     String ideaUrl;
