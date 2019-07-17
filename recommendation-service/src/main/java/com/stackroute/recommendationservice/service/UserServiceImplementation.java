@@ -67,7 +67,7 @@ public class UserServiceImplementation implements UserServices {
 
     @RabbitListener(queues = "${serviceNeo4j.queue}")
     public void recievedMessage(UserDTO userDTO) {
-
+        User newUser = new User();
         log.info("Received Message: " + userDTO);
 
         /*
@@ -75,11 +75,11 @@ public class UserServiceImplementation implements UserServices {
          * our domain objects to call the methods
          * */
 
-        user.setEmailId(userDTO.getEmailId());
-        user.setName(userDTO.getName());
-        user.setSubDomain(userDTO.getSubDomain());
-        user.setRole(userDTO.getRole());
-        userRepository.save(user);
+        newUser.setEmailId(userDTO.getEmailId());
+        newUser.setName(userDTO.getName());
+        newUser.setSubDomain(userDTO.getSubDomain());
+        newUser.setRole(userDTO.getRole());
+        userRepository.save(newUser);
         System.out.println(userDTO.toString());
         log.info("userNode3 is created");
         ArrayList<String> domainList= new ArrayList<>();
