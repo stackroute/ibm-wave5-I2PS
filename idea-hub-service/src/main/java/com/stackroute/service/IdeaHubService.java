@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import com.stackroute.domain.Idea;
 import com.stackroute.domain.ServiceProvider;
+import com.stackroute.dto.IdeaDto;
 import com.stackroute.exceptions.IdeaNotFoundException;
 import com.stackroute.exceptions.NullIdeaException;
 

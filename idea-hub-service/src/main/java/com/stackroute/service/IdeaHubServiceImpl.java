@@ -2,6 +2,7 @@ package com.stackroute.service;
 
 import com.stackroute.domain.Idea;
 import com.stackroute.domain.ServiceProvider;
+import com.stackroute.dto.IdeaDto;
 import com.stackroute.exceptions.IdeaNotFoundException;
 import com.stackroute.exceptions.NullIdeaException;
 import com.stackroute.repository.IdeaHubRepository;
@@ -111,6 +112,7 @@ public class IdeaHubServiceImpl implements IdeaHubService {
         rabbitTemplate.convertAndSend(ideaExchange, ideaRoutingkey, idea);
         log.info("Send msg = " + idea);
     }
+
     @Override
     public Idea updateApprovedServiceProvider(IdeaDto ideaDto){
         Idea fetchedIdea = ideaHubRepository.findByTitle(ideaDto.getTitle());
