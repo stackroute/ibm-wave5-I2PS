@@ -39,6 +39,7 @@ public class InnovatorProfileController {
 
             innovatorProfileSeviceimpl.saveInnovatorProfile(innovatorProfile);
             innovatorProfileSeviceimpl.send(innovatorProfile);
+            System.out.println("sent="+innovatorProfile);
             responseEntity = new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
 
         } catch (Exception ex) {
