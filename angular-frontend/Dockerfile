@@ -6,10 +6,10 @@ COPY . .
 
 RUN npm install
 
-RUN npm install http-server -g
-
 RUN npm run build
 
-WORKDIR /app/dist/angular-frontend
+RUN npm install -g http-server
 
-ENTRYPOINT ["http-server","-p","8042"]
+WORKDIR /app/dist/your-angular-project
+
+CMD ["http-server", "-p", "8042"]
