@@ -71,6 +71,7 @@ export class PostIdeaComponent implements OnInit {
     );
 
 
+
  // taking json data for domains
  this.http.get('./assets/jsonfiles/data1.json').subscribe(
   (data)=>{
