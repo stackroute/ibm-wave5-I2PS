@@ -63,7 +63,7 @@ public class ServiceProviderServiceImplTest {
     verify(serviceProviderRepository,times(1)).save(serviceProvider);
   }
 
-  
+
 
 
   @Test
