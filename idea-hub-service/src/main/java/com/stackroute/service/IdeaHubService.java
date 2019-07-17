@@ -18,6 +18,8 @@ public interface IdeaHubService
         Optional<Idea> findIdeaById(Idea idea) throws IdeaNotFoundException;
         public List<Idea> getByEmailId(String emailId) throws IdeaNotFoundException;
         Idea getByIdeaTitle(String title)throws IdeaNotFoundException;
+        public Idea updateApprovedServiceProvider(IdeaDto ideaDto);
+
 
 }
 

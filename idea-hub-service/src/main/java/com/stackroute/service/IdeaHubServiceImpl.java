@@ -111,5 +111,25 @@ public class IdeaHubServiceImpl implements IdeaHubService {
         rabbitTemplate.convertAndSend(ideaExchange, ideaRoutingkey, idea);
         log.info("Send msg = " + idea);
     }
+    @Override
+    public Idea updateApprovedServiceProvider(IdeaDto ideaDto){
+        Idea fetchedIdea = ideaHubRepository.findByTitle(ideaDto.getTitle());
+        List<ServiceProvider>serviceProviderList = fetchedIdea.getServiceProviders();
+        if(serviceProviderList == null){
+            serviceProviderList = new ArrayList<>();
+        }
+        else {
+            serviceProviderList =fetchedIdea.getServiceProviders();
+        }
+        System.out.println(fetchedIdea);
+        System.out.println(ideaDto.getAppliedServiceProviders().toString());
+
+        for(int i=0;i<ideaDto.getAppliedServiceProviders().size();i++){
+
+            serviceProviderList.add(ideaDto.getAppliedServiceProviders().get(i));
+        }
+        fetchedIdea.setServiceProviders(serviceProviderList);
+        return ideaHubRepository.save(fetchedIdea);
+    }
 
 }

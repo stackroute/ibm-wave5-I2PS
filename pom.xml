@@ -36,6 +36,7 @@
 		<module>intelligent-service</module>
 		<module>recommendation-service</module>
 		<module>idea-hub-service</module>
+		<module>innovator-management-service</module>
 
 	</modules>
 

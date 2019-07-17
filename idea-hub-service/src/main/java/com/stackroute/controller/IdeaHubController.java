@@ -138,4 +138,10 @@ public class IdeaHubController {
         }
     }
 
+    //method will called by idea-management service to update approved service provider
+    @PutMapping("/ideaDto")
+    public Idea updateServiceProviders(@RequestBody IdeaDto ideaDto){
+        return ideaHubService.updateApprovedServiceProvider(ideaDto);
+    }
+
 }
