@@ -12,4 +12,7 @@ RUN npm install -g http-server
 
 WORKDIR /app/dist/your-angular-project
 
-CMD ["http-server", "-p", "8042"]
+RUN ls -la
+
+ENTRYPOINT ["http-server", "-c1", "-p", "8042"]
+
