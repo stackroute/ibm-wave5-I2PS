@@ -186,4 +186,13 @@ services:
       - NEO4J_AUTH=neo4j/root123
 
 
+  angular-frontend:
+    build: angular-frontend/
+    image: angular-frontend
+    ports:
+      - 8042:8042
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+
 
