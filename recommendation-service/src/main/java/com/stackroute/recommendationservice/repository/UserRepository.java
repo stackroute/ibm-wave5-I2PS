@@ -29,5 +29,7 @@ public interface UserRepository extends Neo4jRepository<User,Long> {
     User matchUserSubDomain(@Param("subDomainName") String subDomainName,@Param("name") String name);
 
 
-
+    //Query to create relationship between user and idea
+    @Query("MATCH (n:User),(s:Idea) WHERE s.ideaName={ideaName}  AND n.name={name} CREATE (n)-[r:work_upon]->(s)RETURN r")
+    User matchUseridea(@Param("ideaName") String ideaName,@Param("name") String name);
 }

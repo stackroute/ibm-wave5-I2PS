@@ -21,5 +21,5 @@ public interface UserServices {
     User matchUserSubDomain(String subDomainName, String name);
 
 
-
+    User matchIdea(String ideaName, String name);
 }

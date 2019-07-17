@@ -32,6 +32,9 @@ public class User {
     @Relationship(type = "work_on", direction = Relationship.OUTGOING)
     private SubDomain subDomainRel;
 
+    @Relationship(type = "work_upon", direction = Relationship.OUTGOING)
+    private Idea ideaRel;
+
 
     @Override
     public String toString() {
@@ -42,6 +45,7 @@ public class User {
                 ", subDomain=" + subDomain +
                 ", role='" + role + '\'' +
                 ", subDomainRel=" + subDomainRel +
+                ", ideaRel=" + ideaRel +
                 '}';
     }
 }

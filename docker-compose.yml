@@ -19,23 +19,23 @@ services:
     ports:
       - 8888:8888
 
-  zuul-api:
-    build: zuul-api/
-    depends_on:
-      - config-service
-      - eureka-server
-      - innovator-profile-service
-      - intelligent-service
-      - idea-hub-service
-      - recommendation-service
-      - service-provider-profile-service
-      - user-login-service
-    restart: always
-    network_mode: "host"
-    image: zuul-api
-    hostname: localhost
-    ports:
-      - 8080:8080
+#  zuul-api:
+#    build: zuul-api/
+#    depends_on:
+#      - config-service
+#      - eureka-server
+#      - innovator-profile-service
+#      - intelligent-service
+#      - idea-hub-service
+#      - recommendation-service
+#      - service-provider-profile-service
+#      - user-login-service
+#    restart: always
+#    network_mode: "host"
+#    image: zuul-api
+#    hostname: localhost
+#    ports:
+#      - 8080:8080
 
 
   mongo:
@@ -50,18 +50,18 @@ services:
     volumes:
       - $HOME/data/db:/data/db
 
-  user-login-service:
-    build: user-login-service/
-    depends_on:
-     - eureka-server
-     - rabbitmq
-     - mysql
-    restart: always
-    network_mode: "host"
-    image: user-login-service
-    hostname: localhost
-    ports:
-    - 8088:8088
+#  user-login-service:
+#    build: user-login-service/
+#    depends_on:
+#     - eureka-server
+#     - rabbitmq
+#     - mysql
+#    restart: always
+#    network_mode: "host"
+#    image: user-login-service
+#    hostname: localhost
+#    ports:
+#    - 8088:8088
 
   service-provider-profile-service:
     build: service-provider-profile-service/
@@ -77,19 +77,19 @@ services:
     ports:
       - 8077:8077
 
-  innovator-profile-service:
-      build: innovator-profile-service/
-      depends_on:
-        - config-service
-        - eureka-server
-        - rabbitmq
-        - mongo
-      restart: always
-      network_mode: "host"
-      image: innovator-profile-service
-      hostname: localhost
-      ports:
-        - 8094:8094
+#  innovator-profile-service:
+#      build: innovator-profile-service/
+#      depends_on:
+#        - config-service
+#        - eureka-server
+#        - rabbitmq
+#        - mongo
+#      restart: always
+#      network_mode: "host"
+#      image: innovator-profile-service
+#      hostname: localhost
+#      ports:
+#        - 8094:8094
 
   intelligent-service:
     build: intelligent-service/
@@ -160,7 +160,6 @@ services:
       MYSQL_DATABASE: LoginDB
       MYSQL_PASSWORD: root
       MYSQL_USER: root
-#      MYSQL_ALLOW_EMPTY_PASSWORD: "NO"
     volumes:
       - $HOME/data/datasql:/var/lib/mysql
     network_mode: "host"

@@ -65,15 +65,6 @@ public class ServiceProviderServiceImplTest {
 
 
 
-  @Test
-  public void saveServiceProviderFailure() throws Exception {
-    when(serviceProviderRepository.save((ServiceProvider) any())).thenReturn(null);
-    ServiceProvider savedServiceProvider = serviceProviderServiceimpl.saveServiceProvider(serviceProvider);
-    System.out.println("savedres"+savedServiceProvider);
-    Assert.assertEquals(null,savedServiceProvider);
-  }
-
-
 
 
   @Test

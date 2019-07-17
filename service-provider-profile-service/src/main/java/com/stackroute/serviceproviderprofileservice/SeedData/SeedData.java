@@ -11,11 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.security.Provider;
 import java.util.Iterator;
 import java.util.List;
 @Component
@@ -29,7 +27,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent>{
 
             try {
 
-                FileInputStream file = new FileInputStream(new File("service-provider-profile-service/Seed Ideas1.xlsx"));
+                FileInputStream file = new FileInputStream(new File("Seed_Ideas2.xlsx"));
 
                 XSSFWorkbook workbook = new XSSFWorkbook(file);
 

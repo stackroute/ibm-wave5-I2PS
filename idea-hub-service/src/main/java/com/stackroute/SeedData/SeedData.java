@@ -28,7 +28,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
         try {
 
-            FileInputStream file = new FileInputStream(new File("idea-hub-service/Seed Ideas1.xlsx"));
+            FileInputStream file = new FileInputStream(new File("Seed_Ideas1.xlsx"));
 
             XSSFWorkbook workbook = new XSSFWorkbook(file);
 
