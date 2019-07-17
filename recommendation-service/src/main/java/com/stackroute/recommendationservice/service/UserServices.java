@@ -1,7 +1,6 @@
 package com.stackroute.recommendationservice.service;
 
 import com.stackroute.recommendationservice.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

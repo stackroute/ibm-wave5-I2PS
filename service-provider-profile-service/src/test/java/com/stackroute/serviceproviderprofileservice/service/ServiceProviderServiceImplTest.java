@@ -55,7 +55,7 @@ public class ServiceProviderServiceImplTest {
 
   }
   @Test
-  public void saveServiceProvider() throws Exception {
+  public void saveServiceProvider() throws  Exception{
     when(serviceProviderRepository.save((ServiceProvider) any())).thenReturn(serviceProvider);
     ServiceProvider savedserviceProvider = serviceProviderServiceimpl.saveServiceProvider(serviceProvider);
     Assert.assertEquals(serviceProvider,savedserviceProvider);
@@ -65,13 +65,13 @@ public class ServiceProviderServiceImplTest {
 
 
 
-  @Test
-  public void saveServiceProviderFailure() throws Exception {
-    when(serviceProviderRepository.save((ServiceProvider) any())).thenReturn(null);
-    ServiceProvider savedServiceProvider = serviceProviderServiceimpl.saveServiceProvider(serviceProvider);
-    System.out.println("savedres"+savedServiceProvider);
-    Assert.assertEquals(null,savedServiceProvider);
-  }
+//  @Test
+//  public void saveServiceProviderFailure() throws Exception {
+//    when(serviceProviderRepository.save((ServiceProvider) any())).thenReturn(null);
+//    ServiceProvider savedServiceProvider = serviceProviderServiceimpl.saveServiceProvider(serviceProvider);
+//    System.out.println("savedres"+savedServiceProvider);
+//    Assert.assertEquals(null,savedServiceProvider);
+//  }
 
 
 

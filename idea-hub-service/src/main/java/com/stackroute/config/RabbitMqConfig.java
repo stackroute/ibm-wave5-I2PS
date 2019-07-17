@@ -34,9 +34,8 @@ public class RabbitMqConfig {
     }
     @Bean
     Binding innovatorBinding(){
-        //this is the traditional way of binding
-        //return new Binding(MY_QUEUE, Binding.DestinationType.QUEUE,"myTopicExchange","topic",null);
-        //more declarative way of binding
+
+        // Binding
         return BindingBuilder.bind(ideaQueue()).to(ideaExchange()).with(ideaRoutingkey).noargs();
     }
     @Bean

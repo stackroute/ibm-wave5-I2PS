@@ -1,11 +1,11 @@
 package com.stackroute.exceptions;
 
-public class EntityNotFoundException extends Exception {
+public class IdeaNotFoundException extends Exception {
     private String message;
 
-    public EntityNotFoundException(){}
+    public IdeaNotFoundException(){}
 
-    public EntityNotFoundException(String message)
+    public IdeaNotFoundException(String message)
     {
         super(message);
         this.message=message;

@@ -12,7 +12,6 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 

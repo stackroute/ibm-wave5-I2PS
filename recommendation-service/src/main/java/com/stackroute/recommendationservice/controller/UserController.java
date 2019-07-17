@@ -40,7 +40,6 @@ public class UserController {
     @PostMapping("/saved")
     public ResponseEntity<?> savedUser(@RequestBody User user)
         {
-           // userServices.saved(user);
             return new ResponseEntity<User>(userServices.saved(user), HttpStatus.CREATED);
         }
 

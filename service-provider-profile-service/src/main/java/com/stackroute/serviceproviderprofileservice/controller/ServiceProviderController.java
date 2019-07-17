@@ -3,7 +3,6 @@ package com.stackroute.serviceproviderprofileservice.controller;
 import com.stackroute.serviceproviderprofileservice.domain.ServiceProvider;
 import com.stackroute.serviceproviderprofileservice.exceptions.EmailIdAlreadyExistsException;
 import com.stackroute.serviceproviderprofileservice.exceptions.EmailIdNotFoundException;
-import com.stackroute.serviceproviderprofileservice.service.ServiceProviderService;
 import com.stackroute.serviceproviderprofileservice.service.ServiceProviderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
