@@ -10,10 +10,6 @@
 		<relativePath>../pom.xml</relativePath>
 
 	</parent>
-
-
-
-
 	<groupId>com.stackroute</groupId>
 	<artifactId>recommendation-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
