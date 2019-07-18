@@ -47,13 +47,13 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
                    for (int j = 0; j <= sheet.getLeftCol(); j++) {
 
 
-                       ideas.setTitle(workbook.getSheetAt(0).getRow(i).getCell(j + 1).toString());
-                       ideas.setDomain(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
-                       ideas.setSubDomain(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
-                       ideas.setDescription(workbook.getSheetAt(0).getRow(i).getCell(j + 4).toString());
+                       ideas.setTitle(workbook.getSheetAt(0).getRow(i).getCell(j + 0).toString());
+                       ideas.setDomain(workbook.getSheetAt(0).getRow(i).getCell(j + 1).toString());
+                       ideas.setSubDomain(workbook.getSheetAt(0).getRow(i).getCell(j + 2).toString());
+                       ideas.setDescription(workbook.getSheetAt(0).getRow(i).getCell(j + 3).toString());
                        //idea1.setBudget(Double.parseDouble(workbook.getSheetAt(0).getRow(i).getCell(j+4)+"\n"));
-                       ideas.setEmailId(workbook.getSheetAt(0).getRow(i).getCell(j + 8).toString());
-                       ideas.setRoles(List.of(workbook.getSheetAt(0).getRow(i).getCell(j + 6).toString().split(",")));
+                       ideas.setEmailId(workbook.getSheetAt(0).getRow(i).getCell(j + 7).toString());
+                       ideas.setRoles(List.of(workbook.getSheetAt(0).getRow(i).getCell(j + 5).toString().split(",")));
                        ideaHubRepository.save(ideas);
                        System.out.println(ideas);
                        ideaHubService.send(ideas);
