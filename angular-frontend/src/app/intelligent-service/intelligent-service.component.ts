@@ -19,6 +19,7 @@ export class IntelligentServiceComponent implements OnInit {
   rejectedServiceProviders: any = [];
   length: any;
   roles: string[] = [];;
+ status: boolean=true;
 
   ngOnInit() {
     this.getAllServiceProviders();
@@ -39,6 +40,8 @@ export class IntelligentServiceComponent implements OnInit {
       roles.map(e => {
         this.intelligentService.getServiceProviders(e).subscribe(data => {
             data.serviceProvider.map(i => {
+              console.log(i)
+              i.status = false;
               allVendors.push(i);
             })
             this.allServiceProviders = allVendors;
@@ -50,9 +53,18 @@ export class IntelligentServiceComponent implements OnInit {
 
 
   public accept(value) {
+    console.log(value)
     this.acceptedServiceProvoders.push(value);
    console.log( "acceptedprovoders", this.acceptedServiceProvoders)
-
+    this.filteredProviders = this.filteredProviders.map(e => {
+      console.log(e.emailId, value.emailId)
+      if(e.emailId == value.emailId) {
+         
+        e.status = true ;
+      }
+      return e;
+    })
+    console.log(this.filteredProviders)
    this.postIdeaService.Idea.serviceProviders=this.acceptedServiceProvoders;
    console.log("updated idea",this.postIdeaService.Idea)
 
@@ -77,6 +89,12 @@ export class IntelligentServiceComponent implements OnInit {
   console.log(this.filteredProviders);
  }
 
+ clicked(){
+    if(this.status==false)
+    {
+this.status=true;
+    }
+ }
 }
 
 
