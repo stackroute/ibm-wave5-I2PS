@@ -139,8 +139,6 @@ services:
   innovator-management-service:
     build: innovator-management-service/
     depends_on:
-
-
       - eureka-server
       - rabbitmq
       - mongo
