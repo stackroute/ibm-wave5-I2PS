@@ -145,7 +145,7 @@ min-height: 100vh;
   background-color:blue;
   color: white;
   /* display:inline-block; */
-  width: 50px;
+  width: 40px;
   display: inline-flex;
   /* float: right; */
   margin-left: 20px;
@@ -156,14 +156,14 @@ min-height: 100vh;
   color: white;
   margin-left: 36%;
   display: inline-flex;
-  width: 30px;
+  width: 40px;
   float: left;
 }
 
 .btn3{
   background-color:blue; 
   color: white;
-  width: 50%;
+  width: 40px;
   margin-left: 20px;
 }
 
