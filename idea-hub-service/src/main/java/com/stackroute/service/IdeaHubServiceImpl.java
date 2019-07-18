@@ -81,7 +81,7 @@ public class IdeaHubServiceImpl implements IdeaHubService {
     public List<Idea> displayIdea(Idea idea) throws NullIdeaException {
         if (Objects.isNull(idea))
         { throw new NullIdeaException("No ideas found");}
-        return ideaHubRepository.findAll(Sort.by(Sort.Direction.DESC, "timestamp"));
+        return ideaHubRepository.findAll(Sort.by(Sort.Direction.ASC, "timestamp"));
     }
     // CODE FOR GETTING AN IDEA BY EMAIL ID
     @Override
