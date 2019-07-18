@@ -36,7 +36,7 @@ min-height: 100vh;
 
   .height
   {
-    height: 430px;
+    
     max-width:600px;
     background-color:white;
     padding: 10px;
@@ -137,6 +137,7 @@ min-height: 100vh;
   display: inline-flex;
   color: white;
   width: 50px;
+  margin-left: 4%;
 }
 
 
@@ -162,7 +163,7 @@ min-height: 100vh;
 .btn3{
   background-color:blue; 
   color: white;
-  width: 30px;
+  width: 50%;
   margin-left: 20px;
 }
 

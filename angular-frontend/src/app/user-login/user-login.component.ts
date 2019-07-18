@@ -3,6 +3,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 import { LoginService } from '../login.service';
 
 import  { JwtHelperService } from '@auth0/angular-jwt';
+import { MatDialog } from '@angular/material';
 
 
 @Component({
@@ -14,12 +15,13 @@ export class UserLoginComponent implements OnInit {
 
   loggedIn:any = null;
 
-  constructor(private loginService:LoginService, private route: ActivatedRoute, private router:Router) { }
+  constructor(private loginService:LoginService, private route: ActivatedRoute, private router:Router, private dialog:MatDialog) { }
   arrayOfUser:any=[];
 
   helper = new JwtHelperService();
 
   ngOnInit() {
+    this.dialog.closeAll();
     console.log("in ngoninit")
   }
 

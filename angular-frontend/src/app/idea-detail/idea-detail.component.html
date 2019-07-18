@@ -1,8 +1,10 @@
 <div class="container">
         <div class="row rowTitle">
             <!-- <div class="col-sm"> -->
-            <h2><b>
-                    {{ideaDetail.title}}                </b>
+            <h2>
+                <b>
+                    {{ideaDetail.title}}                
+                </b>
             </h2>
             <!-- </div> -->
     
@@ -74,8 +76,7 @@
             </div>
             <div class="col-sm">
                 <h4>
-                    timestamp from backend comes here..
-                </h4>
+{{ideaDetail.timestamp | date: 'yyyy/MM/dd'}}                </h4>
             </div>
         </div>
         <hr>
@@ -83,60 +84,38 @@
         <div class="row">
             <div class="col-sm">
                 <h2><b>
-                        Roles required:
-                    </b>
+                    Roles:
+               </b>
                 </h2>
             </div>
             <div class="col-sm">
                 <h4>
-                    roles from backend comes here..
-                </h4>
+                        {{ideaDetail.roles}}                     </h4>
             </div>
         </div>
         <hr>
     
         <h2>
-            <b> Chosen Contributors...</b>
+            <b> APPROVED USERS: </b>
         </h2>
         <hr>
         <div class="row">
     
-            <div class="card" style="width: 18rem;">
+            <div class="card" *ngFor="let data of ideaDetail.serviceProviders" style="width: 18rem;">
                 <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                 <div class="card-body">
-                    <h5 class="card-title">Role 1</h5>
-                    <p class="card-text">Name:</p>
-                    <p class="card-text">Email id:</p>
-                    <!-- <a href="#" class="btn btn-danger">Go somewhere</a> -->
+                    <h5 class="card-title">{{data.role}}</h5>
+                    <p class="card-text">{{data.name}}</p>
+                    <p class="card-text">{{data.emailId}}</p>
+                    <!-- <a routerLink="#" class="btn btn-danger">Go somewhere</a> -->
                 </div>
             </div>
     
-            <div class="card" style="width: 18rem;">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Role 2</h5>
-                    <p class="card-text">Name:</p>
-                    <p class="card-text">Email id:</p>
-                    <!-- <a href="#" class="btn btn-danger">Go somewhere</a> -->
-                </div>
-            </div>
-    
-            <div class="card" style="width: 18rem;">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Role 3</h5>
-                    <p class="card-text">Name:</p>
-                    <p class="card-text">Email id:</p>
-                    <!-- <a href="#" class="btn btn-danger">Go somewhere</a> -->
-                </div>
-            </div>
-        </div>
+        </div>    
     
         <hr>
         <h2>
-            <b>
-                Pending Contributor Applications...
-            </b>
+            <b>APPLIED USERS :</b>
         </h2>
         <hr>
     
@@ -147,32 +126,14 @@
                     <h5 class="card-title">Role 1</h5>
                     <p class="card-text">Name: {{data.name}}</p>
                     <p class="card-text">Email id:{{data.emailId}}</p>
-                    <a (click)="onApprove(data.emailId)" class="btn btn-danger">APPROVE</a>
-                    <a (click)="onReject(data.emailId)" class="btn btn-danger">REJECT</a>
+                    <a (click)="onApprove(data)" class="btn btn-danger">APPROVE</a>
+                    <a (click)="onReject(data)" class="btn btn-danger">REJECT</a>
 
                 </div>
             </div>
-    
-            <div class="card" style="width: 18rem;">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Role 2</h5>
-                    <p class="card-text">Name:</p>
-                    <p class="card-text">Email id:</p>
-                    <!-- <a href="#" class="btn btn-danger">Go somewhere</a> -->
-                </div>
-            </div>
-    
-            <div class="card" style="width: 18rem;">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Role 3</h5>
-                    <p class="card-text">Name:</p>
-                    <p class="card-text">Email id:</p>
-                    <a href="#" class="btn btn-danger">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+
+ 
+        
             <hr>
     </div>
     

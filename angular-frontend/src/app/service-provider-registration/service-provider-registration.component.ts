@@ -11,6 +11,7 @@ import roles from 'src/assets/jsonfiles/data3.json';
 
 import { RegistrationServiceService } from '../registration-service.service';
 import { Router } from '@angular/router';
+import { ModalSuccessComponent } from '../modal-success/modal-success.component';
 
 @Component({
   selector: 'app-service-provider-registration',
@@ -93,7 +94,7 @@ conf:string;
       subdomain:[''],
       skill:[''],
       RoleCtrl: ['', Validators.required],
-      chargePerHour: ['', Validators.required]
+       chargePerHour: ['', Validators.required]
 
 
     });
@@ -127,6 +128,7 @@ conf:string;
     }
     console.log(providerData);
     this.registrationService.addServiceProvider(providerData);
+    this.dialog.open(ModalSuccessComponent);
     this.router.navigateByUrl('/home');
 
   }

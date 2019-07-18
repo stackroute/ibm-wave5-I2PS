@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material';
 import subdomain from 'src/assets/jsonfiles/data2.json';
 import { RegistrationServiceService } from '../registration-service.service';
 import { Router } from '@angular/router';
+import { ModalSuccessComponent } from '../modal-success/modal-success.component';
 
 
 @Component({
@@ -106,6 +107,7 @@ subDomainList:any=[];
 
    console.log(innovatorData);
    this.registrationService.addInnovatorProfile(innovatorData);
+   this.dialog.open(ModalSuccessComponent);
    this.router.navigateByUrl('/home');
 
 

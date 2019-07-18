@@ -11,6 +11,7 @@ export class IdeaDetailComponent implements OnInit {
 ideaDetail:any=[];
 appliedSP:any=[];
 status:boolean=false;
+  emailId: any;
   constructor(private recentideas: RecentIdeasService ,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -43,26 +44,33 @@ status:boolean=false;
 
   onApprove(value){
     console.log(value);
+    this.emailId=value.emailId;
+    console.log(this.emailId);
     this.status=true;
     const title=this.route.snapshot.paramMap.get('title');
     console.log(value, this.status, title)
-    this.recentideas.approveOrRejectSP(title,value,this.status);
+    this.recentideas.approveOrRejectSP(title,this.emailId,this.status);
     console.log("done");
-    
-    this.ideaDetail.serviceProviders.push(value);
-    console.log("list is ",this.ideaDetail.serviceProviders)
+    let index=this.appliedSP.indexOf(value);
+console.log(index);
+this.appliedSP.splice(index,1);
 
   }
 
-  onReject(emailId){
-    console.log(emailId);
+  onReject(value){
+    this.emailId=value.emailId;
+    console.log(this.emailId);
     this.status=false;
- let index=this.appliedSP.indexOf(emailId);
+    const title=this.route.snapshot.paramMap.get('title');
+    this.recentideas.approveOrRejectSP(title,this.emailId,this.status);
+    console.log("done");
+
+ let index=this.appliedSP.indexOf(value);
  console.log(index);
  this.appliedSP.splice(index,1);
- console.log(this.appliedSP);
   }
 
 
 
 }
+

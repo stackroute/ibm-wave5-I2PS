@@ -1,5 +1,6 @@
 [
 
+
     "Full Stack Developer",
      "Hardware Engineer",
      "Web Developer",
@@ -15,12 +16,17 @@
      "Medic",
  "Cultural Guide",
     "CA",
-   "Cloud Engineer",
+    "CA",
+ "Cloud Engineer",
  "Ticketing Agent",
  "Business Analyst",
-    "Tour guide",
+ "Business Analyst",
+   "Tour guide",
    "Manual Tester",
    "Selenium Tester",
-    "Marketing"
-   
+    "Marketing",
+   "Marketing"
+
+
+
 ]

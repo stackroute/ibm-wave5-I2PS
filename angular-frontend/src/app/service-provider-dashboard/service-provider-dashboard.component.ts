@@ -3,6 +3,8 @@ import { RegistrationServiceService } from '../registration-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../login.service';
 import { RecentIdeasService } from '../recent-ideas.service';
+import { MatDialog } from '@angular/material';
+import { ApplySuccessComponent } from '../apply-success/apply-success.component';
 
 @Component({
   selector: 'app-service-provider-dashboard',
@@ -11,7 +13,7 @@ import { RecentIdeasService } from '../recent-ideas.service';
 })
 export class ServiceProviderDashboardComponent implements OnInit {
 
-  constructor(private loginService:LoginService, private router:Router, private route:ActivatedRoute, private recentideas:RecentIdeasService) { }
+  constructor(private loginService:LoginService, private router:Router, private route:ActivatedRoute, private recentideas:RecentIdeasService, private dialog: MatDialog) { }
 
   recommendedIdeas:any=[];
 
@@ -43,6 +45,8 @@ export class ServiceProviderDashboardComponent implements OnInit {
   console.log(emailId);
 
     this.recentideas.sendToInnovator(title,emailId);
+    this.dialog.open(ApplySuccessComponent);
+
 
 
 }
@@ -53,6 +57,7 @@ goToAllIdeas(){
 
 
 }
+
 
 
 }
