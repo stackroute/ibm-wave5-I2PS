@@ -10,7 +10,7 @@ RUN npm run build
 
 RUN npm install -g http-server
 
-WORKDIR /app/dist/your-angular-project
+WORKDIR /app/dist/angular-frontend
 
 RUN ls -la
 
