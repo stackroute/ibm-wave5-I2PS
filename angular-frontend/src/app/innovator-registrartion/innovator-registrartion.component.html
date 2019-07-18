@@ -44,7 +44,7 @@
                                            </mat-form-field>
                                            <br>
                                            <mat-form-field>
-                                              <input type="password" matInput placeholder="Password(Min lenght 8)" formControlName="password" minlength="8">
+                                              <input type="password" matInput placeholder="Password(Min length 8)" formControlName="password" minlength="8" required>
                                             </mat-form-field>
                                             <br>
 
@@ -71,7 +71,7 @@
                                             <ng-template matStepLabel>Interest</ng-template>
                                            
                                             <mat-form-field >
-                                                <mat-select  #subDomain placeholder="subdomain" formControlName="subdomain" multiple>
+                                                <mat-select  #subDomain placeholder="Sub-Domain" formControlName="subdomain" multiple>
                                                    <mat-option *ngFor="let subDomain of subDomainList" [value]="subDomain">{{subDomain}}</mat-option>
                                                 </mat-select>
                                              </mat-form-field>
@@ -87,8 +87,8 @@
   
 
                                             <div>
-                                              <button mat-button matStepperPrevious class="btn">Back</button>
-                                              <button mat-button matStepperNext class="btn1">Next</button>
+                                              <button mat-button matStepperPrevious class="btn">BACK</button>
+                                              <button mat-button matStepperNext class="btn1">NEXT</button>
                                             </div>
                                           </form>
                                         </mat-step>
@@ -103,9 +103,9 @@
                                                    <br>
                                                    <br>
                                                 <div>
-                                                      <button mat-button matStepperPrevious class="btn2">Back</button>
-                                                      <button mat-button class="btn3" (click)="stepper.reset()">Reset</button>
-                                                      <button mat-button class="btn3" (click)="register()">Submit</button>
+                                                      <button mat-button matStepperPrevious class="btn2">BACK</button>
+                                                      <button mat-button class="btn3" (click)="stepper.reset()">RESET</button>
+                                                      <button mat-button class="btn3" (click)="register()">  SUBMIT </button>
 
                                                 </div>
                                                 <br>

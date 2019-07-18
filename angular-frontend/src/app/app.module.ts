@@ -41,6 +41,8 @@ import { IntelligentServiceComponent } from './intelligent-service/intelligent-s
 import { InnovatorRegistrartionComponent } from './innovator-registrartion/innovator-registrartion.component';
 import { AllIdeasComponent } from './all-ideas/all-ideas.component';
 import { IdeaDetailComponent } from './idea-detail/idea-detail.component';
+import { SearchComponent } from './search/search.component';
+import { ApplySuccessComponent } from './apply-success/apply-success.component';
 
 
 
@@ -77,7 +79,7 @@ import { IdeaDetailComponent } from './idea-detail/idea-detail.component';
     InnovatorRegistrartionComponent,
     ServiceProviderRegistrationComponent,
     AllIdeasComponent,
-    IdeaDetailComponent
+    IdeaDetailComponent, SearchComponent, ApplySuccessComponent
 
 
 

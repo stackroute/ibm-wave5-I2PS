@@ -37,6 +37,7 @@ a{color:inherit;text-decoration:none}
 	min-height:510px;
 	position:relative;
 	background-size: cover;
+
 }
 .login-html{
 	width:100%;
@@ -114,11 +115,11 @@ a{color:inherit;text-decoration:none}
 	-webkit-text-security:circle;
 }
 .login-form .group .label{
-	color:#aaa;
+	color:black;
 	font-size:12px;
 }
 .login-form .group .button{
-	background:#1161ee;
+	background:skyblue;
 }
 .login-form .group label .icon{
 	width:15px;
@@ -155,7 +156,7 @@ a{color:inherit;text-decoration:none}
 	color:#fff;
 }
 .login-form .group .check:checked + label .icon{
-	background:#1161ee;
+	background:skyblue;
 }
 .login-form .group .check:checked + label .icon:before{
 	-webkit-transform:scale(1) rotate(45deg);

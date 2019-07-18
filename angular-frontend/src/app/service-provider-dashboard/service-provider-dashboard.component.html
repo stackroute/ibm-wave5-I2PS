@@ -1,23 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-
-<head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-</head>
 
 
 <header>
@@ -58,8 +39,10 @@
 <!--/.Navbar-->
 </header>
 <!-- details card section starts from here -->
-<body class="view">
-    <div class="mask rgba-gradient">
+<!-- <body class="view">
+    <div class="mask rgba-gradient"> -->
+      <body class="view">
+        <div class="mask rgba-gradient">
 <div class="bg-image">
 
     <section class="details-card">
@@ -72,13 +55,12 @@
              <div class="card-content">
                <div class="card-img">
                  <img src="https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=924&q=80" alt="">
-                 <span><h4>Idea</h4></span>
+                 <span><h4>{{data.domain}}</h4></span>
                </div>
                <div class="card-desc">
              
                  <p>{{data.ideaTitle}}</p>
                  <p>{{data.ideaDescription}}</p>
-                 <p>{{data.domain}}</p>
                  <p>{{data.subDomain}}</p>
                  <p>{{data.roles}}</p>
                  <div class="wrapper">
@@ -90,10 +72,12 @@
            </div>
            </div>
     </section>
+
+   
 </div>
 </div>
     </body>
 
 
 
-<!-- details card section starts from here -->
+<app-footer></app-footer>

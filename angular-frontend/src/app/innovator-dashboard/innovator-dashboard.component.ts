@@ -88,7 +88,7 @@ export class InnovatorDashboardComponent implements OnInit {
       if(this.ideaData.length==0)
       {
         console.log("Testing...if ");
-        this.nopost = "You haven't posted any ideas yet !!!";
+        this.nopost = "YOU HAVE NOT POSTED ANY IDEAS YET";
       }
     });
 
@@ -98,5 +98,7 @@ export class InnovatorDashboardComponent implements OnInit {
     console.log("this is the title"+ value);
     this.router.navigateByUrl('/ideaDetail/'+value);
   }
+
+
 
 }

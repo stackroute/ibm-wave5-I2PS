@@ -1,7 +1,7 @@
 
                              <body class="view">
                                 <div class="mask rgba-gradient">
-                               <br>
+                               
                                <br>
                               <div class="height1" style="background-color: white;">
                                 <br>
@@ -13,7 +13,7 @@
                                       <mat-step [stepControl]="firstFormGroup">
                                                 <form [formGroup]="firstFormGroup" class="form" >
                                                   <ng-template matStepLabel>About</ng-template>
-                                                  <br>
+                                               
                                                   <br>
                                                   <mat-form-field labelPosition="top">
                                                      
@@ -42,7 +42,7 @@
                                            </mat-form-field>
                                            <br>
                                            <mat-form-field>
-                                              <input #password type="password" matInput placeholder="Password(Min lenght 8)" formControlName="password" minlength="8">
+                                              <input #password type="password" matInput placeholder="Password(Min length 8)" formControlName="password" minlength="8" required>
                                             </mat-form-field>
                                             <br>
                                             <mat-form-field>
@@ -59,8 +59,8 @@
                                                          
                                             <br>
                                            <div>
-                                             <button mat-button matStepperPrevious class="btn">Back</button>
-                                             <button mat-button matStepperNext class="btn1">Next</button>
+                                             <button mat-button matStepperPrevious class="btn">BACK</button>
+                                             <button mat-button matStepperNext class="btn1">NEXT</button>
                                            </div>
                                          </form>
                                        </mat-step>
@@ -70,35 +70,35 @@
                                                <ng-template matStepLabel>Interest</ng-template>
                                               
                                                <mat-form-field >
-                                                <mat-select  #subDomain placeholder="subdomain" formControlName="subdomain" multiple>
+                                                <mat-select  #subDomain placeholder="Sub-Domain" formControlName="subdomain" multiple>
                                                    <mat-option *ngFor="let subDomain of subDomainList" [value]="subDomain">{{subDomain}}</mat-option>
                                                 </mat-select>
                                              </mat-form-field>
                                                    <br>
                                                  
                                                    <mat-form-field >
-                                                      <mat-select #skills placeholder="skill" formControlName="skill" multiple>
+                                                      <mat-select #skills placeholder="Skills" formControlName="skill" multiple>
                                                          <mat-option *ngFor="let skills of skillsList" [value]="skills">{{skills}}</mat-option>
                                                       </mat-select>
                                                    </mat-form-field>
                                                    <br>
                                                    <mat-form-field>
-                                                      <mat-label>Select your Domain (required)</mat-label>
+                                                      <mat-label>Select your Role (required)</mat-label>
                                                       <select #role matNativeControl formControlName="RoleCtrl" required>
                                                             <option *ngFor="let role of RolesList" [value]="role">{{role}}</option> 
                                                         
                                                           </select>
                                                           
                                                   </mat-form-field>
-      <br>
+   <br>
       <ng-template matStepLabel>Fill out your Charge-per-Hour</ng-template>
       <mat-form-field>
           <input #charge matInput placeholder="Charge-Per-Hour" formControlName="chargePerHour" required>
       </mat-form-field>
    
                                                <div>
-                                                 <button mat-button matStepperPrevious class="btn">Back</button>
-                                                 <button mat-button matStepperNext class="btn1">Next</button>
+                                                 <button mat-button matStepperPrevious class="btn">BACK</button>
+                                                 <button mat-button matStepperNext class="btn">NEXT</button>
                                                </div>
                                              </form>
                                            </mat-step>
@@ -114,9 +114,9 @@
                                                    <br>
                                                    <br>
                                                 <div>
-                                                      <button mat-button matStepperPrevious class="btn2">Back</button>
-                                                      <button mat-button class="btn3" (click)="stepper.reset()">Reset</button>
-                                                      <button mat-button class="btn3" (click)="register()">Submit</button>
+                                                      <button mat-button matStepperPrevious class="btn2">BACK</button>
+                                                      <button mat-button class="btn3" (click)="stepper.reset()">RESET</button>
+                                                      <button mat-button class="btn3" (click)="register()">SUBMIT</button>
 
                                                 </div>
                                                 <br>

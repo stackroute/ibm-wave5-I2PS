@@ -133,7 +133,8 @@ min-height: 100vh;
   /* display:inline-block; */
   display: inline-flex;
   color: white;
-  width: 50px;
+  width: 60px;
+  margin-left: 4%;
 }
 
 
@@ -159,7 +160,7 @@ min-height: 100vh;
 .btn3{
   background-color:blue; 
   color: white;
-  width: 30px;
+  width: 50px;
   margin-left: 20px;
 }
 

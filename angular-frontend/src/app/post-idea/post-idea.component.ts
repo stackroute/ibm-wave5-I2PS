@@ -11,6 +11,7 @@ import { PostIdeaServiceService } from '../post-idea-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import subdomain from 'src/assets/jsonfiles/data2.json';
+import { HttpClient } from '@angular/common/http';
 
 export interface Domain {
   name: string;
@@ -37,20 +38,57 @@ export class PostIdeaComponent implements OnInit {
 
   filteredDomains: Observable<string[]>;
   domains: string[] = [];
-  allDomains: string[] = ['Software Developer', 'Manual Tester', 'Automation Tester', 'Mobile Developer',
-                          'Marketing Agent','Travel agent', 'Financer'];
+  allDomains: string[] = [];
+
+  realDomains:any= [];
+  allRealDomains:any= [];
+
+  subDomains:any=[];
+  allSubDomains:any=[];
   
   @ViewChild('domainInput', {static: false}) domainInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
   
 
-  constructor(public dialogRef: MatDialogRef<PostIdeaComponent>, private postIdeaService : PostIdeaServiceService, private router: Router,private route:ActivatedRoute) {
+  constructor(public dialogRef: MatDialogRef<PostIdeaComponent>, private postIdeaService : PostIdeaServiceService, private router: Router,private route:ActivatedRoute, private  http:HttpClient) {
     // console.log(this.matAutocomplete )
-    this.filteredDomains = this.domainCtrl.valueChanges.pipe(
-        startWith(null),
-        map((domain: string | null) => domain ? this._filter(domain) : this.allDomains.slice()));
-      // console.log(this.filteredDomains)
-      this.filteredDomains.subscribe(console.log)
+
+    // taking json data for roles
+    this.http.get('./assets/jsonfiles/data3.json').subscribe(
+      (data:any) => {
+        // this.allDomains = data ;	 // FILL THE ARRAY WITH DATA.
+          console.log(data)
+          data.forEach(e => {
+            this.allDomains.push(e)
+            
+          });
+          this.filteredDomains = this.domainCtrl.valueChanges.pipe(
+              startWith(null),
+              map((domain: string | null) => domain ? this._filter(domain) : this.allDomains.slice()));
+            // console.log(this.filteredDomains)
+            this.filteredDomains.subscribe(console.log)
+      }
+    );
+
+
+
+ // taking json data for domains
+ this.http.get('./assets/jsonfiles/data1.json').subscribe(
+  (data)=>{
+    console.log(data);
+    console.log("Hey there...");
+    this.allRealDomains=data;
+
+   });
+
+
+    // taking json data for subdomains
+    this.http.get('./assets/jsonfiles/data2.json').subscribe(
+    (data)=>{
+          console.log(data);
+    console.log("Heeeeeeeeeeeeee");
+      this.allSubDomains=data;
+    });
   }
 
   add(event: MatChipInputEvent): void {
@@ -101,6 +139,11 @@ export class PostIdeaComponent implements OnInit {
 
     const emailId=this.route.snapshot.paramMap.get('emailId');
     console.log("in post Idea"+emailId);
+
+
+    // getting json data for roles
+  
+    
   }
 
   postIdea(ideaTitle,ideaBio,ideaDomain,ideaSubDomain,ideaBudget): any{
