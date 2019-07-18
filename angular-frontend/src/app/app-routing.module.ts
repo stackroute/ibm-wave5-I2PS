@@ -39,18 +39,18 @@ const routes: Routes = [
   {path:'footer',component:FooterComponent},
   {path:'result/:roles',component:IntelligentServiceComponent},
   {path: 'acceptedSerProviders/:servProviders',component:PostIdeaComponent},
-{path:'allIdeas/:emailId',component:AllIdeasComponent},
-{path:'ideaDetail/:title',component:IdeaDetailComponent},
-{path:'allIdeas',component:AllIdeasComponent},
-{path:'search/:idea',component:SearchComponent},
+  {path:'allIdeas/:emailId',component:AllIdeasComponent},
+  {path:'ideaDetail/:title',component:IdeaDetailComponent},
+  {path:'allIdeas',component:AllIdeasComponent},
+  {path:'search/:idea',component:SearchComponent},
 
 
-{path:'serviceDashboard',component:ServiceProviderDashboardComponent},  //for trial, remove after use
-{path:'innovatorDashboard',component:InnovatorDashboardComponent},
+  {path:'serviceDashboard',component:ServiceProviderDashboardComponent},  //for trial, remove after use
+  {path:'innovatorDashboard',component:InnovatorDashboardComponent},
 
 
 
-{path:'ideaDetail',component:IdeaDetailComponent},
+  {path:'ideaDetail',component:IdeaDetailComponent},
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent },
 

@@ -1,7 +1,7 @@
 
 <div class="img">
 <mat-tab-group (selectedTabChange) = "myClick($event)">
-  <mat-tab (selectedTabChange) = "myClick()" label="{{role}}" *ngFor="let role of roles">
+  <mat-tab (selectedTabChange) = "myClick($event)" label="{{role}}" *ngFor="let role of roles">
     
           <div class="container">
        
