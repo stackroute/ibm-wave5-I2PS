@@ -20,6 +20,7 @@ export class RecentIdeasService {
 
   sendToInnovator(title,emailId):any{
     this.httpclient.put(`http://localhost:8060/api/v1/idea/${title}/${emailId}`,{}).subscribe();
+    this.httpclient.post(`http://localhost:8082/rest/neo4j/idea/user/${title}/${emailId}`,{}).subscribe();
     console.log("came");
 
   }

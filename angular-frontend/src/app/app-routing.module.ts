@@ -49,6 +49,7 @@ const routes: Routes = [
   {path:'innovatorDashboard',component:InnovatorDashboardComponent},
 
 
+  {path:'postIdea',component:PostIdeaComponent},
 
   {path:'ideaDetail',component:IdeaDetailComponent},
   { path: '', component: HomeComponent },

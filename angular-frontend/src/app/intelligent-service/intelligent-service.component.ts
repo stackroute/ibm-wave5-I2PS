@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IntelligentserviceService } from '../intelligentservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostIdeaServiceService } from '../post-idea-service.service';
+import { MatchComponent } from '../match/match.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-intelligent-service',
@@ -11,7 +13,7 @@ import { PostIdeaServiceService } from '../post-idea-service.service';
 export class IntelligentServiceComponent implements OnInit {
 
   constructor(private intelligentService: IntelligentserviceService,private postIdeaService:PostIdeaServiceService, private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, private dialog:MatDialog) { }
   allServiceProviders: any = [];
   filteredProviders: any = [];
   servProvider: any;
@@ -73,7 +75,9 @@ export class IntelligentServiceComponent implements OnInit {
    done()
    {
      this.postIdeaService.updateIdea(this.postIdeaService.Idea)
-     this.router.navigateByUrl('/home')
+     this.dialog.open(MatchComponent)
+     const sendEmailId=this.postIdeaService.Idea.emailId;
+     this.router.navigateByUrl('innovatorDashboard/'+sendEmailId)
    }
 
    myClick(event) {

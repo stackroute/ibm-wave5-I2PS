@@ -2,14 +2,12 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
+import {MatDialogRef} from '@angular/material/dialog';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { PostIdeaServiceService } from '../post-idea-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
 import subdomain from 'src/assets/jsonfiles/data2.json';
 import { HttpClient } from '@angular/common/http';
 
@@ -141,7 +139,7 @@ export class PostIdeaComponent implements OnInit {
     console.log("in post Idea"+emailId);
 
 
-    // getting json data for roles
+
   
     
   }

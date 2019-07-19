@@ -20,12 +20,6 @@
           </a>
         </li>
 
-        <!-- <li class="nav-item">
-          <a routerLink="/innovatorProfile" class="nav-link waves-light" mdbWavesEffect>
-            <mdb-icon fas icon="lightbulb"></mdb-icon> DASHBOARD
-          </a>
-        </li> -->
-
         <li class="nav-item">
           <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>
             <mdb-icon fas icon="cog"></mdb-icon> LOG OUT
@@ -65,16 +59,11 @@
         <hr>
 
 
-        <div class="row">
-          <div class="col-sm-2">
-            <!-- <div class="form-group"> -->
+        <div >
+          
             <label>Idea title:</label>
-          </div>
-          <div class="col-sm">
-            <input #ideaTitle type="text" class="form-control" required placeholder="Title">
-            <!-- </div> -->
-          </div>
-        </div>
+           <input #ideaTitle type="text" class="form-control" required placeholder="Title">
+       </div>
         <br>
 
         <div class="form-group">
@@ -83,6 +72,9 @@
             placeholder="Describe what you want...."></textarea>
         </div>
 
+
+
+<!-- Domain selection goes here -->
         <div class="form-group">
           <label>Domain:</label>
           <div class="input-group mb-3">
@@ -92,8 +84,6 @@
             <select #ideaDomain class="custom-select" id="DomainSelector">
                 <option value= {{domain.domain}} *ngFor=" let domain of allRealDomains.domain"> {{domain.domain}}</option>
 
-              <!-- <option value="IT">IT</option>
-              <option value="Tourism">Tourism</option> -->
             </select>
           </div>
         </div>
@@ -108,30 +98,15 @@
             <select #ideaSubDomain class="custom-select" id="inputGroupSelect01">
               
               <option value= {{subDomain}} *ngFor=" let subDomain of allSubDomains"> {{subDomain}}</option>
-              <!-- <option value="Application Development">Application Development</option>
-              <option value="Software Development">Software Development</option>
-              <option value="Website Development">Website Development</option>
-              <option value="Hardware Development">Hardware Development</option>
-              <option value="Automation Development">Automation Development</option>
-              <option value="Robotics">Robotics</option>
-              <option value="Mobile Development">Mobile Development</option>
-              <option value="Cloud Configuration">Cloud Configuration</option>
-              <option value="Website Development">Website Development</option>
-              <option value="Cultural Tourism">Cultural Tourism</option>
-              <option value="Medical Tourism">Medical Tourism</option>
-              <option value="Wildlife Tourism">Wildlife Tourism</option> -->
             </select>
 
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-2">
-            <label>Your budget(in $) :</label>
-          </div>
-          <div class="col-sm-4">
-            <input #ideaBudget type="text" class="form-control" required>
-          </div>
+        <div >
+                 <label>Your budget(in $) :</label>
+                  <input #ideaBudget type="text" class="form-control" required>
+        
         </div>
 
         
@@ -143,7 +118,7 @@
                 <mat-chip *ngFor="let domain of domains" [selectable]="selectable" [removable]="removable"
                   (removed)="remove(domain)">
                   {{domain}}
-                  <mat-icon matChipRemove *ngIf="removable">x</mat-icon>
+                  <mat-icon matChipRemove *ngIf="removable">close</mat-icon>
                 </mat-chip>
                 <input placeholder="Role" #domainInput [formControl]="domainCtrl" [matAutocomplete]="auto"
                   [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"

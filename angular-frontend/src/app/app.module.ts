@@ -43,6 +43,7 @@ import { AllIdeasComponent } from './all-ideas/all-ideas.component';
 import { IdeaDetailComponent } from './idea-detail/idea-detail.component';
 import { SearchComponent } from './search/search.component';
 import { ApplySuccessComponent } from './apply-success/apply-success.component';
+import { MatchComponent } from './match/match.component';
 
 
 
@@ -79,7 +80,7 @@ import { ApplySuccessComponent } from './apply-success/apply-success.component';
     InnovatorRegistrartionComponent,
     ServiceProviderRegistrationComponent,
     AllIdeasComponent,
-    IdeaDetailComponent, SearchComponent, ApplySuccessComponent
+    IdeaDetailComponent, SearchComponent, ApplySuccessComponent, MatchComponent
 
 
 

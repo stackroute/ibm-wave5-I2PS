@@ -5,6 +5,7 @@
   background-color: black;
   color: white;
   position: center;
+ 
 }
 
 mat-card{
@@ -12,14 +13,16 @@ mat-card{
 
 width: 100%;
 margin:auto;
-padding: 10%;
+
 max-width:510px;
 min-height:510px;
 position:relative;
 background-size: cover;
-background:url(https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1000x563.jpg) no-repeat center;
 box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 
+}
+p{
+  font-size: 18px;
 }
 
 .img{
@@ -36,14 +39,16 @@ background-position: center center;
 }
 
 .fullbody{
-  background-image: url("https://images.pexels.com/photos/159805/meeting-modern-room-conference-159805.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-image: url("https://images.pexels.com/photos/754194/pexels-photo-754194.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
   background-attachment: fixed;
    background-position: center center;
 }
 img{
-  height:100%;
-  width: 100%;
+  height:70%;
+  width: 70%;
+  position: relative;
+  padding-left: 25%;
 }
 
 
@@ -56,7 +61,7 @@ img{
 
 
 @media (max-width: 300px) {
-#header .fullbody {
+#header .fullbody mat-card .example-card .card{
   width: 100%;
   height: 100%;
   }
@@ -64,14 +69,16 @@ img{
 }
 
 .example-card {
-  max-width: 400px;
+  max-width: 300px;
+  margin: 10px;
+  
 }
 
 .example-header-image {
   /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
   background-size: cover;
 }
-body{}
+
 
 .mat-button{
 
@@ -102,24 +109,69 @@ body {
 }
 
 
-/* h1{
-  font-size: 4rem;
-  font-weight: 900;
-  text-align: center;
-  margin: 4rem;
-  text-transform: uppercase;
-  animation: background-move 10s infinite;
-  background: url(https://blog.spoongraphics.co.uk/wp-content/uploads/2012/retro-pattern/triangle-pattern.jpg
-);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
+
 
 .wrapper {
-  text-align: center;
+  float:right;
 }
 
 .button {
   position: absolute;
   top: 50%;
 }
+
+.mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child {
+  margin-left: 20%;
+}
+
+
+
+#banner {
+  background-image: linear-gradient(120deg, #91C4FF 0%, #F0F7FF 87%);
+  position: relative;
+  width: 100%;
+  height: 950px;
+}
+
+
+#cloud-scroll {
+  background: url(https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) repeat;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180%;
+  background-size: cover;
+  position: absolute;
+  -webkit-animation: 900000s backgroundScroll infinite linear;
+  -moz-animation: 900000s backgroundScroll infinite linear;
+  -o-animation: 900000s backgroundScroll infinite linear;
+  -ms-animation: 900000s backgroundScroll infinite linear;
+  animation: 900000s backgroundScroll infinite linear;
+}
+@-webkit-keyframes backgroundScroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -99999999px 0;
+  }
+}
+
+@keyframes backgroundScroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -99999999px 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
