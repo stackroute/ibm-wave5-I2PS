@@ -24,4 +24,6 @@ public interface IdeaRepository extends Neo4jRepository<Idea,Long> {
             "RETURN n")
     List<Idea> ideaRoleRelationship(@Param("role")String role);
 
+    @Query("MATCH (n:Idea),(u:User) WHERE n.ideaName={ideaName} AND u.name={name} CREATE (u)-[r:apply]->(n)RETURN r")
+    Idea userIdeaRelationship(@Param("ideaName")String ideaName,@Param("name")String name);
 }

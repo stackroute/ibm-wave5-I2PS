@@ -55,4 +55,12 @@ public class IdeaController {
         return ideaService.getRecommendedIdeas(emailId);
     }
 
+    //To match user and idea
+    @PostMapping("/user/{ideaName}/{emailId}")
+    public  Idea getUserIdea(@PathVariable String ideaName,@PathVariable String emailId){
+
+        return ideaService.matchIdea(ideaName,emailId);
+    }
+
+
 }

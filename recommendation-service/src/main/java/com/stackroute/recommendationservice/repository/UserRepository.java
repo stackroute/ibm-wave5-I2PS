@@ -17,9 +17,13 @@ public interface UserRepository extends Neo4jRepository<User,Long> {
     @Query("MATCH (u:User) WHERE u.name={userName} RETURN u.role")
     public String getNode(@Param("userName") String userName);
 
-    ////Query to retrieve role of a user from emailId
+    //Query to retrieve role of a user from emailId
     @Query("MATCH (u:User) WHERE u.emailId={emailId} RETURN u.role")
     public String getRoleForUser(@Param("emailId") String emailId);
+
+    //Query to retrieve name of a user from emailId
+    @Query("MATCH (u:User) WHERE u.emailId={emailId} RETURN u.name")
+    public String getNameForUser(@Param("emailId") String emailId);
 
     @Query("MATCH (u:User) WHERE u.subDomain={subDomain} RETURN u")
     Collection<User> getAllUserDomain(@Param("subDomain")String subDomain);
@@ -29,7 +33,4 @@ public interface UserRepository extends Neo4jRepository<User,Long> {
     User matchUserSubDomain(@Param("subDomainName") String subDomainName,@Param("name") String name);
 
 
-    //Query to create relationship between user and idea
-    @Query("MATCH (n:User),(s:Idea) WHERE s.ideaName={ideaName}  AND n.name={name} CREATE (n)-[r:work_upon]->(s)RETURN r")
-    User matchUseridea(@Param("ideaName") String ideaName,@Param("name") String name);
 }

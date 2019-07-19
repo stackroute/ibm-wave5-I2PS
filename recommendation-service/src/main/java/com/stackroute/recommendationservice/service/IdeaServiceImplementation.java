@@ -84,4 +84,10 @@ public class IdeaServiceImplementation implements IdeaService {
        String role= userRepository.getRoleForUser(emailId);
        return ideaRepository.ideaRoleRelationship(role);
     }
+
+    @Override
+    public Idea matchIdea(String ideaName, String emailId) {
+        String name= userRepository.getNameForUser(emailId);
+        return ideaRepository.userIdeaRelationship(ideaName,name);
+    }
 }

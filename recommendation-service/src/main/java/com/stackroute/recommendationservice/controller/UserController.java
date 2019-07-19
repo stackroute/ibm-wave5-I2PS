@@ -50,11 +50,7 @@ public class UserController {
         return userServices.matchUserSubDomain(subDomainName,name);
     }
 
-    @PostMapping("/{ideaName}/{name}")
-    public  User getUserIdea(@PathVariable String ideaName,@PathVariable String name){
 
-        return userServices.matchIdea(ideaName,name);
-    }
 
 
 

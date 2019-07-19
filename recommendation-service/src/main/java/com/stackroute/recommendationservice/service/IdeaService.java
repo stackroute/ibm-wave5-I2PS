@@ -18,4 +18,6 @@ public interface IdeaService {
      List<Idea> getIdea(String role);
 
      List<Idea> getRecommendedIdeas(String emailId);
+
+    Idea matchIdea(String ideaName, String emailId);
 }

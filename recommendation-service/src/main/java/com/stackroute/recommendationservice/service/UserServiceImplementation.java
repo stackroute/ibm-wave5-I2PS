@@ -59,10 +59,6 @@ public class UserServiceImplementation implements UserServices {
         return userRepository.matchUserSubDomain(subDomainName,name);
     }
 
-    @Override
-    public User matchIdea(String ideaName, String name) {
-        return userRepository.matchUseridea(ideaName,name);
-    }
 
 
     @RabbitListener(queues = "${serviceNeo4j.queue}")
