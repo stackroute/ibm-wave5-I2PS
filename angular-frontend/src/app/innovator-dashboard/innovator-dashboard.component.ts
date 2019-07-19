@@ -19,23 +19,9 @@ export class InnovatorDashboardComponent implements OnInit {
   ideaData: any = [];
   nopost: any;
 
-  //  openDialog(): void {
-  //    const dialogRef = this.dialog.open(PostIdeaComponent, {
-  //      width: '800px',
-  //    });
 
-  //    dialogRef.afterClosed().subscribe(result => {
-
-  //      console.log('The dialog was closed');
-  //    });
-  //  }
   ngOnInit() {
-    // this.registrationService.getInnovatorProfile().subscribe(data=>
-    //   {
-    //     console.log(data);
-    //     this.innovatorprofiledashboarddata=data;
-    //   });
-    // }
+    
     console.log("Before calling the function:", this.ideaData);
 
     this.getByEmailId();
@@ -69,13 +55,7 @@ export class InnovatorDashboardComponent implements OnInit {
     this.router.navigateByUrl('/innovatorProfile/' + emailId);
   }
 
-  //  getIdeasPostedByInnovator():any{
-  //   const emailId=this.route.snapshot.paramMap.get('sendEmailId');
-  //   console.log("in innovator dashboard getIdeasPostedByInnovator "+emailId);
-  //   this.registrationService.getIdeasPostedByInnovator(emailId).subscribe((dataOfIdea)=>{
-  //     console.log("after")
-  //   })
-  //  }
+
 
   getIdeasPostedByInnovator(): any {
     const emailId = this.route.snapshot.paramMap.get('sendEmailId');
@@ -83,8 +63,8 @@ export class InnovatorDashboardComponent implements OnInit {
     this.registrationService.getIdeasPostedByInnovator(emailId).subscribe((data: any) => {
       console.log("data fetched..from getideapostedbyinnovator..", data);
       this.ideaData = data;
-      // console.log("see data.0. ", this.ideaData[0]);
-      // console.log("see data.1. ", this.ideaData[0].title);
+
+
       if(this.ideaData.length==0)
       {
         console.log("Testing...if ");
@@ -98,7 +78,4 @@ export class InnovatorDashboardComponent implements OnInit {
     console.log("this is the title"+ value);
     this.router.navigateByUrl('/ideaDetail/'+value);
   }
-
-
-
 }

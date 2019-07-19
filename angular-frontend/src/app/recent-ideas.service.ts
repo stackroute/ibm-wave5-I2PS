@@ -32,7 +32,7 @@ export class RecentIdeasService {
   }
 
   approveOrRejectSP(title,emailId,status):any{
-this.httpclient.put(`http://localhost:8060/api/v1/serviceProviders/${title}/${emailId}/${status}`,{});
+this.httpclient.put(`http://localhost:8060/api/v1/serviceProviders/${title}/${emailId}/${status}`,{}).subscribe();
 console.log("coming");
   }
 }

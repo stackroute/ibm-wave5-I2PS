@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 .myPanelClass{
     margin-top: 30px !important; 
   }
@@ -21,7 +22,7 @@ header mdb-navbar-brand
   
 }
 
-p,h5,h6,h3,h4{
+p,h5,h6,h3,h4,a{
   font-family: 'Literata', serif;
 
 }
