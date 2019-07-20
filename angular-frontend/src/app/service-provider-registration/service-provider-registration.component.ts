@@ -278,9 +278,7 @@ export class ServiceProviderRegistrationComponent implements OnInit {
       // skills: this.thirdFormGroup.controls.skill.value,
       role: this.roles,
 
-      subDomain: this.thirdFormGroup.controls.subdomain.value,
       skills: this.thirdFormGroup.controls.skill.value,
-      role: this.thirdFormGroup.controls.RoleCtrl.value,
 
       chargePerHour: this.thirdFormGroup.controls.chargePerHour.value
     }
