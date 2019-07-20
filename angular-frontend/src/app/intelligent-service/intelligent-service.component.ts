@@ -75,8 +75,9 @@ export class IntelligentServiceComponent implements OnInit {
    done()
    {
      this.postIdeaService.updateIdea(this.postIdeaService.Idea)
-     this.dialog.open(MatchComponent)
+    //  this.dialog.open(MatchComponent)
      const sendEmailId=this.postIdeaService.Idea.emailId;
+     console.log(sendEmailId+"coming or not???")
      this.router.navigateByUrl('innovatorDashboard/'+sendEmailId)
    }
 

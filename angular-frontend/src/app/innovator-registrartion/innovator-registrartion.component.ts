@@ -169,7 +169,7 @@ visible = true;
 
   });
   this.thirdFormGroup = this._formBuilder.group({
-    subdomain:[''],
+    subDomainCtrl:[''],
     skill:['']
   });
 }
@@ -189,7 +189,7 @@ visible = true;
       password:this.secondFormGroup.controls.password.value,
       name:this.firstFormGroup.controls.FirstName.value,
       domain:this.secondFormGroup.controls.domainCtrl.value,
-      subDomain:this.thirdFormGroup.controls.subdomain.value,
+      subDomain:this.subDomains
    }
 
    console.log(innovatorData);
