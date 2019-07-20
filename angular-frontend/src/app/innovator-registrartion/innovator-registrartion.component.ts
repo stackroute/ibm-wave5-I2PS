@@ -50,7 +50,6 @@ visible = true;
   subDomainCtrl = new FormControl();
   filteredSubDomains: Observable<string[]>;
   subDomains: string[] = [];
-  // allSubDomains: string[] = ['Automation Testing', 'Front End Development', 'Back End Development', 'Animation', 'Selenium Testing'];
   allSubDomains: string[] = [];
   @ViewChild('subDomainInput', {static: false}) fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
@@ -189,14 +188,12 @@ visible = true;
       password:this.secondFormGroup.controls.password.value,
       name:this.firstFormGroup.controls.FirstName.value,
       domain:this.secondFormGroup.controls.domainCtrl.value,
-      subDomain:this.thirdFormGroup.controls.subdomain.value,
+      subDomain:this.subDomains,
    }
 
    console.log(innovatorData);
    this.registrationService.addInnovatorProfile(innovatorData);
    this.dialog.open(ModalSuccessComponent);
    this.router.navigateByUrl('/home');
-
-
   }
 }

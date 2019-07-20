@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import subdomain from 'src/assets/jsonfiles/data2.json';
-import skills from 'src/assets/jsonfiles/data4.json';
 import roles from 'src/assets/jsonfiles/data3.json';
 import { RegistrationServiceService } from '../registration-service.service';
 import { Router } from '@angular/router';
@@ -91,7 +89,7 @@ export class ServiceProviderRegistrationComponent implements OnInit {
     this.http.get('./assets/jsonfiles/data2.json').subscribe(
       (data: any) => {
         // this.allDomains = data ;	 // FILL THE ARRAY WITH DATA.
-        // console.log(data)
+        console.log(data)
         data.forEach(e => {
           this.allSubDomains.push(e)
 
@@ -267,22 +265,20 @@ export class ServiceProviderRegistrationComponent implements OnInit {
   }
 
   register(): void {
-    console.log(this.form);
+   
     let providerData = {
-      name: this.firstFormGroup.controls.FirstName.value,
       emailId: this.secondFormGroup.controls.email.value,
       password: this.secondFormGroup.controls.password.value,
+      name: this.firstFormGroup.controls.FirstName.value,
       domain: this.secondFormGroup.controls.domainCtrl.value,
-
-      subDomain: this.subDomains,
-      // skills: this.thirdFormGroup.controls.skill.value,
-      role: this.roles,
-
-      skills: this.thirdFormGroup.controls.skill.value,
-
+      subDomain:this.subDomains,
+      role: this.roles[0],
+      skills: this.skills,
+      about: "this is hard coded data",
       chargePerHour: this.thirdFormGroup.controls.chargePerHour.value
     }
-    console.log(providerData);
+
+    console.log(providerData, "Required DATA ????");
     this.registrationService.addServiceProvider(providerData);
     this.dialog.open(ModalSuccessComponent);
     this.router.navigateByUrl('/home');

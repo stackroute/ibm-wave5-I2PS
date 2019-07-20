@@ -14,8 +14,8 @@ export class RegistrationServiceService {
   }
 
   addServiceProvider(value):any{
-    this.http.post("http://localhost:8077/api/v1/serviceprovider",value).subscribe();
-    console.log("came");
+    this.http.post("http://localhost:8077/api/v1/serviceprovider",value).subscribe(console.log);
+    console.log("came how many times ???");
 
   }
   getByEmailIdForServiceProvider(emailId):any{
