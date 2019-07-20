@@ -273,9 +273,9 @@ export class ServiceProviderRegistrationComponent implements OnInit {
       emailId: this.secondFormGroup.controls.email.value,
       password: this.secondFormGroup.controls.password.value,
       domain: this.secondFormGroup.controls.domainCtrl.value,
-      subDomain: this.thirdFormGroup.controls.subDomainCtrl.value,
+      subDomain: this.subDomains,
       // skills: this.thirdFormGroup.controls.skill.value,
-      role: this.thirdFormGroup.controls.roleCtrl.value,
+      role: this.roles,
       chargePerHour: this.thirdFormGroup.controls.chargePerHour.value
     }
     console.log(providerData);
