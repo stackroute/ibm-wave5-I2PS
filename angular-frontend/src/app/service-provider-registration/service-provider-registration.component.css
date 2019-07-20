@@ -1,21 +1,29 @@
-body{
-  background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); 
-height:100%; 
-background-repeat: no-repeat; 
-background-size: cover; 
-background-position: center center;
-min-height: 100vh;
-}
-
-.rgba-gradient {
-  background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-  background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-  background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)));
-  background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-  background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-  background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%)
-}
-
+.encase{
+  background: url('http://mithril-mdl.muchadev.com/assets/materialdesign.png');
+ flex-wrap: wrap;
+ height:100%;
+ /* background-repeat: no-repeat;  */
+ background-size: cover;
+ display: flex;
+ }
+ .height
+  {
+ 
+    max-width:800px;
+    background-color:white;
+    padding: 10px;
+    min-width: 600px;
+    min-height: 500px;
+    margin: auto;
+           -webkit-animation: slit-in-vertical 0.5s ease-out 0.2s both;
+            animation: slit-in-vertical 0.5s ease-out 0.2s both;
+  }
+ .form{
+    position: relative;
+    margin-left: 29%;
+    padding-top: 80px;
+ 
+ }
 .my-form{
     /* min-width: 100px;
     max-width: 600px;
@@ -27,23 +35,9 @@ min-height: 100vh;
   }
 
   mat-form-field{
-    width: 200px;
+    width: 300px;
   } 
 
-  .height
-  {
-    
-    max-width:600px;
-    background-color:white;
-    padding: 10px;
-    min-width: 80px;
-    margin: auto;
-    border: 2px solid blue;
-    border-top: 0px;
-    margin-bottom: 10%;
-    -webkit-animation: slit-in-vertical 0.5s ease-out 0.2s both;
-	        animation: slit-in-vertical 0.5s ease-out 0.2s both;
-  }
   .height1
   {
     margin: auto;
@@ -95,13 +89,6 @@ min-height: 100vh;
 }
 
 
-  .form{
-    position: relative;
-    margin-left: 29%;
-    /* margin-right: 10%; */
-    align-content: center;
-  
-}
 .form1{
   position: relative;
   font-size: 25px;

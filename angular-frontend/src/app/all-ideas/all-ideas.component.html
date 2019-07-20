@@ -1,4 +1,5 @@
-<header>
+<div class="bg">
+  <header>
   <!--Navbar-->
   <mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg" [containerInside]="false">
 
@@ -22,7 +23,7 @@
         <input #input matInput placeholder=" Enter Idea Name">
         <!-- <mat-icon matSuffix>search</mat-icon> -->
     </mat-form-field>
-    <a class="mr-sm-2" (click)="search(input.value)" mdbBtn color="black" outline="true" mdbWavesEffect>SEARCH</a>
+    <a class="mr-sm-2" style="font-size: 24px;" (click)="search(input.value)" mdbBtn color="black" outline="true" mdbWavesEffect>SEARCH</a>
 
     <!-- <button (click)="search(input.value)" type="button" class="btn btn-danger">SEARCH</button> -->
     </p>
@@ -42,7 +43,9 @@
 
                                 </div>
                                   <div class="card-footer text-center">
-                                  <a (click)="applyForAnIdea(array.title)" class="btn btn-primary align-self-end btn-sm">APPLY</a>
+                                      <a style="font-size: 24px;" (click)="applyForAnIdea(array.title)" mdbBtn color="black" outline="true" mdbWavesEffect><strong><b>APPLY</b></strong></a>
+
+                                  <!-- <a (click)="applyForAnIdea(array.title)" class="btn btn-primary align-self-end btn-sm">APPLY</a> -->
                                   </div>
                               
                           </div>
@@ -54,6 +57,7 @@
         
    
 </section>
+</div>
 <!-- Team -->
 
 <app-footer></app-footer>

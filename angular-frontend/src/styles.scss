@@ -32,10 +32,12 @@ p,h5,h6,h3,h4,a{
 
 }
 
-html, body {
-  max-width: 100%;
-  // overflow-x: hidden;
+body {
+  // max-width: 100%;
+  overflow-x: hidden;
+// min-height: 1000vh;
 }
+
 
 a{
   font-size: 20px;}
