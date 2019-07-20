@@ -255,9 +255,9 @@ export class ServiceProviderRegistrationComponent implements OnInit {
       domainCtrl: ['', Validators.required]
     });
     this.thirdFormGroup = this._formBuilder.group({
-      subdomain: [''],
-      skill: [''],
-      RoleCtrl: ['', Validators.required],
+      subDomainCtrl: [''],
+      skillCtrl: [''],
+      roleCtrl: ['', Validators.required],
       chargePerHour: ['', Validators.required]
     });
   }
@@ -273,11 +273,12 @@ export class ServiceProviderRegistrationComponent implements OnInit {
       emailId: this.secondFormGroup.controls.email.value,
       password: this.secondFormGroup.controls.password.value,
       domain: this.secondFormGroup.controls.domainCtrl.value,
-      subDomain: this.thirdFormGroup.controls.subdomain.value,
+      subDomain: this.thirdFormGroup.controls.subDomainCtrl.value,
       // skills: this.thirdFormGroup.controls.skill.value,
-      role: this.thirdFormGroup.controls.RoleCtrl.value,
+      role: this.thirdFormGroup.controls.roleCtrl.value,
       chargePerHour: this.thirdFormGroup.controls.chargePerHour.value
     }
+    console.log(providerData);
     this.registrationService.addServiceProvider(providerData);
     this.dialog.open(ModalSuccessComponent);
     this.router.navigateByUrl('/home');
