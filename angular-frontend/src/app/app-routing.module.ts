@@ -46,7 +46,7 @@ const routes: Routes = [
 
 
   {path:'serviceDashboard',component:ServiceProviderDashboardComponent},  //for trial, remove after use
-  {path:'innovatorDashboard',component:InnovatorDashboardComponent},
+  // {path:'innovatorDashboard',component:InnovatorDashboardComponent},
 
 
   {path:'postIdea',component:PostIdeaComponent},

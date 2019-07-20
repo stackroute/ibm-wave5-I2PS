@@ -172,5 +172,17 @@ export class PostIdeaComponent implements OnInit {
     this.router.navigateByUrl(`result/`+this.domains);
   }
 
+  goToDashboard(){
+    const emailId=this.route.snapshot.paramMap.get('sendEmailId');
+    console.log(emailId+"heyyyyy");
+    this.router.navigateByUrl(`/innovatorDashboard/`+emailId);
+  }
+
+  goToProfile(){
+    const emailId=this.route.snapshot.paramMap.get('sendEmailId');
+    console.log(emailId+"heyyyyy");
+    this.router.navigateByUrl(`/innovatorProfile/`+emailId);
+  }
+
 
 }
