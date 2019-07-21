@@ -31,14 +31,14 @@
         </mat-form-field>
         <br>
         <mat-form-field>
-          <input #password type="password" matInput placeholder="Password(Min length 8)" formControlName="password"
+          <input #password type="password" matInput placeholder="Password (Min length 8)" formControlName="password"
             minlength="8" required>
         </mat-form-field>
         <br>
         <mat-form-field>
           <mat-label>Select your Domain</mat-label>
           <select #domain matNativeControl formControlName="domainCtrl" required>
-            <option label="--select something --"></option>
+            <!-- <option ></option> -->
             <option value="IT">IT</option>
             <option value="Tourism">TOURISM</option>
           </select>
@@ -62,11 +62,11 @@
         <!-- Subdomain code goes here -->
         <div>
           <mat-form-field class="subdomainChips">
-            <mat-chip-list #chipList aria-label="subDomain selection">
+            <mat-chip-list #chipList aria-label="subDomain selection" required>
               <mat-chip *ngFor="let subDomain of subDomains" [selectable]="selectable" [removable]="removable"
                 (removed)="remove(subDomain)">
                 {{subDomain}}
-                <mat-icon matChipRemove *ngIf="removable">X</mat-icon>
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
               </mat-chip>
               <input placeholder="Select your sub-domain" #subDomainInput [formControl]="subDomainCtrl"
                 [matAutocomplete]="auto" [matChipInputFor]="chipList"
@@ -84,11 +84,11 @@
         <div>
 
           <mat-form-field class="subdomainChips">
-            <mat-chip-list #chipListRole aria-label="Role selection">
+            <mat-chip-list #chipListRole aria-label="Role selection" required>
               <mat-chip *ngFor="let role of roles" [selectable]="selectableRole" [removable]="removableRole"
                 (removed)="removeRole(role)">
                 {{role}}
-                <mat-icon matChipRemove *ngIf="removableRole">X</mat-icon>
+                <mat-icon matChipRemove *ngIf="removableRole">cancel</mat-icon>
               </mat-chip>
               <input placeholder="Select your Role" #roleInput [formControl]="roleCtrl" [matAutocomplete]="autoRole"
                 [matChipInputFor]="chipListRole" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
@@ -107,11 +107,11 @@
         <!-- Skill goes here -->
 
         <mat-form-field class="">
-          <mat-chip-list #chipListSkill aria-label="Skill selection">
+          <mat-chip-list #chipListSkill aria-label="Skill selection" required>
             <mat-chip *ngFor="let skill of skills" [selectable]="selectableSkill" [removable]="removableSkill"
               (removed)="removeSkill(skill)">
               {{skill}}
-              <mat-icon matChipRemove *ngIf="removableSkill">X</mat-icon>
+              <mat-icon matChipRemove *ngIf="removableSkill">cancel</mat-icon>
             </mat-chip>
             <input placeholder="Select your Skill" #skillInput [formControl]="skillCtrl" [matAutocomplete]="autoSkill"
               [matChipInputFor]="chipListSkill" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
