@@ -37,13 +37,11 @@
 
 		</ul>
 
-
-		
-		
 	  </links>
 	</mdb-navbar>
 	<!-- Full Page Intro -->
-
+<br>
+<br>
 	<div class="view">
 	  <!-- Mask & flexbox options-->
 	  <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
@@ -53,22 +51,22 @@
 		  <div class="row">
 			<!--Grid column-->
 			<div class="col-md-6 white-text text-center text-md-left mt-xl-5 mb-5 wow fadeInLeft" data-wow-delay="0.3s">
-			  <h1 class="h1-responsive font-weight-bold mt-sm-5">Where Ideas Become Reality.</h1>
+			  <h1 class="h1-responsive font-weight-bold mt-sm-5">Where ideas become reality.</h1>
 			  <hr class="hr-light">
 			  <!-- <a mdbBtn color="white" mdbWavesEffect>I want to post an Idea</a> -->
-			  <a class="buttons" routerLink='/innovatorregistration' mdbBtn color="white" outline="true" mdbWavesEffect><strong><b>I WANT TO POST AN IDEA</b></strong></a>
-			  <a class="buttons" routerLink='/serviceproviderregistration' mdbBtn color="white" outline="true" mdbWavesEffect><strong><b>I WANT TO WORK ON AN IDEA</b></strong></a>
+			  <a routerLink='/innovatorregistration' mdbBtn color="white" outline="true" mdbWavesEffect>I WANT TO POST AN IDEA</a>
+			  <a routerLink='/serviceproviderregistration' mdbBtn color="white" outline="true" mdbWavesEffect>I WANT TO WORK ON AN IDEA</a>
 					 </div>
 			<!--Grid column-->
 			<!--Grid column-->
 			<div class="col-md-6 col-xl-5 mt-xl-5 wow fadeInUp" data-wow-delay="0.3s">
 				
-				<br>
+			
 				<div class="container">
 					<div class="d-flex justify-content-center h-100">
 							<div class="card">
 									<div class="card-header">
-											<h3>LOGIN</h3>
+											<h3>Login</h3>
 										
 									</div>
 									
@@ -88,7 +86,7 @@
 															<input type="password" #password id="pass" class="form-control" placeholder="Password">
 													</div>
 												
-													<div *ngIf = "loggedIn"> You are Invalid User!!!</div>
+													<div class="invalid" *ngIf = "loggedIn"> You are Invalid User!!!</div>
 													<div class="form-group" #login>
 															<input (click)="authenticateUser(emailId.value, password.value)" type="submit" value="Login" class="btn float-right login_btn">
 													</div>
