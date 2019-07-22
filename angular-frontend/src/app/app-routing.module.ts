@@ -51,7 +51,6 @@ const routes: Routes = [
 
   {path:'postIdea',component:PostIdeaComponent},
 
-  {path:'ideaDetail',component:IdeaDetailComponent},
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent },
 

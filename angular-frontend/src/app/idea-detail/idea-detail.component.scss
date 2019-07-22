@@ -1,20 +1,35 @@
 .row{
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 
+}
+
+body{
+  height:100%;
+}
+.encase{
+  background: url('http://mithril-mdl.muchadev.com/assets/materialdesign.png');
+//  flex-wrap: wrap;
+//  height:100%;
+  // background-repeat: no-repeat; 
+ background-size: cover;
+//  display: flex;
+ }
+
+ .font-weight-bold{
+   font-size: 24px;
+ }
+
+ img{
+   padding:5px;
+  width: 500px;
+  height: 400px;
+  // margin-left: 20px;
+  // margin-top: -10px;
+ }
+
+ @media (max-width: 740px) {
+  body
+   {
+    height: 1000px;
   }
-
-  .encase{
-    background: url('http://mithril-mdl.muchadev.com/assets/materialdesign.png');
-  //  flex-wrap: wrap;
-   height:100%;
-   /* background-repeat: no-repeat;  */
-   background-size: cover;
-  //  display: flex;
-   }
-
-   .font-weight-bold{
-     font-size: 24px;
-   }
-
-  
-  
+}

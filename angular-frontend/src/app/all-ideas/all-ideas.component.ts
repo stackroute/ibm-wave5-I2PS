@@ -11,6 +11,9 @@ export class AllIdeasComponent implements OnInit {
 
   constructor(private recentideas: RecentIdeasService ,private router: Router, private route:ActivatedRoute) { }
   arrayOfIdeas:any=[];
+  status: boolean;
+  allIdeas:any=[];
+
 id;
   ngOnInit() {
     this.recentideas.getRecentIdeas().subscribe(data=>
@@ -18,6 +21,12 @@ id;
       console.log(data);
       this.arrayOfIdeas=data;
 
+      this.arrayOfIdeas.map(i=>{
+        i.status=true;
+        this.allIdeas.push(i);
+       
+
+      })
      
     })
 
@@ -31,9 +40,10 @@ search(value)
 
 }
 
-applyForAnIdea(title)
+applyForAnIdea(value)
 {
-  console.log(title);
+
+  console.log(value.title);
   const emailId=this.route.snapshot.paramMap.get('emailId');
   console.log(emailId);
   if(emailId==null)
@@ -42,9 +52,41 @@ applyForAnIdea(title)
     this.router.navigateByUrl('/login');
   }
   else{
-    console.log("coming here")
-    this.recentideas.sendToInnovator(title,emailId);
+    // for(let i=0; i<this.arrayOfIdeas.length;i++)
+    // {
+      // console.log(this.arrayOfIdeas[i].title+"pppppp")
+      // if(this.arrayOfIdeas[i].title==title)
+      // {
+      //   console.log("hi",title+this.status)
+      //   console.log(this.arrayOfIdeas[i].title+"pppppp")
+      //   this.status=false;
+      //  break;
+      // }
+
+
+
+      // this.filteredProviders = this.filteredProviders.map(e => {
+      //   console.log(e.emailId, value.emailId)
+      //   if(e.emailId == value.emailId) {
+           
+      //     e.status = true ;
+      //   }
+
+      this.arrayOfIdeas=this.arrayOfIdeas.map(e => {
+        console.log("hmmm",value.title+e.title,"...........",value.status)
+        if(e.title==value.title)
+        {
+  
+        value.status=false;
+        }
+      
+        return e;
+        
+      })
+      
+    }
+    
+    this.recentideas.sendToInnovator(value.title,emailId);
 //create success modal
   }
-}
 }

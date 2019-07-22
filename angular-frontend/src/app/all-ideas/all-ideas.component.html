@@ -32,7 +32,7 @@
 
 
                       <div class="row">
-                          <div class="wow animated flipInX col-sm-3 card" *ngFor="let array of arrayOfIdeas">
+                          <div class="wow animated flipInX col-sm-3 card" *ngFor="let array of allIdeas">
                   
                               <div class="card-body text-center">
                                   <!-- <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p> -->
@@ -43,7 +43,8 @@
 
                                 </div>
                                   <div class="card-footer text-center">
-                                      <a style="font-size: 24px;" (click)="applyForAnIdea(array.title)" mdbBtn color="black" outline="true" mdbWavesEffect><strong><b>APPLY</b></strong></a>
+                                      <a style="font-size: 24px;" *ngIf="array.status" (click)="applyForAnIdea(array)" mdbBtn color="black" outline="true" mdbWavesEffect><strong><b>APPLY</b></strong></a>
+                                      <a class="applied" style="font-size: 24px;" *ngIf="!array.status" mdbBtn outline="true" mdbWavesEffect><strong><b>APPLIED</b></strong></a>
 
                                   <!-- <a (click)="applyForAnIdea(array.title)" class="btn btn-primary align-self-end btn-sm">APPLY</a> -->
                                   </div>

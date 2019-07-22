@@ -80,7 +80,7 @@ import { MatchComponent } from './match/match.component';
     InnovatorRegistrartionComponent,
     ServiceProviderRegistrationComponent,
     AllIdeasComponent,
-    IdeaDetailComponent, SearchComponent, ApplySuccessComponent, MatchComponent
+    IdeaDetailComponent, SearchComponent, ApplySuccessComponent, MatchComponent, 
 
 
 
