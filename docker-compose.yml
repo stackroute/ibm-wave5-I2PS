@@ -218,7 +218,7 @@ services:
     network_mode: host
     hostname: localhost
     volumes:
-      - $HOME/collabjunction/collabjunction/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ${PWD}/prometheus.yml:/etc/prometheus/prometheus.yml
     command: 
       - "--config.file=/etc/prometheus/prometheus.yml" 
       - "--storage.tsdb.path=/prometheus"
