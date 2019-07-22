@@ -18,14 +18,13 @@ public class IntelligentServiceImpl implements IntelligentServiceInterface {
     private IntelligentService intelligentService;
 
     @Autowired
-    public IntelligentServiceImpl(IntelligentServiceRepository intelligentServiceRepository, IntelligentService intelligentService) {
+    public IntelligentServiceImpl(IntelligentServiceRepository intelligentServiceRepository) {
         this.intelligentServiceRepository = intelligentServiceRepository;
-        this.intelligentService = intelligentService;
     }
 
     @RabbitListener(queues = "${intelligent.queue}")        //rabbitListener to get data from producer->service-Provider
     public IntelligentService recievedMessageFromServiceProvider(ServiceProvider serviceProvider) {
-
+        intelligentService = new IntelligentService();
         System.out.println(serviceProvider.toString());
 
         String role1= serviceProvider.getRole();    //extracting role from producers message
