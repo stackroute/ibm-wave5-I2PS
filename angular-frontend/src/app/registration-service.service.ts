@@ -29,7 +29,7 @@ export class RegistrationServiceService {
 
   }
   addInnovatorProfile(value):any{
-    this.http.post("http://l13.232.118.81:8080/innovatorprofileservice/api/v1/innovatorprofile",value).subscribe();
+    this.http.post("http://13.232.118.81:8080/innovatorprofileservice/api/v1/innovatorprofile",value).subscribe();
     console.log("came");
 
   }
