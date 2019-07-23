@@ -13,7 +13,7 @@ export class LoginService {
   {
     console.log("in service");
     console.log("in authenticateUserser " +user);
-    return this.http.post("http://13.232.118.81:8088/api/v1/user",user); //.subscribe((user:any) => 
+    return this.http.post("http://13.232.118.81:8080/userloginserviceservice/api/v1/user",user); //.subscribe((user:any) => 
                                                                   //   {
                                                                   //   console.log(user);
                                                                   //     }                                                                                                                                                                                                                                                                                                                     );
@@ -22,6 +22,6 @@ export class LoginService {
   }
 
   getRecommendations(emailId):any{
-    return this.http.get(`http://l13.232.118.81:8082/rest/neo4j/idea/ideas/${emailId}`);
+    return this.http.get(`http://l13.232.118.81:8080/recommendationservice/rest/neo4j/idea/ideas/${emailId}`);
   }
 }
