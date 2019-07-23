@@ -20,7 +20,7 @@ export class RegistrationServiceService {
   }
   getByEmailIdForServiceProvider(emailId):any{
     console.log("in getbyemail of reg service "+emailId);
-    return this.http.get(`http://13.232.118.81:8077/serviceproviderprofileservice/api/v1/getByEmailId/${emailId}`);
+    return this.http.get(`http://13.232.118.81:8080/serviceproviderprofileservice/api/v1/getByEmailId/${emailId}`);
   }
 
   getInnovatorProfile():any{
