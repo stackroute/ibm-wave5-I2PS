@@ -205,7 +205,7 @@ services:
     build: angular-frontend/
     image: angular-frontend
     ports:
-      - 8042:8042
+      - 8099:8099
     restart: always
     network_mode: "host"
     hostname: localhost
