@@ -13,7 +13,7 @@ export class LoginService {
   {
     console.log("in service");
     console.log("in authenticateUserser " +user);
-    return this.http.post("http://13.232.118.81:8080/userloginserviceservice/api/v1/user",user); //.subscribe((user:any) => 
+    return this.http.post("http://13.232.118.81:8080/userloginservice/api/v1/user",user); //.subscribe((user:any) => 
                                                                   //   {
                                                                   //   console.log(user);
                                                                   //     }                                                                                                                                                                                                                                                                                                                     );
