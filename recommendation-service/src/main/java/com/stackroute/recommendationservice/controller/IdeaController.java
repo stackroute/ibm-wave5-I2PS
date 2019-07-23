@@ -52,7 +52,7 @@ public class IdeaController {
     //recommending ideas to users by retrieving their role
     @GetMapping("ideas/{emailId}")
     public List<Idea> getRecommendedIdeas(@PathVariable String emailId){
-        return ideaService.getRecommendedIdeas(emailId);
+        return ideaService.getMatchingIdeas(emailId);
     }
 
     //To match user and idea
@@ -62,5 +62,8 @@ public class IdeaController {
         return ideaService.matchIdea(ideaName,emailId);
     }
 
-
+    @GetMapping("recommendidea/{emailId}")
+    public List<Idea> getNewIdeas(@PathVariable String emailId){
+        return ideaService.getRecommendedIdeas(emailId);
+    }
 }

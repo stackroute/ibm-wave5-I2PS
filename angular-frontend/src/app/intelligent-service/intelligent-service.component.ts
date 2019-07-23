@@ -13,7 +13,7 @@ import { MatDialog } from '@angular/material';
 export class IntelligentServiceComponent implements OnInit {
 
   constructor(private intelligentService: IntelligentserviceService,private postIdeaService:PostIdeaServiceService, private route: ActivatedRoute,
-    private router: Router, private dialog:MatDialog) { }
+    private router: Router, private dialog: MatDialog) { }
   allServiceProviders: any = [];
   filteredProviders: any = [];
   servProvider: any;
@@ -75,10 +75,11 @@ export class IntelligentServiceComponent implements OnInit {
    done()
    {
      this.postIdeaService.updateIdea(this.postIdeaService.Idea)
-    //  this.dialog.open(MatchComponent)
      const sendEmailId=this.postIdeaService.Idea.emailId;
      console.log(sendEmailId+"coming or not???")
+
      this.router.navigateByUrl('innovatorDashboard/'+sendEmailId)
+    //  this.dialog.open(MatchComponent);
    }
 
    myClick(event) {

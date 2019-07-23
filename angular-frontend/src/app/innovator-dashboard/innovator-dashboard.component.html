@@ -1,11 +1,11 @@
-
+<body class="mask rgba-gradient">
 
 <header>
   <!--Navbar-->
   <mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg" [containerInside]="false">
 
     <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" routerLink="#">COLLAB-JUNCTION</a></mdb-navbar-brand>
+    <mdb-navbar-brand><a class="navbar-brand" routerLink="#"><strong><b>COLLAB-JUNCTION</b></strong></a></mdb-navbar-brand>
 
     <!-- Collapsible content -->
     <links>
@@ -49,7 +49,9 @@
 <br>
 <br>
         <div class="wrapper">
-            <a (click)="routeDetail()"  mdbBtn color="black" outline="true" mdbWavesEffect>POST AN IDEA</a>
+            <a class="post" (click)="routeDetail()" style="font-size: 18px; padding-top:8px; padding-bottom:8px; border-radius:12px" mdbBtn color="white" outline="true" mdbWavesEffect><strong><b>POST AN IDEA</b></strong></a>
+
+            <!-- <a class="post" (click)="routeDetail()"  style="padding-top:8px; padding-bottom:8px; border-radius:12px" mdbBtn color="white" outline="true" mdbWavesEffect>POST AN IDEA</a> -->
           </div>
 
 
@@ -58,7 +60,7 @@
 <div class="mycontainer">
 
   <!--Section heading-->
-  <h2 class="h1-responsive font-weight-bold text-center my-5">MY IDEAS</h2>
+  <h2 class="h1-responsive font-weight-bold text-center my-5" style="color:white;">MY IDEAS</h2>
   <h3 class="h1-responsive font-weight-bold text-center my-5">{{nopost}}</h3>
   <!-- Section description -->
 
@@ -94,6 +96,7 @@
       </div>
 
     </div>
+  </body>
 <!-- </div>
 </body> -->
 <!-- details card section starts from here -->

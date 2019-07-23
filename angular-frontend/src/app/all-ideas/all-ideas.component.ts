@@ -52,25 +52,7 @@ applyForAnIdea(value)
     this.router.navigateByUrl('/login');
   }
   else{
-    // for(let i=0; i<this.arrayOfIdeas.length;i++)
-    // {
-      // console.log(this.arrayOfIdeas[i].title+"pppppp")
-      // if(this.arrayOfIdeas[i].title==title)
-      // {
-      //   console.log("hi",title+this.status)
-      //   console.log(this.arrayOfIdeas[i].title+"pppppp")
-      //   this.status=false;
-      //  break;
-      // }
-
-
-
-      // this.filteredProviders = this.filteredProviders.map(e => {
-      //   console.log(e.emailId, value.emailId)
-      //   if(e.emailId == value.emailId) {
-           
-      //     e.status = true ;
-      //   }
+    
 
       this.arrayOfIdeas=this.arrayOfIdeas.map(e => {
         console.log("hmmm",value.title+e.title,"...........",value.status)

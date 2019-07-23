@@ -1,4 +1,4 @@
-
+<body class="mask rgba-gradient">
 
 
 <header>
@@ -6,7 +6,7 @@
 <mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg" [containerInside]="false">
 
   <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand" routerLink="#">COLLAB-JUNCTION</a></mdb-navbar-brand>
+  <mdb-navbar-brand><a class="navbar-brand" routerLink="#"><strong><b>COLLAB-JUNCTION</b></strong></a></mdb-navbar-brand>
 
   <!-- Collapsible content -->
   <links>
@@ -43,29 +43,31 @@
     <div class="mask rgba-gradient"> -->
       <!-- <body class="view">
         <div class="mask rgba-gradient"> -->
+
           <section id="ideas" class="pb-5">
             <div class="container" style="margin-top: 100px">
           
-              <h2 class="h1-responsive font-weight-bold text-center my-5">RECOMMENDED IDEAS</h2>
+              <h2 class="h1-responsive font-weight-bold text-center my-5" >SUGGESTIONS BASED ON YOUR ROLE</h2>
 
               <div class="row">
           
           
                 
-                  <div class="wow animated flipInX col-sm-3 card" *ngFor="let array of recommendedIdeas">
+                  <div class="wow animated flipInX col-sm-3 card" *ngFor="let array of recommendedIdeas | slice:0:3 ">
           
                     <div class="card-body text-center">
                       <!-- <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p> -->
-                      <h5 #title class="card-title"><i class="fas fa-lightbulb"></i> <b> {{array.domain | uppercase}}</b></h5>
-                      <h4 #title class="card-title"><b>{{array.title | uppercase}}</b></h4>
+                      <h5 #title class="card-title"><i class="fas fa-lightbulb"></i> <b> {{array.subDomain | uppercase}}</b></h5>
+                      <h4 #title class="card-title"><b>{{array.ideaName | uppercase}}</b></h4>
                       <p class="card-text" style="text-align:justify">{{array.description}}</p>
-                      <p class="card-text"><b>Roles required : </b> <br> {{array.roles}}</p>
+                      <p class="card-text"><b>Roles required : </b> <br> {{array.role}}</p>
           
                     </div>
                     <div class="card-footer text-center">
-                      <a style="font-size: 24px;" (click)="applyForAnIdea(array.title)" mdbBtn color="black" outline="true"
+                      <a style="font-size: 18px; padding-top:8px; padding-bottom:8px; border-radius:12px" *ngIf="array.status" (click)="applyForAnIdea(array)" mdbBtn color="black" outline="true"
                         mdbWavesEffect><strong><b>APPLY</b></strong></a>
-          
+                        <a class="applied" style="font-size: 18px; padding-top:8px; padding-bottom:8px; border-radius:12px" *ngIf="!array.status" mdbBtn outline="true" mdbWavesEffect><strong><b>APPLIED</b></strong></a>
+
                       <!-- <a (click)="applyForAnIdea(array.title)" class="btn btn-primary align-self-end btn-sm">APPLY</a> -->
                     </div>
           
@@ -85,7 +87,50 @@
           
           </section>
 
+          <section id="ideas" class="pb-5">
+            <div class="container" style="margin-top: 100px">
+          
+              <h2 class="h1-responsive font-weight-bold text-center my-5">RECOMMENDED IDEAS</h2>
 
+              <div class="row">
+          
+          
+                
+                  <div class="wow animated flipInX col-sm-3 card" *ngFor="let array of recommendedIdeasApplied | slice:0:3 ">
+          
+                    <div class="card-body text-center">
+                      <!-- <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p> -->
+                      <h5 #title class="card-title"><i class="fas fa-lightbulb"></i> <b> {{array.subDomain | uppercase}}</b></h5>
+                      <h4 #title class="card-title"><b>{{array.ideaName | uppercase}}</b></h4>
+                      <p class="card-text" style="text-align:justify">{{array.description}}</p>
+                      <p class="card-text"><b>Roles required : </b> <br> {{array.role}}</p>
+          
+                    </div>
+                    <div class="card-footer text-center">
+                      <a style="font-size: 18px; padding-top:8px; padding-bottom:8px; border-radius:12px" *ngIf="array.status" (click)="applyForAnIdea(array)" mdbBtn color="black" outline="true"
+                        mdbWavesEffect><strong><b>APPLY</b></strong></a>
+                        <a class="applied" style="font-size: 18px; padding-top:8px; padding-bottom:8px; border-radius:12px" *ngIf="!array.status" mdbBtn outline="true" mdbWavesEffect><strong><b>APPLIED</b></strong></a>
+
+                      <!-- <a (click)="applyForAnIdea(array.title)" class="btn btn-primary align-self-end btn-sm">APPLY</a> -->
+                    </div>
+          
+                  </div>
+              <!-- </div> -->
+          
+
+                <!-- <div class="row"> -->
+
+
+                <!-- </div> -->
+              <!-- </div> -->
+          
+            </div>
+            </div>
+          
+          
+          </section>
+
+        </body>
 
 
 <app-footer></app-footer>

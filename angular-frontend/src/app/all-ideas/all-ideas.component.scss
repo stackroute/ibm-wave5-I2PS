@@ -1,8 +1,14 @@
-// body{
-//   margin: 0;
-// }
+.rgba-gradient {
+  background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+  background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)));
+  background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+  background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%)
+}
 .bg{
-  background: url('http://mithril-mdl.muchadev.com/assets/materialdesign.png');
+  // background: url('https://images.pexels.com/photos/5412/water-blue-ocean.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500') repeat;
+//  background-color: #161f52;
   // height: 1000px; 
   // max-height: 100vh;
   background-position: center;
@@ -13,13 +19,24 @@
 .navbar-brand {
   text-decoration: none;
   color:white;
+  font-size: 24px;
 }
-a{
-  color: white;
+// a{
+//   color: white;
+// }
+
+mat-form-field{
+  width:50%;
+  border-color: black;
+  border-width: 1px;
+
+}
+#input{
+  color:black;
 }
 
 .nav-item{
-  color: white;
+  color: black;
 }
 
 .applied{
@@ -42,7 +59,8 @@ a{
   button {
     font-size: 25px;
     margin: 5px;
-    background-color: black
+    background-color: black;
+    padding-bottom:10%;
   }
   
   .d-none {
@@ -73,3 +91,6 @@ a{
   color:black;
 }
 
+// .text-center{
+//   padding-bottom:10%;
+// }

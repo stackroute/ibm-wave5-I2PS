@@ -1,11 +1,11 @@
-body{
-    background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); 
-  height:100%; 
-  background-repeat: no-repeat; 
-  background-size: cover; 
-  background-position: center center;
-  min-height: 100vh;
-  }
+// body{
+//     background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); 
+//   height:100%; 
+//   background-repeat: no-repeat; 
+//   background-size: cover; 
+//   background-position: center center;
+//   min-height: 100vh;
+//   }
   
   .rgba-gradient {
     background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
@@ -36,6 +36,7 @@ body{
 }
 a{
     color: white;
+    font-size: 24px;
 }
 
 .nav-item{
@@ -339,6 +340,15 @@ p {
 
     h3
     {
-        color: black;
+        color: white;
     }
     /* End card section */
+
+//     mdb-navbar-brand
+// {
+//     font-size: 24px;
+// }
+
+b{
+    font-size: 30px;
+}

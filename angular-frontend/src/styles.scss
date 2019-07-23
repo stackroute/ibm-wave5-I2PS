@@ -21,7 +21,7 @@
   font-size: 30px;
 }
 
-header mdb-navbar-brand
+.header .mdb-navbar-brand
 {
   font-family: 'Darker Grotesque', sans-serif;
   
@@ -41,3 +41,11 @@ body {
 
 a{
   font-size: 20px;}
+
+
+  .mat-tab-label .mat-tab-label-content {
+
+    font-size: 24px;
+    color: black;
+    text-transform: uppercase
+    }

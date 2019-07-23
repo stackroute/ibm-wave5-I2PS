@@ -9,6 +9,15 @@
     background-size: cover;
     // position: absolute;
   }
+
+  .rgba-gradient {
+    background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+    background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)));
+    background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+    background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%)
+  }
    
   .navbar-brand {
     text-decoration: none;
@@ -53,11 +62,11 @@
   .btn-danger{
     height: 58px;
   }
-//   .card{
-//     margin-right: 20px;
-//     margin-bottom: 20px;
+  .card{
+    margin-right: 20px;
+    margin-bottom: 20px;
     
-//   }
+  }
   
   .row{
     justify-content: space-evenly;
@@ -68,4 +77,22 @@
     color:black;
   }
   
+
+  .applied{
+    background-color: black;
+    color: white;
+  }
   
+  .navbar-brand
+  {
+      font-size: 24px;
+  }
+
+  a{
+    color: white;
+    font-size: 24px;
+}
+
+.h1-responsive{
+  color:white;
+}

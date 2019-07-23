@@ -20,4 +20,7 @@ public interface IdeaService {
      List<Idea> getRecommendedIdeas(String emailId);
 
     Idea matchIdea(String ideaName, String emailId);
+
+     List<Idea> getMatchingIdeas(String emailId);
+
 }

@@ -1,10 +1,11 @@
+<div class="mask rgba-gradient">
 <div class="bg">
   <header>
   <!--Navbar-->
   <mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg" [containerInside]="false">
 
     <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" routerLink="#">COLLAB-JUNCTION</a></mdb-navbar-brand>
+    <mdb-navbar-brand><a class="navbar-brand" routerLink="#"><strong><b>COLLAB-JUNCTION</b></strong></a></mdb-navbar-brand>
 
 
 
@@ -13,17 +14,17 @@
   
 </header>
 <!-- details card section starts from here -->
-<section id="ideas" class="pb-5">
-  <div class="container" style="margin-top: 100px">
-    <h2 class="h1-responsive font-weight-bold text-center my-5">IDEAS</h2>
+<section id="ideas">
+  <div class="container" style="margin-top: 50px">
+    <h2 class="h1-responsive font-weight-bold text-center my-5" style="color:black">IDEAS</h2>
     <!-- Section description -->
-    <p class="grey-text text-center w-responsive mx-auto mb-5">
+    <p class="light-text text-center w-responsive mx-auto mb-5" style="margin-top: 100px">
       <mat-form-field appearance="outline">
         <!-- <mat-label>Search Track</mat-label> -->
         <input #input matInput placeholder=" Enter Idea Name">
         <!-- <mat-icon matSuffix>search</mat-icon> -->
     </mat-form-field>
-    <a class="mr-sm-2" style="font-size: 24px;" (click)="search(input.value)" mdbBtn color="black" outline="true" mdbWavesEffect>SEARCH</a>
+    <a class="mr-sm-2" style="font-size: 18px; padding-top:8px; padding-bottom:8px; border-radius:12px" (click)="search(input.value)" mdbBtn color="black" outline="true" mdbWavesEffect>SEARCH</a>
 
     <!-- <button (click)="search(input.value)" type="button" class="btn btn-danger">SEARCH</button> -->
     </p>
@@ -42,9 +43,9 @@
                                   <p class="card-text" ><b>Roles required : </b> <br> {{array.roles}}</p>
 
                                 </div>
-                                  <div class="card-footer text-center">
-                                      <a style="font-size: 24px;" *ngIf="array.status" (click)="applyForAnIdea(array)" mdbBtn color="black" outline="true" mdbWavesEffect><strong><b>APPLY</b></strong></a>
-                                      <a class="applied" style="font-size: 24px;" *ngIf="!array.status" mdbBtn outline="true" mdbWavesEffect><strong><b>APPLIED</b></strong></a>
+                                  <div class="text-center"> 
+                                      <a style="font-size: 18px; padding-top:8px; padding-bottom:8px; border-radius:12px" *ngIf="array.status" (click)="applyForAnIdea(array)" mdbBtn color="black" outline="true" mdbWavesEffect><strong><b>APPLY</b></strong></a>
+                                      <a class="applied" style="font-size: 18px; padding-top:8px; padding-bottom:8px; border-radius:12px" *ngIf="!array.status" mdbBtn outline="true" mdbWavesEffect><strong><b>APPLIED</b></strong></a>
 
                                   <!-- <a (click)="applyForAnIdea(array.title)" class="btn btn-primary align-self-end btn-sm">APPLY</a> -->
                                   </div>
@@ -58,6 +59,7 @@
         
    
 </section>
+</div>
 </div>
 <!-- Team -->
 

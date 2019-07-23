@@ -80,7 +80,7 @@ public class IdeaServiceImplementation implements IdeaService {
     }
 
     @Override
-    public List<Idea> getRecommendedIdeas(String emailId) {
+    public List<Idea> getMatchingIdeas(String emailId) {
        String role= userRepository.getRoleForUser(emailId);
        return ideaRepository.ideaRoleRelationship(role);
     }
@@ -89,5 +89,10 @@ public class IdeaServiceImplementation implements IdeaService {
     public Idea matchIdea(String ideaName, String emailId) {
         String name= userRepository.getNameForUser(emailId);
         return ideaRepository.userIdeaRelationship(ideaName,name);
+    }
+
+    @Override
+    public List<Idea> getRecommendedIdeas(String emailId) {
+        return ideaRepository.ideaRelationship(emailId);
     }
 }
