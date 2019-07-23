@@ -7,10 +7,12 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.netflix.zuul.EnableZuulServer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication
 @EnableZuulProxy
 @EnableEurekaClient
+@CrossOrigin(origins = "*")
 public class ZuulApiApplication {
 
 	public static void main(String[] args) {
