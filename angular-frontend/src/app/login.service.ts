@@ -22,6 +22,6 @@ export class LoginService {
   }
 
   getRecommendations(emailId):any{
-    return this.http.get(`http://l13.232.118.81:8080/recommendationservice/rest/neo4j/idea/ideas/${emailId}`);
+    return this.http.get(`http://13.232.118.81:8080/recommendationservice/rest/neo4j/idea/ideas/${emailId}`);
   }
 }
