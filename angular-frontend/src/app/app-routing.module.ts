@@ -45,7 +45,6 @@ const routes: Routes = [
   {path:'search/:idea',component:SearchComponent},
 
 
-  {path:'serviceDashboard',component:ServiceProviderDashboardComponent},  //for trial, remove after use
   // {path:'innovatorDashboard',component:InnovatorDashboardComponent},
 
 
