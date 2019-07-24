@@ -45,6 +45,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
                for (int i = 1; cellIterator.hasNext(); i++) {
                    Idea ideas = new Idea();
                    for (int j = 0; j <= sheet.getLeftCol(); j++) {
+                       int count =100;
 
 
                        ideas.setTitle(workbook.getSheetAt(0).getRow(i).getCell(j + 0).toString());
