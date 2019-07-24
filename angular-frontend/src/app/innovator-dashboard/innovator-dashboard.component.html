@@ -71,7 +71,8 @@
      <div class="container">
        
        <div class="row">
-         <div class="col-md-4" *ngFor = "let a of ideaData" >
+         <div class="col-md-4"  style="
+         margin-bottom: 20px; "*ngFor = "let a of ideaData" >
            <div class="card-content">
              <div class="card-img">
                <img src="https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=924&q=80" alt="">
@@ -81,7 +82,7 @@
              </div>
              <div class="card-desc">
                <p style="font-size: 20px; color:black;">{{a.title | uppercase}}</p>
-               <p style="font-size: 20px; color:black;">{{a.description}}</p>
+               <!-- <p style="font-size: 20px; color:black;">{{a.description}}</p> -->
                <!-- <p>{{a.domain}}</p>
                <p>{{a.subDomain}}</p> -->
                <!-- <p>Roles</p> -->
