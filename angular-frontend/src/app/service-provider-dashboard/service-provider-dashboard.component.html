@@ -1,3 +1,6 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Macondo+Swash+Caps&display=swap');
+    </style>
 <body class="mask rgba-gradient">
 
 
@@ -6,7 +9,8 @@
 <mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg" [containerInside]="false">
 
   <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand" routerLink="#"><strong><b>COLLAB-JUNCTION</b></strong></a></mdb-navbar-brand>
+  <mdb-navbar-brand><a class="navbar-brand" routerLink="#" style="font-family: 'Macondo Swash Caps', cursive;
+    "><strong><b>COLLAB-JUNCTION</b></strong></a></mdb-navbar-brand>
 
   <!-- Collapsible content -->
   <links>
@@ -23,7 +27,7 @@
       <li class="nav-item">
         <a (click)="goToAllIdeas()" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="user"></mdb-icon> <strong><b>IDEAS</b></strong></a>
       </li>
-      
+
       <li class="nav-item">
           <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon> <strong><b>LOG OUT</b></strong> </a>
         </li>
