@@ -43,8 +43,9 @@ export class ServiceProviderProfileComponent implements OnInit {
 
   goToDashboard()
   {
+    const emailId=this.route.snapshot.paramMap.get('sendEmailId');
     console.log("working",this.serviceProviderData.emailId);
-    this.router.navigateByUrl('/serviceDasboard/'+this.serviceProviderData.emailId)
+    this.router.navigateByUrl('/serviceDasboard/'+emailId)
   }
   
 

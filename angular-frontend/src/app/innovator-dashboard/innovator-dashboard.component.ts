@@ -51,7 +51,9 @@ export class InnovatorDashboardComponent implements OnInit {
   }
 
   goToProfile(): void {
+    
     const emailId = this.route.snapshot.paramMap.get('sendEmailId');
+    console.log("iiii",+emailId)
     this.router.navigateByUrl('/innovatorProfile/' + emailId);
   }
 

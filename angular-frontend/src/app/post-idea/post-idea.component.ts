@@ -173,13 +173,13 @@ export class PostIdeaComponent implements OnInit {
   }
 
   goToDashboard(){
-    const emailId=this.route.snapshot.paramMap.get('sendEmailId');
+    const emailId=this.route.snapshot.paramMap.get('emailId');
     console.log(emailId+"heyyyyy");
     this.router.navigateByUrl(`/innovatorDashboard/`+emailId);
   }
 
   goToProfile(){
-    const emailId=this.route.snapshot.paramMap.get('sendEmailId');
+    const emailId=this.route.snapshot.paramMap.get('emailId');
     console.log(emailId+"heyyyyy");
     this.router.navigateByUrl(`/innovatorProfile/`+emailId);
   }
