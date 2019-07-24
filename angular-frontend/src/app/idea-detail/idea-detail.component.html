@@ -1,4 +1,36 @@
 <div class="encase">
+    <header>
+        <mdb-navbar SideClass="blue-gradient navbar fixed-top navbar-expand-lg" [containerInside]="false">
+      
+          <!-- Navbar brand -->
+          <mdb-navbar-brand><a class="navbar-brand" routerLink="#"><strong><b>COLLAB-JUNCTION</b></strong></a></mdb-navbar-brand>
+      
+          <!-- Collapsible content -->
+          <links>
+      
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>
+                  <mdb-icon fas icon="home"></mdb-icon> HOME <span class="sr-only">(current)</span>
+                </a>
+              </li>
+      
+              <li class="nav-item">
+                <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>
+                  <mdb-icon fas icon="cog"></mdb-icon> LOG OUT
+                </a>
+              </li>
+      
+      
+      
+            </ul>
+            <!-- Links -->
+          </links>
+          <!-- Collapsible content -->
+      
+        </mdb-navbar>
+      </header>
   <section>
 
     <!--Section heading-->
@@ -7,12 +39,29 @@
     <p class=" desc px-5 mb-5 pb-3 lead black-text text-center">
       {{ideaDetail.description}} </p>
 
-    <!--Grid row-->
+      <!-- <div class="detail">
+      <p class=" px-5 mb-5 pb-3 lead black-text">
+          <mdb-icon fas icon="lightbulb" size="lg" class="indigo-text"></mdb-icon> {{ideaDetail.domain}}</p>
+
+          <p class=" px-5 mb-5 pb-3 lead black-text">
+              <mdb-icon fas icon="lightbulb" size="lg" class="indigo-text"></mdb-icon> {{ideaDetail.subDomain}}</p>
+
+              <p class=" px-5 mb-5 pb-3 lead black-text">
+                  <mdb-icon fas icon="lightbulb" size="lg" class="indigo-text"></mdb-icon> {{ideaDetail.budget}}</p>
+    
+              <p class=" px-5 mb-5 pb-3 lead black-text">
+                  <mdb-icon fas icon="lightbulb" size="lg" class="indigo-text"></mdb-icon> {{ideaDetail.roles}}</p>
+
+                  <p class=" px-5 mb-5 pb-3 lead black-text">
+                      <mdb-icon fas icon="lightbulb" size="lg" class="indigo-text"></mdb-icon> {{ideaDetail.timestamp | date: 'yyyy/MM/dd'}}</p>
+    
+                    </div> -->
+                      <!--Grid row-->
     <div class="row pt-2">
 
       <!--Grid column-->
       <div class="wow fadeInLeft col-lg-5 text-center text-lg-left">
-        <img class="image"src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" alt="" class="img-fluid">
+        <img class="image"src="https://images.pexels.com/photos/269448/pexels-photo-269448.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" class="img-fluid">
       </div>
       <!--Grid column-->
 
@@ -81,19 +130,16 @@
           </div>
         </div>
 
-        <div class="row pb-3">
+        <!-- <div class="row pb-3">
           <div class="col-2 col-md-1">
             <mdb-icon fas icon="lightbulb" size="lg" class="indigo-text"></mdb-icon>
           </div>
           <div class="col-10">
             <h5 class="font-weight-bold text-left mb-3 dark-black-text"><strong>POSTED ON : </strong>
               {{ideaDetail.timestamp | date: 'yyyy/MM/dd'}} </h5>
-            <!-- <p class="grey-text text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Reprehenderit
-                        maiores nam, aperiam minima assumenda
-                        deleniti hic.</p> -->
+          
           </div>
-        </div>
+        </div> -->
 
       </div>
       <!--Grid column-->
@@ -201,3 +247,5 @@
 
 </div>
 </div>
+
+<app-footer></app-footer>

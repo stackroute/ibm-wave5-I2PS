@@ -1,5 +1,26 @@
 <div class="encase">
 
+  <mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+    <mdb-navbar-brand>
+      <a class="logo navbar-brand waves-light" mdbWavesEffect routerLink="/home"><strong><b>COLLAB-JUNCTION</b></strong></a>
+    </mdb-navbar-brand>
+    <links>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active waves-light" mdbWavesEffect>
+          <a class="nav-link" #hom routerLink="/home"><strong><b>HOME</b></strong><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" routerLink="/login"><strong><b>LOG IN</b></strong></a>
+        </li>
+
+        <li class="nav-item waves-light" mdbWavesEffect>
+          <a class="nav-link" #abt routerLink="#"><strong><b>ABOUT</b></strong></a>
+        </li>
+
+      </ul>            
+    </links>
+  </mdb-navbar>
+
   <mat-horizontal-stepper linear #stepper class="height">
 
 
@@ -145,3 +166,5 @@
     </mat-step>
   </mat-horizontal-stepper>
 </div>
+
+<app-footer></app-footer>

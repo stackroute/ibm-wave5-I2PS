@@ -23,7 +23,7 @@
 <mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg" [containerInside]="false">
 
     <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" routerLink="#">COLLAB-JUNCTION</a></mdb-navbar-brand>
+    <mdb-navbar-brand><a class="navbar-brand" routerLink="#"><strong><b>COLLAB-JUNCTION</b></strong></a></mdb-navbar-brand>
   
     <!-- Collapsible content -->
     <links>
@@ -31,14 +31,14 @@
       <!-- Links -->
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> HOME <span class="sr-only">(current)</span></a>
+          <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"></mdb-icon> <strong><b>HOME</b></strong><span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a (click)="goToDashboard()" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="lightbulb"></mdb-icon> DASHBOARD </a>
+          <a (click)="goToDashboard()" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="lightbulb"></mdb-icon><strong><b>DASHBOARD</b></strong></a>
         </li>
 
         <li class="nav-item">
-            <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon> LOG OUT </a>
+            <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon><strong><b>LOG OUT</b></strong></a>
           </li>
   
        <!-- {{serviceProviderData.emailId}} -->

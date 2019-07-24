@@ -137,7 +137,7 @@ body {
 } */
 
 .mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child {
-  margin-left: 17%;
+  margin-left: 20%;
 }
 
 
@@ -177,6 +177,3 @@ min-height: 100vh;
   margin-top: 10%;
 }
 
-header{
-  position: fixed;
-}

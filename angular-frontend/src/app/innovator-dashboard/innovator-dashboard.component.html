@@ -2,7 +2,7 @@
 
 <header>
   <!--Navbar-->
-  <mdb-navbar SideClass="blue-gradient navbar navbar-expand-lg" [containerInside]="false">
+  <mdb-navbar SideClass="blue-gradient navbar fixed-top navbar-expand-lg" [containerInside]="false">
 
     <!-- Navbar brand -->
     <mdb-navbar-brand><a class="navbar-brand" routerLink="#"><strong><b>COLLAB-JUNCTION</b></strong></a></mdb-navbar-brand>
@@ -48,8 +48,10 @@
 
 <br>
 <br>
+<br>
+<br>
         <div class="wrapper">
-            <a class="post" (click)="routeDetail()" style="font-size: 18px; padding-top:8px; padding-bottom:8px; border-radius:12px" mdbBtn color="white" outline="true" mdbWavesEffect><strong><b>POST AN IDEA</b></strong></a>
+            <a class="post" (click)="routeDetail()" style="font-size: 16px; padding-top:7px; padding-bottom:7px; border-radius:12px" mdbBtn color="white" outline="true" mdbWavesEffect><strong><b>POST AN IDEA</b></strong></a>
 
             <!-- <a class="post" (click)="routeDetail()"  style="padding-top:8px; padding-bottom:8px; border-radius:12px" mdbBtn color="white" outline="true" mdbWavesEffect>POST AN IDEA</a> -->
           </div>
@@ -78,10 +80,10 @@
 
              </div>
              <div class="card-desc">
-               <p>{{a.title}}</p>
-               <p>{{a.description}}</p>
-               <p>{{a.domain}}</p>
-               <p>{{a.subDomain}}</p>
+               <p style="font-size: 20px; color:black;">{{a.title | uppercase}}</p>
+               <p style="font-size: 20px; color:black;">{{a.description}}</p>
+               <!-- <p>{{a.domain}}</p>
+               <p>{{a.subDomain}}</p> -->
                <!-- <p>Roles</p> -->
                <div class="wrapper">
                  <a (click)="getAllIdeaDetail(a.title)" class="btn-card">VIEW DETAILS</a>  

@@ -287,7 +287,7 @@ top: -45px;
 
 .input-group-prepend span{
 width: 50px;
-background-color:blue;
+background-color:cornflowerblue;
 color: black;
 border:0 !important;
 }
@@ -312,7 +312,7 @@ margin-right: 5px;
 
 .login_btn{
 color: black;
-background-color:blue;
+background-color:cornflowerblue;
 width: 100px;
 margin-right: 37%;
 text-align: center;
@@ -340,3 +340,7 @@ margin-left: 4px;
 	font-size:24px;
 }
 
+.navbar-brand
+  {
+      font-size: 24px;
+  }

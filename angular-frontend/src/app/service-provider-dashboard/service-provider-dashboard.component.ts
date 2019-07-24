@@ -111,7 +111,7 @@ getRecommendationByApplied():void
    
    
 
-    console.log("after getting back from service",this.recommendedIdeasApplied);
+    console.log("after getting back from serviceeeee",this.recommendedIdeasApplied);
   });
 }
 }

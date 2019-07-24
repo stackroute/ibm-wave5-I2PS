@@ -6,7 +6,9 @@
 //   background-position: center center;
 //   min-height: 100vh;
 //   }
-  
+  body{
+      height:100vh;
+  }
   .rgba-gradient {
     background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
     background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
@@ -351,4 +353,12 @@ p {
 
 b{
     font-size: 30px;
+}
+
+p{
+    text-align:center;
+}
+
+.details-card{
+    padding-top: 1%
 }
